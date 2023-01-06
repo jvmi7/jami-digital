@@ -1,0 +1,21 @@
+.palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  gap: 3px;
+
+  .background {
+    position: absolute;
+    box-sizing: unset;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 4px solid white;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: -3px 2px white;
+    z-index: -1;
+  }
+}

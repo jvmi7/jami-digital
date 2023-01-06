@@ -1,5 +1,6 @@
 .borderContainer {
   --padding: 28px;
+  z-index: -1;
 
   position: absolute;
   left: 50%;
@@ -9,8 +10,8 @@
   width: 100vw;
 
   .border {
-    height: 60px;
-    width: 60px;
+    height: 48px;
+    width: 48px;
   }
 
   .topRight {
@@ -45,5 +46,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 96px;
+}
+
+.logo {
+  margin-bottom: 30px;
+}
+
+.prompt {
+  margin-top: 42px;
+  font-weight: 500;
+  font-size: 24px;
+  visibility: hidden;
+  animation: pulse 1s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  @keyframes pulse {
+    0% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
 }
