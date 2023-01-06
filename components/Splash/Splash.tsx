@@ -17,33 +17,27 @@ function Splash({ onClick }: Props) {
 
   const container = {
     hidden: { opacity: 0, scale: 0.6, transition: { duration: 1 } },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1, type: 'spring', delay: 3.4 } }
-  };
-
-  const prompt = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1, type: 'spring', delay: 2 } }
+    visible: { opacity: 1, scale: 1, transition: { duration: 1, type: 'spring', delay: 3.2 } }
   };
 
   const borders = (
     <div className={styles.borderContainer}>
-      <motion.div variants={container} initial='hidden' animate='visible' className={classNames(styles.border, styles.topRight)}>
+      <motion.div variants={container} initial='hidden' animate='visible' exit='hidden' className={classNames(styles.border, styles.topRight)}>
         <CurvedBorder />
       </motion.div>
-      <motion.div variants={container} initial='hidden' animate='visible' className={classNames(styles.border, styles.topLeft)}>
+      <motion.div variants={container} initial='hidden' animate='visible' exit='hidden' className={classNames(styles.border, styles.topLeft)}>
         <CurvedBorder />
       </motion.div>
-      <motion.div variants={container} initial='hidden' animate='visible' className={classNames(styles.border, styles.bottomRight)}>
+      <motion.div variants={container} initial='hidden' animate='visible' exit='hidden' className={classNames(styles.border, styles.bottomRight)}>
         <CurvedBorder />
       </motion.div>
-      <motion.div variants={container} initial='hidden' animate='visible' className={classNames(styles.border, styles.bottomLeft)}>
+      <motion.div variants={container} initial='hidden' animate='visible' exit='hidden' className={classNames(styles.border, styles.bottomLeft)}>
         <CurvedBorder />
       </motion.div>
     </div>
   );
 
   const constraintsRef = useRef(null);
-
   return (
     <main className={styles.main} onClick={onClick} ref={constraintsRef}>
       {borders}
@@ -54,11 +48,13 @@ function Splash({ onClick }: Props) {
       <AnimatedPalette />
       <motion.div
         animate={{
-          opacity: [0, 1, 0]
-          // scale: [1, 1.1, 1]
+          opacity: [0, 1, 0],
+          transition: { delay: 2, repeat: Infinity, duration: 1.2 }
         }}
-        transition={{ delay: 2, repeat: Infinity, duration: 1.4 }}
-        variants={prompt}
+        exit={{
+          opacity: 0,
+          transition: { duration: 1 }
+        }}
         className={styles.prompt}
       >
         ( tap to enter )

@@ -2,7 +2,9 @@ import styles from './AnimatedPalette.module.scss';
 import { motion } from 'framer-motion';
 
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0
+  },
   show: {
     opacity: 1,
     transition: {
@@ -28,7 +30,7 @@ const item = {
 
 const background = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { delay: 3.4 } }
+  show: { opacity: 1, transition: { delay: 3.2 } }
 };
 
 const squares = [
@@ -48,9 +50,9 @@ const squareSvg = (width = 25, color = 'currentColor', key: number) => (
 function AnimatedPalette() {
   return (
     <div className={styles.container}>
-      <motion.div variants={container} initial='hidden' animate='show' className={styles.palette}>
+      <motion.div variants={container} initial='hidden' animate='show' exit='hidden' className={styles.palette}>
         {squares.map((square) => squareSvg(20, square.color, square.key))}
-        <motion.div className={styles.background} variants={background} initial='hidden' animate='show' />
+        <motion.div className={styles.background} variants={background} initial='hidden' animate='show' exit='hidden' />
       </motion.div>
     </div>
   );

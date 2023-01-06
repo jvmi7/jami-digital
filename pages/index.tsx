@@ -6,17 +6,18 @@ import Splash from '../components/Splash/Splash';
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <AnimatePresence exitBeforeEnter mode='wait'>
+      <AnimatePresence mode='wait'>
         {showSplash ? (
           <Splash
             key='splash'
             onClick={() => {
-              // setShowSplash(false);
+              setShowSplash(false);
             }}
           />
         ) : (
