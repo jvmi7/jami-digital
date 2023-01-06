@@ -10,8 +10,8 @@ interface Props {
 }
 function Splash({ onClick }: Props) {
   const variants = {
-    visible: { opacity: 1, scale: 1, y: -100, transition: { duration: 1, type: 'spring' } },
-    hidden: { opacity: 0, scale: 0.6, y: 0, transition: { duration: 1 } }
+    visible: { opacity: 1, scale: 1, transition: { duration: 1, type: 'spring' } },
+    hidden: { opacity: 0, scale: 0.6, transition: { duration: 1 } }
   };
 
   // const controls = useDragControls();
@@ -19,6 +19,22 @@ function Splash({ onClick }: Props) {
   // function startDrag(event: any) {
   //   controls.start(event, { snapToCursor: true });
   // }
+  const borders = (
+    <div className={styles.borderContainer}>
+      <motion.div initial='hidden' animate='visible' exit='hidden' variants={variants} className={classNames(styles.border, styles.topRight)}>
+        <CurvedBorder />
+      </motion.div>
+      <div className={classNames(styles.border, styles.topLeft)}>
+        <CurvedBorder />
+      </div>
+      <div className={classNames(styles.border, styles.bottomRight)}>
+        <CurvedBorder />
+      </div>
+      <div className={classNames(styles.border, styles.bottomLeft)}>
+        <CurvedBorder />
+      </div>
+    </div>
+  );
 
   const constraintsRef = useRef(null);
 
@@ -31,22 +47,5 @@ function Splash({ onClick }: Props) {
     </main>
   );
 }
-
-const borders = (
-  <div className={styles.borderContainer}>
-    <motion.div className={classNames(styles.border, styles.topRight)}>
-      <CurvedBorder />
-    </motion.div>
-    <div className={classNames(styles.border, styles.topLeft)}>
-      <CurvedBorder />
-    </div>
-    <div className={classNames(styles.border, styles.bottomRight)}>
-      <CurvedBorder />
-    </div>
-    <div className={classNames(styles.border, styles.bottomLeft)}>
-      <CurvedBorder />
-    </div>
-  </div>
-);
 
 export default Splash;

@@ -6,7 +6,7 @@ interface Props {
   width?: number;
 }
 
-function JamiLogo({ color, height, width }: Props) {
+function JamiLogo({ color, height = 246, width = 246 }: Props) {
   return (
     <svg version='1.1' fill={color ? color : 'currentColor'} height={`${height}px`} width={`${width}px`} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 435 246'>
       <g>
