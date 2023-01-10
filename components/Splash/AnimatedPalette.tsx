@@ -33,21 +33,21 @@ const background = {
   show: { opacity: 1, transition: { delay: 3.2 } }
 };
 
-const squares = [
-  { key: 1, color: '#febad1' },
-  { key: 2, color: '#fa0020' },
-  { key: 3, color: '#fdcf29' },
-  { key: 4, color: '#96ddef' },
-  { key: 5, color: '#b2dc27' }
-];
-
-const squareSvg = (width = 25, color = 'currentColor', key: number) => (
-  <motion.svg variants={item} key={key} viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' height={`${width}px`} width={`${width}px`}>
-    <rect x='0' y='0' width='100' height='100' rx='20' ry='20' fill={`${color}`} />
+const squareSvg = (width = 25, color = '', key: number) => (
+  <motion.svg fill={color} variants={item} key={key} viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' height={`${width}px`} width={`${width}px`}>
+    <rect x='0' y='0' width='100' height='100' rx='20' ry='20' />
   </motion.svg>
 );
 
 function AnimatedPalette() {
+  const squares = [
+    { key: 1, color: 'var(--palette-1)' },
+    { key: 2, color: 'var(--palette-2)' },
+    { key: 3, color: 'var(--palette-3)' },
+    { key: 4, color: 'var(--palette-4)' },
+    { key: 5, color: 'var(--palette-5)' }
+  ];
+
   return (
     <div className={styles.container}>
       <motion.div variants={container} initial='hidden' animate='show' exit='hidden' className={styles.palette}>

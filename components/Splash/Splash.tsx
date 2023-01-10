@@ -5,11 +5,13 @@ import CurvedBorder from '../CurvedBorder';
 import JamiLogo from '../JamiLogo';
 import { motion, useDragControls } from 'framer-motion';
 import AnimatedPalette from './AnimatedPalette';
+import { useTheme } from '../../hooks/useTheme';
 
 interface Props {
   onClick?: () => void;
 }
 function Splash({ onClick }: Props) {
+  const { setTheme } = useTheme();
   const logo = {
     hidden: { opacity: 0, scale: 0, transition: { duration: 1 } },
     visible: { opacity: 1, scale: 1, transition: { duration: 1, type: 'spring' } }
@@ -45,6 +47,7 @@ function Splash({ onClick }: Props) {
       <motion.div className={styles.logo} initial='hidden' animate='visible' exit='hidden' variants={logo}>
         <JamiLogo />
       </motion.div>
+      <div></div>
       <AnimatedPalette />
       <motion.div
         animate={{

@@ -1,0 +1,31 @@
+body {
+  &.LIGHT {
+    --primary-color: var(--black);
+    --secondary-color: var(--white);
+    --palette-1: var(--pink);
+    --palette-2: var(--red);
+    --palette-3: var(--yellow);
+    --palette-4: var(--blue);
+    --palette-5: var(--green);
+  }
+
+  &.DARK {
+    --primary-color: var(--white);
+    --secondary-color: var(--black);
+    --palette-1: var(--purple);
+    --palette-2: var(--red);
+    --palette-3: var(--yellow);
+    --palette-4: var(--blue);
+    --palette-5: var(--green);
+  }
+
+  &.RED {
+    --primary-color: var(--white);
+    --secondary-color: var(--red);
+    --palette-1: var(--purple);
+    --palette-2: var(--red);
+    --palette-3: var(--yellow);
+    --palette-4: var(--blue);
+    --palette-5: var(--green);
+  }
+}

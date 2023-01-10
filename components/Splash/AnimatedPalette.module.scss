@@ -12,10 +12,10 @@
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    border: 4px solid white;
-    background-color: white;
+    border: 4px solid var(--primary-color);
     border-radius: 6px;
-    box-shadow: -3px 2px white;
     z-index: -1;
+    background-color: var(--primary-color);
+    box-shadow: -3px 2px var(--primary-color);
   }
 }
