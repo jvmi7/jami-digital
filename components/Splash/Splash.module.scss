@@ -47,6 +47,14 @@
   justify-content: center;
   flex-direction: column;
   padding: 96px;
+  .tiltWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .logo {
@@ -58,8 +66,8 @@
   font-weight: 500;
   font-size: 24px;
   visibility: hidden;
-  animation: pulse 1s;
-  animation-delay: 2s;
+  animation: pulse 0.7s;
+  animation-delay: 1.7s;
   animation-fill-mode: forwards;
   @keyframes pulse {
     0% {

@@ -8,8 +8,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.2
+      delayChildren: 0.4,
+      staggerChildren: 0.12
     }
   }
 };
@@ -24,13 +24,13 @@ const item = {
     opacity: 1,
     rotate: 0,
     scale: 1,
-    transition: { duration: 0.6, type: 'spring', bounce: 0.3 }
+    transition: { duration: 0.8, type: 'spring', bounce: 0.3 }
   }
 };
 
 const background = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { delay: 3.2 } }
+  show: { opacity: 1, transition: { delay: 1.7 } }
 };
 
 const squareSvg = (width = 25, color = '', key: number) => (
