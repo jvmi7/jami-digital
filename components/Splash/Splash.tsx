@@ -47,12 +47,13 @@ function Splash({ onClick }: Props) {
     <main className={styles.main} onClick={onClick} ref={constraintsRef}>
       {borders}
       {/* <motion.div drag dragConstraints={constraintsRef} dragMomentum={false} dragElastic={0} whileDrag={{ scale: 0.9 }} initial='hidden' animate='visible' exit='hidden' variants={logo}> */}
-
-      <Tilt tiltReverse glareEnable className={styles.tiltWrapper}>
+      <Tilt tiltReverse transitionSpeed={3333} perspective={500} trackOnWindow scale={1.15} gyroscope={true} className={styles.tiltWrapper}>
         <motion.div className={styles.logo} initial='hidden' animate='visible' exit='exit' variants={logo}>
           <JamiLogo />
         </motion.div>
+
         <AnimatedPalette />
+
         <motion.div
           animate={{
             opacity: [0, 1, 0],
