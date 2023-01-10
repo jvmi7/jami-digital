@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Splash.module.scss';
 import classNames from 'classnames';
 import CurvedBorder from '../CurvedBorder';
@@ -12,6 +12,7 @@ interface Props {
   onClick?: () => void;
 }
 function Splash({ onClick }: Props) {
+  const [enableTilt, setEnableTilt] = useState(false);
   const { setTheme } = useTheme();
   const logo = {
     hidden: { opacity: 0, scale: 0, transition: { duration: 1 } },
@@ -43,11 +44,17 @@ function Splash({ onClick }: Props) {
   );
 
   const constraintsRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEnableTilt(true);
+    }, 2300);
+  }, []);
   return (
     <main className={styles.main} onClick={onClick} ref={constraintsRef}>
       {borders}
       {/* <motion.div drag dragConstraints={constraintsRef} dragMomentum={false} dragElastic={0} whileDrag={{ scale: 0.9 }} initial='hidden' animate='visible' exit='hidden' variants={logo}> */}
-      <Tilt tiltReverse transitionSpeed={3333} perspective={500} trackOnWindow scale={1.15} gyroscope={true} className={styles.tiltWrapper}>
+      <Tilt tiltEnable={enableTilt} tiltReverse transitionSpeed={500} transitionEasing={'ease'} perspective={500} trackOnWindow scale={1.15} gyroscope={true} className={styles.tiltWrapper}>
         <motion.div className={styles.logo} initial='hidden' animate='visible' exit='exit' variants={logo}>
           <JamiLogo />
         </motion.div>
