@@ -7,6 +7,10 @@ body {
     --palette-3: var(--yellow);
     --palette-4: var(--blue);
     --palette-5: var(--green);
+    --window-border: var(--dark-grey);
+    --window-background: var(--grey);
+    --window-accent: var(--medium-grey);
+    --window-text: var(--extra-dark-grey);
   }
 
   &.DARK {
