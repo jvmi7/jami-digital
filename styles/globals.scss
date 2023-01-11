@@ -10,6 +10,12 @@
   --green: #b2dc27;
   --purple: #a8a8ff;
   --teal: #35adab;
+
+  --orange: #ff9900;
+  --green: #00cc00;
+  --purple: #9900cc;
+  --pink: #ff00cc;
+  --blu: #00ccff;
 }
 
 @import './theme.scss';
@@ -21,7 +27,7 @@ body {
   overflow-x: hidden;
   font-family: 'Rubik', sans-serif;
   color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color: var(--white);
 }
 
 * {

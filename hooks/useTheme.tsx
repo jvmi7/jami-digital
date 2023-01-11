@@ -10,7 +10,7 @@ const getRandomTheme = () => {
 };
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(themes.RED);
+  const [theme, setTheme] = useState(themes.LIGHT);
   useEffect(() => {
     if (theme) {
       document.body.classList.value = `${theme}`;

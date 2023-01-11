@@ -60,6 +60,7 @@
     .logoContainer {
       display: flex;
       align-items: center;
+      color: var(--white);
     }
 
     .powerContainer {
@@ -68,6 +69,7 @@
       align-items: center;
       justify-self: flex-end;
       margin-right: 12px;
+      color: var(--white);
 
       .light {
         height: 8px;
