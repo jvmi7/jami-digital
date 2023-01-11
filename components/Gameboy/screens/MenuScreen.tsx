@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import { links } from '../../../constants';
 import styles from './MenuScreen.module.scss';
 
 interface Props {
@@ -30,42 +31,23 @@ function MenuScreen({ menuIndex }: Props) {
     }
   };
 
-  const links = [
-    {
-      name: 'streetwear',
-      href: '/'
-    },
-    {
-      name: 'artwork',
-      href: '/'
-    },
-    {
-      name: 'collectibles',
-      href: '/'
-    },
-    {
-      name: 'about',
-      href: '/'
-    }
-  ];
-
   return (
     <motion.div initial='hidden' animate='show' variants={container} className={styles.container}>
       <motion.h1 initial='hidden' animate='show' exit='hidden' variants={item}>
-        main menu
+        {'main menu'}
       </motion.h1>
       {links.map((link, index) => (
-        <motion.a
-          href={link.href}
-          target='_blank'
-          className={classNames(styles.link, {
+        <motion.div
+          className={classNames(styles.linkWrapper, {
             [styles.selected]: index === menuIndex
           })}
           key={index}
           variants={item}
         >
-          {link.name}
-        </motion.a>
+          <a href={link.href} target='_blank' className={styles.link}>
+            {link.name}
+          </a>
+        </motion.div>
       ))}
     </motion.div>
   );

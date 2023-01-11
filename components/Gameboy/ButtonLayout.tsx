@@ -7,7 +7,12 @@ import Button from './Button';
 import styles from './ButtonLayout.module.scss';
 import Dpad from './Dpad';
 
-function ButtonLayout() {
+interface Props {
+  aOrBPressed: () => void;
+  downOrRightPressed: () => void;
+  upOrLeftPressed: () => void;
+}
+function ButtonLayout({ aOrBPressed, downOrRightPressed, upOrLeftPressed }: Props) {
   const [ref, { width }] = useMeasure<HTMLDivElement>();
   const speakerDimensions = width > 370 ? 100 : 80;
 
@@ -24,15 +29,15 @@ function ButtonLayout() {
   };
 
   return (
-    <div className={classNames(styles.container, { [styles.container1]: width < 390 }, { [styles.container2]: width < 350 }, { [styles.container3]: width < 330 }, { [styles.container4]: width < 317 })} ref={ref}>
+    <div className={classNames(styles.container, { [styles.container1]: width < 390 }, { [styles.container2]: width < 370 }, { [styles.container3]: width < 360 }, { [styles.container4]: width < 350 })} ref={ref}>
       <div className={styles.top}>
         <motion.div className={styles.left} initial='hidden' animate='show' exit='hidden' variants={item}>
-          <Dpad />
+          <Dpad downOrRightPressed={downOrRightPressed} upOrLeftPressed={upOrLeftPressed} />
         </motion.div>
         <motion.div className={styles.right} initial='hidden' animate='show' exit='hidden' variants={item}>
           <div className={styles.buttonContainer}>
-            <Button />
-            <Button isSecondary={true} />
+            <Button onClick={aOrBPressed} />
+            <Button onClick={aOrBPressed} isSecondary={true} />
           </div>
         </motion.div>
       </div>
