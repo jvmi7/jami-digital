@@ -8,7 +8,7 @@ import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
 
 export default function Home() {
-  const isMobile = useMedia('(max-width: 600px)') || false;
+  const isMobile = useMedia('(max-width: 600px)', false) || false;
 
   const [showSplash, setShowSplash] = useState(true);
 
@@ -21,7 +21,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>ajrak avenue</title>
+        <link rel='preload' href='/speakers.svg' as='image' />
+        <link rel='preload' href='/dpad.svg' as='image' />
+        <link rel='preload' href='/primaryButton.svg' as='image' />
+        <link rel='preload' href='/secondaryButton.svg' as='image' />
+        <link rel='preload' href='/arrow.svg' as='image' />
       </Head>
       <AnimatePresence mode='wait'>
         {showSplash ? (

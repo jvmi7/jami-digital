@@ -58,9 +58,7 @@ function Splash({ onClick }: Props) {
         <motion.div className={styles.logo} initial='hidden' animate='visible' exit='exit' variants={logo}>
           <JamiLogo />
         </motion.div>
-
         <AnimatedPalette />
-
         <motion.div
           animate={{
             opacity: [0, 1, 0],

@@ -2,13 +2,13 @@ import styles from './Gameboy.module.scss';
 import { motion } from 'framer-motion';
 import Screen from './Screen';
 import { ScreenState } from './types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ButtonLayout from './ButtonLayout';
 import { useWindowSize } from 'react-use';
 import Tilt from 'react-parallax-tilt';
 
 function Gameboy() {
-  const [screenState, setScreenState] = useState(ScreenState.OFF);
+  const [screenState, setScreenState] = useState(ScreenState.ANIMATION);
   const [menuIndex, setMenuIndex] = useState(0);
   const { height, width } = useWindowSize();
 
@@ -26,6 +26,12 @@ function Gameboy() {
       }
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setScreenState(ScreenState.MENU);
+    }, 2000);
+  }, []);
 
   return (
     <motion.div className={styles.container} initial='hidden' animate='show' exit='hidden' variants={container}>

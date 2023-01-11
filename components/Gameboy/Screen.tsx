@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import JamiLogo from '../JamiLogo';
 import styles from './Screen.module.scss';
 import LoadingScreen from './screens/LoadingScreen';
+import MenuScreen from './screens/MenuScreen';
 import { ScreenState } from './types';
 
 interface ScreenProps {
@@ -23,7 +24,7 @@ function Screen({ screenState, menuIndex }: ScreenProps) {
     }
   };
 
-  let screen = <LoadingScreen />;
+  let screen = <AnimatePresence mode='wait'>{screenState === ScreenState.ANIMATION ? <LoadingScreen /> : <MenuScreen menuIndex={menuIndex} />}</AnimatePresence>;
 
   if (screenState === ScreenState.OFF) {
   } else if (screenState === ScreenState.ANIMATION) {

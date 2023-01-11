@@ -29,8 +29,8 @@ const item = {
 };
 
 const background = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { delay: 1.7 } }
+  hidden: { opacity: 0, scale: 0 },
+  show: { opacity: 1, scale: 1, transition: { delay: 1.7 } }
 };
 
 const squareSvg = (width = 25, color = '', key: number) => (
@@ -52,7 +52,9 @@ function AnimatedPalette() {
     <div className={styles.container}>
       <motion.div variants={container} initial='hidden' animate='show' exit='hidden' className={styles.palette}>
         {squares.map((square) => squareSvg(20, square.color, square.key))}
-        <motion.div className={styles.background} variants={background} initial='hidden' animate='show' exit='hidden' />
+        <div className={styles.backgroundContainer}>
+          <motion.div className={styles.background} variants={background} initial='hidden' animate='show' exit='hidden' />
+        </div>
       </motion.div>
     </div>
   );
