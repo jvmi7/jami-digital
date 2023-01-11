@@ -76,6 +76,20 @@
         background-color: var(--red);
         box-shadow: 0 0 7px var(--red);
         margin-left: 6px;
+
+        animation: pulse 3s infinite;
+
+        @keyframes pulse {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
       }
     }
   }
