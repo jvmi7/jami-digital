@@ -2,9 +2,21 @@ import React from 'react';
 import styles from './Dock.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 function Dock() {
+  const element = {
+    hidden: {
+      opacity: 0,
+      scale: 0
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, type: 'spring', bounce: 0.15, delay: 1 }
+    }
+  };
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container} initial='hidden' animate='show' variants={element}>
       <div className={styles.dock}>
         <div className={styles.itemsWrapper}>
           <div className={classNames(styles.dockItem, styles.instagram)}>
@@ -24,7 +36,7 @@ function Dock() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

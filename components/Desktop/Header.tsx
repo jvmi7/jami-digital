@@ -1,10 +1,22 @@
 import JamiLogo from '../JamiLogo';
 import styles from './Header.module.scss';
 import { links } from '../../constants';
+import { motion } from 'framer-motion';
 
 function Header() {
+  const element = {
+    hidden: {
+      opacity: 0,
+      scale: 0
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, type: 'spring', bounce: 0.15, delay: 1 }
+    }
+  };
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container} initial='hidden' animate='show' variants={element}>
       <div className={styles.header}>
         <div className={styles.left}>
           <button className={styles.logo}>
@@ -24,7 +36,7 @@ function Header() {
           <div className={styles.time}>4:22 PM</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

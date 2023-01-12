@@ -1,0 +1,95 @@
+@import '../../styles/mixins.scss';
+
+.container {
+  width: 500px;
+  height: 500px;
+  border: 3px solid var(--window-border);
+  border-radius: 24px;
+  background-color: var(--window-background);
+  box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.2);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+
+  @include noSelect;
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    height: 46px;
+    position: relative;
+
+    .headerButtons {
+      background-color: var(--window-accent);
+      border-radius: 50px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+
+      button {
+        height: 18px;
+        width: 18px;
+        border-radius: 50px;
+
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
+      }
+
+      .red {
+        border: 2px solid #c60021;
+        background-color: red;
+      }
+
+      .yellow {
+        border: 2px solid #dba703;
+        background-color: #fdcf29;
+      }
+
+      .green {
+        border: 2px solid #00bc1f;
+        background-color: #00d127;
+      }
+    }
+
+    .labelWrapper {
+      background-color: var(--window-accent);
+      border-radius: 50px;
+      padding: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--window-text);
+      height: 30px;
+      width: 100%;
+
+      .label {
+        position: absolute;
+
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .body {
+    border-top: 3px solid var(--window-border);
+    padding: 8px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bodyContainer {
+      border-radius: 14px;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+  }
+}
