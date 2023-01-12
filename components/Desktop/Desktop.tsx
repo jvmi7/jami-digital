@@ -47,7 +47,6 @@ function Desktop() {
   return (
     <motion.div className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
       <Header />
-      <span>{`${windowStyles[0].zIndex} ${windowStyles[1].zIndex} ${windowStyles[2].zIndex}`}</span>
       <div ref={constraintsRef} className={styles.content}>
         {/* <motion.div variants={window} initial='hidden' animate='show' exit='hidden'> */}
         <motion.div style={windowStyles[0]} className={styles.windowWrapper} variants={window1} initial='hidden' animate='show' exit='hidden'>
