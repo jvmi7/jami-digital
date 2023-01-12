@@ -55,6 +55,9 @@ function Desktop() {
             onClick={() => {
               updateWindowStyle(0);
             }}
+            onDragStart={() => {
+              updateWindowStyle(0);
+            }}
             windowHeight={windowWidth}
             constraintsRef={constraintsRef}
           >
@@ -69,6 +72,9 @@ function Desktop() {
             onClick={() => {
               updateWindowStyle(1);
             }}
+            onDragStart={() => {
+              updateWindowStyle(1);
+            }}
             windowHeight={windowWidth}
             constraintsRef={constraintsRef}
           >
@@ -81,6 +87,9 @@ function Desktop() {
         <motion.div style={windowStyles[2]} className={styles.windowWrapper} variants={window3} initial='hidden' animate='show' exit='hidden'>
           <Window
             onClick={() => {
+              updateWindowStyle(2);
+            }}
+            onDragStart={() => {
               updateWindowStyle(2);
             }}
             windowHeight={windowWidth}
