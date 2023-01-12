@@ -39,9 +39,7 @@ export default function Home() {
               }}
             />
           ) : isMobile ? (
-            <div>
-              <Gameboy />
-            </div>
+            <Gameboy />
           ) : (
             <Desktop key='desktop' />
           )}

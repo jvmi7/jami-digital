@@ -7,12 +7,12 @@ function Dock() {
   const element = {
     hidden: {
       opacity: 0,
-      scale: 0
+      scale: 0.6
     },
     show: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 1, type: 'spring', bounce: 0.15, delay: 1 }
+      transition: { duration: 0.5, type: 'spring', bounce: 0.15, delay: 0.6 }
     }
   };
   return (

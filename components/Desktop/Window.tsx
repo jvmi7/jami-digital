@@ -4,11 +4,12 @@ import styles from './Window.module.scss';
 
 interface Props {
   children: React.ReactNode;
+  windowHeight: number;
   constraintsRef: React.MutableRefObject<null>;
 }
-function Window({ children, constraintsRef }: Props) {
+function Window({ children, windowHeight, constraintsRef }: Props) {
   return (
-    <motion.div className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 400, bounceDamping: 30 }}>
+    <motion.div style={{ height: `${windowHeight}px`, width: `${windowHeight}px` }} className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 400, bounceDamping: 30 }}>
       <div className={styles.header}>
         <div className={styles.headerButtons}>
           <button className={styles.red} />

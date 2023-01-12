@@ -4,7 +4,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 
   .border {
@@ -39,7 +39,7 @@
 }
 
 .main {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   align-items: center;
