@@ -14,7 +14,7 @@ function MenuScreen({ menuIndex }: Props) {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05
+        staggerChildren: 0.025
       }
     }
   };
@@ -27,7 +27,7 @@ function MenuScreen({ menuIndex }: Props) {
     show: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, type: 'spring', bounce: 0.3 }
+      transition: { duration: 0.8, type: 'spring', bounce: 0.2 }
     }
   };
 

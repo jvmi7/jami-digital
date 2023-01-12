@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Div100vh from 'react-div-100vh';
 import { useMedia } from 'react-use';
 import Desktop from '../components/Desktop/Desktop';
 import Gameboy from '../components/Gameboy/Gameboy';
@@ -28,22 +29,24 @@ export default function Home() {
         <link rel='preload' href='/secondaryButton.svg' as='image' />
         <link rel='preload' href='/arrow.svg' as='image' />
       </Head>
-      <AnimatePresence mode='wait'>
-        {showSplash ? (
-          <Splash
-            key='splash'
-            onClick={() => {
-              setShowSplash(false);
-            }}
-          />
-        ) : isMobile ? (
-          <div>
-            <Gameboy />
-          </div>
-        ) : (
-          <Desktop key='desktop' />
-        )}
-      </AnimatePresence>
+      <Div100vh>
+        <AnimatePresence mode='wait'>
+          {showSplash ? (
+            <Splash
+              key='splash'
+              onClick={() => {
+                setShowSplash(false);
+              }}
+            />
+          ) : isMobile ? (
+            <div>
+              <Gameboy />
+            </div>
+          ) : (
+            <Desktop key='desktop' />
+          )}
+        </AnimatePresence>
+      </Div100vh>
     </>
   );
 }

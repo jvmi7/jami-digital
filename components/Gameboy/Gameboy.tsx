@@ -32,7 +32,7 @@ function Gameboy() {
   useEffect(() => {
     setTimeout(() => {
       setScreenState(ScreenState.MENU);
-    }, 2000);
+    }, 1650);
   }, []);
 
   const aOrBPressed = () => {
