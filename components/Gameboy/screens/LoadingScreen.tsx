@@ -21,16 +21,16 @@ function LoadingScreen() {
   return (
     <motion.div initial='hidden' animate='show' exit='exit' variants={item} className={styles.container}>
       <h1>
+        <span>m</span>
         <span>a</span>
-        <span>j</span>
+        <span>c</span>
+        <span>h</span>
+        <span>i</span> <span>m</span>
+        <span>a</span>
         <span>r</span>
-        <span>a</span>
-        <span>k</span> <span>a</span>
-        <span>v</span>
+        <span>k</span>
         <span>e</span>
-        <span>n</span>
-        <span>u</span>
-        <span>e</span>
+        <span>t</span>
         {/* <span>B</span>
         <span>O</span>
         <span>Y</span> */}
