@@ -3,11 +3,11 @@ export const test = null;
 export const links = [
   {
     name: 'streetwear',
-    href: '/'
+    href: 'https://channel53.myshopify.com/products/karachi-murakami-heavyweight-hoodie'
   },
   {
     name: 'artwork',
-    href: '/'
+    href: 'https://channel53.myshopify.com/'
   },
   {
     name: 'collectibles',
