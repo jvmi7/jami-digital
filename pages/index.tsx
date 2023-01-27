@@ -9,8 +9,7 @@ import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
 
 export default function Home() {
-  // const isMobile = useMedia('(max-width: 900px)', false) || false;
-  const isMobile = true;
+  const isMobile = useMedia('(max-width: 900px)', false) || false;
 
   const [showSplash, setShowSplash] = useState(true);
 

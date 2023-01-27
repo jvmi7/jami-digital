@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { links } from '../../../constants';
 import styles from './MenuScreen.module.scss';
 
@@ -44,9 +45,9 @@ function MenuScreen({ menuIndex }: Props) {
           key={index}
           variants={item}
         >
-          <a href={link.href} target='_self' className={styles.link}>
+          <Link href={link.href} target='_self' className={styles.link}>
             {link.name}
-          </a>
+          </Link>
         </motion.div>
       ))}
     </motion.div>

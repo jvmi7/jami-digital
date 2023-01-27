@@ -41,11 +41,12 @@ const squareSvg = (width = 25, color = '', key: number) => (
 
 function AnimatedPalette() {
   const squares = [
-    { key: 1, color: 'var(--palette-1)' },
-    { key: 2, color: 'var(--palette-2)' },
-    { key: 3, color: 'var(--palette-3)' },
-    { key: 4, color: 'var(--palette-4)' },
-    { key: 5, color: 'var(--palette-5)' }
+    { key: 1, color: '#ed1f32' },
+    { key: 2, color: '#f47b29' },
+    { key: 3, color: '#4783c4' },
+    { key: 4, color: '#43b763' },
+    { key: 5, color: '#fed401' },
+    { key: 5, color: '#ca63a6' }
   ];
 
   return (

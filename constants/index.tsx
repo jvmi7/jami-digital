@@ -15,6 +15,6 @@ export const links = [
   },
   {
     name: 'about',
-    href: '/'
+    href: '/about'
   }
 ];

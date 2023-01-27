@@ -7,6 +7,7 @@ import { motion, useDragControls } from 'framer-motion';
 import AnimatedPalette from './AnimatedPalette';
 import { useTheme } from '../../hooks/useTheme';
 import Tilt from 'react-parallax-tilt';
+import Image from 'next/image';
 
 interface Props {
   onClick?: () => void;
@@ -50,13 +51,15 @@ function Splash({ onClick }: Props) {
       setEnableTilt(true);
     }, 2300);
   }, []);
+
   return (
     <main className={styles.main} onClick={onClick} ref={constraintsRef}>
       {borders}
       {/* <motion.div drag dragConstraints={constraintsRef} dragMomentum={false} dragElastic={0} whileDrag={{ scale: 0.9 }} initial='hidden' animate='visible' exit='hidden' variants={logo}> */}
       <Tilt tiltEnable={enableTilt} tiltReverse transitionSpeed={500} transitionEasing={'ease'} perspective={500} trackOnWindow scale={1.15} gyroscope={true} className={styles.tiltWrapper}>
         <motion.div className={styles.logo} initial='hidden' animate='visible' exit='exit' variants={logo}>
-          <JamiLogo />
+          {/* <JamiLogo /> */}
+          <Image src={`/machi-market.${enableTilt ? 'gif' : 'png'}`} alt='machi market' width={300} height={150} draggable='false' />
         </motion.div>
         <AnimatedPalette />
         <motion.div

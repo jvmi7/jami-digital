@@ -1,8 +1,9 @@
 .palette {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   position: relative;
   gap: 3px;
+  filter: saturate(170%);
 
   .backgroundContainer {
     //center this div
