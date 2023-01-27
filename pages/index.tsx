@@ -9,7 +9,8 @@ import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
 
 export default function Home() {
-  const isMobile = useMedia('(max-width: 600px)', false) || false;
+  // const isMobile = useMedia('(max-width: 900px)', false) || false;
+  const isMobile = true;
 
   const [showSplash, setShowSplash] = useState(true);
 
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ajrak avenue</title>
+        <title>machi market</title>
         <link rel='preload' href='/speakers.svg' as='image' />
         <link rel='preload' href='/dpad.svg' as='image' />
         <link rel='preload' href='/primaryButton.svg' as='image' />
@@ -31,15 +32,15 @@ export default function Home() {
       </Head>
       <Div100vh>
         <AnimatePresence mode='wait'>
-          {showSplash ? (
+          {isMobile ? (
+            <Gameboy />
+          ) : showSplash ? (
             <Splash
               key='splash'
               onClick={() => {
                 setShowSplash(false);
               }}
             />
-          ) : isMobile ? (
-            <Gameboy />
           ) : (
             <Desktop key='desktop' />
           )}

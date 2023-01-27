@@ -38,7 +38,7 @@ function Gameboy() {
   const aOrBPressed = () => {
     console.log('aOrBPressed');
     if (screenState === ScreenState.MENU) {
-      window.open(links[menuIndex].href, '_blank');
+      window.open(links[menuIndex].href, '_self');
     }
   };
 

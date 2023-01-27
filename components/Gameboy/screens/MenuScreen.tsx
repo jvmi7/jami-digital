@@ -44,7 +44,7 @@ function MenuScreen({ menuIndex }: Props) {
           key={index}
           variants={item}
         >
-          <a href={link.href} target='_blank' className={styles.link}>
+          <a href={link.href} target='_self' className={styles.link}>
             {link.name}
           </a>
         </motion.div>

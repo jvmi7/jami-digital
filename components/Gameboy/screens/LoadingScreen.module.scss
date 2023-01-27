@@ -8,9 +8,11 @@
     font-weight: 800;
     font-style: italic;
     font-size: 44px;
-    @media (max-width: 550px) {
+    @media (max-width: 400px) {
       font-size: 10vw;
     }
+
+    white-space: nowrap;
 
     span {
       color: transparent;
