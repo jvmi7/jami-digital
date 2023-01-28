@@ -1,0 +1,65 @@
+.container {
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1;
+  padding: 12px;
+  font-size: 4vw;
+
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    opacity: 1;
+    z-index: -1;
+  }
+
+  .linkWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .link {
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .selected {
+    background-color: var(--primary-color);
+
+    .link {
+      color: var(--secondary-color);
+      animation: pulse infinite 1s linear;
+
+      @keyframes pulse {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

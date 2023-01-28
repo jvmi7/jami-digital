@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import JamiLogo from '../JamiLogo';
 import styles from './Screen.module.scss';
+import AboutScreen from './screens/AboutScreen';
 import LoadingScreen from './screens/LoadingScreen';
 import MenuScreen from './screens/MenuScreen';
 import { ScreenState } from './types';
@@ -24,15 +25,21 @@ function Screen({ screenState, menuIndex }: ScreenProps) {
     }
   };
 
-  let screen = <AnimatePresence mode='wait'>{screenState === ScreenState.ANIMATION ? <LoadingScreen /> : <MenuScreen menuIndex={menuIndex} />}</AnimatePresence>;
+  let screen;
 
-  if (screenState === ScreenState.OFF) {
-  } else if (screenState === ScreenState.ANIMATION) {
+  if (screenState === ScreenState.ANIMATION) {
+    screen = <LoadingScreen />;
+  } else if (screenState === ScreenState.MENU) {
+    screen = <MenuScreen menuIndex={menuIndex} />;
+  } else if (screenState === ScreenState.ABOUT) {
+    screen = <AboutScreen />;
   }
 
   return (
     <div className={styles.container}>
-      <div className={styles.screen}>{screen}</div>
+      <div className={styles.screen}>
+        <AnimatePresence mode='wait'>{screen}</AnimatePresence>
+      </div>
       <div className={styles.bottom}>
         <motion.div className={styles.colorsContainer} initial='hidden' animate='show' exit='hidden' variants={item}>
           <div className={classNames(styles.square, styles.color1)} />

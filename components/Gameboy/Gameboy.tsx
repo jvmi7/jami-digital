@@ -8,8 +8,11 @@ import { useWindowSize } from 'react-use';
 import Tilt from 'react-parallax-tilt';
 import { links } from '../../constants';
 
-function Gameboy() {
-  const [screenState, setScreenState] = useState(ScreenState.ANIMATION);
+interface Props {
+  initialPage?: ScreenState;
+}
+function Gameboy({ initialPage }: Props) {
+  const [screenState, setScreenState] = useState(initialPage ? initialPage : ScreenState.ANIMATION);
   const [menuIndex, setMenuIndex] = useState(0);
   const menuItemsLength = links.length;
   const { height, width } = useWindowSize();
@@ -30,9 +33,11 @@ function Gameboy() {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setScreenState(ScreenState.MENU);
-    }, 1650);
+    if (screenState === ScreenState.ANIMATION) {
+      setTimeout(() => {
+        setScreenState(ScreenState.MENU);
+      }, 1650);
+    }
   }, []);
 
   const aOrBPressed = () => {

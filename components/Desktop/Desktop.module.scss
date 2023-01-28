@@ -1,5 +1,7 @@
 .container {
-  background-color: var(--teal);
+  background-image: url('../../public/windows-bg.jpeg');
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
