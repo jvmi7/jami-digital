@@ -40,8 +40,12 @@ body {
   overflow-x: hidden;
   font-family: 'Rubik', sans-serif;
   color: var(--primary-color);
-  background-color: #58c0dc;
+  background-color: #02c3df;
   min-height: -webkit-fill-available;
+  background-image: url('/cloudsmoshed.gif');
+  background-size: 600px;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 * {

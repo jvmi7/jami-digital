@@ -2,6 +2,10 @@ export const test = null;
 
 export const links = [
   {
+    name: 'shop',
+    href: 'https://channel53.myshopify.com/'
+  },
+  {
     name: 'streetwear',
     href: 'https://channel53.myshopify.com/'
   },
@@ -10,11 +14,7 @@ export const links = [
     href: 'https://channel53.myshopify.com/'
   },
   {
-    name: 'collectibles',
-    href: 'https://channel53.myshopify.com/'
-  },
-  {
-    name: 'about',
+    name: 'backstory',
     href: '/about'
   }
 ];

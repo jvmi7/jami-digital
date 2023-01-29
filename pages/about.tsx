@@ -22,9 +22,9 @@ function about() {
   const enableTilt = width > 470;
 
   const logo = {
-    hidden: { opacity: 0, scale: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 0.6, transition: { duration: 1 } },
     visible: { opacity: 1, scale: 1, transition: { duration: 1, type: 'spring' } },
-    exit: { opacity: 0, scale: 0, transition: { duration: 0.4 } }
+    exit: { opacity: 0, scale: 0.6, transition: { duration: 0.4 } }
   };
 
   const container = {
@@ -52,7 +52,12 @@ function about() {
           <motion.div className={styles.textContainer} initial='hidden' animate='visible' exit='exit' variants={logo}>
             <div className={styles.background} />
             <div className={styles.header}>
-              <div className={styles.headerButtons}>
+              <div
+                className={styles.headerButtons}
+                onClick={() => {
+                  history.back();
+                }}
+              >
                 <button className={styles.red} />
                 <button className={styles.yellow} />
                 <button className={styles.green} />

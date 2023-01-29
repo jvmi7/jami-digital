@@ -63,6 +63,13 @@
 
 .logo {
   margin-bottom: 30px;
+  border-radius: 24px;
+  border: 3px solid black;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
 }
 
 .prompt {
@@ -73,6 +80,8 @@
   animation: pulse 0.7s;
   animation-delay: 1.7s;
   animation-fill-mode: forwards;
+  --shadow-color: white;
+  text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
   @keyframes pulse {
     0% {
       visibility: hidden;

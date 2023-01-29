@@ -59,7 +59,7 @@ function Splash({ onClick }: Props) {
       <Tilt tiltEnable={enableTilt} tiltReverse transitionSpeed={500} transitionEasing={'ease'} perspective={500} trackOnWindow scale={1.15} gyroscope={true} className={styles.tiltWrapper}>
         <motion.div className={styles.logo} initial='hidden' animate='visible' exit='exit' variants={logo}>
           {/* <JamiLogo /> */}
-          <Image src={`/machi-market.${enableTilt ? 'gif' : 'png'}`} alt='machi market' width={300} height={150} draggable='false' />
+          <Image src={`/machi-market.${enableTilt ? 'gif' : 'png'}`} alt='machi market' width={320} height={190} draggable='false' />
         </motion.div>
         <AnimatedPalette />
         <motion.div
