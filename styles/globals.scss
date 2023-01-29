@@ -17,6 +17,13 @@
   --pink: #ff00cc;
   --blu: #00ccff;
 
+  --red: #ff001f;
+  --orange: #ff6700;
+  --blue: #0086ff;
+  --green: #00db34;
+  --yellow: #fed401;
+  --pink: #ff36c2;
+
   --extra-dark-grey: #696b6e;
   --dark-grey: #898a8c;
   --grey: #c3c6cb;
@@ -33,7 +40,7 @@ body {
   overflow-x: hidden;
   font-family: 'Rubik', sans-serif;
   color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color: #58c0dc;
   min-height: -webkit-fill-available;
 }
 

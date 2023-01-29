@@ -4,11 +4,12 @@ interface Props {
   color?: string;
   height?: number;
   width?: number;
+  className?: string;
 }
 
-function JamiLogo({ color, height = 100, width = 200 }: Props) {
+function JamiLogo({ color, height = 100, width = 200, className }: Props) {
   return (
-    <svg version='1.1' fill={color ? color : 'currentColor'} height={`${height}px`} width={`${width}px`} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 435 246'>
+    <svg version='1.1' className={className} fill={color ? color : 'currentColor'} height={`${height}px`} width={`${width}px`} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 435 246'>
       <g>
         <g id='XMLID_00000084531988547910705040000010887299965098319235_'>
           <g>
