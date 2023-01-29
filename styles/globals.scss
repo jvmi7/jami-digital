@@ -40,7 +40,11 @@ body {
   overflow-x: hidden;
   font-family: 'Rubik', sans-serif;
   color: var(--primary-color);
-  background-color: var(--red);
+
+  @media (max-width: 666px) {
+    background-color: var(--red);
+  }
+  background-color: #02c3df;
   min-height: -webkit-fill-available;
   background-image: url('/cloudsmoshed.gif');
   background-size: 600px;
