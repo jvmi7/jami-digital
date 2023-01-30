@@ -2,7 +2,7 @@ export const test = null;
 
 export const links = [
   {
-    name: 'shop',
+    name: 'shop all',
     href: 'https://channel53.myshopify.com/'
   },
   {
@@ -14,7 +14,7 @@ export const links = [
     href: 'https://channel53.myshopify.com/'
   },
   {
-    name: 'backstory',
+    name: '[ backstory ]',
     href: '/about'
   }
 ];
