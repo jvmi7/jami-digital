@@ -8,6 +8,18 @@
   align-items: center;
   justify-content: space-between;
 
+  .logo {
+    --color: #c30000;
+    color: var(--color);
+    position: absolute;
+    top: 24px;
+    font-weight: 600;
+    border: 3px solid var(--color);
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-size: 14px;
+  }
+
   .top {
     padding-top: 15%;
     width: 100%;

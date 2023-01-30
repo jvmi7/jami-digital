@@ -30,6 +30,9 @@ function ButtonLayout({ aOrBPressed, downOrRightPressed, upOrLeftPressed }: Prop
 
   return (
     <div className={classNames(styles.container, { [styles.container1]: width < 390 }, { [styles.container2]: width < 370 }, { [styles.container3]: width < 360 }, { [styles.container4]: width < 350 })} ref={ref}>
+      <motion.div className={styles.logo} initial='hidden' animate='show' exit='hidden' variants={item}>
+        machi.market
+      </motion.div>
       <div className={styles.top}>
         <motion.div className={styles.left} initial='hidden' animate='show' exit='hidden' variants={item}>
           <Dpad downOrRightPressed={downOrRightPressed} upOrLeftPressed={upOrLeftPressed} />
