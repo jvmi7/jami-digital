@@ -41,7 +41,7 @@ export default function Home() {
               }}
             />
           ) : (
-            <Desktop key='desktop' />
+            <Gameboy />
           )}
         </AnimatePresence>
       </Div100vh>
