@@ -2,11 +2,11 @@ export const test = null;
 
 export const links = [
   {
-    name: 'shop all',
+    name: 'enter market',
     href: 'https://channel53.myshopify.com/'
   },
   {
-    name: 'streetwear',
+    name: 'clothing',
     href: 'https://channel53.myshopify.com/'
   },
   {
