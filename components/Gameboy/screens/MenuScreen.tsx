@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { links } from '../../../constants';
+import MenuIcon from '../../MenuIcon/MenuIcon';
 import styles from './MenuScreen.module.scss';
 
 interface Props {
   menuIndex: number;
 }
+
 function MenuScreen({ menuIndex }: Props) {
   const container = {
     hidden: {
@@ -32,24 +33,38 @@ function MenuScreen({ menuIndex }: Props) {
     }
   };
 
+  const mainLink = links[0];
+  const remainingLinks = links.slice(1);
+
   return (
     <motion.div initial='hidden' animate='show' variants={container} className={styles.container}>
       <motion.h1 initial='hidden' animate='show' exit='hidden' variants={item}>
         {'main menu'}
       </motion.h1>
-      {links.map((link, index) => (
-        <motion.div
-          className={classNames(styles.linkWrapper, {
-            [styles.selected]: index === menuIndex
-          })}
-          key={index}
-          variants={item}
-        >
-          <Link href={link.href} target='_self' className={styles.link}>
-            {link.name}
-          </Link>
-        </motion.div>
-      ))}
+
+      <div className={styles.menuContainer}>
+        <motion.a href={mainLink.href} target='_self' className={styles.main}>
+          {mainLink.name}
+          <img src='/sparkle-1.svg' className={classNames(styles.sparkle, styles.sparkle1)} />
+          <img src='/sparkle-2.svg' className={classNames(styles.sparkle, styles.sparkle2)} />
+        </motion.a>
+        <div className={styles.menuIcons}>
+          {remainingLinks.map((link, index) => (
+            <motion.div
+              className={classNames(styles.iconWrapper, {
+                [styles.selected]: index === menuIndex
+              })}
+              key={index}
+              variants={item}
+              onClick={() => {
+                window.open(link.href, '_self');
+              }}
+            >
+              <MenuIcon iconType={link.icon} description={link.name} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 }
