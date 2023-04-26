@@ -43,16 +43,29 @@ function MenuScreen({ menuIndex }: Props) {
       </motion.h1>
 
       <div className={styles.menuContainer}>
-        <motion.a href={mainLink.href} target='_self' className={styles.main}>
+        <motion.a
+          href={mainLink.href}
+          target='_self'
+          className={classNames(
+            {
+              [styles.selected]: menuIndex === 0
+            },
+            styles.main
+          )}
+        >
           {mainLink.name}
-          <img src='/sparkle-1.svg' className={classNames(styles.sparkle, styles.sparkle1)} />
-          <img src='/sparkle-2.svg' className={classNames(styles.sparkle, styles.sparkle2)} />
+          {menuIndex === 0 && (
+            <>
+              <img src='/sparkle-1.svg' className={classNames(styles.sparkle, styles.sparkle1)} />
+              <img src='/sparkle-2.svg' className={classNames(styles.sparkle, styles.sparkle2)} />
+            </>
+          )}
         </motion.a>
         <div className={styles.menuIcons}>
           {remainingLinks.map((link, index) => (
             <motion.div
               className={classNames(styles.iconWrapper, {
-                [styles.selected]: index === menuIndex
+                [styles.selected]: index + 1 === menuIndex
               })}
               key={index}
               variants={item}

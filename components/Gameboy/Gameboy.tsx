@@ -41,7 +41,6 @@ function Gameboy({ initialPage }: Props) {
   }, []);
 
   const aOrBPressed = () => {
-    console.log('aOrBPressed');
     if (screenState === ScreenState.MENU) {
       window.open(links[menuIndex].href, '_self');
     }
