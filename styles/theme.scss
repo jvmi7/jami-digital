@@ -18,6 +18,11 @@ body {
     --window-background: var(--grey);
     --window-accent: var(--medium-grey);
     --window-text: var(--extra-dark-grey);
+
+    --header-border: #dbdbdb;
+    --header-background: #f4f4f4;
+    --header-accent: #2d2d2d;
+    --header-secondary: #e7e6e6;
   }
 
   &.DARK {

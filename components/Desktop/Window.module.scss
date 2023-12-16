@@ -4,7 +4,7 @@
   border: 3px solid var(--window-border);
   border-radius: 24px;
   background-color: var(--window-background);
-  box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.2);
+  box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.4);
   display: flex;
   flex-direction: column;
 
@@ -36,17 +36,17 @@
       }
 
       .red {
-        border: 2px solid #c60021;
-        background-color: red;
+        border: 2px solid #c50022;
+        background-color: #ff0000;
       }
 
       .yellow {
-        border: 2px solid #dba703;
-        background-color: #fdcf29;
+        border: 2px solid #ffac1d;
+        background-color: #fcff00;
       }
 
       .green {
-        border: 2px solid #00bc1f;
+        border: 2px solid #00ba3e;
         background-color: #00d127;
       }
     }

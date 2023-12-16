@@ -33,10 +33,14 @@ function Screen({ screenState, menuIndex }: ScreenProps) {
     screen = <MenuScreen menuIndex={menuIndex} />;
   } else if (screenState === ScreenState.ABOUT) {
     screen = <AboutScreen />;
+  } else if (screenState === ScreenState.SHOP) {
+    screen = <div> shop </div>;
   }
 
+  const maxHeight = screenState === ScreenState.SHOP ? '100%' : '60vh';
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ maxHeight: maxHeight }}>
       <div className={styles.screen}>
         <AnimatePresence mode='wait'>{screen}</AnimatePresence>
       </div>

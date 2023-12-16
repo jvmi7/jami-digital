@@ -2,5 +2,6 @@ export enum ScreenState {
   OFF = 'OFF',
   ANIMATION = 'ANIMATION',
   MENU = 'MENU',
-  ABOUT = 'ABOUT'
+  ABOUT = 'ABOUT',
+  SHOP = 'SHOP'
 }

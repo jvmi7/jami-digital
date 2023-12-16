@@ -7,6 +7,7 @@ import ButtonLayout from './ButtonLayout';
 import { useWindowSize } from 'react-use';
 import Tilt from 'react-parallax-tilt';
 import { links } from '../../constants';
+import { GameboyContext } from './context';
 
 interface Props {
   initialPage?: ScreenState;
@@ -55,14 +56,16 @@ function Gameboy({ initialPage }: Props) {
   };
 
   return (
-    <motion.div className={styles.container} initial='hidden' animate='show' exit='hidden' variants={container}>
-      <Tilt tiltEnable={enableTilt} className={styles.tiltWrapper} perspective={3000} scale={enableTilt ? 0.96 : 1} transitionEasing={'ease'} transitionSpeed={200} tiltAngleXManual={enableTilt ? null : 0}>
-        <motion.div style={{ maxWidth: height < 740 ? `${height * 0.6}px` : '470px' }} className={styles.gameboy} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1, transition: { duration: 1, type: 'spring', bounce: 0.3 } }} exit={{ opacity: 0, scale: 0.8 }}>
-          <Screen menuIndex={menuIndex} screenState={screenState} />
-          <ButtonLayout aOrBPressed={aOrBPressed} downOrRightPressed={downOrRightPressed} upOrLeftPressed={upOrLeftPressed} />
-        </motion.div>
-      </Tilt>
-    </motion.div>
+    <GameboyContext.Provider value={{ screenState, setScreenState }}>
+      <motion.div className={styles.container} initial='hidden' animate='show' exit='hidden' variants={container}>
+        <Tilt tiltEnable={enableTilt} className={styles.tiltWrapper} perspective={3000} scale={enableTilt ? 0.96 : 1} transitionEasing={'ease'} transitionSpeed={200} tiltAngleXManual={enableTilt ? null : 0}>
+          <motion.div style={{ maxWidth: height < 740 ? `${height * 0.6}px` : '470px' }} className={styles.gameboy} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1, transition: { duration: 1, type: 'spring', bounce: 0.3 } }} exit={{ opacity: 0, scale: 0.8 }}>
+            <Screen menuIndex={menuIndex} screenState={screenState} />
+            {screenState !== ScreenState.SHOP && <ButtonLayout aOrBPressed={aOrBPressed} downOrRightPressed={downOrRightPressed} upOrLeftPressed={upOrLeftPressed} />}
+          </motion.div>
+        </Tilt>
+      </motion.div>
+    </GameboyContext.Provider>
   );
 }
 

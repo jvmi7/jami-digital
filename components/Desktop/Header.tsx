@@ -1,4 +1,3 @@
-import JamiLogo from '../JamiLogo';
 import styles from './Header.module.scss';
 import { links } from '../../constants';
 import { motion } from 'framer-motion';
@@ -20,7 +19,7 @@ function Header() {
       <div className={styles.header}>
         <div className={styles.left}>
           <button className={styles.logo}>
-            <JamiLogo height={18} width={40} />
+            <span>jvmi.art</span>
           </button>
           <div className={styles.links}>
             {links.map((link) => (
@@ -32,8 +31,8 @@ function Header() {
         </div>
 
         <div className={styles.right}>
-          <div className={styles.date}>Wednesday Jan 11</div>
-          <div className={styles.time}>4:22 PM</div>
+          <div className={styles.date}>wednesday jan 11</div>
+          <div className={styles.time}>4:22 pm</div>
         </div>
       </div>
     </motion.div>

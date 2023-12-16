@@ -30,15 +30,15 @@
 
   @keyframes selectedAnimation {
     0% {
-      transform: scale(0.95);
-    }
-
-    50% {
       transform: scale(1);
     }
 
-    100% {
+    50% {
       transform: scale(0.95);
+    }
+
+    100% {
+      transform: scale(1);
     }
   }
 

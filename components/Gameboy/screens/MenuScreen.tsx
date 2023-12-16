@@ -3,12 +3,17 @@ import { motion } from 'framer-motion';
 import { links } from '../../../constants';
 import MenuIcon from '../../MenuIcon/MenuIcon';
 import styles from './MenuScreen.module.scss';
+import { ScreenState } from '../types';
+import { useContext } from 'react';
+import { GameboyContext } from '../context';
 
 interface Props {
   menuIndex: number;
 }
 
 function MenuScreen({ menuIndex }: Props) {
+  const { screenState, setScreenState } = useContext(GameboyContext);
+
   const container = {
     hidden: {
       opacity: 0
@@ -43,15 +48,16 @@ function MenuScreen({ menuIndex }: Props) {
       </motion.h1>
 
       <div className={styles.menuContainer}>
-        <motion.a
-          href={mainLink.href}
-          target='_self'
+        <motion.div
           className={classNames(
             {
               [styles.selected]: menuIndex === 0
             },
             styles.main
           )}
+          onClick={() => {
+            setScreenState(ScreenState.SHOP);
+          }}
         >
           {mainLink.name}
           {menuIndex === 0 && (
@@ -60,7 +66,7 @@ function MenuScreen({ menuIndex }: Props) {
               <img src='/sparkle-2.svg' className={classNames(styles.sparkle, styles.sparkle2)} />
             </>
           )}
-        </motion.a>
+        </motion.div>
         <div className={styles.menuIcons}>
           {remainingLinks.map((link, index) => (
             <motion.div
