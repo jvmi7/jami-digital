@@ -27,6 +27,10 @@
   --dark-grey: #898a8c;
   --grey: #c3c6cb;
   --medium-grey: #afb2b7;
+
+  --mobile-width: 768px;
+  --cursor-default: url('/cursor.svg') 2 2, auto;
+  --cursor-pointer: pointer;
 }
 
 @import './theme.scss';
@@ -43,6 +47,11 @@ body {
   min-height: -webkit-fill-available;
   background: linear-gradient(180deg, #15d1bb 0%, #00a1ff 100%);
   background-size: 100% 100%;
+  cursor: var(--cursor-default);
+}
+
+button {
+  cursor: var(--cursor-pointer);
 }
 
 * {

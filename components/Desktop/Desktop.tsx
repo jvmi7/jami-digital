@@ -5,6 +5,7 @@ import Header from './Header';
 import Dock from './Dock';
 import Window from './Window';
 import Image from 'next/image';
+import { Widgets } from './Widgets';
 
 function Desktop() {
   const constraintsRef = useRef(null);
@@ -14,16 +15,6 @@ function Desktop() {
   const window1 = {
     hidden: { opacity: 0, scale: 0.8, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
     show: { opacity: 1, scale: 1, top: `calc(55% - ${windowCenter}px)`, left: `calc(25% - ${windowCenter}px)`, transform: 'translate(-50%, -50%)', transition: { duration: 0.8, type: 'spring', bounce: 0.3, delay: 0 } }
-  };
-
-  const window2 = {
-    hidden: { opacity: 0, scale: 0.8, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
-    show: { opacity: 1, scale: 1, top: `calc(40% - ${windowCenter}px)`, left: `calc(53% - ${windowCenter}px)`, transform: 'translate(-50%, -50%)', transition: { duration: 0.8, type: 'spring', bounce: 0.3, delay: 0.1 } }
-  };
-
-  const window3 = {
-    hidden: { opacity: 0, scale: 0.8, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
-    show: { opacity: 1, scale: 1, top: `calc(60% - ${windowCenter}px)`, left: `calc(75% - ${windowCenter}px)`, transform: 'translate(-50%, -50%)', transition: { duration: 0.8, type: 'spring', bounce: 0.3, delay: 0.2 } }
   };
 
   const [windowStyles, setWindowStyles] = useState([{ zIndex: 1 }, { zIndex: 2 }, { zIndex: 3 }]);
@@ -42,6 +33,7 @@ function Desktop() {
       <motion.div className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
         <Header />
         <div ref={constraintsRef} className={styles.content}>
+          <Widgets />
           <motion.div style={windowStyles[0]} className={styles.windowWrapper} variants={window1} initial='hidden' animate='show' exit='hidden'>
             <Window
               onClick={() => {
@@ -58,40 +50,6 @@ function Desktop() {
               </div>
             </Window>
           </motion.div>
-
-          {/* <motion.div style={windowStyles[1]} className={styles.windowWrapper} variants={window2} initial='hidden' animate='show' exit='hidden'>
-            <Window
-              onClick={() => {
-                updateWindowStyle(1);
-              }}
-              onDragStart={() => {
-                updateWindowStyle(1);
-              }}
-              windowHeight={windowWidth}
-              constraintsRef={constraintsRef}
-            >
-              <div className={styles.windowContent}>
-                <Image src='/karachi-murakami.png' alt='Karachi murakami' width={300} height={300} draggable='false' />
-              </div>
-            </Window>
-          </motion.div>
-
-          <motion.div style={windowStyles[2]} className={styles.windowWrapper} variants={window3} initial='hidden' animate='show' exit='hidden'>
-            <Window
-              onClick={() => {
-                updateWindowStyle(2);
-              }}
-              onDragStart={() => {
-                updateWindowStyle(2);
-              }}
-              windowHeight={windowWidth}
-              constraintsRef={constraintsRef}
-            >
-              <div className={styles.windowContent}>
-                <Image src='/karachi-murakami.png' alt='Karachi murakami' width={300} height={300} draggable='false' />
-              </div>
-            </Window>
-          </motion.div> */}
         </div>
         <Dock />
       </motion.div>
