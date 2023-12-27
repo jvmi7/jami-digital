@@ -6,6 +6,7 @@ import Dock from './Dock';
 import Window from './Window';
 import { Widgets } from './Widgets';
 import { useWindowSize } from 'react-use';
+import { Button } from '../ui/button';
 
 function Desktop() {
   const constraintsRef = useRef(null);
@@ -65,6 +66,7 @@ function Desktop() {
             >
               <div className={styles.windowContent}>
                 <p>[jvmi.art]</p>
+                <Button>hey</Button>
               </div>
             </Window>
           </motion.div>

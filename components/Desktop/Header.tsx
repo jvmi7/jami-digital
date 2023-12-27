@@ -2,6 +2,7 @@ import styles from './Header.module.scss';
 import { links } from '../../constants';
 import { motion } from 'framer-motion';
 import { JvmiIcon } from '../../icons/JvmiIcon';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 function Header() {
   const element = {
@@ -22,13 +23,17 @@ function Header() {
           <button className={styles.logo}>
             <JvmiIcon color='#555' />
           </button>
-          <div className={styles.links}>
-            {links.map((link, index) => (
-              <a key={index} className={styles.link} href={link.href}>
-                {link.name}
-              </a>
-            ))}
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger className={styles.dropdownTrigger}>projects</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Team</DropdownMenuItem>
+              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         <div className={styles.right}>
