@@ -21,16 +21,20 @@
 
       .windowWrapper {
         position: absolute;
-        height: 0;
-        width: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         .windowContent {
           background-color: var(--primary-color);
+          color: greenyellow;
           height: 100%;
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-direction: column;
+          gap: 20px;
         }
       }
     }

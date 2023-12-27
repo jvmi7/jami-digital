@@ -5,13 +5,14 @@ import styles from './Window.module.scss';
 interface Props {
   children: React.ReactNode;
   windowHeight: number;
+  windowWidth: number;
   constraintsRef: React.MutableRefObject<null>;
   onClick?: () => void;
   onDragStart?: () => void;
 }
-function Window({ children, windowHeight, constraintsRef, onClick, onDragStart }: Props) {
+function Window({ children, windowHeight, windowWidth, constraintsRef, onClick, onDragStart }: Props) {
   return (
-    <motion.div onDragStart={onDragStart} onClick={onClick} style={{ height: `${windowHeight}px`, width: `${windowHeight}px` }} className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 400, bounceDamping: 30 }}>
+    <motion.div onDragStart={onDragStart} onClick={onClick} style={{ height: `${windowHeight}px`, width: `${windowWidth}px` }} className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 400, bounceDamping: 30 }}>
       <div className={styles.header}>
         <div className={styles.headerButtons}>
           <button className={styles.red} />
@@ -19,7 +20,7 @@ function Window({ children, windowHeight, constraintsRef, onClick, onDragStart }
           <button className={styles.green} />
         </div>
         <div className={styles.labelWrapper}>
-          <p className={styles.label}>header.png</p>
+          <p className={styles.label}>jvmi.art</p>
         </div>
       </div>
       <div className={styles.body}>

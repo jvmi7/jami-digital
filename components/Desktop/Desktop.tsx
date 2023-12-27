@@ -4,17 +4,34 @@ import styles from './Desktop.module.scss';
 import Header from './Header';
 import Dock from './Dock';
 import Window from './Window';
-import Image from 'next/image';
 import { Widgets } from './Widgets';
+import { useWindowSize } from 'react-use';
 
 function Desktop() {
   const constraintsRef = useRef(null);
-  const windowWidth = 450;
-  const windowCenter = windowWidth / 2;
+
+  const { width, height } = useWindowSize();
+
+  const windowWidth = width * 0.8;
+  const windowHeight = height * 0.7;
 
   const window1 = {
-    hidden: { opacity: 0, scale: 0.8, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
-    show: { opacity: 1, scale: 1, top: `calc(55% - ${windowCenter}px)`, left: `calc(25% - ${windowCenter}px)`, transform: 'translate(-50%, -50%)', transition: { duration: 0.8, type: 'spring', bounce: 0.3, delay: 0 } }
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      transform: 'translate(calc(-50% - 60px), -20%)'
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transform: 'translate(calc(-50% - 60px), -50%)',
+      transition: {
+        duration: 0.9,
+        type: 'spring',
+        bounce: 0.3,
+        delay: 0
+      }
+    }
   };
 
   const [windowStyles, setWindowStyles] = useState([{ zIndex: 1 }, { zIndex: 2 }, { zIndex: 3 }]);
@@ -42,11 +59,12 @@ function Desktop() {
               onDragStart={() => {
                 updateWindowStyle(0);
               }}
-              windowHeight={windowWidth}
+              windowHeight={windowHeight}
+              windowWidth={windowWidth}
               constraintsRef={constraintsRef}
             >
               <div className={styles.windowContent}>
-                <Image src='/karachi-murakami.png' alt='Karachi murakami' width={300} height={300} draggable='false' />
+                <p>[jvmi.art]</p>
               </div>
             </Window>
           </motion.div>

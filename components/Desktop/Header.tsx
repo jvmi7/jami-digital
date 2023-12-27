@@ -1,6 +1,7 @@
 import styles from './Header.module.scss';
 import { links } from '../../constants';
 import { motion } from 'framer-motion';
+import { JvmiIcon } from '../../icons/JvmiIcon';
 
 function Header() {
   const element = {
@@ -19,11 +20,11 @@ function Header() {
       <div className={styles.header}>
         <div className={styles.left}>
           <button className={styles.logo}>
-            <span>jvmi.art</span>
+            <JvmiIcon color='#555' />
           </button>
           <div className={styles.links}>
-            {links.map((link) => (
-              <a className={styles.link} href={link.href}>
+            {links.map((link, index) => (
+              <a key={index} className={styles.link} href={link.href}>
                 {link.name}
               </a>
             ))}

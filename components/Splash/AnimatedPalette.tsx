@@ -46,7 +46,7 @@ function AnimatedPalette() {
     { key: 3, color: 'var(--blue)' },
     { key: 4, color: 'var(--green)' },
     { key: 5, color: 'var(--yellow)' },
-    { key: 5, color: 'var(--pink)' }
+    { key: 6, color: 'var(--pink)' }
   ];
 
   return (
