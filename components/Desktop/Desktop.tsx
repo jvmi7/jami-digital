@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Desktop.module.scss';
 import Header from './Header';
@@ -8,16 +8,19 @@ import { Widgets } from './Widgets';
 import { useWindowSize } from 'react-use';
 import { Button } from '../ui/button';
 import { JvmiIcon } from '../../icons/JvmiIcon';
+import DesktopContext from '../../context/DesktopContext';
+import { on } from 'events';
 
 function Desktop() {
   const constraintsRef = useRef(null);
 
   const { width, height } = useWindowSize();
+  const { openWindows, onWindowClicked, closeWindow } = useContext(DesktopContext);
 
   const windowWidth = width * 0.8;
   const windowHeight = height * 0.7;
 
-  const window1 = {
+  const windowVariants = {
     hidden: {
       opacity: 0,
       scale: 0.8,
@@ -33,18 +36,18 @@ function Desktop() {
         bounce: 0.3,
         delay: 0
       }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      transform: 'translate(calc(-50% - 60px), -20%)',
+      transition: {
+        duration: 0.9,
+        type: 'spring',
+        bounce: 0.3,
+        delay: 0
+      }
     }
-  };
-
-  const [windowStyles, setWindowStyles] = useState([{ zIndex: 1 }, { zIndex: 2 }, { zIndex: 3 }]);
-  const [maxZIndex, setMaxZIndex] = useState(3);
-  const updateWindowStyle = (windowIndex: number) => {
-    setWindowStyles((prev) => {
-      const newWindowStyles = [...prev];
-      newWindowStyles[windowIndex].zIndex = maxZIndex + 1;
-      return newWindowStyles;
-    });
-    setMaxZIndex((prev) => prev + 1);
   };
 
   return (
@@ -56,24 +59,27 @@ function Desktop() {
             <JvmiIcon color='white' width={200} height={200} />
           </div>
           <Widgets />
-          <motion.div style={windowStyles[0]} className={styles.windowWrapper} variants={window1} initial='hidden' animate='show' exit='hidden'>
-            <Window
-              onClick={() => {
-                updateWindowStyle(0);
-              }}
-              onDragStart={() => {
-                updateWindowStyle(0);
-              }}
-              windowHeight={windowHeight}
-              windowWidth={windowWidth}
-              constraintsRef={constraintsRef}
-            >
-              <div className={styles.windowContent}>
-                <p>[jvmi.art]</p>
-                <Button>hey</Button>
-              </div>
-            </Window>
-          </motion.div>
+
+          {openWindows.map((window) => (
+            <motion.div key={window.urlLabel} style={{ zIndex: openWindows.findIndex((currentWindow) => currentWindow.urlLabel === window.urlLabel) }} className={styles.windowWrapper} variants={windowVariants} initial='hidden' animate='show' exit='exit'>
+              <Window
+                onClick={() => {
+                  onWindowClicked(window);
+                }}
+                onDragStart={() => {
+                  onWindowClicked(window);
+                }}
+                windowHeight={window.windowHeight ? window.windowHeight : windowHeight}
+                windowWidth={window.windowWidth ? window.windowWidth : windowWidth}
+                constraintsRef={constraintsRef}
+                onClose={() => {
+                  closeWindow(window);
+                }}
+              >
+                {window.content}
+              </Window>
+            </motion.div>
+          ))}
         </div>
         <Dock />
       </motion.div>

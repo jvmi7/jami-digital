@@ -9,13 +9,22 @@ interface Props {
   constraintsRef: React.MutableRefObject<null>;
   onClick?: () => void;
   onDragStart?: () => void;
+  onClose?: () => void;
 }
-function Window({ children, windowHeight, windowWidth, constraintsRef, onClick, onDragStart }: Props) {
+function Window({ children, windowHeight, windowWidth, constraintsRef, onClick, onDragStart, onClose }: Props) {
   return (
     <motion.div onDragStart={onDragStart} onClick={onClick} style={{ height: `${windowHeight}px`, width: `${windowWidth}px` }} className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 400, bounceDamping: 30 }}>
       <div className={styles.header}>
         <div className={styles.headerButtons}>
-          <button className={styles.red} />
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // This will prevent the event from propagating further
+              if (onClose) {
+                onClose();
+              }
+            }}
+            className={styles.red}
+          />
           <button className={styles.yellow} />
           <button className={styles.green} />
         </div>
