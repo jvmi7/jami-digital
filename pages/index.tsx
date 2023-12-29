@@ -7,7 +7,6 @@ import Desktop from '../components/Desktop/Desktop';
 import Gameboy from '../components/Gameboy/Gameboy';
 import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
-import { DesktopWallpaper } from '../components/Desktop/DesktopWallpaper';
 
 export default function Home() {
   const isMobile = useMedia('(max-width: 900px)', false) || false;
@@ -23,14 +22,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>machi market</title>
+        <title>jvmi.art</title>
         <link rel='preload' href='/speakers.svg' as='image' />
         <link rel='preload' href='/dpad.svg' as='image' />
         <link rel='preload' href='/primaryButton.svg' as='image' />
         <link rel='preload' href='/secondaryButton.svg' as='image' />
         <link rel='preload' href='/arrow.svg' as='image' />
       </Head>
-      <Div100vh>
+      <Div100vh style={{ overflow: 'hidden' }}>
         <AnimatePresence mode='wait'>
           {isMobile ? (
             <Gameboy />

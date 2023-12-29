@@ -1,8 +1,11 @@
 import styles from './Header.module.scss';
-import { links } from '../../constants';
 import { motion } from 'framer-motion';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/dropdown-menu';
+import { InstagramIcon } from '../../icons/InstagramIcon';
+import { XIcon } from '../../icons/XIcon';
+import { MirrorIcon } from '../../icons/MirrorIcon';
+import { GithubIcon } from '../../icons/GithubIcon';
 
 function Header() {
   const element = {
@@ -23,17 +26,8 @@ function Header() {
           <button className={styles.logo}>
             <JvmiIcon color='#555' />
           </button>
-          <DropdownMenu>
-            <DropdownMenuTrigger className={styles.dropdownTrigger}>projects</DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Team</DropdownMenuItem>
-              <DropdownMenuItem>Subscription</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <ProfileDropdown />
+          <SocialsDropdown />
         </div>
 
         <div className={styles.right}>
@@ -44,5 +38,49 @@ function Header() {
     </motion.div>
   );
 }
+
+const ProfileDropdown = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className={styles.dropdownTrigger}>projects</DropdownMenuTrigger>
+      <DropdownMenuContent align='start' className={styles.dropdownContent}>
+        <DropdownMenuLabel className={styles.dropdownLabel}>artwork</DropdownMenuLabel>
+        <DropdownMenuItem className={styles.dropdownItem}>swatches</DropdownMenuItem>
+        <DropdownMenuItem className={styles.dropdownItem}>motorheadz</DropdownMenuItem>
+        <DropdownMenuItem className={styles.dropdownItem}>1-1's</DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuLabel className={styles.dropdownLabel}>clothing</DropdownMenuLabel>
+        <DropdownMenuItem className={styles.dropdownItem}>machi.market</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+const SocialsDropdown = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className={styles.dropdownTrigger}>socials</DropdownMenuTrigger>
+      <DropdownMenuContent align='start' className={styles.dropdownContent}>
+        <DropdownMenuLabel className={styles.dropdownLabel}>profiles</DropdownMenuLabel>
+        <DropdownMenuItem className={styles.dropdownItem}>
+          <XIcon height={16} color='currentColor' />
+          <span>x.com</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={styles.dropdownItem}>
+          <InstagramIcon height={18} color='currentColor' />
+          <span>instagram</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={styles.dropdownItem}>
+          <MirrorIcon height={16} color='currentColor' />
+          <span>mirror.xyz</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem className={styles.dropdownItem}>
+          <GithubIcon height={18} color='currentColor' />
+          <span>github</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 export default Header;

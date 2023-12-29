@@ -47,6 +47,11 @@ body {
 }
 button {
   cursor: var(--cursor-pointer);
+
+  // ignore focus styles on buttons
+  &:focus {
+    outline: none;
+  }
 }
 * {
   box-sizing: border-box;

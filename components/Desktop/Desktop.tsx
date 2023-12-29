@@ -7,6 +7,7 @@ import Window from './Window';
 import { Widgets } from './Widgets';
 import { useWindowSize } from 'react-use';
 import { Button } from '../ui/button';
+import { JvmiIcon } from '../../icons/JvmiIcon';
 
 function Desktop() {
   const constraintsRef = useRef(null);
@@ -51,6 +52,9 @@ function Desktop() {
       <motion.div className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
         <Header />
         <div ref={constraintsRef} className={styles.content}>
+          <div className={styles.jvmi}>
+            <JvmiIcon color='white' width={200} height={200} />
+          </div>
           <Widgets />
           <motion.div style={windowStyles[0]} className={styles.windowWrapper} variants={window1} initial='hidden' animate='show' exit='hidden'>
             <Window
