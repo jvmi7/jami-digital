@@ -6,9 +6,12 @@ import { InstagramIcon } from '../../icons/InstagramIcon';
 import { XIcon } from '../../icons/XIcon';
 import { MirrorIcon } from '../../icons/MirrorIcon';
 import { GithubIcon } from '../../icons/GithubIcon';
+import { desktopWindows } from '../../constants';
+import { useContext } from 'react';
+import DesktopContext from '../../context/DesktopContext';
 
 function Header() {
-  const element = {
+  const variants = {
     hidden: {
       opacity: 0,
       scale: 0.8
@@ -19,8 +22,9 @@ function Header() {
       transition: { duration: 0.5, type: 'spring', bounce: 0.15, delay: 0.6 }
     }
   };
+
   return (
-    <motion.div className={styles.container} initial='hidden' animate='show' variants={element}>
+    <motion.div className={styles.container} initial='hidden' animate='show' variants={variants}>
       <div className={styles.header}>
         <div className={styles.left}>
           <button className={styles.logo}>
@@ -40,17 +44,40 @@ function Header() {
 }
 
 const ProfileDropdown = () => {
+  const { openWindow } = useContext(DesktopContext);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className={styles.dropdownTrigger}>projects</DropdownMenuTrigger>
       <DropdownMenuContent align='start' className={styles.dropdownContent}>
         <DropdownMenuLabel className={styles.dropdownLabel}>artwork</DropdownMenuLabel>
-        <DropdownMenuItem className={styles.dropdownItem}>swatches</DropdownMenuItem>
-        <DropdownMenuItem className={styles.dropdownItem}>motorheadz</DropdownMenuItem>
+        <DropdownMenuItem
+          className={styles.dropdownItem}
+          onClick={() => {
+            openWindow(desktopWindows.swatches);
+          }}
+        >
+          swatches
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={styles.dropdownItem}
+          onClick={() => {
+            openWindow(desktopWindows.motorheadz);
+          }}
+        >
+          motorheadz
+        </DropdownMenuItem>
         <DropdownMenuItem className={styles.dropdownItem}>1-1's</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel className={styles.dropdownLabel}>clothing</DropdownMenuLabel>
-        <DropdownMenuItem className={styles.dropdownItem}>machi.market</DropdownMenuItem>
+        <DropdownMenuItem
+          className={styles.dropdownItem}
+          onClick={() => {
+            openWindow(desktopWindows.machiMarket);
+          }}
+        >
+          machi.market
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

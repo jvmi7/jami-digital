@@ -16,11 +16,11 @@ export const links = [
 
 export const desktopWindows: Record<string, Window> = {
   motorheadz: {
-    urlLabel: 'motorheadz',
+    urlLabel: 'motorheadz.xyz',
     content: <div>this is motorheadz</div>
   },
   machiMarket: {
-    urlLabel: 'machiMarket',
+    urlLabel: 'machi.market',
     content: <div>this is machi.market</div>
   },
   swatches: {

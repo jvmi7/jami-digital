@@ -33,7 +33,7 @@ const Widgets = () => {
         }}
         label='motorheadz'
         className={styles.motorheadz}
-        index={3}
+        index={1}
       >
         <Image src='/motorheadz-icon.png' alt='motorheadz icon' width={80} height={80} />
       </Widget>
@@ -53,7 +53,7 @@ const Widgets = () => {
         }}
         label='swatches'
         className={styles.swatches}
-        index={1}
+        index={3}
       >
         <Image src='/swatches-icon.svg' alt='swatches icon' width={85} height={85} />
       </Widget>

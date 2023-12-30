@@ -4,16 +4,23 @@ import { Window } from '../types';
 
 const DesktopContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [openWindows, setOpenWindows] = useState<Window[] | []>([]);
-  // console.log(openWindows);
 
   const openWindow = (window: Window) => {
-    setOpenWindows((prev) => [...prev, window]);
+    // if the window is already open, bring it to the front
+    if (openWindows.some((w) => w.urlLabel === window.urlLabel)) {
+      setOpenWindows((prev) => {
+        const newWindows = prev.filter((w) => w.urlLabel !== window.urlLabel);
+        return [...newWindows, window];
+      });
+      return;
+    } else {
+      setOpenWindows((prev) => [...prev, window]);
+    }
   };
 
   const closeWindow = (window: Window) => {
     setOpenWindows((prev) => {
       const newWindows = prev.filter((w) => w.urlLabel !== window.urlLabel);
-      console.log(newWindows);
       return newWindows;
     });
   };
