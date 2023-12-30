@@ -46,6 +46,7 @@ function Desktop() {
                       closeWindow(window);
                     }}
                     zIndex={openWindows.findIndex((currentWindow) => currentWindow.urlLabel === window.urlLabel)}
+                    theme={window.theme}
                   >
                     {window.content}
                   </Window>
