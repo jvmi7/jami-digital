@@ -1,0 +1,68 @@
+.container {
+  padding: 18px;
+  width: 420px;
+
+  .profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .description {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 24px;
+
+    .statContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+
+      .stat {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 4px;
+
+        .value {
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .label {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+
+      .divider {
+        height: 24px;
+        border-right-width: 1px;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -92,9 +92,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: scroll;
 
     .bodyContainer {
-      border-radius: 14px;
+      border-radius: 0 0 16px 16px;
       height: 100%;
       width: 100%;
       display: flex;

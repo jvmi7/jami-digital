@@ -6,11 +6,14 @@ export type Window = {
   theme: WindowThemeType;
 };
 
+export type ThemeName = 'light' | 'dark';
+
 export type WindowThemeType = {
+  theme: ThemeName;
   windowBackground: string;
   windowAccent: string;
   windowBorder: string;
-  text: string;
+  urlTextColor: string;
   primaryButtonBackground: string;
   primaryButtonBorder: string;
   primaryButtonText: string;
@@ -18,4 +21,21 @@ export type WindowThemeType = {
   secondaryButtonBorder: string;
   secondaryButtonText: string;
   contentBackground: string;
+  textPrimary: string;
+  textSecondary: string;
+  dividerColor: string;
+};
+
+export type CollectionStat = {
+  label: string;
+  value: string;
+};
+
+export type CollectionMetadataType = {
+  name: string;
+  description: string;
+  imagePath: string;
+  imageBackground: string;
+  stats: CollectionStat[];
+  buttons: React.ReactNode[];
 };

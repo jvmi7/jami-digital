@@ -105,7 +105,7 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, windowHeight, wind
           </button>
         </div>
         <div className={styles.labelWrapper} style={{ backgroundColor: theme.windowAccent }}>
-          <p className={styles.label} style={{ color: theme.text }}>
+          <p className={styles.label} style={{ color: theme.urlTextColor }}>
             {urlLabel}
           </p>
         </div>
