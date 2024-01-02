@@ -8,6 +8,7 @@ import { Widgets } from './Widgets';
 import { useWindowSize } from 'react-use';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import DesktopContext from '../../context/DesktopContext';
+import { Footer } from './Footer';
 
 function Desktop() {
   const constraintsRef = useRef(null);
@@ -55,7 +56,8 @@ function Desktop() {
             })}
           </AnimatePresence>
         </div>
-        <Dock />
+        {/* <Dock /> */}
+        <Footer />
       </motion.div>
     </div>
   );

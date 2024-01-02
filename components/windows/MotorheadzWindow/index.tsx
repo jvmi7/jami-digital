@@ -15,15 +15,15 @@ const MotorheadzWindow = ({ theme }: Props) => {
     imageBackground: 'linear-gradient(180deg, #02c5ff 0%, #02a0ef 100%)',
     stats: [
       {
-        label: 'items',
+        label: 'avatars',
         value: '4.2k'
       },
       {
-        label: 'owners',
+        label: 'collectors',
         value: '2.1k'
       },
       {
-        label: 'minted',
+        label: 'sold',
         value: '100%'
       }
     ],
@@ -40,7 +40,9 @@ const MotorheadzWindow = ({ theme }: Props) => {
   return (
     <div className={styles.container}>
       <CollectionMetadata theme={theme} metadata={collectionMetadata} />
-      <div className={styles.imagesGrid}>{previewImages.map((image) => image)}</div>
+      <div className={styles.imagesContainer}>
+        <div className={styles.imagesGrid}>{previewImages.map((image) => image)}</div>
+      </div>
     </div>
   );
 };

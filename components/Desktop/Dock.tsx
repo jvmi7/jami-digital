@@ -20,6 +20,7 @@ function Dock() {
       transition: { duration: 0.5, type: 'spring', bounce: 0.15, delay: 0.6 }
     }
   };
+
   return (
     <motion.div className={styles.container} initial='hidden' animate='show' variants={element}>
       <div className={styles.dock}>
