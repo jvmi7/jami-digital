@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Window.module.scss';
 import React, { forwardRef } from 'react';
 import { WindowThemeType } from '../../types';
@@ -9,8 +9,6 @@ import { CloseIcon } from '../../icons/CloseIcon';
 
 interface Props {
   children: React.ReactNode;
-  windowHeight: number;
-  windowWidth: number;
   constraintsRef: React.MutableRefObject<null>;
   onClick?: () => void;
   onDragStart?: () => void;
@@ -18,18 +16,46 @@ interface Props {
   zIndex: number;
   urlLabel: string;
   theme: WindowThemeType;
+  containerWidth: number;
+  containerHeight: number;
 }
 
-const Window = forwardRef<HTMLDivElement, Props>(({ children, windowHeight, windowWidth, constraintsRef, onClick, onDragStart, onClose, zIndex, urlLabel, theme }, ref: React.Ref<HTMLDivElement>) => {
+const MAX_WINDOW_WIDTH = 1400;
+const MAX_WINDOW_HEIGHT = 1000;
+const windowPadding = 15;
+const randomWindowDistance = 10;
+
+const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, onClick, onDragStart, onClose, zIndex, urlLabel, theme, containerWidth, containerHeight }, ref: React.Ref<HTMLDivElement>) => {
+  const [windowSizeState, setWindowSizeState] = useState<'full' | 'small'>('full');
+  let windowHeight = Math.min(containerHeight - windowPadding, MAX_WINDOW_HEIGHT);
+  let windowWidth = Math.min(containerWidth - windowPadding, MAX_WINDOW_WIDTH);
+  if (windowSizeState === 'small') {
+    windowHeight = 300;
+    windowWidth = 300;
+  }
+
+  const [showWindowContent, setShowWindowContent] = useState(false);
+
   const [windowTop, setWindowTop] = React.useState(0);
   const [windowLeft, setWindowLeft] = React.useState(0);
 
-  const randomDiff = 3;
+  useEffect(() => {
+    setWindowTop(Math.floor(Math.random() * randomWindowDistance * 2) - randomWindowDistance);
+    setWindowLeft(Math.floor(Math.random() * randomWindowDistance * 2) - randomWindowDistance);
+  }, []);
 
   useEffect(() => {
-    setWindowTop(Math.floor(Math.random() * randomDiff * 2) - randomDiff);
-    setWindowLeft(Math.floor(Math.random() * randomDiff * 2) - randomDiff);
-  }, []);
+    // Simulate click on mount
+    const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
+    if (divRef && divRef.current) {
+      const clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      divRef.current.dispatchEvent(clickEvent);
+    }
+  }, [ref, windowSizeState]);
 
   const windowVariants = {
     hidden: {
@@ -43,45 +69,56 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, windowHeight, wind
     show: {
       opacity: 1,
       scale: 1,
-      top: `${windowTop + 50}%`,
-      left: `${windowLeft + 50}%`,
+      top: `calc(${windowTop}px + 50%)`,
+      left: `calc(${windowLeft}px + 50%)`,
       x: '-50%',
       y: '-50%',
       transition: {
         duration: 0.6,
         type: 'spring',
-        bounce: 0.3,
+        bounce: 0.2,
         delay: 0
       }
     },
     exit: {
       opacity: 0,
       transition: {
-        duration: 0.6,
-        type: 'spring',
-        bounce: 0.3,
-        delay: 0
+        duration: 0.2
       }
     }
   };
 
-  useEffect(() => {
-    // Simulate click on mount
-    const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
-    if (divRef && divRef.current) {
-      const clickEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        view: window
-      });
-      divRef.current.dispatchEvent(clickEvent);
+  const handleResizeClicked = () => {
+    if (windowSizeState === 'full') {
+      setWindowSizeState('small');
+    } else {
+      setWindowSizeState('full');
     }
-  }, [ref]);
+  };
 
-  console.log(theme);
+  const handleAnimationComplete = () => {
+    setShowWindowContent(true);
+  };
 
   return (
-    <motion.div ref={ref} key={urlLabel} variants={windowVariants} initial='hidden' animate='show' exit='exit' onDragStart={onDragStart} onClick={onClick} className={styles.container} drag dragConstraints={constraintsRef} dragElastic={0.4} dragMomentum={false} dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }} style={{ height: windowHeight, width: windowWidth, zIndex: zIndex, border: `2px solid ${theme.windowBorder}`, backgroundColor: `${theme.windowBackground}` }}>
+    <motion.div
+      onAnimationComplete={handleAnimationComplete}
+      ref={ref}
+      key={urlLabel}
+      variants={windowVariants}
+      initial='hidden'
+      animate='show'
+      exit='exit'
+      onDragStart={onDragStart}
+      onClick={onClick}
+      className={styles.container}
+      drag
+      dragConstraints={constraintsRef}
+      dragElastic={0.4}
+      dragMomentum={false}
+      dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+      style={{ height: windowHeight, width: windowWidth, zIndex: zIndex, border: `2px solid ${theme.windowBorder}`, backgroundColor: `${theme.windowBackground}` }}
+    >
       <div className={styles.header}>
         <div className={styles.headerButtons} style={{ backgroundColor: theme.windowAccent }}>
           <button
@@ -97,8 +134,7 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, windowHeight, wind
               <CloseIcon width={14} color={theme.primaryButtonText} />
             </span>
           </button>
-          {/* <button className={styles.yellow} /> */}
-          <button style={{ backgroundColor: theme.secondaryButtonBackground, border: `2px solid ${theme.secondaryButtonBorder}`, color: theme.secondaryButtonText }}>
+          <button onClick={handleResizeClicked} style={{ backgroundColor: theme.secondaryButtonBackground, border: `2px solid ${theme.secondaryButtonBorder}`, color: theme.secondaryButtonText }}>
             <span className={styles.icon}>
               <MinusIcon width={14} color={theme.secondaryButtonText} />
             </span>
@@ -112,7 +148,7 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, windowHeight, wind
       </div>
       <div className={styles.body} style={{ borderTop: `2px solid ${theme.windowBorder}` }}>
         <div className={styles.bodyContainer} style={{ border: `2px solid ${theme.windowBorder}`, backgroundColor: theme.contentBackground }}>
-          {children}
+          {showWindowContent && children}
         </div>
       </div>
     </motion.div>

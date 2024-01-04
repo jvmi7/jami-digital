@@ -28,7 +28,6 @@ const DesktopContextProvider = ({ children }: { children: React.ReactNode }) => 
   // Function to handle window click
   const onWindowClicked = (window: Window) => {
     // bring this window to the front of the list of windows
-    console.log(window);
     setOpenWindows((prev) => {
       const newWindows = prev.filter((w) => w.urlLabel !== window.urlLabel);
       return [...newWindows, window];

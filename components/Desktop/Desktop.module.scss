@@ -13,18 +13,23 @@
     position: absolute;
     overflow: hidden;
     z-index: 2;
+    padding: 0px 9px;
 
     .content {
       height: 100%;
       width: 100%;
       position: relative;
 
+      .refContent {
+        height: 100%;
+        width: 100%;
+      }
+
       .jvmi {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // display: none;
       }
     }
   }
