@@ -6,6 +6,7 @@ import { WindowThemeType } from '../../types';
 
 import { MinusIcon } from '../../icons/MinusIcon';
 import { CloseIcon } from '../../icons/CloseIcon';
+import { PlusIcon } from 'lucide-react';
 
 interface Props {
   children: React.ReactNode;
@@ -29,9 +30,20 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, on
   const [windowSizeState, setWindowSizeState] = useState<'full' | 'small'>('full');
   let windowHeight = Math.min(containerHeight - windowPadding, MAX_WINDOW_HEIGHT);
   let windowWidth = Math.min(containerWidth - windowPadding, MAX_WINDOW_WIDTH);
+  let secondaryButtonStyles = {
+    backgroundColor: theme.minimizeButtonBackground,
+    border: `2px solid ${theme.minimizeButtonBorder}`,
+    color: theme.minimizeButtonText
+  };
+
   if (windowSizeState === 'small') {
     windowHeight = 300;
     windowWidth = 300;
+    secondaryButtonStyles = {
+      backgroundColor: theme.maximizeButtonBackground,
+      border: `2px solid ${theme.maximizeButtonBorder}`,
+      color: theme.maximizeButtonText
+    };
   }
 
   const [showWindowContent, setShowWindowContent] = useState(false);
@@ -128,16 +140,14 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, on
                 onClose();
               }
             }}
-            style={{ backgroundColor: theme.primaryButtonBackground, border: `2px solid ${theme.primaryButtonBorder}`, color: theme.primaryButtonText }}
+            style={{ backgroundColor: theme.closeButtonBackground, border: `2px solid ${theme.closeButtonBorder}`, color: theme.closeButtonText }}
           >
             <span className={styles.icon}>
-              <CloseIcon width={14} color={theme.primaryButtonText} />
+              <CloseIcon width={14} color={theme.closeButtonText} />
             </span>
           </button>
-          <button onClick={handleResizeClicked} style={{ backgroundColor: theme.secondaryButtonBackground, border: `2px solid ${theme.secondaryButtonBorder}`, color: theme.secondaryButtonText }}>
-            <span className={styles.icon}>
-              <MinusIcon width={14} color={theme.secondaryButtonText} />
-            </span>
+          <button onClick={handleResizeClicked} style={secondaryButtonStyles}>
+            <span className={styles.icon}>{windowSizeState === 'full' ? <MinusIcon width={14} color={secondaryButtonStyles.color} /> : <PlusIcon width={14} color={secondaryButtonStyles.color} />}</span>
           </button>
         </div>
         <div className={styles.labelWrapper} style={{ backgroundColor: theme.windowAccent }}>
