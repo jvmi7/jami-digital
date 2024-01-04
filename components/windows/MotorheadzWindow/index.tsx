@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { CollectionMetadataType, WindowThemeType } from '../../../types';
 import { Button } from '../../Button/Button';
 import { CollectionMetadata } from '../../Collection/CollectionMetadata';
+import { CollectionModal } from '../../Collection/CollectionModal';
 import { ItemCard } from '../../Collection/ItemCard';
 import { ResponsiveGrid } from '../../ResponsiveGrid';
 import styles from '../window.module.scss';
@@ -40,12 +42,19 @@ const MotorheadzWindow = ({ theme }: Props) => {
     previewImages.push({
       name: 'motorhead ' + i,
       imgSrc: `${metadataUrl}${i}.png`,
-      onClick: () => {}
+      onClick: () => {
+        setIsModalOpen(true);
+      }
     });
   }
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className={styles.container}>
+      <CollectionModal theme={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div>hey</div>
+      </CollectionModal>
       <CollectionMetadata theme={theme} metadata={collectionMetadata} />
       <ResponsiveGrid minColumnWidth={170} gap={4}>
         {previewImages.map((image) => {

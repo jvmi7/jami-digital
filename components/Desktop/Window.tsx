@@ -37,8 +37,8 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, on
   };
 
   if (windowSizeState === 'small') {
-    windowHeight = 400;
-    windowWidth = 600;
+    windowHeight = 500;
+    windowWidth = 800;
     secondaryButtonStyles = {
       backgroundColor: theme.maximizeButtonBackground,
       border: `2px solid ${theme.maximizeButtonBorder}`,
