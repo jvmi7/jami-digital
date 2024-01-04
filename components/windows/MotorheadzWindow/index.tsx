@@ -1,7 +1,9 @@
 import { CollectionMetadataType, WindowThemeType } from '../../../types';
 import { Button } from '../../Button/Button';
 import { CollectionMetadata } from '../../Collection/CollectionMetadata';
-import styles from './MotorheadzWindow.module.scss';
+import { ItemCard } from '../../Collection/ItemCard';
+import { ResponsiveGrid } from '../../ResponsiveGrid';
+import styles from '../window.module.scss';
 
 interface Props {
   theme: WindowThemeType;
@@ -30,19 +32,26 @@ const MotorheadzWindow = ({ theme }: Props) => {
     buttons: [<Button themeName='dark'>view on opensea</Button>, <Button themeName='dark'>read blog post</Button>]
   };
 
+  // Replace this later
   const metadataUrl = 'https://motorheadz.s3.us-west-1.amazonaws.com/images/';
   const previewImages = [];
 
   for (let i = 0; i < 100; i++) {
-    previewImages.push(<img src={`${metadataUrl}${i}.png`} />);
+    previewImages.push({
+      name: 'motorhead ' + i,
+      imgSrc: `${metadataUrl}${i}.png`,
+      onClick: () => {}
+    });
   }
 
   return (
     <div className={styles.container}>
       <CollectionMetadata theme={theme} metadata={collectionMetadata} />
-      <div className={styles.imagesContainer}>
-        <div className={styles.imagesGrid}>{previewImages.map((image) => image)}</div>
-      </div>
+      <ResponsiveGrid minColumnWidth={170} gap={4}>
+        {previewImages.map((image) => {
+          return <ItemCard name={image.name} imgSrc={image.imgSrc} onClick={image.onClick} />;
+        })}
+      </ResponsiveGrid>
     </div>
   );
 };
