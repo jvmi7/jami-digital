@@ -4,12 +4,12 @@ import styles from './ItemCard.module.scss';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 interface ItemCardProps {
-  name: string;
   imgSrc: string;
-  onClick: () => void;
+  name?: string;
+  onClick?: () => void;
 }
 
-const ItemCard = ({ name, imgSrc, onClick }: ItemCardProps) => {
+const ItemCard = ({ imgSrc, name, onClick }: ItemCardProps) => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
 
   return (
@@ -26,7 +26,7 @@ const ItemCard = ({ name, imgSrc, onClick }: ItemCardProps) => {
         onLoad={() => setIsLoading(false)} // Set isLoading to false when image is loaded
         style={{ display: isLoading ? 'none' : 'block' }} // Hide image while loading
       />
-      {!isLoading && (
+      {!isLoading && name && (
         <div className={styles.overlay}>
           <div className={styles.text}>{name}</div>
         </div>

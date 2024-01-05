@@ -2,14 +2,15 @@ import React from 'react';
 import styles from './CollectionModal.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { WindowThemeType } from '../../types';
-import { XIcon } from '../../icons/XIcon';
 import { CloseIcon } from '../../icons/CloseIcon';
+import WindowContext from '../../context/WindowContext';
 
 interface CollectionModalProps {
-  children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
   theme: WindowThemeType;
+  image: React.ReactNode;
+  content: React.ReactNode;
 }
 
 const overlayVariants = {
@@ -42,13 +43,27 @@ const modalVariants = {
   }
 };
 
-const CollectionModal: React.FC<CollectionModalProps> = ({ children, isOpen, onClose, theme }) => {
+const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, theme, image, content }) => {
+  const { width, height } = React.useContext(WindowContext);
+  const contentPaneWidth = 350;
+  const modalPadding = 90; // Adjust this based on your modal's padding
+  const totalModalPadding = modalPadding * 2;
+  const gap = 8; // If you have a gap between the image and content pane
+
+  // Calculate the maximum size for the image
+  const maxSize = Math.min(width - totalModalPadding - contentPaneWidth - gap, height - totalModalPadding);
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div className={styles.overlay} onClick={onClose} variants={overlayVariants} initial='initial' animate='animate' exit='exit'>
           <motion.div style={{ backgroundColor: theme.windowAccent, border: `1px solid ${theme.windowBackground}` }} className={styles.modal} onClick={(e) => e.stopPropagation()} variants={modalVariants} initial='initial' animate='animate' exit='exit'>
-            {children}
+            <div className={styles.image} style={{ height: maxSize, width: maxSize }}>
+              {image}
+            </div>
+            <div className={styles.content} style={{ width: `${contentPaneWidth}px` }}>
+              {content}
+            </div>
           </motion.div>
           <button className={styles.closeButton}>
             <CloseIcon color={'#ddd'} />

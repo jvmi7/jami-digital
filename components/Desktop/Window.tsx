@@ -7,6 +7,7 @@ import { WindowThemeType } from '../../types';
 import { MinusIcon } from '../../icons/MinusIcon';
 import { CloseIcon } from '../../icons/CloseIcon';
 import { PlusIcon } from 'lucide-react';
+import WindowContext from '../../context/WindowContext';
 
 interface Props {
   children: React.ReactNode;
@@ -28,8 +29,9 @@ const randomWindowDistance = 10;
 
 const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, onClick, onDragStart, onClose, zIndex, urlLabel, theme, containerWidth, containerHeight }, ref: React.Ref<HTMLDivElement>) => {
   const [windowSizeState, setWindowSizeState] = useState<'full' | 'small'>('full');
-  let windowHeight = Math.min(containerHeight - windowPadding, MAX_WINDOW_HEIGHT);
-  let windowWidth = Math.min(containerWidth - windowPadding, MAX_WINDOW_WIDTH);
+
+  const { width, height, setWidth, setHeight } = React.useContext(WindowContext);
+
   let secondaryButtonStyles = {
     backgroundColor: theme.minimizeButtonBackground,
     border: `2px solid ${theme.minimizeButtonBorder}`,
@@ -37,13 +39,16 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, on
   };
 
   if (windowSizeState === 'small') {
-    windowHeight = 500;
-    windowWidth = 800;
+    setWidth(800);
+    setHeight(500);
     secondaryButtonStyles = {
       backgroundColor: theme.maximizeButtonBackground,
       border: `2px solid ${theme.maximizeButtonBorder}`,
       color: theme.maximizeButtonText
     };
+  } else {
+    setWidth(Math.min(containerWidth - windowPadding, MAX_WINDOW_WIDTH));
+    setHeight(Math.min(containerHeight - windowPadding, MAX_WINDOW_HEIGHT));
   }
 
   const [showWindowContent, setShowWindowContent] = useState(false);
@@ -129,7 +134,7 @@ const Window = forwardRef<HTMLDivElement, Props>(({ children, constraintsRef, on
       dragElastic={0.4}
       dragMomentum={false}
       dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
-      style={{ height: windowHeight, width: windowWidth, zIndex: zIndex, border: `2px solid ${theme.windowBorder}`, backgroundColor: `${theme.windowBackground}` }}
+      style={{ height: height, width: width, zIndex: zIndex, border: `2px solid ${theme.windowBorder}`, backgroundColor: `${theme.windowBackground}` }}
     >
       <div className={styles.header}>
         <div className={styles.headerButtons} style={{ backgroundColor: theme.windowAccent }}>

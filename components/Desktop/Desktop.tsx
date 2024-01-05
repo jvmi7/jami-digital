@@ -9,6 +9,7 @@ import { useMeasure, useWindowSize } from 'react-use';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import DesktopContext from '../../context/DesktopContext';
 import { Footer } from './Footer';
+import WindowContextProvider from '../../context/WindowContextProvider';
 
 function Desktop() {
   const constraintsRef = useRef(null);
@@ -30,25 +31,27 @@ function Desktop() {
               {openWindows.map((window) => {
                 return (
                   <div key={window.urlLabel}>
-                    <Window
-                      urlLabel={window.urlLabel}
-                      onClick={() => {
-                        onWindowClicked(window);
-                      }}
-                      onDragStart={() => {
-                        onWindowClicked(window);
-                      }}
-                      constraintsRef={constraintsRef}
-                      containerWidth={width}
-                      containerHeight={height}
-                      onClose={() => {
-                        closeWindow(window);
-                      }}
-                      zIndex={openWindows.findIndex((currentWindow) => currentWindow.urlLabel === window.urlLabel)}
-                      theme={window.theme}
-                    >
-                      {window.content}
-                    </Window>
+                    <WindowContextProvider>
+                      <Window
+                        urlLabel={window.urlLabel}
+                        onClick={() => {
+                          onWindowClicked(window);
+                        }}
+                        onDragStart={() => {
+                          onWindowClicked(window);
+                        }}
+                        constraintsRef={constraintsRef}
+                        containerWidth={width}
+                        containerHeight={height}
+                        onClose={() => {
+                          closeWindow(window);
+                        }}
+                        zIndex={openWindows.findIndex((currentWindow) => currentWindow.urlLabel === window.urlLabel)}
+                        theme={window.theme}
+                      >
+                        {window.content}
+                      </Window>
+                    </WindowContextProvider>
                   </div>
                 );
               })}

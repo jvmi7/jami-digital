@@ -6,6 +6,7 @@ import { CollectionModal } from '../../Collection/CollectionModal';
 import { ItemCard } from '../../Collection/ItemCard';
 import { ResponsiveGrid } from '../../ResponsiveGrid';
 import styles from '../window.module.scss';
+import { ContentPane } from '../../Collection/ContentPane';
 
 interface Props {
   theme: WindowThemeType;
@@ -49,12 +50,15 @@ const MotorheadzWindow = ({ theme }: Props) => {
   }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const currentImage = <ItemCard imgSrc={previewImages[currentImageIndex].imgSrc} />;
+  const currentContentPane = <ContentPane />;
 
   return (
     <div className={styles.container}>
-      <CollectionModal theme={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div>hey</div>
-      </CollectionModal>
+      <CollectionModal theme={theme} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} image={currentImage} content={currentContentPane} />
+
       <CollectionMetadata theme={theme} metadata={collectionMetadata} />
       <ResponsiveGrid minColumnWidth={170} gap={4}>
         {previewImages.map((image) => {
