@@ -1,12 +1,14 @@
+import classNames from 'classnames';
 import { WindowThemeType } from '../../types';
 import styles from './ContentPane.module.scss';
+import { ExternalLinkIcon } from '../../icons/ExternalLinkIcon';
 
 export type ContentPaneMetadataType = {
   collection: string;
   item: string;
   price?: { price: string; soldOut: boolean };
   stats: { label: string; value: string; url?: string }[];
-  traits?: { trait: string; value: string }[];
+  traits?: { trait_type: string; value: string }[];
   caption: React.ReactNode;
   buttons: JSX.Element[];
 };
@@ -35,7 +37,7 @@ const ContentPane = ({ theme, metadata }: Props) => {
         {metadata.traits?.map((trait) => (
           <div className={styles.trait} style={{ backgroundColor: theme.windowBackground }}>
             <div className={styles.label} style={{ color: theme.textSecondary }}>
-              {trait.trait}
+              {trait.trait_type}
             </div>
             <div className={styles.value}>{trait.value}</div>
           </div>
@@ -48,7 +50,14 @@ const ContentPane = ({ theme, metadata }: Props) => {
             <div className={styles.label} style={{ color: theme.textSecondary }}>
               {stat.label}
             </div>
-            <div className={styles.value}>{stat.value}</div>
+            {stat.url ? (
+              <a href={stat.url} target='_blank' className={classNames(styles.value, styles.url)} style={{ color: theme.textPrimary }}>
+                {stat.value}
+                <ExternalLinkIcon height={14} color={theme.textPrimary} />
+              </a>
+            ) : (
+              <div className={styles.value}>{stat.value}</div>
+            )}
           </div>
         ))}
       </div>

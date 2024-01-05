@@ -38,6 +38,15 @@
         font-weight: 400;
         margin-bottom: 0;
       }
+
+      .url {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
@@ -76,6 +85,6 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-top: 16px;
+    margin-top: 12px;
   }
 }

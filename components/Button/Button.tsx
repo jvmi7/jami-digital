@@ -7,12 +7,28 @@ interface Props {
   themeName: ThemeName;
   variant?: 'primary' | 'secondary';
   width?: string;
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
+  href?: string;
 }
 
-const Button = ({ children, themeName, variant = 'primary', width = '100%' }: Props) => {
-  return (
-    <button className={classNames(styles.button, styles[variant], styles[themeName])} style={{ width: width }}>
-      {children}
+const Button = ({ children, themeName, variant = 'primary', width = '100%', icon, iconPosition = 'right', href }: Props) => {
+  const buttonClasses = classNames(styles.button, styles[variant], styles[themeName]);
+  const contentStyle = { flexDirection: iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const) };
+
+  return href ? (
+    <a href={href} className={buttonClasses} style={{ width }} target='_blank'>
+      <span className={styles.content} style={contentStyle}>
+        {icon && icon}
+        {children}
+      </span>
+    </a>
+  ) : (
+    <button className={buttonClasses} style={{ width }}>
+      <span className={styles.content} style={contentStyle}>
+        {icon && icon}
+        {children}
+      </span>
     </button>
   );
 };

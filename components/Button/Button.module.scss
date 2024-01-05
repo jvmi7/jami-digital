@@ -6,6 +6,14 @@
   font-size: 14px;
   font-weight: 400;
   transition: all 0.2s ease;
+  display: block;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
 }
 
 .light.primary {

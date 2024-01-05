@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './CollectionModal.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { WindowThemeType } from '../../types';
 import { CloseIcon } from '../../icons/CloseIcon';
 import WindowContext from '../../context/WindowContext';
 import { useMeasure } from 'react-use';
+import { ArrowRightIcon } from '../../icons/ArrowRightIcon';
+import classNames from 'classnames';
 
 interface CollectionModalProps {
   isOpen: boolean;
@@ -12,6 +14,10 @@ interface CollectionModalProps {
   theme: WindowThemeType;
   image: React.ReactNode;
   content: React.ReactNode;
+  onPrev?: () => void;
+  onNext?: () => void;
+  showPrevButton?: boolean;
+  showNextButton?: boolean;
 }
 
 const overlayVariants = {
@@ -44,7 +50,7 @@ const modalVariants = {
   }
 };
 
-const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, theme, image, content }) => {
+const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, theme, image, content, onPrev, onNext, showPrevButton, showNextButton }) => {
   const { width, height } = React.useContext(WindowContext);
   const contentPaneWidth = 350;
   const modalPadding = 90; // Adjust this based on your modal's padding
@@ -56,6 +62,21 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
   // Calculate the maximum size for the image
   const maxSize = Math.min(width - totalModalPadding - contentPaneWidth - gap, height - totalModalPadding);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight' && showNextButton) {
+        onNext && onNext();
+      } else if (event.key === 'ArrowLeft' && showPrevButton) {
+        onPrev && onPrev();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onPrev, onNext, showPrevButton, showNextButton]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -64,12 +85,21 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
             <div className={styles.image} style={{ backgroundColor: theme.windowBackground, width: Math.min(maxSize, modalHeight), height: modalHeight }}>
               {image}
             </div>
-
             <div className={styles.content} style={{ width: `${contentPaneWidth}px` }}>
               {content}
             </div>
+            {showPrevButton && (
+              <button onClick={onPrev} className={classNames(styles.button, styles.prevButton)}>
+                <ArrowRightIcon color={'#ddd'} />
+              </button>
+            )}
+            {showNextButton && (
+              <button onClick={onNext} className={classNames(styles.button, styles.nextButton)}>
+                <ArrowRightIcon color={'#ddd'} />
+              </button>
+            )}
           </motion.div>
-          <button className={styles.closeButton}>
+          <button className={classNames(styles.button, styles.closeButton)}>
             <CloseIcon color={'#ddd'} />
           </button>
         </motion.div>
