@@ -44,11 +44,9 @@
 
   .image {
     flex: 1; /* Allows the image container to grow */
-    aspect-ratio: 1 / 1; /* Maintains square aspect ratio */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Ensures the image does not overflow */
     align-self: center;
   }
 
@@ -60,6 +58,7 @@
     max-height: 100%; /* Ensures content doesn't exceed modal height */
     margin-right: 4px;
     margin-top: 4px;
+    margin-bottom: 4px;
 
     &::-webkit-scrollbar {
       width: 4px;

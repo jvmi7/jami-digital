@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { WindowThemeType } from '../../types';
 import { CloseIcon } from '../../icons/CloseIcon';
 import WindowContext from '../../context/WindowContext';
+import { useMeasure } from 'react-use';
 
 interface CollectionModalProps {
   isOpen: boolean;
@@ -50,6 +51,8 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
   const totalModalPadding = modalPadding * 2;
   const gap = 8; // If you have a gap between the image and content pane
 
+  const [ref, { height: modalHeight }] = useMeasure<HTMLDivElement>();
+
   // Calculate the maximum size for the image
   const maxSize = Math.min(width - totalModalPadding - contentPaneWidth - gap, height - totalModalPadding);
 
@@ -57,11 +60,12 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
     <AnimatePresence>
       {isOpen && (
         <motion.div className={styles.overlay} onClick={onClose} variants={overlayVariants} initial='initial' animate='animate' exit='exit'>
-          <motion.div style={{ backgroundColor: theme.windowAccent, border: `1px solid ${theme.windowBackground}` }} className={styles.modal} onClick={(e) => e.stopPropagation()} variants={modalVariants} initial='initial' animate='animate' exit='exit'>
-            <div className={styles.image} style={{ height: maxSize, width: maxSize }}>
+          <motion.div ref={ref} style={{ backgroundColor: theme.windowAccent, border: `1px solid ${theme.windowBackground}` }} className={styles.modal} onClick={(e) => e.stopPropagation()} variants={modalVariants} initial='initial' animate='animate' exit='exit'>
+            <div className={styles.image} style={{ backgroundColor: theme.windowBackground, width: Math.min(maxSize, modalHeight), height: modalHeight }}>
               {image}
             </div>
-            <div className={styles.content} style={{ width: `${contentPaneWidth}px`, height: maxSize }}>
+
+            <div className={styles.content} style={{ width: `${contentPaneWidth}px` }}>
               {content}
             </div>
           </motion.div>
