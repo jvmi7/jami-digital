@@ -30,7 +30,7 @@
 }
 
 .modal {
-  padding: 8px;
+  // padding: 8px;
   display: flex;
   gap: 8px; /* Space between image and content */
   max-width: 90%;
@@ -41,7 +41,6 @@
   z-index: 3;
   background-color: black;
   overflow: hidden; /* Ensures modal content doesn't overflow */
-  align-items: center; /* Align items vertically */
 
   .image {
     flex: 1; /* Allows the image container to grow */
@@ -50,13 +49,26 @@
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Ensures the image does not overflow */
+    align-self: center;
   }
 
   .content {
     flex: none; /* Prevents the content from growing */
     width: 350px; /* Fixed width for content */
     min-width: 350px;
-    overflow: auto; /* Scroll if content overflows */
+    overflow-y: scroll; /* Scroll if content overflows */
     max-height: 100%; /* Ensures content doesn't exceed modal height */
+    margin-right: 4px;
+    margin-top: 4px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      margin-right: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #4d4d4d;
+      border-radius: 100px;
+    }
   }
 }

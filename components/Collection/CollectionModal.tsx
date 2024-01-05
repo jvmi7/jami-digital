@@ -61,7 +61,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
             <div className={styles.image} style={{ height: maxSize, width: maxSize }}>
               {image}
             </div>
-            <div className={styles.content} style={{ width: `${contentPaneWidth}px` }}>
+            <div className={styles.content} style={{ width: `${contentPaneWidth}px`, height: maxSize }}>
               {content}
             </div>
           </motion.div>
