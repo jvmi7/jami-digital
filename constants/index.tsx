@@ -1,6 +1,7 @@
 import { MenuIcons } from '../components/MenuIcon/MenuIcon';
 import { Window, WindowThemeType } from '../types';
 import { MotorheadzWindow } from '../components/windows/MotorheadzWindow';
+import { MachiMarketWindow } from '../components/windows/MachiMarketWindow';
 
 export const links = [
   {
@@ -33,7 +34,7 @@ const light: WindowThemeType = {
   contentBackground: '#f0f2f5',
   textPrimary: '#000000',
   textSecondary: '#696b6e',
-  dividerColor: '#696b6e'
+  dividerColor: '#dddddd'
 };
 
 const dark: WindowThemeType = {
@@ -57,6 +58,27 @@ const dark: WindowThemeType = {
   dividerColor: '#4D4D4D'
 };
 
+const retro: WindowThemeType = {
+  theme: 'retro',
+  windowBackground: '#1350FF',
+  windowAccent: '#0637EA',
+  windowBorder: '#0637EA',
+  urlTextColor: '#2100FF',
+  closeButtonBackground: '#ff0000',
+  closeButtonBorder: '#c50022',
+  closeButtonText: '#6B001C',
+  minimizeButtonBackground: '#fcff00',
+  minimizeButtonBorder: '#ffac1d',
+  minimizeButtonText: '#8E6900',
+  maximizeButtonBackground: '#00ff00',
+  maximizeButtonBorder: '#00c500',
+  maximizeButtonText: '#006B00',
+  contentBackground: '#FFFFFF',
+  textPrimary: '#111111',
+  textSecondary: '#333333',
+  dividerColor: '#DDDDDD'
+};
+
 export const desktopWindows: Record<string, Window> = {
   motorheadz: {
     urlLabel: 'motorheadz.xyz',
@@ -65,8 +87,8 @@ export const desktopWindows: Record<string, Window> = {
   },
   machiMarket: {
     urlLabel: 'machi.market',
-    content: <div>this is machi.market</div>,
-    theme: dark
+    content: <MachiMarketWindow theme={light} />,
+    theme: light
   },
   swatches: {
     urlLabel: 'swatches',

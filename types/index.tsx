@@ -6,7 +6,11 @@ export type Window = {
   theme: WindowThemeType;
 };
 
-export type ThemeName = 'light' | 'dark';
+export type ThemeName = 'light' | 'dark' | 'retro';
+
+export interface WindowProps {
+  theme: WindowThemeType;
+}
 
 export type WindowThemeType = {
   theme: ThemeName;
@@ -39,6 +43,6 @@ export type CollectionMetadataType = {
   description: string;
   imagePath: string;
   imageBackground: string;
-  stats: CollectionStat[];
+  stats?: CollectionStat[];
   buttons: React.ReactNode[];
 };

@@ -81,7 +81,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({ isOpen, onClose, them
     <AnimatePresence>
       {isOpen && (
         <motion.div className={styles.overlay} onClick={onClose} variants={overlayVariants} initial='initial' animate='animate' exit='exit'>
-          <motion.div ref={ref} style={{ backgroundColor: theme.windowAccent, border: `1px solid ${theme.windowBackground}` }} className={styles.modal} onClick={(e) => e.stopPropagation()} variants={modalVariants} initial='initial' animate='animate' exit='exit'>
+          <motion.div ref={ref} style={{ backgroundColor: theme.contentBackground, border: `1px solid ${theme.windowBackground}` }} className={styles.modal} onClick={(e) => e.stopPropagation()} variants={modalVariants} initial='initial' animate='animate' exit='exit'>
             <div className={styles.image} style={{ backgroundColor: theme.windowBackground, width: Math.min(maxSize, modalHeight), height: modalHeight }}>
               {image}
             </div>

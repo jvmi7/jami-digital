@@ -5,7 +5,7 @@ import Header from './Header';
 import Dock from './Dock';
 import Window from './Window';
 import { Widgets } from './Widgets';
-import { useMeasure, useWindowSize } from 'react-use';
+import { useMeasure } from 'react-use';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import DesktopContext from '../../context/DesktopContext';
 import { Footer } from './Footer';

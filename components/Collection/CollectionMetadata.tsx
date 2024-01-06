@@ -8,6 +8,8 @@ interface Props {
 }
 
 const CollectionMetadata = ({ theme, metadata }: Props) => {
+  const showStats = metadata.stats && metadata.stats.length > 0;
+
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -24,19 +26,21 @@ const CollectionMetadata = ({ theme, metadata }: Props) => {
         </div>
       </div>
 
-      <div className={styles.stats} style={{ color: theme.textPrimary }}>
-        {metadata.stats.map((stat, index) => (
-          <div className={styles.statContainer}>
-            <div key={stat.label} className={styles.stat}>
-              <div className={styles.value}>{stat.value}</div>
-              <div className={styles.label} style={{ color: theme.textSecondary }}>
-                {stat.label}
+      {showStats && (
+        <div className={styles.stats} style={{ color: theme.textPrimary }}>
+          {metadata.stats?.map((stat, index) => (
+            <div className={styles.statContainer}>
+              <div key={stat.label} className={styles.stat}>
+                <div className={styles.value}>{stat.value}</div>
+                <div className={styles.label} style={{ color: theme.textSecondary }}>
+                  {stat.label}
+                </div>
               </div>
+              {metadata.stats?.length && index < metadata.stats?.length - 1 && <div className={styles.divider} style={{ borderColor: theme.dividerColor }} />}
             </div>
-            {index < metadata.stats.length - 1 && <div className={styles.divider} style={{ borderColor: theme.dividerColor }} />}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <div className={styles.buttonContainer}>
         {metadata.buttons.map((button) => {

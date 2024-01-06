@@ -13,6 +13,19 @@
     margin-bottom: 8px;
   }
 
+  .strikethrough {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  .soldOutLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: red;
+    text-decoration: none;
+    margin-left: 8px;
+  }
+
   .divider {
     margin: 12px 0px;
   }

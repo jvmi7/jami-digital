@@ -31,18 +31,14 @@ export default function Home() {
       </Head>
       <Div100vh style={{ overflow: 'hidden' }}>
         <AnimatePresence mode='wait'>
-          {isMobile ? (
-            <Gameboy />
-          ) : showSplash ? (
-            <Splash
-              key='splash'
-              onClick={() => {
-                setShowSplash(false);
-              }}
-            />
-          ) : (
-            <Desktop />
-          )}
+          {/* <Splash
+            key='splash'
+            onClick={() => {
+              setShowSplash(false);
+            }}
+          /> */}
+          )
+          <Desktop />
         </AnimatePresence>
       </Div100vh>
     </>
