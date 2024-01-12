@@ -38,10 +38,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: 'Source Code Pro', sans-serif;
-  color: var(--primary-color);
+  color: white;
   background-color: black;
   min-height: -webkit-fill-available;
-  background: linear-gradient(180deg, #15d1bb 0%, #00a1ff 100%);
+  background-color: #000000;
+  // background: linear-gradient(180deg, #15d1bb 0%, #00a1ff 100%);
   background-size: 100% 100%;
   cursor: var(--cursor-default);
 }

@@ -29,17 +29,9 @@ export default function Home() {
         <link rel='preload' href='/secondaryButton.svg' as='image' />
         <link rel='preload' href='/arrow.svg' as='image' />
       </Head>
+
       <Div100vh style={{ overflow: 'hidden' }}>
-        <AnimatePresence mode='wait'>
-          {/* <Splash
-            key='splash'
-            onClick={() => {
-              setShowSplash(false);
-            }}
-          /> */}
-          )
-          <Desktop />
-        </AnimatePresence>
+        <AnimatePresence mode='wait'>{isMobile ? <div>mobile</div> : <Desktop />}</AnimatePresence>
       </Div100vh>
     </>
   );

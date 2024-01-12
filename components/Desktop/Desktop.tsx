@@ -15,20 +15,27 @@ function Desktop() {
   const constraintsRef = useRef(null);
 
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-  const { openWindows, onWindowClicked, closeWindow } = useContext(DesktopContext);
+  const { openWindows, onWindowClicked, closeWindow } =
+    useContext(DesktopContext);
 
   return (
     <div className={styles.dimmension}>
-      <motion.div className={styles.container} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+      <motion.div
+        className={styles.container}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
         <Header />
         <div ref={constraintsRef} className={styles.content}>
           <div ref={ref} className={styles.refContent}>
             <div className={styles.jvmi}>
-              <JvmiIcon color='white' width={200} height={200} />
+              <JvmiIcon color="white" width={200} height={200} />
             </div>
             <Widgets />
             <AnimatePresence>
-              {openWindows.map((window) => {
+              {openWindows.map(window => {
                 return (
                   <div key={window.urlLabel}>
                     <WindowContextProvider>
@@ -46,7 +53,10 @@ function Desktop() {
                         onClose={() => {
                           closeWindow(window);
                         }}
-                        zIndex={openWindows.findIndex((currentWindow) => currentWindow.urlLabel === window.urlLabel)}
+                        zIndex={openWindows.findIndex(
+                          currentWindow =>
+                            currentWindow.urlLabel === window.urlLabel
+                        )}
                         theme={window.theme}
                       >
                         {window.content}

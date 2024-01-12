@@ -3,7 +3,9 @@ import { themes } from '../styles/theme';
 
 const getRandomTheme = () => {
   try {
-    return Object.keys(themes).at(Math.floor(Math.random() * Object.keys(themes).length));
+    return Object.keys(themes).at(
+      Math.floor(Math.random() * Object.keys(themes).length)
+    );
   } catch (e) {
     return themes.LIGHT;
   }
@@ -19,6 +21,6 @@ export const useTheme = () => {
 
   return {
     theme,
-    setTheme
+    setTheme,
   };
 };
