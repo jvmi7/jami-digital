@@ -1,1 +1,11 @@
-export { Home } from './Home/Home';
+import { Home } from './Home/Home';
+
+const Mobile = () => {
+  return (
+    <div>
+      <Home />
+    </div>
+  );
+};
+
+export { Mobile };
