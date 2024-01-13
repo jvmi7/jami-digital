@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const SplashSection = () => {
   const { height } = useWindowSize();
 
-  const isSmall = height < 750;
+  const isSmall = height < 850;
   const numImages = isSmall ? 9 : 12;
   const imageGridStaggerAnimationDelay = 0.06;
   const textAnimationDelay = numImages * imageGridStaggerAnimationDelay + 0.2;
