@@ -27,6 +27,7 @@
     "react": "18.2.0",
     "react-div-100vh": "^0.7.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.3",
     "react-parallax-tilt": "^1.7.85",
     "react-query": "^3.39.3",
     "react-type-animation": "^2.1.2",
