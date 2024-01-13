@@ -18,6 +18,8 @@ const HelloSection = () => {
     mass: 0.5,
   };
 
+  const delay = 0.7;
+
   const animation_blue = {
     hidden: { opacity: 0, x: -100, rotate: -10 },
     visible: {
@@ -34,7 +36,7 @@ const HelloSection = () => {
       opacity: 1,
       x: 0,
       rotate: -6,
-      transition: { ...transition, delay: 0.1 },
+      transition: { ...transition, delay: delay },
     },
   };
 
@@ -44,7 +46,7 @@ const HelloSection = () => {
       opacity: 1,
       y: 0,
       rotate: 0,
-      transition: { ...transition, delay: 0.2 },
+      transition: { ...transition, delay: delay * 2 },
     },
   };
 
