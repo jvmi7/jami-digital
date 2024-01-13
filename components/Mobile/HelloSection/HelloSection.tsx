@@ -46,7 +46,7 @@ const HelloSection = () => {
       opacity: 1,
       y: 0,
       rotate: 0,
-      transition: { ...transition, delay: delay * 2 },
+      transition: { ...transition, delay: delay * 1.5 },
     },
   };
 

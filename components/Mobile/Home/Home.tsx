@@ -1,3 +1,4 @@
+import { BioSection } from '../BioSection/BioSection';
 import { Header } from '../Header/Header';
 import { HelloSection } from '../HelloSection/HelloSection';
 import { SplashSection } from '../SplashSection/SplashSection';
@@ -9,6 +10,11 @@ const Home = () => {
       <Header />
       <SplashSection />
       <HelloSection />
+      <div className={styles.content}>
+        <BioSection />
+      </div>
+
+      <div className={styles.footer}></div>
     </div>
   );
 };

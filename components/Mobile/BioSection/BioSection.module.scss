@@ -1,0 +1,60 @@
+.container {
+  border: 1px solid grey;
+  background-color: #090c0f;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-size: 18px;
+
+  .avatar {
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+
+  .location {
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+  }
+
+  .button {
+    margin-top: 12px;
+    padding: 12px 24px;
+    background-color: #0490ea;
+    border-radius: 22px;
+    transition: all 0.2s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #2ea1ff;
+      box-shadow: 0 0 0 2px #43aaff;
+    }
+
+    &:active {
+      background-color: #0490ea;
+    }
+  }
+
+  .blurb {
+    margin-top: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .emoji {
+      margin-left: 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
