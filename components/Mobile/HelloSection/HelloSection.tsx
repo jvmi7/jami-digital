@@ -3,11 +3,14 @@ import { useInView } from 'react-intersection-observer';
 
 import Image from 'next/image';
 import styles from './HelloSection.module.scss';
+import { useMeasure } from 'react-use';
 
 const HelloSection = () => {
+  const [imageRef, { height: imageHeight }] = useMeasure<HTMLDivElement>();
+
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 1,
   });
 
   const transition = {
@@ -51,11 +54,14 @@ const HelloSection = () => {
   };
 
   return (
-    <div className={styles.container} ref={ref}>
+    <>
       <AnimatePresence initial>
         {inView && (
-          <>
-            <div className={styles.imageContainer}>
+          <div
+            className={styles.stickerContainer}
+            style={{ height: imageHeight + 48 }}
+          >
+            <div className={styles.imageContainer} ref={imageRef}>
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -100,11 +106,12 @@ const HelloSection = () => {
                 />
               </motion.div>
             </div>
-          </>
+          </div>
         )}
       </AnimatePresence>
-    </div>
+      <div className={styles.container} ref={ref} style={{ height: 1 }}></div>
+    </>
   );
 };
 
-export { HelloSection };
+export default HelloSection;

@@ -1,20 +1,25 @@
 .container {
   position: relative;
+  margin-bottom: 24px;
+}
+
+.stickerContainer {
+  // margin-top: -200px;
+  position: relative;
   overflow: hidden;
-  height: 400px;
+}
 
-  .imageContainer {
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+.imageContainer {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
 
-    width: 75vw;
-    max-width: 420px;
-  }
+  width: 75vw;
+  max-width: 420px;
+}
 
-  .image {
-    width: 100%;
-    height: auto;
-  }
+.image {
+  width: 100%;
+  height: auto;
 }

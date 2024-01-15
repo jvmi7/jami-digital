@@ -1,15 +1,32 @@
 import { BioSection } from '../BioSection/BioSection';
 import { Header } from '../Header/Header';
-import { HelloSection } from '../HelloSection/HelloSection';
-import { SplashSection } from '../SplashSection/SplashSection';
 import styles from './Home.module.scss';
+import dynamic from 'next/dynamic';
+
+const SplashSectionDynamic = dynamic(
+  () => import('../SplashSection/SplashSection'),
+
+  {
+    ssr: false,
+    loading: () => <div className={styles.splashLoading} />,
+  }
+);
+
+const HelloSectionDynamic = dynamic(
+  () => import('../HelloSection/HelloSection'),
+
+  {
+    ssr: false,
+    loading: () => <div className={styles.splashLoading} />,
+  }
+);
 
 const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <SplashSection />
-      <HelloSection />
+      <SplashSectionDynamic />
+      <HelloSectionDynamic />
       <div className={styles.content}>
         <BioSection />
       </div>

@@ -71,7 +71,7 @@ const SplashSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: textAnimationDelay }}
       >
-        motorheadz, <span className={styles.date}>2022</span>
+        {/* motorheadz, <span className={styles.date}>2022</span> */}
       </motion.p>
       <motion.div
         className={styles.taglineContainer}
@@ -89,4 +89,4 @@ const SplashSection = () => {
   );
 };
 
-export { SplashSection };
+export default SplashSection;
