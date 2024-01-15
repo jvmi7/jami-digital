@@ -7,7 +7,7 @@ import styles from './HelloSection.module.scss';
 const HelloSection = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.75,
   });
 
   const transition = {
