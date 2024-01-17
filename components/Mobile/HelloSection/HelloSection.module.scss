@@ -1,7 +1,9 @@
 .container {
   position: relative;
   overflow: hidden;
-  height: 400px;
+  // height: 400px;
+  height: 70vw;
+  max-height: 400px;
 
   .imageContainer {
     position: absolute;
