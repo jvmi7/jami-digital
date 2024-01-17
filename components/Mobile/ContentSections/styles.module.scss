@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 72px;
+  margin-bottom: 144px;
 
   .title {
     font-family: var(--header-font);
@@ -33,7 +33,7 @@
     }
 
     @media screen and (max-width: 509px) {
-      padding: 0 12px;
+      padding: 0 24px;
     }
 
     .textContainer {
