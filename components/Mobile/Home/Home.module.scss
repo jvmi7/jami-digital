@@ -17,6 +17,10 @@
   @media screen and (max-width: 700px) {
     padding: 0 12px;
   }
+
+  @media screen and (max-width: 509px) {
+    padding: 0;
+  }
 }
 
 .infoContainer {
