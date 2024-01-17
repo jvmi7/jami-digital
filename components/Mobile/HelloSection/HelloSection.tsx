@@ -3,11 +3,14 @@ import { useInView } from 'react-intersection-observer';
 
 import Image from 'next/image';
 import styles from './HelloSection.module.scss';
+import { useMeasure } from 'react-use';
 
 const HelloSection = () => {
+  const [imageRef, { height: imageHeight }] = useMeasure<HTMLDivElement>();
+
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.7,
   });
 
   const transition = {

@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: #12171c;
+  padding: 12px;
+
+  .time {
+    opacity: 0.3;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.messagesContainer {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .bubbleContainer {
+    display: flex;
+  }
+
+  .chatBubble {
+    padding: 12px 18px;
+    border-radius: 24px;
+    background-color: #000;
+    display: inline-block; // Makes the bubble size according to its content
+    flex-direction: column; // Stacks content vertically
+    word-break: break-word; // Ensures text wraps inside the bubble
+    width: fit-content;
+
+    p {
+      margin: 0; // Removes default paragraph margin
+      display: inline; // Inline display for text and images
+    }
+
+    .emoji {
+      margin-left: 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
