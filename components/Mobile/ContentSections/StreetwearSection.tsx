@@ -1,9 +1,9 @@
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
-import styles from './ArtworkSection.module.scss';
+import styles from './styles.module.scss';
 
-const ArtworkSection = () => {
+const StreetwearSection = () => {
   const motorheadzImages = [];
   for (let i = 1; i <= 10; i++) {
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
@@ -11,14 +11,14 @@ const ArtworkSection = () => {
 
   const projects = [
     {
-      title: 'motorheadz',
-      subtitle: 'pixelated avatars rooted in nostalgia',
+      title: 'machi.market',
+      subtitle: 'my current brand rooted in nostalgia',
       images: motorheadzImages,
       url: 'https://opensea.io/collection/motorheadz-optimism',
     },
     {
-      title: 'motorheadz',
-      subtitle: 'pixelated avatars rooted in nostalgia',
+      title: 'jami apparel',
+      subtitle: 'the intersection of south asia and modern streetwear',
       images: motorheadzImages,
       url: 'https://opensea.io/collection/motorheadz-optimism',
     },
@@ -26,8 +26,8 @@ const ArtworkSection = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>artwork</h1>
-      <p className={styles.subtitle}>[ my nft art collections ]</p>
+      <h1 className={styles.title}>streetwear</h1>
+      <p className={styles.subtitle}>[ my clothing projects ]</p>
 
       {projects.map((project, index) => (
         <div className={styles.project}>
@@ -50,4 +50,4 @@ const ArtworkSection = () => {
   );
 };
 
-export { ArtworkSection };
+export { StreetwearSection };

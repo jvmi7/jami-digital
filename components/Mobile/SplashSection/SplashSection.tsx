@@ -83,7 +83,7 @@ const SplashSection = () => {
           transition: { type: 'ease' },
         }}
       >
-        <p className={styles.tagline}>[ nft art & streetwear ]</p>
+        <p className={styles.tagline}>[ art streetwear & nfts ]</p>
       </motion.div>
     </div>
   );

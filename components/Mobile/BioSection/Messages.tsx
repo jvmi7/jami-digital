@@ -7,18 +7,6 @@ import { useInView } from 'react-intersection-observer';
 const messages = [
   <>
     <p>
-      gm & welcome to my digital art gallery
-      <Image
-        src={'/victory-hand-emoji.webp'}
-        alt="hello"
-        width={32}
-        height={32}
-        className={styles.emoji}
-      />
-    </p>
-  </>,
-  <>
-    <p>
       i make nfts, design clothing & code websites as forms of creative
       expression
       <Image
@@ -76,56 +64,58 @@ const Messages = () => {
         setCurrentMessages([messages[0], messages[1], messages[2]]);
       }, 4000);
       // add the fourth message after a delay
-      setTimeout(() => {
-        setCurrentMessages([
-          messages[0],
-          messages[1],
-          messages[2],
-          messages[3],
-        ]);
-      }, 6000);
+      // setTimeout(() => {
+      //   setCurrentMessages([
+      //     messages[0],
+      //     messages[1],
+      //     messages[2],
+      //   ]);
+      // }, 6000);
     }
   }, [inView]);
 
   return (
     <div className={styles.container}>
-      <p className={styles.time}>Today at 12:23pm</p>
-      <div
-        style={{
-          visibility: 'hidden',
-        }}
-        className={styles.messagesContainer}
-      >
-        {messages.map((message, index) => (
-          <div className={styles.bubbleContainer}>
-            <ChatBubble
-              key={index}
-              index={index}
-              message={message}
-              isLast={index === messages.length - 1}
-            />
-            <div className={styles.space} />
-          </div>
-        ))}
-      </div>
-
-      <div
-        className={styles.messagesContainer}
-        style={{ position: 'absolute', top: '32px' }}
-      >
-        {currentMessages &&
-          currentMessages.map((message, index) => (
+      <p className={styles.time}>Today at 4:20pm</p>
+      <div className={styles.messagesContainer}>
+        <div
+          className={styles.messagesContainer}
+          style={{ position: 'absolute', top: 0 }}
+        >
+          {currentMessages &&
+            currentMessages.map((message, index) => (
+              <div className={styles.bubbleContainer}>
+                <ChatBubble
+                  key={index}
+                  index={index}
+                  message={message}
+                  isLast={index === currentMessages.length - 1}
+                />
+                <div className={styles.space} />
+              </div>
+            ))}
+          {currentMessages.length < 3 && <TypingIndicator ref={ref} />}
+        </div>
+        <div
+          style={{
+            visibility: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+          }}
+        >
+          {messages.map((message, index) => (
             <div className={styles.bubbleContainer}>
               <ChatBubble
                 key={index}
                 index={index}
                 message={message}
-                isLast={index === currentMessages.length - 1}
+                isLast={index === messages.length - 1}
               />
               <div className={styles.space} />
             </div>
           ))}
-        {currentMessages.length < 4 && <TypingIndicator ref={ref} />}
+        </div>
       </div>
     </div>
   );
@@ -137,7 +127,7 @@ interface ChatBubbleProps {
   index: number;
 }
 const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
-  const maxWidth = index === 0 ? '85%' : index === 1 ? '90%' : '80%';
+  const maxWidth = index === 0 ? '83%' : index === 1 ? '97%' : '80%';
 
   return (
     <motion.div
