@@ -51,20 +51,22 @@ const Messages = () => {
     threshold: 1,
   });
 
+  const delay = 1600;
+
   useEffect(() => {
     if (inView) {
       // add the first message
       setTimeout(() => {
         setCurrentMessages([messages[0]]);
-      }, 2000);
+      }, delay);
       // add the second message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1]]);
-      }, 3000);
+      }, delay + 1000);
       // add the third message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1], messages[2]]);
-      }, 4000);
+      }, delay + 2000);
       // add the fourth message after a delay
       // setTimeout(() => {
       //   setCurrentMessages([
