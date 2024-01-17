@@ -15,8 +15,14 @@ const messages = [
         height={32}
         className={styles.emoji}
       />
+    </p>
+  </>,
+  <>
+    <p>
+      i make nfts, design clothing & code websites as forms of creative
+      expression
       <Image
-        src={'/artist-palette-emoji.webp'}
+        src={'/fire-emoji.webp'}
         alt="hello"
         width={32}
         height={32}
@@ -26,20 +32,34 @@ const messages = [
   </>,
   <>
     <p>
-      i make nfts, design clothing & code websites as forms of creative
-      expression. i've been building in web3 since 2019 & illustrating for 10+
-      years.
+      i've been building in web3 since 2019 & illustrating for 10+ years
+      <Image
+        src={'/writing-hand-emoji.webp'}
+        alt="hello"
+        width={32}
+        height={32}
+        className={styles.emoji}
+      />
     </p>
   </>,
   <>
-    <p>my work is largely influenced by nostalgia, graffiti & the internet.</p>
+    <p>
+      my work is revolves around nostalgia, graffiti & the internet
+      <Image
+        src={'/artist-palette-emoji.webp'}
+        alt="hello"
+        width={32}
+        height={32}
+        className={styles.emoji}
+      />
+    </p>
   </>,
 ];
 const Messages = () => {
   const [currentMessages, setCurrentMessages] = useState<React.ReactNode[]>([]);
 
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 1,
   });
 
@@ -50,11 +70,20 @@ const Messages = () => {
       // add the second message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1]]);
-      }, 1500);
+      }, 2000);
       // add the third message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1], messages[2]]);
-      }, 3000);
+      }, 4000);
+      // add the fourth message after a delay
+      setTimeout(() => {
+        setCurrentMessages([
+          messages[0],
+          messages[1],
+          messages[2],
+          messages[3],
+        ]);
+      }, 6000);
     }
   }, [inView]);
 
@@ -75,7 +104,7 @@ const Messages = () => {
               <div className={styles.space} />
             </div>
           ))}
-        {currentMessages.length < 3 && <TypingIndicator ref={ref} />}
+        {currentMessages.length < 4 && <TypingIndicator ref={ref} />}
       </div>
     </div>
   );
@@ -87,16 +116,18 @@ interface ChatBubbleProps {
   index: number;
 }
 const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
-  // const style = isLast ? { borderBottomLeftRadius: 0 } : {};
-
-  console.log('key', index);
-
   const maxWidth = index === 0 ? '85%' : index === 1 ? '90%' : '80%';
 
   return (
-    <div className={styles.chatBubble} style={{ maxWidth: maxWidth }}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ type: 'spring', bounce: 1, mass: 0.2 }}
+      className={styles.chatBubble}
+      style={{ maxWidth: maxWidth, transformOrigin: 'bottom left' }}
+    >
       {message}
-    </div>
+    </motion.div>
   );
 };
 
