@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Messages.module.scss';
 import Image from 'next/image';
+import { delay, motion } from 'framer-motion';
 
 const messages = [
   <>
@@ -57,6 +58,7 @@ const Messages = () => {
               <div className={styles.space} />
             </div>
           ))}
+        <TypingIndicator />
       </div>
     </div>
   );
@@ -68,15 +70,46 @@ interface ChatBubbleProps {
   index: number;
 }
 const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
-  const style = isLast ? { borderBottomLeftRadius: 0 } : {};
+  // const style = isLast ? { borderBottomLeftRadius: 0 } : {};
 
   console.log('key', index);
 
   const maxWidth = index === 0 ? '85%' : index === 1 ? '90%' : '80%';
 
   return (
-    <div className={styles.chatBubble} style={{ ...style, maxWidth: maxWidth }}>
+    <div className={styles.chatBubble} style={{ maxWidth: maxWidth }}>
       {message}
+    </div>
+  );
+};
+
+const TypingIndicator = () => {
+  const initial = { opacity: 0.5 };
+  const animate = { opacity: 1 };
+
+  return (
+    <div className={styles.typingIndicator}>
+      {Array.from(Array(3).keys()).map((_, index) => {
+        const delay = index * 0.15;
+
+        const transition = {
+          duration: 0.6,
+          repeat: Infinity,
+          repeatDelay: 0.15 * 2,
+          ease: 'easeInOut',
+          delay: delay,
+        };
+
+        return (
+          <motion.div
+            className={styles.dot}
+            initial={initial}
+            animate={animate}
+            transition={transition}
+            key={index}
+          />
+        );
+      })}
     </div>
   );
 };

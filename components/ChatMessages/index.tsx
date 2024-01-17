@@ -17,11 +17,19 @@ const ChatMessages = () => {
 };
 
 const SentMessage = () => {
-  return <div className={styles.sentMessage}>sent message sent message sent message sent message sent message </div>;
+  return (
+    <div className={styles.sentMessage}>
+      sent message sent message sent message sent message sent message{' '}
+    </div>
+  );
 };
 
 const ReceivedMessage = () => {
-  return <div className={styles.receivedMessage}>received message received message received message received message</div>;
+  return (
+    <div className={styles.receivedMessage}>
+      received message received message received message received message
+    </div>
+  );
 };
 
 export { ChatMessages };
