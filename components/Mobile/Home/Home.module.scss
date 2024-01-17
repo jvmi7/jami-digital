@@ -19,6 +19,21 @@
   }
 }
 
+.infoContainer {
+  padding: 0 12px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 72px;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 12px;
+    gap: 24px;
+  }
+}
+
 .footer {
   height: 200px;
 }

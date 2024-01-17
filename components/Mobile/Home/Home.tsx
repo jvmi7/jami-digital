@@ -11,9 +11,11 @@ const Home = () => {
     <div className={styles.container}>
       <Header />
       <SplashSection />
-      <HelloSection />
-      <div className={styles.content}>
+      <div className={styles.infoContainer}>
+        <HelloSection />
         <BioSection />
+      </div>
+      <div className={styles.content}>
         <ArtworkSection />
         <StreetwearSection />
       </div>

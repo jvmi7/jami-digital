@@ -3,15 +3,17 @@ import { useInView } from 'react-intersection-observer';
 
 import Image from 'next/image';
 import styles from './HelloSection.module.scss';
-import { useMeasure } from 'react-use';
+import { useMeasure, useWindowSize } from 'react-use';
 
 const HelloSection = () => {
-  const [imageRef, { height: imageHeight }] = useMeasure<HTMLDivElement>();
-
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.75,
   });
+
+  const { width } = useWindowSize();
+
+  const yAnimation = width < 1001 ? 15 : 45;
 
   const transition = {
     type: 'spring',
@@ -24,21 +26,23 @@ const HelloSection = () => {
   const delay = 0.7;
 
   const animation_blue = {
-    hidden: { opacity: 0, x: -100, rotate: -10 },
+    hidden: { opacity: 0, rotate: -8 },
     visible: {
       opacity: 1,
-      x: 0,
+      x: '-6%',
+      y: `-${yAnimation}%`,
       rotate: 5,
       transition: { ...transition },
     },
   };
 
   const animation_yellow = {
-    hidden: { opacity: 0, x: 100, rotate: 10 },
+    hidden: { opacity: 0, rotate: 10 },
     visible: {
       opacity: 1,
-      x: 0,
-      rotate: -6,
+      x: '5%',
+      y: `${yAnimation}%`,
+      rotate: 4,
       transition: { ...transition, delay: delay },
     },
   };
@@ -48,7 +52,8 @@ const HelloSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      rotate: 0,
+      x: '0%',
+      rotate: -3,
       transition: { ...transition, delay: delay * 1.5 },
     },
   };
