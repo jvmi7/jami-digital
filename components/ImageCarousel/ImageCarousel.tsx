@@ -18,7 +18,8 @@ interface ImageCarouselProps {
 const ImageCarousel = ({ images }: ImageCarouselProps) => {
   const [ref, { width }] = useMeasure<HTMLDivElement>();
 
-  const basisClasses = 'min-[510px]:basis-2/3 md:basis-1/2 lg:basis-1/3';
+  const basisClasses =
+    'min-[510px]:basis-2/3 md:basis-1/2 lg:basis-1/3 basis-3/4';
 
   const delay = Math.random() * 0.5 * 10000;
 
