@@ -71,7 +71,7 @@ const SplashSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: textAnimationDelay }}
       >
-        {/* motorheadz, <span className={styles.date}>2022</span> */}
+        motorheadz, <span className={styles.date}>2022</span>
       </motion.p>
       <motion.div
         className={styles.taglineContainer}
@@ -83,7 +83,7 @@ const SplashSection = () => {
           transition: { type: 'ease' },
         }}
       >
-        <p className={styles.tagline}>[ artwork streetwear nfts ]</p>
+        <p className={styles.tagline}>[ nft art & streetwear ]</p>
       </motion.div>
     </div>
   );

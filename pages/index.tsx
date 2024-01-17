@@ -10,8 +10,7 @@ import { useTheme } from '../hooks/useTheme';
 import { Mobile } from '../components/Mobile';
 
 export default function Home() {
-  // const isMobile = useMedia('(max-width: 800px)', false) || false;
-  const isMobile = true;
+  const isMobile = useMedia('(max-width: 100000px)', false) || false;
 
   const [showSplash, setShowSplash] = useState(true);
 
@@ -33,13 +32,14 @@ export default function Home() {
       </Head>
 
       <AnimatePresence mode="wait">
-        {isMobile ? (
+        {isMobile && <Mobile />}
+        {/* {isMobile ? (
           <Mobile />
         ) : (
           <Div100vh style={{ overflow: 'hidden' }}>
             <Desktop />
           </Div100vh>
-        )}
+        )} */}
       </AnimatePresence>
     </>
   );

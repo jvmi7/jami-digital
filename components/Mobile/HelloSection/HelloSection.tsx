@@ -10,7 +10,7 @@ const HelloSection = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 1,
+    threshold: 0.7,
   });
 
   const transition = {
@@ -54,14 +54,11 @@ const HelloSection = () => {
   };
 
   return (
-    <>
+    <div className={styles.container} ref={ref}>
       <AnimatePresence initial>
         {inView && (
-          <div
-            className={styles.stickerContainer}
-            style={{ height: imageHeight + 48 }}
-          >
-            <div className={styles.imageContainer} ref={imageRef}>
+          <>
+            <div className={styles.imageContainer}>
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -106,12 +103,11 @@ const HelloSection = () => {
                 />
               </motion.div>
             </div>
-          </div>
+          </>
         )}
       </AnimatePresence>
-      <div className={styles.container} ref={ref} style={{ height: 1 }}></div>
-    </>
+    </div>
   );
 };
 
-export default HelloSection;
+export { HelloSection };
