@@ -11,8 +11,8 @@ const Button = ({ children, onClick, href }: ButtonProps) => {
   // Render an <a> tag if href is provided
   if (href) {
     return (
-      <a href={href} className={styles.button}>
-        {children}
+      <a href={href} className={styles.button} target="_blank">
+        <div className={styles.content}>{children}</div>
       </a>
     );
   }
@@ -20,7 +20,7 @@ const Button = ({ children, onClick, href }: ButtonProps) => {
   // Render a <button> tag if onClick is provided
   return (
     <button className={styles.button} onClick={onClick}>
-      {children}
+      <div className={styles.content}>{children}</div>{' '}
     </button>
   );
 };

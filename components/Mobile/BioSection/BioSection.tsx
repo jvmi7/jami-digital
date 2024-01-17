@@ -25,9 +25,7 @@ const BioSection = () => {
           </div>
         </div>
       </div>
-
       <Messages />
-
       <button className={styles.button}>
         <MessagesIcon height={22} width={22} color={'white'} />
         message

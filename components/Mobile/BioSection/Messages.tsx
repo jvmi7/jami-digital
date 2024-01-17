@@ -90,8 +90,29 @@ const Messages = () => {
   return (
     <div className={styles.container}>
       <p className={styles.time}>Today at 12:23pm</p>
+      <div
+        style={{
+          visibility: 'hidden',
+        }}
+        className={styles.messagesContainer}
+      >
+        {messages.map((message, index) => (
+          <div className={styles.bubbleContainer}>
+            <ChatBubble
+              key={index}
+              index={index}
+              message={message}
+              isLast={index === messages.length - 1}
+            />
+            <div className={styles.space} />
+          </div>
+        ))}
+      </div>
 
-      <div className={styles.messagesContainer}>
+      <div
+        className={styles.messagesContainer}
+        style={{ position: 'absolute', top: '32px' }}
+      >
         {currentMessages &&
           currentMessages.map((message, index) => (
             <div className={styles.bubbleContainer}>

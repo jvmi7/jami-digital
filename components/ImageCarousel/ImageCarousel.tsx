@@ -20,6 +20,8 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
 
   const basisClasses = 'min-[510px]:basis-2/3 md:basis-1/2 lg:basis-1/3';
 
+  const delay = Math.random() * 0.5 * 10000;
+
   return (
     <div className={styles.container}>
       <Carousel

@@ -12,6 +12,7 @@
   background-color: #090c0f;
   border-radius: 24px;
   height: fit-content;
+  text-align: center;
 
   &:hover {
     border: 1px solid #3d3d3d;
@@ -25,5 +26,12 @@
 
   &:focus {
     outline: none;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 }
