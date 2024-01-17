@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .title {
+    font-family: var(--header-font);
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-bottom: 24px;
+  }
+
+  .carouselContainer {
+    margin-bottom: 24px;
+  }
+
+  .infoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 509px) {
+      padding: 0 12px;
+    }
+
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 24px;
+
+      .projectTitle {
+        font-size: 24px;
+        align-self: flex-start;
+      }
+
+      .projectSubtitle {
+        font-size: 16px;
+        font-weight: 400;
+        opacity: 0.6;
+        align-self: flex-start;
+      }
+    }
+  }
+}

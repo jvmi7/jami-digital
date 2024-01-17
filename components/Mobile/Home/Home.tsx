@@ -1,3 +1,4 @@
+import { ArtworkSection } from '../ArtworkSection/ArtworkSection';
 import { BioSection } from '../BioSection/BioSection';
 import { Header } from '../Header/Header';
 import { HelloSection } from '../HelloSection/HelloSection';
@@ -12,6 +13,7 @@ const Home = () => {
       <HelloSection />
       <div className={styles.content}>
         <BioSection />
+        <ArtworkSection />
       </div>
       <div className={styles.footer}></div>
     </div>
