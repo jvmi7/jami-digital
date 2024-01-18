@@ -36,7 +36,7 @@ const ArtworkSection = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>artwork</h1>
-      <p className={styles.subtitle}>[ my nft art collections ]</p>
+      <p className={styles.subtitle}>[ my digital art collections ]</p>
 
       {projects.map((project, index) => (
         <div className={styles.project}>
