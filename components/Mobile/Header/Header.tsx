@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <motion.div
       className={styles.container}
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -20, top: 0, position: 'fixed' }}
       animate={{ opacity: 1, y: 0, top: 0, position: 'fixed' }}
       transition={{ duration: 0.5, delay: transitionDelay }}
     >

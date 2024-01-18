@@ -21,7 +21,7 @@
       rgba(28, 127, 238, 1) 100%
     );
     background-size: 200% 200%; /* Larger background size */
-    animation: moveGradient 10s linear infinite; /* Animation */
+    animation: moveGradient 5s linear infinite; /* Animation */
 
     @keyframes moveGradient {
       0% {
