@@ -29,7 +29,8 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
             alt={'image-' + index}
             width={500}
             height={500}
-            className="rounded-lg"
+            style={{ objectFit: 'contain' }}
+            // className="rounded-lg"
           />
         </CarouselItem>
       ));
@@ -53,7 +54,8 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
               alt={'image-' + groupIndex + '-' + index}
               width={250}
               height={250}
-              className="rounded-md"
+              style={{ objectFit: 'contain' }}
+              // className="rounded-md"
             />
           ))}
         </CarouselItem>
