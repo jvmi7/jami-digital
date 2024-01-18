@@ -4,17 +4,27 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const SplashSection = () => {
-  const { height } = useWindowSize();
+  const { height, width } = useWindowSize();
 
-  const isSmall = height < 900;
-  const numImages = isSmall ? 9 : 12;
-  const imageGridStaggerAnimationDelay = 0.06;
-  const textAnimationDelay = numImages * imageGridStaggerAnimationDelay + 0.2;
+  // Determine the number of columns based on width
+  const columns = width < 800 ? 3 : width < 1000 ? 4 : 5;
+
+  // Determine the number of rows based on height
+  const rows = height < 900 ? 3 : 4;
+
+  // Calculate total number of images to display
+  const numImages = columns * rows;
 
   const motorheadzImages = [];
   for (let i = 1; i <= numImages; i++) {
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
   }
+
+  const isSmallWidth = width < 800;
+  const isLargeWidth = width > 1000;
+  const isSmallHeight = height < 900;
+  const imageGridStaggerAnimationDelay = 0.06;
+  const textAnimationDelay = numImages * imageGridStaggerAnimationDelay + 0.2;
 
   // Variants for the individual image container
   const imageContainerVariants = {
@@ -64,15 +74,16 @@ const SplashSection = () => {
             </motion.div>
           ))}
         </motion.div>
+        <motion.p
+          className={styles.imageTitle}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: textAnimationDelay }}
+        >
+          motorheadz, <span className={styles.date}>2022</span>
+        </motion.p>
       </motion.div>
-      <motion.p
-        className={styles.imageTitle}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: textAnimationDelay }}
-      >
-        motorheadz, <span className={styles.date}>2022</span>
-      </motion.p>
+
       <motion.div
         className={styles.taglineContainer}
         initial={{ opacity: 0, scale: 1, y: 10 }}

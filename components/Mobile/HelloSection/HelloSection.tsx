@@ -8,7 +8,7 @@ import { useMeasure, useWindowSize } from 'react-use';
 const HelloSection = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.75,
+    threshold: 0.5,
   });
 
   const { width } = useWindowSize();

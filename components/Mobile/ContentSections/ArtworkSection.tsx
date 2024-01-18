@@ -3,24 +3,33 @@ import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
 import styles from './styles.module.scss';
 
+type Project = {
+  title: string;
+  subtitle: string;
+  images: string[];
+  type: 'single' | 'multiple';
+  url: string;
+};
 const ArtworkSection = () => {
   const motorheadzImages = [];
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 20; i++) {
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
   }
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'motorheadz',
       subtitle: 'pixelated avatars rooted in nostalgia',
       images: motorheadzImages,
+      type: 'multiple',
       url: 'https://opensea.io/collection/motorheadz-optimism',
     },
     {
-      title: 'motorheadz',
-      subtitle: 'pixelated avatars rooted in nostalgia',
+      title: `1 of 1's`,
+      subtitle: 'my junk drawer of drawings',
       images: motorheadzImages,
-      url: 'https://opensea.io/collection/motorheadz-optimism',
+      type: 'single',
+      url: 'https://zora.co/collect/zora:0x747d8db5730a4f905ec2db371dbbc563d0ab826e',
     },
   ];
 
@@ -32,7 +41,7 @@ const ArtworkSection = () => {
       {projects.map((project, index) => (
         <div className={styles.project}>
           <div className={styles.carouselContainer}>
-            <ImageCarousel images={project.images} />
+            <ImageCarousel images={project.images} type={project.type} />
           </div>
           <div className={styles.infoContainer}>
             <div className={styles.textContainer}>
