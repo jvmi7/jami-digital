@@ -1,7 +1,10 @@
 .container {
   padding: 12px;
-  position: sticky;
   width: 100%;
+  z-index: 999;
+  background-color: rgba($color: #000, $alpha: 1);
+  backdrop-filter: blur(100px);
+  // border-bottom: 1px solid #3d3d3d;
 
   .logo {
     position: absolute;

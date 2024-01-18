@@ -20,7 +20,7 @@ const Header = () => {
     <motion.div
       className={styles.container}
       initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0, top: 0, position: 'fixed' }}
       transition={{ duration: 0.5, delay: transitionDelay }}
     >
       <MenuButton isOpen={isOpen} onClick={handleMenuClick} />

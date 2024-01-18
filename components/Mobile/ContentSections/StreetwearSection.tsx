@@ -6,10 +6,8 @@ import styles from './styles.module.scss';
 const StreetwearSection = () => {
   const motorheadzImages = [];
   for (let i = 1; i <= 10; i++) {
-    motorheadzImages.push('/welovetheart.webp');
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
   }
-  motorheadzImages.push('/welovetheart.webp');
 
   const projects = [
     {

@@ -5,6 +5,7 @@ import { HelloSection } from '../HelloSection/HelloSection';
 import SplashSection from '../SplashSection/SplashSection';
 import styles from './Home.module.scss';
 import { StreetwearSection } from '../ContentSections/StreetwearSection';
+import { Footer } from '../Footer/Footer';
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
         <ArtworkSection />
         <StreetwearSection />
       </div>
-      <div className={styles.footer}></div>
+      <Footer />
     </div>
   );
 };

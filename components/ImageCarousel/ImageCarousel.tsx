@@ -24,14 +24,20 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
           className={`flex justify-center pl-4 ${basisClasses}`}
           key={index}
         >
-          <Image
-            src={image}
-            alt={'image-' + index}
-            width={500}
-            height={500}
-            style={{ objectFit: 'contain' }}
-            // className="rounded-lg"
-          />
+          <div
+            key={index}
+            className="flex justify-center items-center" // Centering the content
+            style={{ height: '100%' }} // Ensure the div fills the grid cell
+          >
+            <Image
+              src={image}
+              alt={'image-' + index}
+              width={500}
+              height={500}
+              style={{ objectFit: 'contain' }}
+              className="rounded-lg"
+            />
+          </div>
         </CarouselItem>
       ));
     } else {
@@ -48,15 +54,21 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
           key={groupIndex}
         >
           {group.map((image, index) => (
-            <Image
+            <div
               key={index}
-              src={image}
-              alt={'image-' + groupIndex + '-' + index}
-              width={250}
-              height={250}
-              style={{ objectFit: 'contain' }}
-              // className="rounded-md"
-            />
+              className="flex justify-center items-center" // Centering the content
+              style={{ height: '100%' }} // Ensure the div fills the grid cell
+            >
+              <Image
+                src={image}
+                alt={'image-' + groupIndex + '-' + index}
+                width={250}
+                height={250}
+                layout="intrinsic" // Adjust as needed for your layout
+                style={{ objectFit: 'contain' }}
+                className="rounded-sm"
+              />
+            </div>
           ))}
         </CarouselItem>
       ));
