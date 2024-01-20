@@ -7,6 +7,7 @@ import styles from './BioSection.module.scss';
 import Image from 'next/image';
 import { Messages } from './Messages';
 import { SendPlaneIcon } from '../../../icons/SendPlaneIcon';
+
 const BioSection = () => {
   return (
     <div className={styles.container}>

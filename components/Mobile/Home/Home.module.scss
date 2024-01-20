@@ -31,7 +31,7 @@
   margin-bottom: 72px;
 
   @media screen and (max-width: 900px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     padding: 0 12px;
     gap: 24px;

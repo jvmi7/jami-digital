@@ -9,6 +9,10 @@
   padding: 0px 12px;
   margin-top: 72px;
   position: relative;
+
+  @media screen and (max-height: 800px) {
+    justify-content: flex-start;
+  }
 }
 
 .container {
@@ -16,7 +20,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   gap: 12px;
 
   .imageGrid {

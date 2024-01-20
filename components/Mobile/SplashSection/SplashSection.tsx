@@ -21,7 +21,7 @@ const SplashSection = () => {
   const columns = width < 800 ? 3 : width < 1000 ? 4 : 5;
 
   // Determine the number of rows based on height
-  const rows = height < 800 ? 3 : 4;
+  const rows = height < 700 ? 3 : 4;
 
   // Calculate total number of images to display
   const numImages = columns * rows;
