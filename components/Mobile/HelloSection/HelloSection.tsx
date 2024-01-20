@@ -14,7 +14,15 @@ const HelloSection = () => {
 
   const { width } = useWindowSize();
 
-  const yAnimation = width < 1001 ? 15 : 45;
+  let yAnimation = 0;
+  const xAnimation = width < 900 && width > 750 ? 5 : 1;
+  if (width > 1071) {
+    yAnimation = 45;
+  } else if (width <= 1071 && width > 900) {
+    yAnimation = 70;
+  } else {
+    yAnimation = 15;
+  }
 
   const transition = {
     type: 'spring',
@@ -30,7 +38,7 @@ const HelloSection = () => {
     hidden: { opacity: 0, rotate: -8 },
     visible: {
       opacity: 1,
-      x: '-6%',
+      x: `-${6 * xAnimation}%`,
       y: `-${yAnimation}%`,
       rotate: 5,
       transition: { ...transition },
@@ -41,7 +49,7 @@ const HelloSection = () => {
     hidden: { opacity: 0, rotate: 10 },
     visible: {
       opacity: 1,
-      x: '5%',
+      x: `${5 * xAnimation}%`,
       y: `${yAnimation}%`,
       rotate: 4,
       transition: { ...transition, delay: delay },
