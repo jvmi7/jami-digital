@@ -13,7 +13,7 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
   const [ref, { width }] = useMeasure<HTMLDivElement>();
 
   const basisClasses =
-    'min-[510px]:basis-2/3 md:basis-1/2 lg:basis-1/3 basis-full';
+    'min-[510px]:basis-1/2 md:basis-1/2 lg:basis-1/3 basis-full';
 
   const containerSpacing = type === 'single' ? '-ml-2' : '-ml-2';
 

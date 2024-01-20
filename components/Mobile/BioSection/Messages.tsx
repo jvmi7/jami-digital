@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 const messages = [
   <>
     <p>
-      i make nfts, design clothing & code websites as forms of creative
+      gm. i make nfts, design clothing & code websites as forms of creative
       expression
       <Image
         src={'/fire-emoji.webp'}
@@ -131,7 +131,7 @@ interface ChatBubbleProps {
   index: number;
 }
 const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
-  const maxWidth = index === 0 ? '83%' : index === 1 ? '97%' : '80%';
+  const maxWidth = index === 0 ? '85%' : index === 1 ? '97%' : '80%';
 
   return (
     <motion.div
