@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import styles from './HelloSection.module.scss';
 import { useMeasure, useWindowSize } from 'react-use';
+import { Element } from 'react-scroll';
 
 const HelloSection = () => {
   const { ref, inView } = useInView({
@@ -59,59 +60,62 @@ const HelloSection = () => {
   };
 
   return (
-    <div className={styles.container} ref={ref}>
-      <AnimatePresence initial>
-        {inView && (
-          <>
-            <div className={styles.imageContainer}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={animation_blue}
-                className={styles.image}
-              >
-                <Image
-                  src={'/hello_sticker_blue.svg'}
-                  alt="hello blue"
-                  width={500}
-                  height={325}
-                />
-              </motion.div>
-            </div>
-            <div className={styles.imageContainer}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={animation_yellow}
-                className={styles.image}
-              >
-                <Image
-                  src={'/hello_sticker_yellow.svg'}
-                  alt="hello yellow"
-                  width={500}
-                  height={325}
-                />
-              </motion.div>
-            </div>
-            <div className={styles.imageContainer}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={animation_red}
-                className={styles.image}
-              >
-                <Image
-                  src={'/hello_sticker_red.svg'}
-                  alt="hello red"
-                  width={500}
-                  height={325}
-                />
-              </motion.div>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <Element name="hello" />
+      <div className={styles.container} ref={ref}>
+        <AnimatePresence initial>
+          {inView && (
+            <>
+              <div className={styles.imageContainer}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animation_blue}
+                  className={styles.image}
+                >
+                  <Image
+                    src={'/hello_sticker_blue.svg'}
+                    alt="hello blue"
+                    width={500}
+                    height={325}
+                  />
+                </motion.div>
+              </div>
+              <div className={styles.imageContainer}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animation_yellow}
+                  className={styles.image}
+                >
+                  <Image
+                    src={'/hello_sticker_yellow.svg'}
+                    alt="hello yellow"
+                    width={500}
+                    height={325}
+                  />
+                </motion.div>
+              </div>
+              <div className={styles.imageContainer}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={animation_red}
+                  className={styles.image}
+                >
+                  <Image
+                    src={'/hello_sticker_red.svg'}
+                    alt="hello red"
+                    width={500}
+                    height={325}
+                  />
+                </motion.div>
+              </div>
+            </>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
 

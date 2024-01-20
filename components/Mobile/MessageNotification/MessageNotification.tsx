@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MessagesIcon } from '../../../icons/MessagesIcon';
 import { JvmiHandle } from '../../JvmiHandle/JvmiHandle';
 import styles from './MessageNotification.module.scss';
+import { Link } from 'react-scroll';
 
 interface MessageNotificationProps {
   hide: boolean;
@@ -50,9 +51,11 @@ const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
               </p>
             </div>
           </div>
-          <button className={styles.button} onClick={onClick}>
-            view
-          </button>
+          <Link to="hello" smooth={true} offset={-72} duration={500}>
+            <button className={styles.button} onClick={onClick}>
+              view
+            </button>
+          </Link>
         </motion.div>
       )}
     </AnimatePresence>
