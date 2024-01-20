@@ -15,13 +15,13 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
   const basisClasses =
     'min-[510px]:basis-2/3 md:basis-1/2 lg:basis-1/3 basis-full';
 
-  const containerSpacing = type === 'single' ? '-ml-4' : '-ml-2';
+  const containerSpacing = type === 'single' ? '-ml-2' : '-ml-2';
 
   const renderImages = () => {
     if (type === 'single') {
       return images.map((image, index) => (
         <CarouselItem
-          className={`flex justify-center pl-4 ${basisClasses}`}
+          className={`flex justify-center pl-2 ${basisClasses}`}
           key={index}
         >
           <div
@@ -50,7 +50,7 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
 
       return groupedImages.map((group, groupIndex) => (
         <CarouselItem
-          className={`grid grid-cols-2 grid-rows-2 gap-3 pl-3 ${basisClasses}`}
+          className={`grid grid-cols-2 grid-rows-2 gap-2 pl-2 ${basisClasses}`}
           key={groupIndex}
         >
           {group.map((image, index) => (

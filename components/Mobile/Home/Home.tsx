@@ -6,6 +6,7 @@ import SplashSection from '../SplashSection/SplashSection';
 import styles from './Home.module.scss';
 import { StreetwearSection } from '../ContentSections/StreetwearSection';
 import { Footer } from '../Footer/Footer';
+import { MessageNotification } from '../MessageNotification/MessageNotification';
 
 const Home = () => {
   return (

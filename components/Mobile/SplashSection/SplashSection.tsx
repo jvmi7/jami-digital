@@ -1,16 +1,27 @@
 import { useWindowSize } from 'react-use';
 import styles from './SplashSection.module.scss';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { MessageNotification } from '../MessageNotification/MessageNotification';
+import { useEffect, useState } from 'react';
 
 const SplashSection = () => {
   const { height, width } = useWindowSize();
+  const [hideNotification, setHideNotification] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', latest => {
+    if (latest > 0) {
+      setHideNotification(true);
+    }
+  });
 
   // Determine the number of columns based on width
   const columns = width < 800 ? 3 : width < 1000 ? 4 : 5;
 
   // Determine the number of rows based on height
-  const rows = 4;
+  const rows = height < 800 ? 3 : 4;
 
   // Calculate total number of images to display
   const numImages = columns * rows;
@@ -48,6 +59,12 @@ const SplashSection = () => {
 
   return (
     <div className={styles.viewport}>
+      <MessageNotification
+        hide={hideNotification}
+        onClick={() => {
+          setHideNotification(true);
+        }}
+      />
       <motion.div
         className={styles.container}
         variants={containerVariants}

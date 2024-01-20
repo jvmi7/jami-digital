@@ -30,7 +30,7 @@ const BioSection = () => {
 
       <button className={styles.button}>
         {/* <MessagesIcon height={22} width={22} color={'white'} /> */}
-        contact me
+        contact me...
         <div className={styles.buttonIcon}>
           <SendPlaneIcon height={20} width={20} color={'white'} />
         </div>

@@ -1,0 +1,37 @@
+.container {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border: 1px solid #333;
+  background-color: #090c0f;
+  border-radius: 18px;
+  padding: 14px;
+  padding-left: 18px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 320px;
+
+  @media screen and (max-width: 500px) {
+    width: calc(100% - 32px);
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .button {
+    padding: 8px 16px;
+    background-color: #12171c;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background-color: #1a2128;
+    }
+  }
+}
