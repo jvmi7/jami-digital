@@ -35,7 +35,7 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
               width={500}
               height={500}
               style={{ objectFit: 'contain' }}
-              className="rounded-lg"
+              // className="rounded-lg"
             />
           </div>
         </CarouselItem>
@@ -66,7 +66,7 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
                 height={250}
                 layout="intrinsic" // Adjust as needed for your layout
                 style={{ objectFit: 'contain' }}
-                className="rounded-sm"
+                // className="rounded-sm"
               />
             </div>
           ))}

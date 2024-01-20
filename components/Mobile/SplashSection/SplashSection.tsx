@@ -10,7 +10,7 @@ const SplashSection = () => {
   const columns = width < 800 ? 3 : width < 1000 ? 4 : 5;
 
   // Determine the number of rows based on height
-  const rows = height < 900 ? 3 : 4;
+  const rows = 4;
 
   // Calculate total number of images to display
   const numImages = columns * rows;
@@ -20,9 +20,6 @@ const SplashSection = () => {
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
   }
 
-  const isSmallWidth = width < 800;
-  const isLargeWidth = width > 1000;
-  const isSmallHeight = height < 900;
   const imageGridStaggerAnimationDelay = 0.06;
   const textAnimationDelay = numImages * imageGridStaggerAnimationDelay + 0.2;
 
@@ -74,14 +71,14 @@ const SplashSection = () => {
             </motion.div>
           ))}
         </motion.div>
-        <motion.p
+        {/* <motion.p
           className={styles.imageTitle}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: textAnimationDelay }}
         >
           motorheadz, <span className={styles.date}>2022</span>
-        </motion.p>
+        </motion.p> */}
       </motion.div>
 
       <motion.div
@@ -94,7 +91,7 @@ const SplashSection = () => {
           transition: { type: 'ease' },
         }}
       >
-        <p className={styles.tagline}>[ art streetwear & nfts ]</p>
+        <p className={styles.tagline}>[ nft artist / streetwear designer ]</p>
       </motion.div>
     </div>
   );

@@ -6,6 +6,7 @@ import { JvmiHandle } from '../../JvmiHandle/JvmiHandle';
 import styles from './BioSection.module.scss';
 import Image from 'next/image';
 import { Messages } from './Messages';
+import { SendPlaneIcon } from '../../../icons/SendPlaneIcon';
 const BioSection = () => {
   return (
     <div className={styles.container}>
@@ -14,8 +15,8 @@ const BioSection = () => {
           className={styles.avatar}
           src={'/avatar.png'}
           alt="jvmi avatar"
-          width={80}
-          height={80}
+          width={70}
+          height={70}
         />
         <div className={styles.headerRight}>
           <JvmiHandle fontSize={20} />
@@ -26,9 +27,13 @@ const BioSection = () => {
         </div>
       </div>
       <Messages />
+
       <button className={styles.button}>
         {/* <MessagesIcon height={22} width={22} color={'white'} /> */}
-        respond
+        contact me
+        <div className={styles.buttonIcon}>
+          <SendPlaneIcon height={20} width={20} color={'white'} />
+        </div>
       </button>
     </div>
   );

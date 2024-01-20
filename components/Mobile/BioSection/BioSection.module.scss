@@ -45,24 +45,40 @@
 
   .button {
     margin-top: 12px;
-    padding: 16px 24px;
-    background-color: #0490ea;
-    border-radius: 24px;
+    padding: 8px;
+    padding-left: 22px;
+    height: 56px;
+    color: rgba($color: #ffffff, $alpha: 0.2);
+    font-weight: 400;
+    border: 1px solid #333;
+    // background-color: rgba($color: white, $alpha: 0.05);
+    background-color: black;
+    border-radius: 18px;
     transition: all 0.2s ease-out;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 18px;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
 
     &:hover {
-      background-color: #2ea1ff;
-      // box-shadow: 0 0 0 2px #43aaff;
+      border: 1px solid #444;
     }
 
     &:active {
-      background-color: #0490ea;
+      background-color: rgba($color: white, $alpha: 0.01);
+      border: 1px solid #444;
+    }
+
+    .buttonIcon {
+      background-color: #12171c;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

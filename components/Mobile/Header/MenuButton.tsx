@@ -38,7 +38,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isOpen, onClick }) => {
         alignItems: 'center',
         width: 48,
         height: 48,
-        borderRadius: 16,
+        borderRadius: 12,
       }}
       className={styles.menuButton}
     >
