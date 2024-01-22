@@ -27,7 +27,7 @@ const Header = () => {
       <div className={styles.logo}>
         <JvmiIcon color="white" height={48} width={56} />
       </div>
-      <SlidingMenu isOpen={isOpen} />
+      <SlidingMenu isOpen={isOpen} closeMenu={handleMenuClick} />
     </motion.div>
   );
 };

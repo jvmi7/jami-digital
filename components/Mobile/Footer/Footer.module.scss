@@ -45,12 +45,59 @@
     @media screen and (max-width: 600px) {
       flex-direction: column;
     }
+  }
+}
 
-    .iconContainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  cursor: pointer;
+
+  .iconLink {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.1s ease-in;
+  }
+
+  .x {
+    &:hover {
+      color: #0080ff;
+    }
+  }
+
+  .instagram {
+    &:hover {
+      color: #ff6200;
+    }
+  }
+
+  .farcaster {
+    &:hover {
+      color: #8a63d2;
+    }
+  }
+
+  .github {
+    &:hover {
+      color: #c831ff;
+    }
+  }
+
+  .blog {
+    &:hover {
+      color: #ffcc00;
+    }
+  }
+
+  .zora {
+    &:hover {
+      color: #60f7ff;
     }
   }
 }

@@ -12,26 +12,27 @@ import Tilt from 'react-parallax-tilt';
 
 const Home = () => {
   const { width } = useWindowSize();
-
-  const DynamicBioSection =
-    width < 500 ? (
-      <BioSection />
-    ) : (
-      <Tilt tiltReverse tiltMaxAngleX={5} tiltMaxAngleY={5}>
-        <BioSection />
-      </Tilt>
-    );
+  const tiltMaxAngle = width < 500 ? 0 : 5;
   return (
     <div className={styles.container}>
+      <Element name="home" />
       <Header />
       <SplashSection />
       <Element name="hello" />
       <div className={styles.infoContainer}>
         <HelloSection />
-        {DynamicBioSection}
+        <Tilt
+          tiltReverse
+          tiltMaxAngleX={tiltMaxAngle}
+          tiltMaxAngleY={tiltMaxAngle}
+        >
+          <BioSection />
+        </Tilt>
       </div>
       <div className={styles.content}>
+        <Element name="artwork" />
         <ArtworkSection />
+        <Element name="streetwear" />
         <StreetwearSection />
       </div>
       <Footer />
