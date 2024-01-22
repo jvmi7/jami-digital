@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: space-between;
   min-width: 320px;
+  cursor: pointer;
 
   @media screen and (max-width: 500px) {
     width: calc(100% - 32px);

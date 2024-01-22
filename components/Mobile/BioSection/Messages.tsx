@@ -32,7 +32,7 @@ const messages = [
   </>,
   <>
     <p>
-      my work is revolves around nostalgia, graffiti & the internet
+      my work revolves around nostalgia, graffiti & the internet
       <Image
         src={'/artist-palette-emoji.webp'}
         alt="hello"
