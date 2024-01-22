@@ -100,7 +100,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
           </div>
         </div>
         <div className={styles.bottom}>
-          <Button className={styles.connectButton}>connect wallet</Button>
+          {/* <Button className={styles.connectButton}>connect wallet</Button> */}
           <div className={styles.footer}>
             <Socials />
           </div>
