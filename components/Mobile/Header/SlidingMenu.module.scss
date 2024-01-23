@@ -3,12 +3,13 @@
   top: 71px;
   left: 0;
   width: 100%;
-  height: calc(100svh - 71px);
+  height: calc(100vh - 71px);
+  min-height: -webkit-fill-available;
   z-index: -1;
 
   .menuContainer {
     width: 100%;
-    height: calc(100svh - 71px);
+    height: calc(100vh - 71px);
     background-color: rgba($color: #000, $alpha: 1);
     padding: 12px;
     max-width: 400px;
@@ -96,7 +97,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100svh - 71px);
+    height: calc(100vh - 71px);
     background-color: rgba($color: #000, $alpha: 0.8);
     z-index: -1;
   }
