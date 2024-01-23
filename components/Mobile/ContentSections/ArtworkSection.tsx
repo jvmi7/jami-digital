@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
+import { oneOfOnes } from './constants';
 import styles from './styles.module.scss';
 import { Element } from 'react-scroll';
 
@@ -12,12 +13,13 @@ type Project = {
   url: string;
   element?: JSX.Element;
 };
-const ArtworkSection = () => {
-  const motorheadzImages = [];
-  for (let i = 1; i <= 20; i++) {
-    motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
-  }
 
+const motorheadzImages: any = [];
+for (let i = 1; i <= 20; i++) {
+  motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
+}
+
+const ArtworkSection = () => {
   const projects: Project[] = [
     {
       title: 'motorheadz',
@@ -30,7 +32,7 @@ const ArtworkSection = () => {
     {
       title: `1 of 1's`,
       subtitle: 'my junk drawer of drawings',
-      images: motorheadzImages,
+      images: oneOfOnes,
       type: 'single',
       url: 'https://zora.co/collect/zora:0x747d8db5730a4f905ec2db371dbbc563d0ab826e',
       element: <Element name="1-of-1" />,

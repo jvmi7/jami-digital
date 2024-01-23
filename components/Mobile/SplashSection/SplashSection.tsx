@@ -27,7 +27,7 @@ const SplashSection = () => {
   const numImages = columns * rows;
 
   const motorheadzImages = [];
-  for (let i = 1; i <= numImages; i++) {
+  for (let i = 1; i <= 20; i++) {
     motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
   }
 
@@ -57,6 +57,39 @@ const SplashSection = () => {
     },
   };
 
+  const row1StartingIndex = 0;
+  const row2StartingIndex = 5;
+  const row3StartingIndex = 10;
+  const row4StartingIndex = 15;
+
+  const row1 = motorheadzImages.slice(
+    row1StartingIndex,
+    row1StartingIndex + columns
+  );
+  const row2 = motorheadzImages.slice(
+    row2StartingIndex,
+    row2StartingIndex + columns
+  );
+  const row3 = motorheadzImages.slice(
+    row3StartingIndex,
+    row3StartingIndex + columns
+  );
+
+  const row5 = motorheadzImages.slice(
+    row4StartingIndex,
+    row4StartingIndex + columns
+  );
+
+  const stickerImages = [
+    '/priority-tx-stickers/rpgf3-sticker.png',
+    '/priority-tx-stickers/zora-sticker.png',
+    '/priority-tx-stickers/we-love-the-art-sticker.png',
+    '/priority-tx-stickers/bitcoin-sticker.png',
+    '/priority-tx-stickers/jvmi-sticker.png',
+  ];
+
+  const row4 = stickerImages.slice(0, columns);
+
   return (
     <div className={styles.viewport}>
       <MessageNotification
@@ -72,7 +105,67 @@ const SplashSection = () => {
         animate="visible"
       >
         <motion.div className={styles.imageGrid} variants={containerVariants}>
-          {motorheadzImages.map((image, index) => (
+          {row1.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
+          {row2.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
+          {row3.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
+          {/* {row5.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))} */}
+          {row4.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}
@@ -88,6 +181,7 @@ const SplashSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
         {/* <motion.p
           className={styles.imageTitle}
           initial={{ opacity: 0 }}
