@@ -17,3 +17,10 @@ export const oneOfOnes = [
   priorityTxStickers[3],
   priorityTxStickers[4],
 ];
+
+export const machiMarket = [
+  '/machi-market/karachi-murakami-tee-front.png',
+  '/machi-market/karachi-murakami-tee-back.png',
+  '/machi-market/karachi-murakami-hoodie-front.png',
+  '/machi-market/karachi-murakami-hoodie-back.png',
+];

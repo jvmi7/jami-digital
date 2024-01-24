@@ -3,25 +3,21 @@ import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
 import { Element } from 'react-scroll';
 import styles from './styles.module.scss';
+import { machiMarket } from './constants';
 
 const StreetwearSection = () => {
-  const motorheadzImages = [];
-  for (let i = 1; i <= 10; i++) {
-    motorheadzImages.push('/motorheadz/motorhead-' + i + '.png');
-  }
-
   const projects = [
     {
       title: 'machi.market',
       subtitle: 'my current brand rooted in nostalgia',
-      images: motorheadzImages,
+      images: machiMarket,
       url: 'https://opensea.io/collection/motorheadz-optimism',
       element: <Element name="machi-market" />,
     },
     {
       title: 'jami apparel',
       subtitle: 'the intersection of south asia and modern streetwear',
-      images: motorheadzImages,
+      images: machiMarket,
       url: 'https://opensea.io/collection/motorheadz-optimism',
       element: <Element name="jami-apparel" />,
     },
