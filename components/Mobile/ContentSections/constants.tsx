@@ -1,4 +1,4 @@
-const priorityTxStickers = [
+export const priorityTxStickers = [
   '/priority-tx-stickers/bitcoin-sticker.png',
   '/priority-tx-stickers/jvmi-sticker.png',
   '/priority-tx-stickers/rpgf3-sticker.png',

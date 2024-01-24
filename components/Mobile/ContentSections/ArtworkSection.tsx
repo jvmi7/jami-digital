@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
-import { oneOfOnes } from './constants';
+import { oneOfOnes, priorityTxStickers } from './constants';
 import styles from './styles.module.scss';
 import { Element } from 'react-scroll';
 
@@ -32,7 +32,7 @@ const ArtworkSection = () => {
     {
       title: `1 of 1's`,
       subtitle: 'my junk drawer of drawings',
-      images: oneOfOnes,
+      images: priorityTxStickers,
       type: 'single',
       url: 'https://zora.co/collect/zora:0x747d8db5730a4f905ec2db371dbbc563d0ab826e',
       element: <Element name="1-of-1" />,
