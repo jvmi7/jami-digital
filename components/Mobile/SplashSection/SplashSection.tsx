@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { MessageNotification } from '../MessageNotification/MessageNotification';
 import { useEffect, useState } from 'react';
+import { jamiApparel } from '../ContentSections/constants';
 
 const SplashSection = () => {
   const { height, width } = useWindowSize();
@@ -60,7 +61,6 @@ const SplashSection = () => {
   const row1StartingIndex = 0;
   const row2StartingIndex = 5;
   const row3StartingIndex = 10;
-  const row4StartingIndex = 15;
 
   const row1 = motorheadzImages.slice(
     row1StartingIndex,
@@ -70,15 +70,18 @@ const SplashSection = () => {
     row2StartingIndex,
     row2StartingIndex + columns
   );
-  const row3 = motorheadzImages.slice(
-    row3StartingIndex,
-    row3StartingIndex + columns
-  );
+  // const row3 = motorheadzImages.slice(
+  //   row3StartingIndex,
+  //   row3StartingIndex + columns
+  // );
 
-  const row5 = motorheadzImages.slice(
-    row4StartingIndex,
-    row4StartingIndex + columns
-  );
+  const row3 = [
+    jamiApparel[0],
+    jamiApparel[3],
+    jamiApparel[4],
+    jamiApparel[6],
+    jamiApparel[11],
+  ].slice(0, columns);
 
   const stickerImages = [
     '/priority-tx-stickers/rpgf3-sticker.png',
@@ -105,6 +108,21 @@ const SplashSection = () => {
         animate="visible"
       >
         <motion.div className={styles.imageGrid} variants={containerVariants}>
+          {row4.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
           {row1.map((image, index) => (
             <motion.div
               key={index}
@@ -136,36 +154,6 @@ const SplashSection = () => {
             </motion.div>
           ))}
           {row3.map((image, index) => (
-            <motion.div
-              key={index}
-              className={styles.imageContainer}
-              variants={imageContainerVariants}
-            >
-              <Image
-                src={image}
-                alt={'motorhead-' + index}
-                width={500}
-                height={500}
-                className={styles.image}
-              />
-            </motion.div>
-          ))}
-          {/* {row5.map((image, index) => (
-            <motion.div
-              key={index}
-              className={styles.imageContainer}
-              variants={imageContainerVariants}
-            >
-              <Image
-                src={image}
-                alt={'motorhead-' + index}
-                width={500}
-                height={500}
-                className={styles.image}
-              />
-            </motion.div>
-          ))} */}
-          {row4.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}

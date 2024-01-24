@@ -3,7 +3,7 @@ import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
 import { Element } from 'react-scroll';
 import styles from './styles.module.scss';
-import { machiMarket } from './constants';
+import { jamiApparel, machiMarket } from './constants';
 
 const StreetwearSection = () => {
   const projects = [
@@ -17,7 +17,7 @@ const StreetwearSection = () => {
     {
       title: 'jami apparel',
       subtitle: 'the intersection of south asia and modern streetwear',
-      images: machiMarket,
+      images: jamiApparel,
       url: 'https://opensea.io/collection/motorheadz-optimism',
       element: <Element name="jami-apparel" />,
     },
