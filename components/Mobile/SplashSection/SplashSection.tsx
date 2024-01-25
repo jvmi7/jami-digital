@@ -80,7 +80,7 @@ const SplashSection = () => {
     jamiApparel[3],
     jamiApparel[4],
     jamiApparel[6],
-    jamiApparel[11],
+    jamiApparel[12],
   ].slice(0, columns);
 
   const stickerImages = [
@@ -108,21 +108,6 @@ const SplashSection = () => {
         animate="visible"
       >
         <motion.div className={styles.imageGrid} variants={containerVariants}>
-          {row4.map((image, index) => (
-            <motion.div
-              key={index}
-              className={styles.imageContainer}
-              variants={imageContainerVariants}
-            >
-              <Image
-                src={image}
-                alt={'motorhead-' + index}
-                width={500}
-                height={500}
-                className={styles.image}
-              />
-            </motion.div>
-          ))}
           {row1.map((image, index) => (
             <motion.div
               key={index}
@@ -154,6 +139,22 @@ const SplashSection = () => {
             </motion.div>
           ))}
           {row3.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))}
+
+          {row4.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}
