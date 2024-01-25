@@ -3,6 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import { useMeasure } from 'react-use';
+import { useInView } from 'react-intersection-observer';
 
 interface ImageCarouselProps {
   images: string[];
@@ -10,7 +11,18 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
-  const [ref, { width }] = useMeasure<HTMLDivElement>();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const plugins = inView
+    ? [
+        Autoplay({
+          delay: 2000,
+        }),
+      ]
+    : [];
 
   const basisClasses =
     'min-[510px]:basis-1/2 md:basis-1/2 lg:basis-1/3 basis-full';
@@ -76,17 +88,12 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <Carousel
-        ref={ref}
         opts={{
           loop: true,
         }}
-        plugins={[
-          Autoplay({
-            delay: 2000,
-          }),
-        ]}
+        plugins={plugins}
       >
         <CarouselContent className={containerSpacing}>
           {renderImages()}

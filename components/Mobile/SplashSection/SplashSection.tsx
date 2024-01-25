@@ -3,7 +3,7 @@ import styles from './SplashSection.module.scss';
 import Image from 'next/image';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { MessageNotification } from '../MessageNotification/MessageNotification';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { jamiApparel } from '../ContentSections/constants';
 
 const SplashSection = () => {
@@ -79,7 +79,7 @@ const SplashSection = () => {
     jamiApparel[0],
     jamiApparel[3],
     jamiApparel[4],
-    jamiApparel[6],
+    '/machi-market/karachi-murakami-tee-back.png',
     jamiApparel[12],
   ].slice(0, columns);
 
@@ -92,6 +92,26 @@ const SplashSection = () => {
   ];
 
   const row4 = stickerImages.slice(0, columns);
+
+  const allRows = useMemo(() => {
+    const allRows = [];
+
+    for (let i = 0; i < columns; i++) {
+      allRows.push(row1[i]);
+      allRows.push(row2[i]);
+      allRows.push(row3[i]);
+      allRows.push(row4[i]);
+    }
+
+    // shuffle array
+    allRows.sort(() => Math.random() - 0.5);
+
+    return allRows;
+  }, [columns]);
+
+  console.log(allRows);
+
+  // shuffle array
 
   return (
     <div className={styles.viewport}>
@@ -108,7 +128,7 @@ const SplashSection = () => {
         animate="visible"
       >
         <motion.div className={styles.imageGrid} variants={containerVariants}>
-          {row1.map((image, index) => (
+          {/* {row1.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}
@@ -123,7 +143,7 @@ const SplashSection = () => {
               />
             </motion.div>
           ))}
-          {row2.map((image, index) => (
+          {row4.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}
@@ -154,7 +174,23 @@ const SplashSection = () => {
             </motion.div>
           ))}
 
-          {row4.map((image, index) => (
+          {row2.map((image, index) => (
+            <motion.div
+              key={index}
+              className={styles.imageContainer}
+              variants={imageContainerVariants}
+            >
+              <Image
+                src={image}
+                alt={'motorhead-' + index}
+                width={500}
+                height={500}
+                className={styles.image}
+              />
+            </motion.div>
+          ))} */}
+
+          {allRows.map((image, index) => (
             <motion.div
               key={index}
               className={styles.imageContainer}
