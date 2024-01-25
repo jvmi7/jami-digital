@@ -13,14 +13,15 @@ const StreetwearSection = () => {
       images: machiMarket,
       element: <Element name="machi-market" />,
       button: (
-        <Button href="https://opensea.io/collection/motorheadz-optimism">
+        <Button href="https://www.instagram.com/machi.market/">
           enter market <ExternalLinkIcon height={20} />
         </Button>
       ),
     },
     {
       title: 'jami apparel',
-      subtitle: 'the intersection of south asia and modern streetwear',
+      subtitle:
+        'illustrating the intersection between south asia and modern streetwear',
       images: jamiApparel,
       element: <Element name="jami-apparel" />,
       button: <Button disabled>SOLD OUT</Button>,

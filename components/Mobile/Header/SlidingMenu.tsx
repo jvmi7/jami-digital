@@ -6,10 +6,12 @@ import disableScroll from 'disable-scroll';
 import { HomeIcon } from '../../../icons/HomeIcon';
 import { CollageIcon } from '../../../icons/CollageIcon';
 import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
-import { Socials } from '../Footer/Socials';
+import { Socials, socialLinks } from '../Footer/Socials';
 import { Button } from '../Button/Button';
 import { Link } from 'react-scroll';
 import { CheckIcon } from '../../../icons/CheckIcon';
+import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
+import { ChevronRightIcon } from 'lucide-react';
 
 interface SlidingMenuProps {
   isOpen: boolean;
@@ -49,6 +51,17 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
 
   const iconSize = 32;
 
+  const externalLinkIconSize = 18;
+
+  const links = [
+    { url: socialLinks.x, text: 'x/twitter' },
+    { url: socialLinks.instagram, text: 'instagram' },
+    { url: socialLinks.farcaster, text: 'farcaster' },
+    { url: socialLinks.github, text: 'github' },
+    { url: socialLinks.blog, text: 'mirror.xyz' },
+    { url: socialLinks.zora, text: 'zora' },
+  ];
+
   return (
     <div
       className={styles.container}
@@ -69,9 +82,15 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
             <div className={styles.menuItem}>
               <CollageIcon height={iconSize} width={iconSize} color="white" />
               <p className={styles.menuItemText}>artwork</p>
+              <ChevronRightIcon
+                height={22}
+                width={22}
+                color="white"
+                style={{ marginBottom: '2px' }}
+              />
             </div>
           </LinkItem>
-          <div className={styles.menuSubItemContainer}>
+          {/* <div className={styles.menuSubItemContainer}>
             <div className={styles.items}>
               <LinkItem to="motorheadz" onClick={closeMenu}>
                 <p className={styles.menuSubItemText}>motorheadz</p>
@@ -80,7 +99,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 <p className={styles.menuSubItemText}>1 of 1's</p>
               </LinkItem>
             </div>
-          </div>
+          </div> */}
           <LinkItem to="streetwear" onClick={closeMenu}>
             <ShoppingCartIcon
               height={iconSize}
@@ -88,8 +107,14 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               color="white"
             />
             <p className={styles.menuItemText}>streetwear</p>
+            <ChevronRightIcon
+              height={22}
+              width={22}
+              color="white"
+              style={{ marginBottom: '2px' }}
+            />
           </LinkItem>
-          <div className={styles.menuSubItemContainer}>
+          {/* <div className={styles.menuSubItemContainer}>
             <div className={styles.items}>
               <LinkItem to="machi-market" onClick={closeMenu}>
                 <p className={styles.menuSubItemText}>machi market</p>
@@ -98,31 +123,26 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 <p className={styles.menuSubItemText}>jami apparel</p>
               </LinkItem>
             </div>
-          </div>
+          </div> */}
           <div className={styles.menuItem}>
             <CheckIcon height={iconSize} width={iconSize} color="white" />
             <p className={styles.menuItemText}>socials</p>
           </div>
           <div className={styles.menuSubItemContainer}>
             <div className={styles.items}>
-              <LinkItem to="machi-market" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>x/twitter</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>instagram</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>farcaster</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>github</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>mirror.xyz</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>zora</p>
-              </LinkItem>
+              {links.map(link => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  className={styles.menuSubItemLink}
+                >
+                  <p className={styles.menuSubItemText}>{link.text}</p>
+                  <ExternalLinkIcon
+                    height={externalLinkIconSize}
+                    width={externalLinkIconSize}
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </div>
