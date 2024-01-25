@@ -22,7 +22,7 @@ export const machiMarket = [
   '/machi-market/karachi-murakami-tee-front.png',
   '/machi-market/karachi-murakami-tee-back.png',
   '/machi-market/karachi-murakami-hoodie-front.png',
-  '/machi-market/karachi-murakami-hoodie-back.png',
+  // '/machi-market/karachi-murakami-hoodie-back.png',
 ];
 
 export const jamiApparel = [
