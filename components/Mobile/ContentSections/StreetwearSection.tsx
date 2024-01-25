@@ -11,15 +11,19 @@ const StreetwearSection = () => {
       title: 'machi.market',
       subtitle: 'my current brand rooted in nostalgia',
       images: machiMarket,
-      url: 'https://opensea.io/collection/motorheadz-optimism',
       element: <Element name="machi-market" />,
+      button: (
+        <Button href="https://opensea.io/collection/motorheadz-optimism">
+          enter market <ExternalLinkIcon height={20} />
+        </Button>
+      ),
     },
     {
       title: 'jami apparel',
       subtitle: 'the intersection of south asia and modern streetwear',
       images: jamiApparel,
-      url: 'https://opensea.io/collection/motorheadz-optimism',
       element: <Element name="jami-apparel" />,
+      button: <Button disabled>SOLD OUT</Button>,
     },
   ];
 
@@ -40,9 +44,7 @@ const StreetwearSection = () => {
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectSubtitle}>{project.subtitle}</p>
               </div>
-              <Button href={project.url}>
-                view collection <ExternalLinkIcon height={20} />
-              </Button>
+              {project.button}
             </div>
             {index !== projects.length - 1 && (
               <div className={styles.divider} />

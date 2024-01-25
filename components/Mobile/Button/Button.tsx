@@ -7,17 +7,26 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   className?: string;
+  disabled?: boolean;
 }
 
-const Button = ({ children, onClick, href, className }: ButtonProps) => {
+const Button = ({
+  children,
+  onClick,
+  href,
+  className,
+  disabled,
+}: ButtonProps) => {
+  const classnames = classNames(
+    styles.button,
+    className,
+    disabled && styles.disabled
+  );
+
   // Render an <a> tag if href is provided
   if (href) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        className={classNames(styles.button, className)}
-      >
+      <a href={href} target="_blank" className={classnames}>
         <div className={styles.content}>{children}</div>
       </a>
     );
@@ -25,7 +34,7 @@ const Button = ({ children, onClick, href, className }: ButtonProps) => {
 
   // Render a <button> tag if onClick is provided
   return (
-    <button className={classNames(styles.button, className)} onClick={onClick}>
+    <button className={classnames} onClick={onClick}>
       <div className={styles.content}>{children}</div>{' '}
     </button>
   );

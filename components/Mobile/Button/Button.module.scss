@@ -37,3 +37,12 @@
     gap: 8px;
   }
 }
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+  cursor: not-allowed;
+  background-color: #1c1c1c;
+  border-color: #1c1c1c;
+  color: #808080;
+}

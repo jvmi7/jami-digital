@@ -9,6 +9,7 @@ import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
 import { Socials } from '../Footer/Socials';
 import { Button } from '../Button/Button';
 import { Link } from 'react-scroll';
+import { CheckIcon } from '../../../icons/CheckIcon';
 
 interface SlidingMenuProps {
   isOpen: boolean;
@@ -60,10 +61,10 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
         className={styles.menuContainer}
       >
         <div className={styles.menu}>
-          <LinkItem to="home" onClick={closeMenu}>
+          {/* <LinkItem to="home" onClick={closeMenu}>
             <HomeIcon height={iconSize} width={iconSize} color="white" />
             <p className={styles.menuItemText}>home</p>
-          </LinkItem>
+          </LinkItem> */}
           <LinkItem to="artwork" onClick={closeMenu}>
             <div className={styles.menuItem}>
               <CollageIcon height={iconSize} width={iconSize} color="white" />
@@ -98,13 +99,39 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               </LinkItem>
             </div>
           </div>
-        </div>
-        <div className={styles.bottom}>
-          {/* <Button className={styles.connectButton}>connect wallet</Button> */}
-          <div className={styles.footer}>
-            <Socials />
+          <div className={styles.menuItem}>
+            <CheckIcon height={iconSize} width={iconSize} color="white" />
+            <p className={styles.menuItemText}>socials</p>
+          </div>
+          <div className={styles.menuSubItemContainer}>
+            <div className={styles.items}>
+              <LinkItem to="machi-market" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>x/twitter</p>
+              </LinkItem>
+              <LinkItem to="jami-apparel" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>instagram</p>
+              </LinkItem>
+              <LinkItem to="jami-apparel" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>farcaster</p>
+              </LinkItem>
+              <LinkItem to="jami-apparel" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>github</p>
+              </LinkItem>
+              <LinkItem to="jami-apparel" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>mirror.xyz</p>
+              </LinkItem>
+              <LinkItem to="jami-apparel" onClick={closeMenu}>
+                <p className={styles.menuSubItemText}>zora</p>
+              </LinkItem>
+            </div>
           </div>
         </div>
+        {/* <div className={styles.bottom}> */}
+        {/* <Button className={styles.connectButton}>connect wallet</Button> */}
+        {/* <div className={styles.footer}> */}
+        {/* <Socials /> */}
+        {/* </div> */}
+        {/* </div> */}
       </motion.div>
 
       {isOpen && (
