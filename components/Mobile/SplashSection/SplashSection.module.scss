@@ -40,6 +40,15 @@
       max-width: 800px;
     }
 
+    .imageContainer {
+      // transition: all 0.2s ease-in-out;
+      cursor: pointer;
+
+      // &:hover {
+      //   opacity: 0.7;
+      // }
+    }
+
     .image {
       width: 100%;
       height: auto;

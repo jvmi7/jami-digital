@@ -6,6 +6,11 @@
   background-color: #12171c;
   padding: 12px;
   position: relative;
+  overflow-y: scroll;
+  // hide scroll bar
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .time {
     opacity: 0.3;
@@ -44,6 +49,11 @@
       display: inline-block;
       vertical-align: middle;
     }
+  }
+
+  .responseBubble {
+    background-color: #f2f2f2;
+    color: black;
   }
 }
 

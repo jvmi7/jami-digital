@@ -1,7 +1,12 @@
 import { useWindowSize } from 'react-use';
 import styles from './SplashSection.module.scss';
 import Image from 'next/image';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion';
 import { MessageNotification } from '../MessageNotification/MessageNotification';
 import { useEffect, useMemo, useState } from 'react';
 import { jamiApparel } from '../ContentSections/constants';
@@ -44,6 +49,22 @@ const SplashSection = () => {
       transition: {
         duration: 0.3,
         ease: 'easeOut',
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: 100,
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    },
+
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.2,
+        spring: 0.5,
       },
     },
   };
@@ -109,7 +130,7 @@ const SplashSection = () => {
     return allRows;
   }, [columns]);
 
-  console.log(allRows);
+  const [hiddenImages, setHiddenImages] = useState<string[]>([]);
 
   // shuffle array
 
@@ -194,7 +215,17 @@ const SplashSection = () => {
             <motion.div
               key={index}
               className={styles.imageContainer}
+              style={
+                hiddenImages.includes(image)
+                  ? { visibility: 'hidden', pointerEvents: 'none', opacity: 0 }
+                  : { opacity: 1 }
+              }
               variants={imageContainerVariants}
+              onClick={() => {
+                setHiddenImages([...hiddenImages, image]);
+
+                console.log(hiddenImages);
+              }}
             >
               <Image
                 src={image}

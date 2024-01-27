@@ -82,12 +82,12 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
             <div className={styles.menuItem}>
               <CollageIcon height={iconSize} width={iconSize} color="white" />
               <p className={styles.menuItemText}>artwork</p>
-              <ChevronRightIcon
+              {/* <ChevronRightIcon
                 height={22}
                 width={22}
                 color="white"
                 style={{ marginBottom: '2px' }}
-              />
+              /> */}
             </div>
           </LinkItem>
           {/* <div className={styles.menuSubItemContainer}>
@@ -107,12 +107,12 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               color="white"
             />
             <p className={styles.menuItemText}>streetwear</p>
-            <ChevronRightIcon
+            {/* <ChevronRightIcon
               height={22}
               width={22}
               color="white"
               style={{ marginBottom: '2px' }}
-            />
+            /> */}
           </LinkItem>
           {/* <div className={styles.menuSubItemContainer}>
             <div className={styles.items}>

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Messages.module.scss';
 import Image from 'next/image';
 import { delay, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import classNames from 'classnames';
+import { socialLinks } from '../Footer/Socials';
 
 const messages = [
   <>
@@ -43,8 +45,16 @@ const messages = [
     </p>
   </>,
 ];
-const Messages = () => {
+
+interface MessagesProps {
+  response: string[];
+}
+
+const Messages = ({ response }: MessagesProps) => {
   const [currentMessages, setCurrentMessages] = useState<React.ReactNode[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [showLastMessage, setShowLastMessage] = useState(false); // used to show the last message after the typing indicator
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -54,7 +64,7 @@ const Messages = () => {
   const delay = 1600;
 
   useEffect(() => {
-    if (inView) {
+    if (inView && currentMessages.length === 0) {
       // add the first message
       setTimeout(() => {
         setCurrentMessages([messages[0]]);
@@ -78,10 +88,25 @@ const Messages = () => {
     }
   }, [inView]);
 
+  useEffect(() => {
+    if (response.length > 0) {
+      setIsTyping(true);
+      setTimeout(() => {
+        setIsTyping(false);
+        setShowLastMessage(true);
+      }, 2000);
+    }
+  }, [response]);
+
+  const container = containerRef.current;
+  if (container) {
+    container.scrollTop = 100000;
+  }
+
   return (
     <div className={styles.container}>
       <p className={styles.time}>Today at 4:20pm</p>
-      <div className={styles.messagesContainer}>
+      <div className={styles.messagesContainer} ref={containerRef}>
         <div
           className={styles.messagesContainer}
           style={{ position: 'absolute', top: 0 }}
@@ -89,17 +114,58 @@ const Messages = () => {
           {currentMessages &&
             currentMessages.map((message, index) => (
               <div className={styles.bubbleContainer}>
-                <ChatBubble
-                  key={index}
-                  index={index}
-                  message={message}
-                  isLast={index === currentMessages.length - 1}
-                />
+                <ChatBubble key={index} index={index} message={message} />
                 <div className={styles.space} />
               </div>
             ))}
           {currentMessages.length < 3 && <TypingIndicator ref={ref} />}
+          {response?.map((message, index) => (
+            <div
+              className={styles.bubbleContainer}
+              style={{ justifyContent: 'flex-end' }}
+            >
+              <ChatBubble
+                key={index}
+                index={index}
+                message={message}
+                isResponse
+              />
+              <div className={styles.space} />
+            </div>
+          ))}
+          {isTyping && <TypingIndicator ref={ref} />}
+          {showLastMessage && (
+            <div className={styles.bubbleContainer}>
+              <ChatBubble
+                index={1}
+                message={
+                  <>
+                    <p>
+                      the best way to reach me is via dm's on x/twitter at{' '}
+                      <a
+                        href={socialLinks.x}
+                        target="_blank"
+                        style={{ color: '#0690EA' }}
+                      >
+                        @jvmi_
+                      </a>
+                      <Image
+                        src={'/envelope-emoji.webp'}
+                        alt="hello"
+                        width={32}
+                        height={32}
+                        className={styles.emoji}
+                      />
+                    </p>
+                    <p></p>
+                  </>
+                }
+              />
+              <div className={styles.space} />
+            </div>
+          )}
         </div>
+
         <div
           style={{
             visibility: 'hidden',
@@ -110,15 +176,49 @@ const Messages = () => {
         >
           {messages.map((message, index) => (
             <div className={styles.bubbleContainer}>
+              <ChatBubble key={index} index={index} message={message} />
+              <div className={styles.space} />
+            </div>
+          ))}
+          {response?.map((message, index) => (
+            <div
+              className={styles.bubbleContainer}
+              style={{ justifyContent: 'flex-end' }}
+            >
               <ChatBubble
                 key={index}
                 index={index}
                 message={message}
-                isLast={index === messages.length - 1}
+                isResponse
               />
               <div className={styles.space} />
             </div>
           ))}
+          {isTyping && <TypingIndicator ref={ref} />}
+          {showLastMessage && (
+            <div className={styles.bubbleContainer}>
+              <ChatBubble
+                index={1}
+                message={
+                  <>
+                    <p>
+                      the best way to reach me is via dm's on x/twitter at
+                      @jvmi_
+                      <Image
+                        src={'/envelope-emoji.webp'}
+                        alt="hello"
+                        width={32}
+                        height={32}
+                        className={styles.emoji}
+                      />
+                    </p>
+                    <p></p>
+                  </>
+                }
+              />
+              <div className={styles.space} />
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -127,10 +227,10 @@ const Messages = () => {
 
 interface ChatBubbleProps {
   message: React.ReactNode;
-  isLast?: boolean;
   index: number;
+  isResponse?: boolean;
 }
-const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
+const ChatBubble = ({ index, message, isResponse }: ChatBubbleProps) => {
   const maxWidth = index === 0 ? '85%' : index === 1 ? '97%' : '80%';
 
   return (
@@ -138,7 +238,10 @@ const ChatBubble = ({ index, message, isLast }: ChatBubbleProps) => {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ type: 'spring', bounce: 1, mass: 0.2 }}
-      className={styles.chatBubble}
+      className={classNames(
+        styles.chatBubble,
+        isResponse && styles.responseBubble
+      )}
       style={{ maxWidth: maxWidth, transformOrigin: 'bottom left' }}
     >
       {message}

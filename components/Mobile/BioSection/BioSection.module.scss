@@ -11,6 +11,7 @@
   max-width: 500px;
   width: 100%;
   flex: 1;
+  transition: height 0.2s ease;
 
   .header {
     display: flex;
@@ -43,7 +44,7 @@
     padding: 8px;
     padding-left: 22px;
     height: 56px;
-    color: rgba($color: #ffffff, $alpha: 0.2);
+    color: rgba($color: #ffffff, $alpha: 0.6);
     font-weight: 400;
     border: 1px solid #333;
     // background-color: rgba($color: white, $alpha: 0.05);
@@ -75,5 +76,24 @@
       align-items: center;
       justify-content: center;
     }
+  }
+}
+
+.blinkingCursor {
+  animation: blink 1s infinite;
+  height: 20px;
+  width: 2px;
+  background-color: #cfcfcf;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
