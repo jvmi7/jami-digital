@@ -39,7 +39,6 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
           <div
             key={index}
             className="flex justify-center items-center" // Centering the content
-            style={{ height: '100%', background: '#222' }} // Ensure the div fills the grid cell
           >
             <Image
               src={image}
@@ -69,7 +68,6 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
             <div
               key={index}
               className="flex justify-center items-center" // Centering the content
-              style={{ height: '100%', background: '#222' }} // Ensure the div fills the grid cell
             >
               <Image
                 src={image}

@@ -222,9 +222,7 @@ const SplashSection = () => {
               }
               variants={imageContainerVariants}
               onClick={() => {
-                setHiddenImages([...hiddenImages, image]);
-
-                console.log(hiddenImages);
+                // setHiddenImages([...hiddenImages, image]);
               }}
             >
               <Image
