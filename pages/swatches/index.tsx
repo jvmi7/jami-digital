@@ -10,7 +10,7 @@ const swatches = () => {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
-    // Store the original body background color
+    // Store the original body background colo
     const originalBackgroundColor =
       document.documentElement.style.backgroundColor;
 
