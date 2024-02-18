@@ -25,6 +25,7 @@
   margin: auto;
   transition: all 0.2s ease;
   position: relative;
+  margin-top: -84px;
 
   .title {
     position: absolute;
@@ -32,11 +33,10 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
 
     @media screen and (max-width: 500px) {
       bottom: -48px;
-      font-size: 20px;
     }
   }
 
@@ -46,8 +46,8 @@
   }
 
   .container {
-    width: 90vw;
-    height: 90vw; /* Default size */
+    width: calc(min(90vw, 90vh));
+    height: calc(min(90vw, 90vh)); /* Default size */
     max-width: 100%; /* Ensure it doesn't overflow its container */
     max-height: 100%; /* Ensure it doesn't overflow its container */
     aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
@@ -55,12 +55,18 @@
     overflow: hidden;
 
     /* Adjustments for larger screens */
+
     @media (min-width: 500px) and (min-height: 500px) {
+      width: 350px;
+      height: 350px;
+    }
+
+    @media (min-width: 500px) and (min-height: 650px) {
       width: 440px;
       height: 440px;
     }
 
-    @media (min-width: 701px) and (min-height: 701px) {
+    @media (min-width: 701px) and (min-height: 750px) {
       width: 500px;
       height: 500px;
     }

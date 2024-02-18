@@ -8,7 +8,7 @@ const Footer = () => {
       <Button variant="secondary" isIcon>
         <RiShareForwardFill />
       </Button>
-      <div className={styles.learnMore}>learn more</div>
+      <Button variant="secondary">learn more</Button>
       <Button variant="secondary" isIcon>
         <RiShuffleFill />
       </Button>
