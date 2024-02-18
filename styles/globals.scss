@@ -31,6 +31,11 @@
   --cursor-pointer: pointer;
   --default-font: 'Source Code Pro', sans-serif;
   --header-font: 'Futura Bold', sans-serif;
+  // swatches
+  --swatches-background-color: #f1f1f1;
+  --swatches-background-hovered: #e1e0e0;
+  --swatches-text-color: #808080;
+  --swatches-button-background: #e5e5e5;
 }
 @import './theme.scss';
 @import './mixins.scss';
@@ -42,9 +47,8 @@ body {
   overflow-x: hidden;
   font-family: var(--default-font);
   color: white;
-  background-color: black;
   min-height: -webkit-fill-available;
-  background-color: #000000;
+  // background-color: #000000;
   background-size: 100% 100%;
   cursor: var(--cursor-default);
 }

@@ -1,0 +1,19 @@
+.container {
+  height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding: 12px;
+
+  .learnMore {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 18px;
+    border-radius: 50px;
+    background-color: var(--swatches-button-background);
+    color: var(--swatches-text-color);
+  }
+}

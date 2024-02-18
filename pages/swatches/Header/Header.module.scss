@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+
+  .backButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 5px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--swatches-background-hovered);
+      text-decoration: underline;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    border-radius: 100px;
+  }
+}
