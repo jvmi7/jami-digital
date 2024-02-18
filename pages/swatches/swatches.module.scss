@@ -3,13 +3,14 @@
   background-color: var(--swatches-background-color);
   display: flex;
   height: calc(100vh);
+  height: -webkit-fill-available; /* For Safari */
   flex-direction: column;
   align-items: center;
 }
 
 .iframe {
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   align-items: center;
