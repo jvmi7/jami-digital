@@ -2,8 +2,8 @@
   color: var(--swatches-text-color);
   background-color: var(--swatches-background-color);
   display: flex;
-  height: -webkit-fill-available; /* For Safari */
-  height: 100vh;
+  height: 100svh;
+  // height: -webkit-fill-available; /* For Safari */
   flex-direction: column;
   align-items: center;
 }
