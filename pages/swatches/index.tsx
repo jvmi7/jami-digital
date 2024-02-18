@@ -5,9 +5,15 @@ import styles from './swatches.module.scss';
 import Header from './Header/Header';
 import { useWindowSize } from 'react-use';
 import Footer from './Footer/Footer';
+import { AnimatePresence, motion } from 'framer-motion';
+import { animate, initial, pageVariants } from './constants';
+import { PageStateProvider, usePageState } from './page-state-context';
+import LearnMore from './LearnMore/LearnMore';
 
 const swatches = () => {
   const { width, height } = useWindowSize();
+  const { currentPage, swatchIndex } = usePageState();
+  console.log('swatchIndex', currentPage);
 
   useEffect(() => {
     // Store the original body background colo
@@ -25,18 +31,43 @@ const swatches = () => {
   }, []); // The empty array ensures this effect runs only once when the component mounts
 
   return (
-    <div className={styles.container}>
-      <Header />
-      <div className={styles.content}>
-        <div className={styles.iframe}>
-          <iframe
-            src="https://chromatic-factory.vercel.app/3"
-            className={styles.container}
-          />
-          <p className={styles.title}>swatches</p>
+    <PageStateProvider>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.content}>
+          <AnimatePresence>
+            {currentPage === 'home' ? (
+              <motion.div
+                variants={pageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <SwatchPreview swatchIndex={swatchIndex} />
+              </motion.div>
+            ) : currentPage === 'learn' ? (
+              <motion.div initial={initial} animate={animate}>
+                <LearnMore />
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
+        <Footer />
       </div>
-      <Footer />
+    </PageStateProvider>
+  );
+};
+
+const SwatchPreview = ({ swatchIndex }: { swatchIndex: number }) => {
+  return (
+    <div className={styles.iframe}>
+      <iframe
+        src={`https://chromatic-factory.vercel.app/${swatchIndex}`}
+        className={styles.container}
+      />
+      <motion.div initial={initial} animate={animate}>
+        <p className={styles.title}>swatches</p>
+      </motion.div>
     </div>
   );
 };
