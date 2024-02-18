@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react';
 import styles from './swatches.module.scss';
-import { Header } from './Header/Header';
+import Header from './Header/Header';
 import { useWindowSize } from 'react-use';
-import { Footer } from './Footer/Footer';
+import Footer from './Footer/Footer';
 
 const swatches = () => {
   const { width, height } = useWindowSize();
