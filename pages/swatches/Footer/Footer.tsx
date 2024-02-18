@@ -1,11 +1,17 @@
+import { RiShareForwardFill, RiShuffleFill } from '@remixicon/react';
+import Button from '../Button/Button';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
     <div className={styles.container}>
-      <div>share</div>
+      <Button variant="secondary" isIcon>
+        <RiShareForwardFill />
+      </Button>
       <div className={styles.learnMore}>learn more</div>
-      <div>mix</div>
+      <Button variant="secondary" isIcon>
+        <RiShuffleFill />
+      </Button>
     </div>
   );
 };

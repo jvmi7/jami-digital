@@ -3,7 +3,7 @@ import { IconProps } from './types';
 const FarcasterIcon = ({
   height = 24,
   width = 24,
-  color = 'white',
+  color = 'currentColor',
 }: IconProps) => {
   return (
     <svg

@@ -27,11 +27,14 @@ const swatches = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.iframe}>
-        <iframe
-          src="https://chromatic-factory.vercel.app/4"
-          className={styles.container}
-        />
+      <div className={styles.content}>
+        <div className={styles.iframe}>
+          <iframe
+            src="https://chromatic-factory.vercel.app/3"
+            className={styles.container}
+          />
+        </div>
+        <p className={styles.title}>swatches</p>
       </div>
       <Footer />
     </div>

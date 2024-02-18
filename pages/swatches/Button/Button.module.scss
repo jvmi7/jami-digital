@@ -1,0 +1,14 @@
+.button {
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: var(--swatches-button-dark-background);
+  color: white;
+}
+
+.secondary {
+  background-color: var(--swatches-button-background);
+  color: var(--swatches-text-color);
+}
