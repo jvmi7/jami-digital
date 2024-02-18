@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import styles from './Header.module.scss';
 import { ArrowLeft } from 'lucide-react';
-import { JvmiIcon } from '../../../icons/JvmiIcon';
+import { JvmiIcon } from '../../icons/JvmiIcon';
 import Button from '../Button/Button';
 import { RiAddFill, RiMoreFill, RiTwitterXFill } from '@remixicon/react';
-import { FarcasterIcon } from '../../../icons/FarcasterIcon';
-import { socialLinks } from '../../../components/Mobile/Footer/Socials';
+import { FarcasterIcon } from '../../icons/FarcasterIcon';
+import { socialLinks } from '../../components/Mobile/Footer/Socials';
 import Link from 'next/link';
 import { animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
