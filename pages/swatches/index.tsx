@@ -33,8 +33,8 @@ const swatches = () => {
             src="https://chromatic-factory.vercel.app/3"
             className={styles.container}
           />
+          <p className={styles.title}>swatches</p>
         </div>
-        <p className={styles.title}>swatches</p>
       </div>
       <Footer />
     </div>

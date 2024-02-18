@@ -14,16 +14,6 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-
-  .title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-top: 12px;
-
-    @media screen and (max-width: 500px) {
-      font-size: 20px;
-    }
-  }
 }
 
 .iframe {
@@ -34,6 +24,21 @@
   justify-content: center;
   margin: auto;
   transition: all 0.2s ease;
+  position: relative;
+
+  .title {
+    position: absolute;
+    bottom: -54px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: 600;
+
+    @media screen and (max-width: 500px) {
+      bottom: -48px;
+      font-size: 20px;
+    }
+  }
 
   @media screen and (max-width: 500px) {
     margin-left: 12px;
@@ -41,7 +46,7 @@
   }
 
   .container {
-    width: 100%;
+    width: 90vw;
     height: 90vw; /* Default size */
     max-width: 100%; /* Ensure it doesn't overflow its container */
     max-height: 100%; /* Ensure it doesn't overflow its container */
