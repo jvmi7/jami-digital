@@ -35,3 +35,5 @@ export const pageVariants = {
     },
   },
 };
+
+export const TOTAL_SWATCHES = 100;

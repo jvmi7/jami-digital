@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { animate, initial, pageVariants } from './constants';
 import { PageStateProvider, usePageState } from './page-state-context';
 import LearnMore from './LearnMore/LearnMore';
+import { Mint } from './Mint/Mint';
 
 const SwatchesPage = () => {
   const { width, height } = useWindowSize();
@@ -64,7 +65,7 @@ const SwatchesPage = () => {
             exit="exit"
             className={styles.content}
           >
-            mint
+            <Mint />
           </motion.div>
         ) : null}
       </AnimatePresence>

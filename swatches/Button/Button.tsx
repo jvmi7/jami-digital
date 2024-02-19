@@ -25,7 +25,7 @@ const Button = ({ variant, children, isIcon, onClick }: ButtonProps) => {
     },
   };
   return (
-    <motion.button
+    <motion.div
       className={classNames(
         styles.button,
         variant === 'primary' && styles.primary,
@@ -37,7 +37,7 @@ const Button = ({ variant, children, isIcon, onClick }: ButtonProps) => {
       onClick={onClick}
     >
       {children}
-    </motion.button>
+    </motion.div>
   );
 };
 

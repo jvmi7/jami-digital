@@ -2,11 +2,15 @@ import { RiShareForwardFill, RiShuffleFill } from '@remixicon/react';
 import Button from '../Button/Button';
 import styles from './Footer.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
-import { animate, exit, initial } from '../constants';
+import { TOTAL_SWATCHES, animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
 
 const Footer = () => {
-  const { currentPage, setCurrentPage } = usePageState();
+  const { currentPage, setCurrentPage, setSwatchIndex } = usePageState();
+  const handleShuffle = () => {
+    const randomNumber = Math.floor(Math.random() * TOTAL_SWATCHES) + 1; // Generates a random number between 1 and 2000
+    setSwatchIndex(randomNumber);
+  };
 
   return (
     <div className={styles.container}>
@@ -35,7 +39,7 @@ const Footer = () => {
               learn more
             </Button>
           </motion.div>
-        ) : (
+        ) : currentPage === 'learn' ? (
           <motion.div
             key="back"
             initial={initial}
@@ -48,14 +52,14 @@ const Footer = () => {
                 setCurrentPage('home');
               }}
             >
-              go back
+              exit
             </Button>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
 
       <motion.div initial={initial} animate={animate} exit={exit}>
-        <Button variant="secondary" isIcon>
+        <Button variant="secondary" isIcon onClick={handleShuffle}>
           <RiShuffleFill />
         </Button>
       </motion.div>

@@ -30,6 +30,7 @@
     transform: translateX(-50%);
     object-fit: cover;
     border-radius: 100px;
+    cursor: pointer;
   }
 
   .mintButton {
@@ -37,5 +38,27 @@
     background-color: var(--swatches-button-dark-background);
     padding: 8px 22px;
     color: white;
+  }
+}
+
+.menuContent {
+  box-shadow: none;
+  border: 2px solid var(--swatches-button-background);
+  padding: 6px;
+  border-radius: 26px;
+
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 24px;
+    color: var(--swatches-text-color);
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-color: var(--swatches-background-color);
+      color: #5a5a5a;
+    }
   }
 }
