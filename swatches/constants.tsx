@@ -5,7 +5,7 @@ export const animate = {
     type: 'spring',
     stiffness: 300,
     damping: 25,
-    delay: 1.25,
+    delay: 1,
   },
 };
 
@@ -30,6 +30,8 @@ export const pageVariants = {
   },
   exit: {
     opacity: 0,
-    scale: 0.6,
+    transition: {
+      duration: 0.2,
+    },
   },
 };

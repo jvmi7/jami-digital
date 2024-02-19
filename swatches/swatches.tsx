@@ -31,31 +31,43 @@ const SwatchesPage = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.content}>
-        <AnimatePresence exitBeforeEnter>
-          {currentPage === 'home' ? (
-            <motion.div
-              key="home"
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <SwatchPreview swatchIndex={swatchIndex} />
-            </motion.div>
-          ) : currentPage === 'learn' ? (
-            <motion.div
-              key="learn"
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <LearnMore />
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
-      </div>
+
+      <AnimatePresence exitBeforeEnter>
+        {currentPage === 'home' ? (
+          <motion.div
+            key="home"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className={styles.content}
+          >
+            <SwatchPreview swatchIndex={swatchIndex} />
+          </motion.div>
+        ) : currentPage === 'learn' ? (
+          <motion.div
+            key="learn"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className={styles.content}
+          >
+            <LearnMore />
+          </motion.div>
+        ) : currentPage === 'mint' ? (
+          <motion.div
+            key="mint"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className={styles.content}
+          >
+            mint
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
       <Footer />
     </div>
   );

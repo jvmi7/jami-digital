@@ -1,0 +1,97 @@
+.container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .header {
+    background-color: #f6f6f6;
+    color: #cbcbcb;
+    text-align: center;
+    padding: 6px;
+  }
+
+  .contentWrapper {
+    padding: 4px;
+    padding-left: 0;
+    padding-bottom: 12px;
+    background-color: white;
+  }
+
+  .content {
+    padding: 6px 12px;
+    color: #989898;
+    overflow-y: scroll;
+    max-height: 60vh;
+
+    /* Define the custom scrollbar */
+    &::-webkit-scrollbar {
+      width: 5px; /* Width of the scrollbar */
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: white; /* Color of the track */
+      width: 4px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #f1f1f1; /* Color of the scrollbar handle */
+      border-radius: 4px; /* Roundness of the handle */
+    }
+
+    .annotation {
+      color: #cbcbcb;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .subheading {
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: underline;
+      color: #777777;
+    }
+
+    .description {
+      font-size: 16px;
+      margin-bottom: 12px;
+      background-color: #f4f4f4;
+      border-left: 3px solid #cbcbcb;
+      padding: 4px 12px;
+      width: fit-content;
+      border-radius: 4px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .text {
+      line-height: 26px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .listContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding-left: 16px;
+      margin-bottom: 16px;
+
+      li {
+        list-style-type: disc;
+      }
+    }
+  }
+}
