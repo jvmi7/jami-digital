@@ -3,7 +3,12 @@ import styles from './Header.module.scss';
 import { ArrowLeft } from 'lucide-react';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import Button from '../Button/Button';
-import { RiAddFill, RiMoreFill, RiTwitterXFill } from '@remixicon/react';
+import {
+  RiAddFill,
+  RiLink,
+  RiMoreFill,
+  RiTwitterXFill,
+} from '@remixicon/react';
 import { FarcasterIcon } from '../../icons/FarcasterIcon';
 import { socialLinks } from '../../components/Mobile/Footer/Socials';
 import Link from 'next/link';
@@ -23,7 +28,7 @@ const Header = () => {
         <motion.div initial={initial} animate={animate} exit={exit}>
           <DropdownMenuTrigger>
             <Button isIcon variant="secondary">
-              <RiMoreFill size={20} />
+              <RiLink size={20} />
             </Button>
           </DropdownMenuTrigger>
         </motion.div>

@@ -14,7 +14,12 @@ const Footer = () => {
 
   return (
     <div className={styles.container}>
-      <motion.div initial={initial} animate={animate} exit={exit}>
+      <motion.div
+        initial={initial}
+        animate={animate}
+        exit={exit}
+        style={{ visibility: 'hidden' }}
+      >
         <Button variant="secondary" isIcon>
           <RiShareForwardFill />
         </Button>
@@ -57,12 +62,17 @@ const Footer = () => {
           </motion.div>
         ) : null}
       </AnimatePresence>
-
-      <motion.div initial={initial} animate={animate} exit={exit}>
-        <Button variant="secondary" isIcon onClick={handleShuffle}>
-          <RiShuffleFill />
-        </Button>
-      </motion.div>
+      <AnimatePresence>
+        {currentPage === 'home' ? (
+          <motion.div initial={initial} animate={animate} exit={exit}>
+            <Button variant="secondary" isIcon onClick={handleShuffle}>
+              <RiShuffleFill />
+            </Button>
+          </motion.div>
+        ) : (
+          <div style={{ width: '46px' }} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

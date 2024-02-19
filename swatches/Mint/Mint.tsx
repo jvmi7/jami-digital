@@ -14,19 +14,23 @@ const Mint = () => {
         target="_blank"
         className={classNames(styles.button, styles.x)}
       >
-        follow <JvmiHandle /> on X <RiExternalLinkFill size={16} />
+        follow <JvmiHandle /> on X
       </a>
       <a
-        href=""
+        href={socialLinks.farcaster}
         target="_blank"
         className={classNames(styles.button, styles.farcaster)}
       >
-        join /swatches on farcaster <RiExternalLinkFill size={16} />
+        join /swatches on farcaster
       </a>
       <p className={styles.description}>
-        not on farcaster?{' '}
+        <span>not on farcaster?</span>{' '}
         <a href="" target="_blank" className={styles.formLink}>
-          fill out this form
+          fill out this form{' '}
+          <RiExternalLinkFill
+            size={16}
+            style={{ display: 'inline', marginBottom: '4px' }}
+          />
         </a>
       </p>
 
