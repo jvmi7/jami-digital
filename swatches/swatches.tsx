@@ -8,6 +8,7 @@ import { animate, initial, pageVariants } from './constants';
 import { PageStateProvider, usePageState } from './page-state-context';
 import LearnMore from './LearnMore/LearnMore';
 import { Mint } from './Mint/Mint';
+import Head from 'next/head';
 
 const SwatchesPage = () => {
   const { width, height } = useWindowSize();
@@ -30,47 +31,80 @@ const SwatchesPage = () => {
   }, []); // The empty array ensures this effect runs only once when the component mounts
 
   return (
-    <div className={styles.container}>
-      <Header />
+    <>
+      <Head>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jvmi.art/swatches" />
+        <meta
+          property="og:title"
+          content="swatches: interactive generative nfts"
+        />
+        <meta
+          property="og:description"
+          content="the exploration of color, motion & human interaction"
+        />
+        <meta
+          property="og:image"
+          content="https://jvmi.art/swatches-meta-banner.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@jvmi_" />
+        <meta name="twitter:url" content="https://jvmi.art/swatches" />
+        <meta
+          name="twitter:title"
+          content="swatches: interactive generative nfts"
+        />
+        <meta
+          name="twitter:description"
+          content="the exploration of color, motion & human interaction"
+        />
+        <meta
+          name="twitter:image"
+          content="https://jvmi.art/swatches-meta-banner.png"
+        />
+      </Head>
+      <div className={styles.container}>
+        <Header />
 
-      <AnimatePresence exitBeforeEnter>
-        {currentPage === 'home' ? (
-          <motion.div
-            key="home"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={styles.content}
-          >
-            <SwatchPreview swatchIndex={swatchIndex} />
-          </motion.div>
-        ) : currentPage === 'learn' ? (
-          <motion.div
-            key="learn"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={styles.content}
-          >
-            <LearnMore />
-          </motion.div>
-        ) : currentPage === 'mint' ? (
-          <motion.div
-            key="mint"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={styles.content}
-          >
-            <Mint />
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-      <Footer />
-    </div>
+        <AnimatePresence exitBeforeEnter>
+          {currentPage === 'home' ? (
+            <motion.div
+              key="home"
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className={styles.content}
+            >
+              <SwatchPreview swatchIndex={swatchIndex} />
+            </motion.div>
+          ) : currentPage === 'learn' ? (
+            <motion.div
+              key="learn"
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className={styles.content}
+            >
+              <LearnMore />
+            </motion.div>
+          ) : currentPage === 'mint' ? (
+            <motion.div
+              key="mint"
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className={styles.content}
+            >
+              <Mint />
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+        <Footer />
+      </div>
+    </>
   );
 };
 

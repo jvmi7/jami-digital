@@ -33,6 +33,13 @@
     }
   }
 
+  .comment {
+    font-size: 14px;
+    opacity: 0.4;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
   .button {
     display: flex;
     justify-content: center;
@@ -67,6 +74,16 @@
     }
   }
 
+  .form {
+    background-color: #009dff;
+    border-color: #27acff;
+    color: white;
+
+    &:hover {
+      background-color: #0084ff;
+    }
+  }
+
   .mintDetails {
     width: 100%;
     background-color: var(--swatches-background-color);
@@ -75,6 +92,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 4px;
 
     .title {
       font-weight: 700;
