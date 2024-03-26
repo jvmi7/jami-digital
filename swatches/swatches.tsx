@@ -11,9 +11,7 @@ import { Mint } from './Mint/Mint';
 import Head from 'next/head';
 
 const SwatchesPage = () => {
-  const { width, height } = useWindowSize();
   const { currentPage, swatchIndex } = usePageState();
-  console.log('swatchIndex', currentPage);
 
   useEffect(() => {
     // Store the original body background colo
@@ -112,7 +110,7 @@ const SwatchPreview = ({ swatchIndex }: { swatchIndex: number }) => {
   return (
     <div className={styles.iframe}>
       <iframe
-        src={`https://chromatic-factory.vercel.app/${swatchIndex}`}
+        src={`https://jvmi-assets.on-fleek.app/${swatchIndex}/`}
         className={styles.container}
       />
       <motion.div initial={initial} animate={animate}>

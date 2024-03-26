@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 const PageStateContext = createContext({
   currentPage: 'home',
   setCurrentPage: (page: page) => {},
-  swatchIndex: 3,
+  swatchIndex: 16,
   setSwatchIndex: (index: number) => {},
 });
 
@@ -20,7 +20,7 @@ export const PageStateProvider = ({
   children: React.ReactNode;
 }) => {
   const [currentPage, setCurrentPage] = useState('home');
-  const [swatchIndex, setSwatchIndex] = useState(3);
+  const [swatchIndex, setSwatchIndex] = useState(16);
 
   console.log('currentPage', currentPage);
 

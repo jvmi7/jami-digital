@@ -9,8 +9,8 @@ const Mint = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>minting soon</h1>
-      <p className={styles.description}>to qualify for the mintlist:</p>
-      <a
+      {/* <p className={styles.description}>to qualify for the mintlist:</p> */}
+      {/* <a
         href={socialLinks.farcaster}
         target="_blank"
         className={classNames(styles.button, styles.form)}
@@ -28,6 +28,13 @@ const Mint = () => {
           width={20}
           height={20}
         />{' '}
+      </a> */}
+      <a
+        href={socialLinks.farcaster}
+        target="_blank"
+        className={classNames(styles.button, styles.farcaster)}
+      >
+        join /swatches on farcaster
       </a>
       <a
         href={socialLinks.x}
@@ -35,13 +42,6 @@ const Mint = () => {
         className={classNames(styles.button, styles.x)}
       >
         follow <JvmiHandle /> on X
-      </a>
-      <a
-        href={socialLinks.farcaster}
-        target="_blank"
-        className={classNames(styles.button, styles.farcaster)}
-      >
-        join /swatches on farcaster
       </a>
 
       {/* <p className={styles.description}>
@@ -57,17 +57,17 @@ const Mint = () => {
 
       <div className={styles.mintDetails}>
         <div>
-          <p className={styles.title}>total supply:</p>
+          <p className={styles.title}>supply:</p>
           <p className={styles.info}>5,555 swatches</p>
         </div>
         <div>
-          <p className={styles.title}>mint price:</p>
-          <p className={styles.info}>0.01 ETH (free w/ mint pass)</p>
+          <p className={styles.title}>mint date:</p>
+          <p className={styles.info}>TBD</p>
         </div>
       </div>
 
       <p className={classNames(styles.description, styles.comment)}>
-        additional mint passes will be awarded to active community members
+        mint passes will be awarded to active community members
       </p>
     </div>
   );
