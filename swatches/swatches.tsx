@@ -43,7 +43,7 @@ const SwatchesPage = () => {
         />
         <meta
           property="og:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg"
+          content="https://jvmi.art/swatches-meta-banner.jpg?123"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jvmi_" />
@@ -58,7 +58,7 @@ const SwatchesPage = () => {
         />
         <meta
           name="twitter:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg"
+          content="https://jvmi.art/swatches-meta-banner.jpg?123"
         />
       </Head>
       <div className={styles.container}>
