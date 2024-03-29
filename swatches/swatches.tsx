@@ -110,7 +110,7 @@ const SwatchPreview = ({ swatchIndex }: { swatchIndex: number }) => {
   return (
     <div className={styles.iframe}>
       <iframe
-        src={`https://jvmi-assets.on-fleek.app/${swatchIndex}/`}
+        src={`https://swatches-animation-url.vercel.app/items/${swatchIndex}/`}
         className={styles.container}
       />
       <motion.div initial={initial} animate={animate}>
