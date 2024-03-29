@@ -30,7 +30,7 @@ const Mint = () => {
         />{' '}
       </a> */}
       <a
-        href={socialLinks.farcaster}
+        href={'https://warpcast.com/~/channel/swatches'}
         target="_blank"
         className={classNames(styles.button, styles.farcaster)}
       >
