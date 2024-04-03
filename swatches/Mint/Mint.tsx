@@ -10,25 +10,13 @@ const Mint = () => {
     <div className={styles.container}>
       <h1 className={styles.header}>minting soon</h1>
       {/* <p className={styles.description}>to qualify for the mintlist:</p> */}
-      {/* <a
-        href={socialLinks.farcaster}
+      <a
+        href={'https://opensea.io/collection/swatches-by-jvmi/overview'}
         target="_blank"
         className={classNames(styles.button, styles.form)}
       >
-        <Image
-          src="/right-pointing-emoji.png"
-          alt="left"
-          width={20}
-          height={20}
-        />{' '}
-        fill out this form
-        <Image
-          src="/left-pointing-emoji.png"
-          alt="left"
-          width={20}
-          height={20}
-        />{' '}
-      </a> */}
+        view on opensea
+      </a>
       <a
         href={'https://warpcast.com/~/channel/swatches'}
         target="_blank"
@@ -58,11 +46,15 @@ const Mint = () => {
       <div className={styles.mintDetails}>
         <div>
           <p className={styles.title}>supply:</p>
-          <p className={styles.info}>5,555 swatches</p>
+          <p className={styles.info}>7,777 swatches</p>
         </div>
         <div>
-          <p className={styles.title}>mint date:</p>
-          <p className={styles.info}>TBD</p>
+          <p className={styles.title}>mint passes + presale</p>
+          <p className={styles.info}>4.4.24 @ 12pm pst</p>
+        </div>
+        <div>
+          <p className={styles.title}>public drop</p>
+          <p className={styles.info}>4.5.24 @ 12pm pst</p>
         </div>
       </div>
 
