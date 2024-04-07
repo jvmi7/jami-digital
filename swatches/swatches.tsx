@@ -110,7 +110,7 @@ const SwatchPreview = ({ swatchIndex }: { swatchIndex: number }) => {
   return (
     <div className={styles.iframe}>
       <iframe
-        src={`https://swatches-animation-url.vercel.app/items/${swatchIndex}/`}
+        src={`https://www.swatches-animation-url.art/items/${swatchIndex}/`}
         className={styles.container}
       />
       <motion.div initial={initial} animate={animate}>
