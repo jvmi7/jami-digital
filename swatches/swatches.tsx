@@ -9,6 +9,7 @@ import { PageStateProvider, usePageState } from './page-state-context';
 import LearnMore from './LearnMore/LearnMore';
 import { Mint } from './Mint/Mint';
 import Head from 'next/head';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const SwatchesPage = () => {
   const { currentPage, swatchIndex } = usePageState();

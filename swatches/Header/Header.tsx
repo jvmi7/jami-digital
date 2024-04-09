@@ -1,17 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './Header.module.scss';
-import { ArrowLeft } from 'lucide-react';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import Button from '../Button/Button';
-import {
-  RiAddFill,
-  RiLink,
-  RiMoreFill,
-  RiTwitterXFill,
-} from '@remixicon/react';
+import { RiLink, RiTwitterXFill } from '@remixicon/react';
 import { FarcasterIcon } from '../../icons/FarcasterIcon';
 import { socialLinks } from '../../components/Mobile/Footer/Socials';
-import Link from 'next/link';
 import { animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
 import {
@@ -20,8 +13,16 @@ import {
   DropdownMenuTrigger,
 } from '../../components/ui/dropdown-menu';
 
+import { useAccount } from 'wagmi';
+import { ConnectWalletButton } from './ConnectWalletButton';
+
 const Header = () => {
   const { currentPage, setCurrentPage } = usePageState();
+
+  const { address } = useAccount();
+
+  console.log('address', address);
+
   return (
     <div className={styles.container}>
       <DropdownMenu>
@@ -69,14 +70,14 @@ const Header = () => {
             }}
             exit={exit}
           >
-            <Button
-              variant="primary"
-              onClick={() => {
-                setCurrentPage('mint');
-              }}
-            >
-              mint
-            </Button>
+            <ConnectWalletButton />
+
+            {/* <Button variant="primary" onClick={openConnectModal}>
+              <div className={styles.connectButton}>
+                connect
+                <RiLink size={20} />
+              </div>
+            </Button> */}
           </motion.div>
         ) : (
           <motion.div

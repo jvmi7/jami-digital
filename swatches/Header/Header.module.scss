@@ -1,10 +1,14 @@
 .container {
-  position: relative;
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 12px;
+  background-color: rgba($color: #eeeeee, $alpha: 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 2;
 
   .socialMediaContainer {
     padding: 8px 16px;
@@ -55,10 +59,26 @@
     border-radius: 24px;
     color: var(--swatches-text-color);
     transition: all 0.2s ease-out;
+    width: 100%;
 
     &:hover {
       background-color: var(--swatches-background-color);
       color: #5a5a5a;
     }
   }
+
+  .dark {
+    background-color: var(--swatches-button-dark-background);
+    color: white;
+
+    &:hover {
+      background-color: var(--swatches-button-background);
+    }
+  }
+}
+
+.accountDropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
