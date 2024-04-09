@@ -24,8 +24,8 @@ import {
 } from '@rainbow-me/rainbowkit';
 
 const config = getDefaultConfig({
-  appName: 'RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
+  appName: 'jvmi.art',
+  projectId: '5b326acd6fa145bfb749703df5320415',
   chains: [
     mainnet,
     polygon,

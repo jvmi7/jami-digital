@@ -14,6 +14,11 @@ import {
 
 import styles from './Header.module.scss';
 import classNames from 'classnames';
+import { useDisconnect } from 'wagmi';
+import Link from 'next/link';
+import { useMedia } from 'react-use';
+import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
+import { useState } from 'react';
 
 const ConnectWalletButton = ({}) => {
   return (
@@ -29,6 +34,17 @@ const ConnectWalletButton = ({}) => {
       }) => {
         // Note: If your app doesn't use authentication, you
         // can remove all 'authenticationStatus' checks
+
+        const { disconnect } = useDisconnect();
+
+        const [open, setOpen] = useState(false);
+
+        const handleMenuItemClick = (callback?: any) => {
+          callback?.();
+          setOpen(false);
+        };
+
+        const isMobile = useMedia('screen and (max-width: 600px)');
 
         const ready = mounted && authenticationStatus !== 'loading';
         const connected =
@@ -63,9 +79,15 @@ const ConnectWalletButton = ({}) => {
                 );
               }
               return (
-                <DropdownMenu modal={false}>
+                <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
                   <DropdownMenuTrigger>
-                    <Button variant="secondary">{account.displayName}</Button>
+                    <Button variant="secondary" isIcon={isMobile}>
+                      {isMobile ? (
+                        <RiUserLine size={18} />
+                      ) : (
+                        account.displayName
+                      )}
+                    </Button>
                   </DropdownMenuTrigger>
 
                   <DropdownMenuContent
@@ -75,18 +97,28 @@ const ConnectWalletButton = ({}) => {
                     )}
                     align="end"
                   >
-                    <button className={styles.link}>
-                      <RiImageLine size={18} />
-                      my gallery
-                    </button>
-                    <button className={styles.link}>
-                      <RiUserLine size={18} />
-                      pfp generator
-                    </button>
-                    <button className={classNames(styles.link, styles.dark)}>
-                      <RiLinkUnlink size={18} />
-                      disconnect
-                    </button>
+                    <DropdownMenuItem asChild>
+                      <Link href="/swatches/gallery">
+                        <button
+                          className={styles.link}
+                          onClick={() => handleMenuItemClick()}
+                        >
+                          <RiImageLine size={18} />
+                          my gallery
+                        </button>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <button
+                        className={classNames(styles.link, styles.dark)}
+                        onClick={() => {
+                          handleMenuItemClick(disconnect);
+                        }}
+                      >
+                        <RiLinkUnlink size={18} />
+                        disconnect
+                      </button>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               );

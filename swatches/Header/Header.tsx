@@ -13,19 +13,17 @@ import {
   DropdownMenuTrigger,
 } from '../../components/ui/dropdown-menu';
 
-import { useAccount } from 'wagmi';
 import { ConnectWalletButton } from './ConnectWalletButton';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const { currentPage, setCurrentPage } = usePageState();
 
-  const { address } = useAccount();
-
-  console.log('address', address);
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
-      <DropdownMenu>
+      <DropdownMenu modal={false}>
         <motion.div initial={initial} animate={animate} exit={exit}>
           <DropdownMenuTrigger>
             <Button isIcon variant="secondary">
@@ -54,6 +52,7 @@ const Header = () => {
         animate={{ ...animate, translateX: '-50%' }}
         exit={{ ...exit, translateX: '-50%' }}
         onClick={() => {
+          router.push('/swatches');
           setCurrentPage('home');
         }}
       >
@@ -92,6 +91,7 @@ const Header = () => {
             <Button
               variant="primary"
               onClick={() => {
+                router.push('/swatches');
                 setCurrentPage('home');
               }}
             >
