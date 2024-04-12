@@ -55,18 +55,32 @@
         .overlay {
           position: absolute;
           background-color: rgba($color: #ffffff, $alpha: 0.6);
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(100px);
           height: 100%;
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 16px;
-          color: #333;
           opacity: 0;
           transition: all 0.2s ease;
+          pointer-events: none;
+
+          span {
+            padding: 8px 18px;
+            background-color: var(--swatches-button-background);
+            border-radius: 12px;
+            color: var();
+          }
         }
       }
     }
   }
+}
+
+.menuItem {
+  color: var(--swatches-text-color);
+  cursor: pointer;
+  width: 180px;
+  height: 100%;
 }

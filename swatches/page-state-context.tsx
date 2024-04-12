@@ -22,8 +22,6 @@ export const PageStateProvider = ({
   const [currentPage, setCurrentPage] = useState('home');
   const [swatchIndex, setSwatchIndex] = useState(16);
 
-  console.log('currentPage', currentPage);
-
   // Context value containing current page state and update function
   const value = {
     currentPage,
