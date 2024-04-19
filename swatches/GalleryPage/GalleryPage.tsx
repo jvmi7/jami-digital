@@ -13,6 +13,7 @@ import {
   ContextMenuTrigger,
 } from '../../components/ui/context-menu';
 import { SaveDialog } from '../SaveDialog/SaveDialog';
+import { generateCloudflareIpfsUrl } from '../../helpers';
 
 const GalleryPage = () => {
   const { address } = useAccount();
@@ -48,15 +49,15 @@ const GalleryPage = () => {
           </p>
         </div>
 
-        <ContextMenu>
+        <ContextMenu modal={false}>
           <ContextMenuTrigger asChild>
             <div className={styles.galleryContainer}>
               {nfts?.map((_nft: any, index: number) => {
                 const nft = _nft._data;
-                const imageUrl = nft.metadata?.image || '';
+                const imageUrl =
+                  generateCloudflareIpfsUrl(nft.metadata?.image) || '';
                 const name = nft.metadata?.name || '';
                 const animationDelay = index * 0.05;
-                console.log(nft);
                 return (
                   <motion.div
                     initial={{
@@ -99,8 +100,13 @@ const GalleryPage = () => {
             >
               save as
             </ContextMenuItem>
-            <ContextMenuItem className={styles.menuItem}>
-              view on opensea
+            <ContextMenuItem className={styles.menuItem} asChild>
+              <a
+                href={`https://opensea.io/assets/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/${modalTokenID}`}
+                target="_blank"
+              >
+                view on opensea
+              </a>
             </ContextMenuItem>
           </ContextMenuContent>
         </ContextMenu>

@@ -32,7 +32,9 @@
     "embla-carousel-react": "^8.0.0-rc19",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "file-saver": "^2.0.5",
     "framer-motion": "^8.1.7",
+    "jszip": "^3.10.1",
     "lucide-react": "^0.302.0",
     "moralis": "^2.25.2",
     "next": "^12.3.4",
@@ -53,6 +55,8 @@
     "wagmi": "^2.5.19"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/jszip": "^3.4.1",
     "@types/react-scroll": "^1.8.10",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
