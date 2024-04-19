@@ -9,7 +9,6 @@ import styles from '../window.module.scss';
 import { ContentPane, ContentPaneMetadataType } from '../../Collection/ContentPane';
 import { Caption } from '../../Caption/Caption';
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
-import { useQuery } from 'react-query';
 import { machiMarketItems } from './constants';
 
 const MachiMarketWindow = ({ theme }: WindowProps) => {

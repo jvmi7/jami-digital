@@ -23,7 +23,9 @@ const fetchMetadata = async () => {
 };
 
 const MotorheadzWindow = ({ theme }: WindowProps) => {
-  const { data: motorheadz, isLoading, error } = useQuery('metadata', fetchMetadata);
+  // const { data: motorheadz, isLoading, error } = useQuery(['metadata'], fetchMetadata);
+  const motorheadz: any[] = []
+  const isLoading = false;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
