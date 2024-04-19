@@ -9,7 +9,8 @@ import styles from '../window.module.scss';
 import { ContentPane, ContentPaneMetadataType } from '../../Collection/ContentPane';
 import { Caption } from '../../Caption/Caption';
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
+
 
 const fetchMetadata = async () => {
   const url = '/metadata/motorheadzMetadata.json'; // Replace with your JSON file's URL
