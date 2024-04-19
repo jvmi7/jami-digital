@@ -18,12 +18,9 @@ type Props = {
   tokenID: string;
 };
 const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
-  
-  // const light_mode_url = `https://jvmi-assets.s3.us-west-1.amazonaws.com/swatches/light/${tokenID}.gif`;
-  const light_mode_url = `https://buckmob.s3.us-west-1.amazonaws.com/images/1.png`;
+  const light_mode_url = `https://jvmi-assets.s3.us-west-1.amazonaws.com/swatches/light/${tokenID}.gif`;
   const light_mode_label = `${tokenID}_light.gif`;
   const dark_mode_url = `https://jvmi-assets.s3.us-west-1.amazonaws.com/swatches/dark/${tokenID}.gif`;
-  // const dark_mode_url = `https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/1024px-Google_Images_2015_logo.svg.png`;
   const dark_mode_label = `${tokenID}_dark.gif`;
 
   const images = [
@@ -31,10 +28,10 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
       url: light_mode_url,
       label: light_mode_label,
     },
-    // {
-    //   url: dark_mode_url,
-    //   label: dark_mode_label,
-    // },
+    {
+      url: dark_mode_url,
+      label: dark_mode_label,
+    },
   ];
 
   const downloadAll = async (): Promise<void> => {
@@ -43,12 +40,14 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
 
     await Promise.all(
       images.map(async image => {
-        console.log('image', image);
+        console.log('image', image.url);
         const response = await fetch(image.url, {
           method: 'GET',
           mode: 'cors',  // Ensure CORS mode is specified
           credentials: 'same-origin'  // or 'same-origin' if your requests require cookies or auth headers
-        });        const blob = await response.blob();
+        });
+        const blob = await response.blob();
+        console.log('blob', blob);
         if (imgFolder) imgFolder.file(image.label, blob);
       })
     );
