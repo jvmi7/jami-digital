@@ -47,6 +47,7 @@ const GalleryPage = () => {
           <p>
             curated by <span>you</span>.
           </p>
+          <p>{nfts?.length}</p>
         </div>
 
         <ContextMenu modal={false}>
