@@ -18,9 +18,11 @@ type Props = {
   tokenID: string;
 };
 const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
-  const light_mode_url = `https://jvmi-assets.s3.us-west-1.amazonaws.com/swatches/light/${tokenID}.gif`;
+  const light_mode_url = `https://f005.backblazeb2.com/file/swatches/light/${tokenID}.gif`;
+  // const light_mode_url = `https://f005.backblazeb2.com/file/swatches/light/100.gif`;
   const light_mode_label = `${tokenID}_light.gif`;
-  const dark_mode_url = `https://jvmi-assets.s3.us-west-1.amazonaws.com/swatches/dark/${tokenID}.gif`;
+  const dark_mode_url = `https://f005.backblazeb2.com/file/swatches/dark/${tokenID}.gif`;
+  // const dark_mode_url = `https://swatches.s3.us-east-005.backblazeb2.com/dark/1.gif`;
   const dark_mode_label = `${tokenID}_dark.gif`;
 
   const images = [
@@ -40,20 +42,43 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
 
     await Promise.all(
       images.map(async image => {
-        console.log('image', image.url);
-        const response = await fetch(image.url, {
-          method: 'GET',
-          mode: 'cors',  // Ensure CORS mode is specified
-          credentials: 'same-origin'  // or 'same-origin' if your requests require cookies or auth headers
-        });
-        const blob = await response.blob();
-        console.log('blob', blob);
-        if (imgFolder) imgFolder.file(image.label, blob);
+        try {
+          const response = await fetch(image.url);
+          if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+          const blob = await response.blob();
+          if (imgFolder) imgFolder.file(image.label, blob);
+
+          // further processing
+        } catch (error) {
+          console.error('Download failed:', error);
+        }
       })
     );
 
     zip.generateAsync({ type: 'blob' }).then((content: Blob) => {
       saveAs(content, 'images.zip');
+    });
+  };
+
+  const downloadSingle = async (url: string, label: string): Promise<void> => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+      const blob = await response.blob();
+      saveAs(blob, label);
+    } catch (error) {
+      console.error('Download failed:', error);
+    }
+  };
+
+  const downloadImagesDirectly = () => {
+    images.forEach(image => {
+      const link = document.createElement('a');
+      link.href = image.url;
+      link.setAttribute('download', image.label); // Make sure to set the download attribute
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   };
 
@@ -74,7 +99,7 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
                 isIcon
                 variant="primary"
                 onClick={() => {
-                  // downloadImages([image.url]);
+                  downloadSingle(image.url, image.label);
                 }}
               >
                 <RiDownloadFill size={16} />

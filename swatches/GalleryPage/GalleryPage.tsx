@@ -79,6 +79,10 @@ const GalleryPage = () => {
                     onContextMenu={() => {
                       setModalTokenID(nft.tokenId);
                     }}
+                    onClick={() => {
+                      setModalTokenID(nft.tokenId);
+                      setIsOpen(true);
+                    }}
                   >
                     <div className={styles.overlay}>
                       <span>{name}</span>
