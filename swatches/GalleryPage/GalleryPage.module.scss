@@ -44,6 +44,8 @@
       .swatchContainer {
         position: relative;
         overflow: hidden;
+        display: flex;
+        aspect-ratio: 1;
 
         &:hover {
           .overlay {
