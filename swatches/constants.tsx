@@ -42,5 +42,6 @@ export const externalLinks = {
   opensea: 'https://opensea.io/collection/swatches-by-jvmi',
   rarible:
     'https://rarible.com/collection/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/items',
-  magiceden: '',
+  magiceden:
+    'https://magiceden.io/collections/base/0x13dc8261fce63499aa25deb512bb1827b411b83b',
 };
