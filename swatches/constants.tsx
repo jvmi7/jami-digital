@@ -37,3 +37,11 @@ export const pageVariants = {
 };
 
 export const TOTAL_SWATCHES = 100;
+
+export const externalLinks = {
+  opensea: 'https://opensea.io/collection/swatches-by-jvmi',
+  rarible:
+    'https://rarible.com/collection/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/items',
+  magiceden:
+    'https://magiceden.io/collections/base/0x13dc8261fce63499aa25deb512bb1827b411b83b',
+};

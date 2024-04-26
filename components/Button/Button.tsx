@@ -12,12 +12,27 @@ interface Props {
   href?: string;
 }
 
-const Button = ({ children, themeName, variant = 'primary', width = '100%', icon, iconPosition = 'right', href }: Props) => {
-  const buttonClasses = classNames(styles.button, styles[variant], styles[themeName]);
-  const contentStyle = { flexDirection: iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const) };
+const Button = ({
+  children,
+  themeName,
+  variant = 'primary',
+  width = '100%',
+  icon,
+  iconPosition = 'right',
+  href,
+}: Props) => {
+  const buttonClasses = classNames(
+    styles.button,
+    styles[variant],
+    styles[themeName]
+  );
+  const contentStyle = {
+    flexDirection:
+      iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const),
+  };
 
   return href ? (
-    <a href={href} className={buttonClasses} style={{ width }} target='_blank'>
+    <a href={href} className={buttonClasses} style={{ width }} target="_blank">
       <span className={styles.content} style={contentStyle}>
         {icon && icon}
         {children}

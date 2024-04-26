@@ -1,17 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './Header.module.scss';
-import { ArrowLeft } from 'lucide-react';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import Button from '../Button/Button';
-import {
-  RiAddFill,
-  RiLink,
-  RiMoreFill,
-  RiTwitterXFill,
-} from '@remixicon/react';
+import { RiLink, RiTwitterXFill } from '@remixicon/react';
 import { FarcasterIcon } from '../../icons/FarcasterIcon';
 import { socialLinks } from '../../components/Mobile/Footer/Socials';
-import Link from 'next/link';
 import { animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
 import {
@@ -20,11 +13,17 @@ import {
   DropdownMenuTrigger,
 } from '../../components/ui/dropdown-menu';
 
+import { ConnectWalletButton } from './ConnectWalletButton';
+import { useRouter } from 'next/router';
+
 const Header = () => {
   const { currentPage, setCurrentPage } = usePageState();
+
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
-      <DropdownMenu>
+      <DropdownMenu modal={false}>
         <motion.div initial={initial} animate={animate} exit={exit}>
           <DropdownMenuTrigger>
             <Button isIcon variant="secondary">
@@ -53,6 +52,7 @@ const Header = () => {
         animate={{ ...animate, translateX: '-50%' }}
         exit={{ ...exit, translateX: '-50%' }}
         onClick={() => {
+          router.push('/swatches');
           setCurrentPage('home');
         }}
       >
@@ -69,14 +69,14 @@ const Header = () => {
             }}
             exit={exit}
           >
-            <Button
-              variant="primary"
-              onClick={() => {
-                setCurrentPage('mint');
-              }}
-            >
-              mint
-            </Button>
+            <ConnectWalletButton />
+
+            {/* <Button variant="primary" onClick={openConnectModal}>
+              <div className={styles.connectButton}>
+                connect
+                <RiLink size={20} />
+              </div>
+            </Button> */}
           </motion.div>
         ) : (
           <motion.div
@@ -91,6 +91,7 @@ const Header = () => {
             <Button
               variant="primary"
               onClick={() => {
+                router.push('/swatches');
                 setCurrentPage('home');
               }}
             >
