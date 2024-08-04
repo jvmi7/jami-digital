@@ -7,7 +7,7 @@ import Desktop from '../components/Desktop/Desktop';
 import Gameboy from '../components/Gameboy/Gameboy';
 import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
-import { SplashSection } from './home/SplashSection';
+import { SplashSection } from './home/SplashSection/SplashSection';
 
 export default function Home() {
   const isMobile = useMedia('(max-width: 100000px)', false) || false;
