@@ -132,9 +132,11 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
             <div className={styles.items}>
               {links.map(link => (
                 <a
+                  key={link.url}
                   href={link.url}
                   target="_blank"
                   className={styles.menuSubItemLink}
+                  rel="noreferrer"
                 >
                   <p className={styles.menuSubItemText}>{link.text}</p>
                   <ExternalLinkIcon

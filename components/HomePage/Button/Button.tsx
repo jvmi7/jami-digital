@@ -26,7 +26,7 @@ const Button = ({
   // Render an <a> tag if href is provided
   if (href) {
     return (
-      <a href={href} target="_blank" className={classnames}>
+      <a href={href} target="_blank" className={classnames} rel="noreferrer">
         <div className={styles.content}>{children}</div>
       </a>
     );

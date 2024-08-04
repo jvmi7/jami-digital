@@ -1,13 +1,7 @@
-import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import Div100vh from 'react-div-100vh';
 import { useMedia } from 'react-use';
-import Desktop from '../components/Desktop/Desktop';
-import Gameboy from '../components/Gameboy/Gameboy';
-import Splash from '../components/Splash/Splash';
 import { useTheme } from '../hooks/useTheme';
-import { SplashSection } from './home/SplashSection/SplashSection';
+import { SplashSection } from '../home/SplashSection/SplashSection';
 
 export default function Home() {
   const isMobile = useMedia('(max-width: 100000px)', false) || false;

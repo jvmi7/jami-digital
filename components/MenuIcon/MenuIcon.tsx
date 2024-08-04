@@ -3,7 +3,7 @@ import styles from './MenuIcon.module.scss';
 export enum MenuIcons {
   INSTAGRAM = 'INSTAGRAM',
   CODE = 'CODE',
-  BLOG = 'BLOG'
+  BLOG = 'BLOG',
 }
 
 interface Props {
@@ -44,14 +44,20 @@ function MenuIcon({ iconType, description }: Props) {
     iconType === MenuIcons.BLOG
       ? {
           borderRadius: '14px',
-          backgroundColor: '#ffa400'
+          backgroundColor: '#ffa400',
         }
       : {};
 
   return (
     <div className={styles.container}>
-      <div className={styles.icon} style={{ backgroundImage: `url(${backgroundImage})`, backgroundColor: backgroundColor }}>
-        <img src={logo} className={styles.logo} style={logoStyles} />
+      <div
+        className={styles.icon}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundColor: backgroundColor,
+        }}
+      >
+        <img src={logo} alt="logo" className={styles.logo} style={logoStyles} />
       </div>
       <p className={styles.description}>{description}</p>
     </div>

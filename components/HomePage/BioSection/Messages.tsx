@@ -86,7 +86,7 @@ const Messages = ({ response }: MessagesProps) => {
       //   ]);
       // }, 6000);
     }
-  }, [inView]);
+  }, [inView, currentMessages]);
 
   useEffect(() => {
     if (response.length > 0) {
@@ -113,7 +113,7 @@ const Messages = ({ response }: MessagesProps) => {
         >
           {currentMessages &&
             currentMessages.map((message, index) => (
-              <div className={styles.bubbleContainer}>
+              <div className={styles.bubbleContainer} key={index}>
                 <ChatBubble key={index} index={index} message={message} />
                 <div className={styles.space} />
               </div>
@@ -121,6 +121,7 @@ const Messages = ({ response }: MessagesProps) => {
           {currentMessages.length < 3 && <TypingIndicator ref={ref} />}
           {response?.map((message, index) => (
             <div
+              key={index}
               className={styles.bubbleContainer}
               style={{ justifyContent: 'flex-end' }}
             >
@@ -146,6 +147,7 @@ const Messages = ({ response }: MessagesProps) => {
                         href={socialLinks.x}
                         target="_blank"
                         style={{ color: '#0690EA' }}
+                        rel="noreferrer"
                       >
                         @jvmi_
                       </a>
@@ -175,13 +177,14 @@ const Messages = ({ response }: MessagesProps) => {
           }}
         >
           {messages.map((message, index) => (
-            <div className={styles.bubbleContainer}>
+            <div className={styles.bubbleContainer} key={index}>
               <ChatBubble key={index} index={index} message={message} />
               <div className={styles.space} />
             </div>
           ))}
           {response?.map((message, index) => (
             <div
+              key={index}
               className={styles.bubbleContainer}
               style={{ justifyContent: 'flex-end' }}
             >
@@ -283,5 +286,7 @@ const TypingIndicator = React.forwardRef<HTMLDivElement, TypingIndicatorProps>(
     );
   }
 );
+
+TypingIndicator.displayName = 'TypingIndicator';
 
 export { Messages };

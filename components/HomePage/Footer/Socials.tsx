@@ -23,42 +23,42 @@ const Socials = () => {
       <a
         className={classNames(styles.iconLink, styles.x)}
         href={socialLinks.x}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <XIcon height={40} width={40} color={'currentColor'} />
       </a>
       <a
         className={classNames(styles.iconLink, styles.instagram)}
         href={socialLinks.instagram}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <InstagramIcon height={40} width={40} color={'currentColor'} />
       </a>
       <a
         className={classNames(styles.iconLink, styles.farcaster)}
         href={socialLinks.farcaster}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <FarcasterIcon height={48} width={48} color={'currentColor'} />
       </a>
       <a
         className={classNames(styles.iconLink, styles.github)}
         href={socialLinks.github}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <GithubIcon height={40} width={40} color={'currentColor'} />
       </a>
       <a
         className={classNames(styles.iconLink, styles.blog)}
         href={socialLinks.blog}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <DraftIcon height={40} width={40} color={'currentColor'} />
       </a>
       <a
         className={classNames(styles.iconLink, styles.zora)}
         href={socialLinks.zora}
-        target="_blank"
+        target="_blank" rel="noreferrer"
       >
         <ZoraIcon height={40} width={40} color={'currentColor'} />
       </a>
