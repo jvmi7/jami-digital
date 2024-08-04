@@ -4,7 +4,7 @@ import { JvmiIcon } from '../../icons/JvmiIcon';
 import Button from '../Button/Button';
 import { RiLink, RiTwitterXFill } from '@remixicon/react';
 import { FarcasterIcon } from '../../icons/FarcasterIcon';
-import { socialLinks } from '../../components/Mobile/Footer/Socials';
+import { socialLinks } from '../../components/HomePage/Footer/Socials';
 import { animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
 import {
