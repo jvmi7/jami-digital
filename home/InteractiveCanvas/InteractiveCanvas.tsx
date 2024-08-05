@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { palette } from '../constants';
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
@@ -89,6 +89,19 @@ const InteractiveCanvas = () => {
   const handleClick = () => {
     setCurrentOffset(currentOffset => currentOffset + 1);
   };
+
+  useEffect(() => {
+    if (!enableAnimation) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Clean up on unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [enableAnimation]);
 
   return (
     <>
