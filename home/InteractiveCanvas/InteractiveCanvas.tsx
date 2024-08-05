@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { palette } from '../constants';
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
@@ -29,10 +29,10 @@ const getDistance = (
 };
 
 const InteractiveCanvas = () => {
-  const rows = 13;
-  const cols = 7;
-  const gap = 10;
-  const shapeSize = 50;
+  const rows = 28;
+  const cols = 12;
+  const gap = 7;
+  const shapeSize = 25;
   const rowColorOffset = 2;
 
   const [enableAnimation, setEnableAnimation] = useState(true);
@@ -41,6 +41,7 @@ const InteractiveCanvas = () => {
     row: number;
     col: number;
   } | null>(null);
+  const touchTimeout = useRef<number | null>(null);
 
   const handleMouseEnter = () => {
     setEnableAnimation(false);
@@ -52,10 +53,33 @@ const InteractiveCanvas = () => {
     setCurrentOffset(0);
   };
 
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  const handleMove = (
+    event:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.TouchEvent<HTMLDivElement>
   ) => {
-    const { offsetX, offsetY } = event.nativeEvent;
+    let offsetX, offsetY;
+
+    if ('touches' in event) {
+      const touch = event.touches[0];
+      const rect = event.currentTarget.getBoundingClientRect();
+      offsetX = touch.clientX - rect.left;
+      offsetY = touch.clientY - rect.top;
+
+      // Clear previous timeout if any
+      if (touchTimeout.current) {
+        clearTimeout(touchTimeout.current);
+      }
+
+      // Set a new timeout to reset hovered cell
+      touchTimeout.current = window.setTimeout(() => {
+        setHoveredCell(null);
+      }, 1500);
+    } else {
+      offsetX = event.nativeEvent.offsetX;
+      offsetY = event.nativeEvent.offsetY;
+    }
+
     const col = Math.floor(offsetX / (shapeSize + gap));
     const row = Math.floor(offsetY / (shapeSize + gap));
     setHoveredCell({ row, col });
@@ -74,9 +98,11 @@ const InteractiveCanvas = () => {
           gridTemplateRows: `repeat(${rows}, ${shapeSize}px)`,
           gap: `${gap}px`,
         }}
+        onTouchStart={handleMove}
+        onTouchMove={handleMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
+        onMouseMove={handleMove}
         onClick={handleClick}
       >
         {Array.from({ length: rows * cols }).map((_, index) => {
@@ -95,7 +121,7 @@ const InteractiveCanvas = () => {
 
           // scale with a minimum of 0.25
 
-          const scale = hoveredCell ? Math.max(0.6, 1.25 - distance * 0.04) : 1;
+          const scale = hoveredCell ? Math.max(0.6, 1.25 - distance * 0.05) : 1;
 
           return (
             <div
@@ -103,7 +129,7 @@ const InteractiveCanvas = () => {
               style={{
                 pointerEvents: 'none',
                 transform: `scale(${scale})`,
-                transition: '500ms ease transform',
+                transition: '200ms linear transform',
               }}
             >
               <ShapeElement
