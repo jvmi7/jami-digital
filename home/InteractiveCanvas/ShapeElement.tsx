@@ -6,31 +6,53 @@ import { motion } from 'framer-motion';
 interface ShapeElementProps {
   colorIndex: number;
   index: number;
+  enableAnimation: boolean;
+  distance: number;
 }
 
-const ShapeElement = ({ colorIndex, index }: ShapeElementProps) => {
-  const randomDelay = Math.random();
+const ShapeElement = ({
+  colorIndex,
+  index,
+  enableAnimation,
+  distance,
+}: ShapeElementProps) => {
+  const randomDelay = Math.random() * 1.5;
+  // random x between -100 and 100
+  const randomX = Math.random() * 100 - 50;
+  // random y between -100 and 100
+  const randomY = Math.random() * 100 - 50;
+
+  const borderRadius = `100px`;
+
+  const baseStyles = {
+    backgroundColor: palette[colorIndex],
+    borderRadius: borderRadius,
+  };
+
+  const style = enableAnimation
+    ? {
+        ...baseStyles,
+        animation: `colorCycle${(colorIndex + 1) % palette.length} 5s infinite linear alternate-reverse`,
+        animationDelay: '4s',
+      }
+    : baseStyles;
 
   return (
     <motion.div
       key={index}
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
+      initial={{ scale: 0.25, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
       transition={{
         duration: 0.25,
-        delay: randomDelay,
+        delay: index * 0.005,
         type: 'spring',
         stiffness: 200,
-        damping: 7,
-        bounce: 0.25,
-        mass: 0.75,
+        damping: 30,
+        bounce: 0,
+        mass: 0.5,
       }}
       className={styles.container}
-      style={{
-        backgroundColor: palette[colorIndex],
-        animation: `colorCycle${(colorIndex + 1) % palette.length} 5s infinite linear alternate-reverse`,
-        animationDelay: '4s',
-      }}
+      style={style}
     ></motion.div>
   );
 };
