@@ -29,7 +29,7 @@ const getDistance = (
 };
 
 const InteractiveCanvas = () => {
-  const rows = 28;
+  const rows = 26;
   const cols = 12;
   const gap = 7;
   const shapeSize = 25;
@@ -125,6 +125,10 @@ const InteractiveCanvas = () => {
           const distance = hoveredCell
             ? getDistance(coordinates, hoveredCell)
             : -1;
+          const distanceFromCenter = getDistance(
+            { row: Math.floor(rows / 2), col: Math.floor(cols / 2) },
+            coordinates
+          );
 
           if (hoveredCell && currentOffset !== 0) {
             colorIndex =
@@ -134,7 +138,6 @@ const InteractiveCanvas = () => {
           }
 
           // scale with a minimum of 0.25
-
           const scale = hoveredCell ? Math.max(0.6, 1.25 - distance * 0.05) : 1;
 
           return (
@@ -149,6 +152,7 @@ const InteractiveCanvas = () => {
               <ShapeElement
                 key={index}
                 index={index}
+                animationDelay={distanceFromCenter * 0.05}
                 colorIndex={colorIndex}
                 enableAnimation={enableAnimation}
                 distance={distance}
@@ -156,8 +160,11 @@ const InteractiveCanvas = () => {
             </div>
           );
         })}
-        <div className={styles.logo}>
-          <JvmiIcon width={120} height={120} />
+        <div className={styles.wordmark}>
+          <div className={styles.logo}>
+            <JvmiIcon width={120} height={120} />
+          </div>
+          <p>interactive art for the world</p>
         </div>
       </div>
     </>

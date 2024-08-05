@@ -8,6 +8,7 @@ interface ShapeElementProps {
   index: number;
   enableAnimation: boolean;
   distance: number;
+  animationDelay: number;
 }
 
 const ShapeElement = ({
@@ -15,6 +16,7 @@ const ShapeElement = ({
   index,
   enableAnimation,
   distance,
+  animationDelay,
 }: ShapeElementProps) => {
   const borderRadius = `200px`;
   const baseStyles = {
@@ -33,16 +35,12 @@ const ShapeElement = ({
   return (
     <motion.div
       key={index}
-      initial={{ scale: 0.25, opacity: 0 }}
+      initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
         duration: 0.25,
-        delay: index * 0.005,
+        delay: animationDelay,
         type: 'spring',
-        stiffness: 200,
-        damping: 30,
-        bounce: 0,
-        mass: 0.5,
       }}
       className={styles.container}
       style={style}
