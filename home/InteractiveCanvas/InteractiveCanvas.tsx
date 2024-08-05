@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { palette } from '../constants';
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
+import { JvmiIcon } from '../../icons/JvmiIcon';
 
 const getColorIndex = (
   index: number,
@@ -28,8 +29,8 @@ const getDistance = (
 };
 
 const InteractiveCanvas = () => {
-  const rows = 11;
-  const cols = 6;
+  const rows = 13;
+  const cols = 7;
   const gap = 10;
   const shapeSize = 50;
   const rowColorOffset = 2;
@@ -58,11 +59,6 @@ const InteractiveCanvas = () => {
     const col = Math.floor(offsetX / (shapeSize + gap));
     const row = Math.floor(offsetY / (shapeSize + gap));
     setHoveredCell({ row, col });
-
-    // if mouse doesnt move for 1 second, reset the hovered cell
-    setTimeout(() => {
-      setEnableAnimation(true);
-    }, 1000);
   };
 
   const handleClick = () => {
@@ -99,10 +95,7 @@ const InteractiveCanvas = () => {
 
           // scale with a minimum of 0.25
 
-          const scale =
-            hoveredCell && currentOffset === 0
-              ? Math.max(0.6, 1.4 - distance * 0.1)
-              : 1;
+          const scale = hoveredCell ? Math.max(0.6, 1.25 - distance * 0.04) : 1;
 
           return (
             <div
@@ -123,6 +116,9 @@ const InteractiveCanvas = () => {
             </div>
           );
         })}
+        <div className={styles.logo}>
+          <JvmiIcon width={120} height={120} />
+        </div>
       </div>
     </>
   );

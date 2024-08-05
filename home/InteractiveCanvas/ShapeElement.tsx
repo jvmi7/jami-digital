@@ -16,14 +16,7 @@ const ShapeElement = ({
   enableAnimation,
   distance,
 }: ShapeElementProps) => {
-  const randomDelay = Math.random() * 1.5;
-  // random x between -100 and 100
-  const randomX = Math.random() * 100 - 50;
-  // random y between -100 and 100
-  const randomY = Math.random() * 100 - 50;
-
-  const borderRadius = `100px`;
-
+  const borderRadius = `200px`;
   const baseStyles = {
     backgroundColor: palette[colorIndex],
     borderRadius: borderRadius,
