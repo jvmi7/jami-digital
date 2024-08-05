@@ -74,6 +74,7 @@ const InteractiveCanvas = () => {
       // Set a new timeout to reset hovered cell
       touchTimeout.current = window.setTimeout(() => {
         setHoveredCell(null);
+        setEnableAnimation(true);
       }, 1500);
     } else {
       offsetX = event.nativeEvent.offsetX;
