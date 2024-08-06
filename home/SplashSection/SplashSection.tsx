@@ -5,8 +5,8 @@ import { generateAllAnimations, generateRandomOrder } from '../helpers';
 import { palette } from '../constants';
 import { useMeasure, useWindowScroll } from 'react-use';
 
-const rows = 20;
-const cols = 12;
+const rows = 15;
+const cols = 11;
 const gap = 7;
 const shapeSize = 25;
 const rowColorOffset = 2;
@@ -24,11 +24,11 @@ const SplashSection = () => {
   }, [rows, cols]);
 
   // number between 0 and 100
-  const scrollPercentage = Math.floor((y / viewportHeight) * 200);
+  const scrollPercentage = (y / viewportHeight) * 10;
 
   const hiddenShapes = randomOrder.slice(
     0,
-    Math.floor((scrollPercentage / 100) * randomOrder.length)
+    Math.floor(scrollPercentage * randomOrder.length)
   );
 
   return (

@@ -157,11 +157,6 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           );
         })}
       </div>
-      <div className={styles.wordmark}>
-        <div className={styles.logo}>
-          <JvmiIcon width={80} height={60} />
-        </div>
-      </div>
     </div>
   );
 };

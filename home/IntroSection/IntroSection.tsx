@@ -3,7 +3,7 @@ import styles from './IntroSection.module.scss';
 const IntroSection = () => {
   return (
     <section className={styles.container}>
-      <h1>Intro Section</h1>
+      <div className={styles.card}>test card</div>
     </section>
   );
 };
