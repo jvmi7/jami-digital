@@ -157,6 +157,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           );
         })}
       </div>
+      <p className={styles.tagline}>[ interactive digital artist ]</p>
     </div>
   );
 };

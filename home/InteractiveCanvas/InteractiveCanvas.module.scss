@@ -5,6 +5,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-top: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,11 +21,11 @@
   display: flex;
   justify-content: center;
   pointer-events: none;
+}
 
-  p {
-    color: white;
-    background-color: #ff0000;
-    padding: 12px;
-    text-align: center;
-  }
+.tagline {
+  text-align: center;
+  margin-top: 24px;
+  font-family: var(--header-font);
+  font-size: 24px;
 }

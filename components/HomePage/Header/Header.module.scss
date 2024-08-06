@@ -2,9 +2,12 @@
   padding: 12px;
   width: 100%;
   z-index: 999;
-  background-color: rgba($color: #000, $alpha: 1);
+  background-color: var(--background);
   backdrop-filter: blur(100px);
-  // border-bottom: 1px solid #3d3d3d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 
   .logo {
     position: absolute;

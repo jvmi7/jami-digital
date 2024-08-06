@@ -4,6 +4,7 @@ import styles from './SplashSection.module.scss';
 import { generateAllAnimations, generateRandomOrder } from '../helpers';
 import { palette } from '../constants';
 import { useMeasure, useWindowScroll } from 'react-use';
+import { ThemeToggle } from '../../components/HomePage/Header/ThemeToggle';
 
 const rows = 15;
 const cols = 11;
@@ -37,6 +38,7 @@ const SplashSection = () => {
         metadata={{ rows, cols, gap, shapeSize, rowColorOffset }}
         hiddenShapes={hiddenShapes}
       />
+      <ThemeToggle />
     </div>
   );
 };

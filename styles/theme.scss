@@ -1,47 +1,27 @@
 body {
-  --palette-1: var(--pink);
-  --palette-2: var(--red);
-  --palette-3: var(--yellow);
-  --palette-4: var(--blue);
-  --palette-5: var(--green);
-  --palette-6: var(--purple);
-
   &.LIGHT {
-    --primary-color: var(--black);
-    --secondary-color: var(--white);
-    --palette-1: var(--pink);
-    --palette-2: var(--red);
-    --palette-3: var(--yellow);
-    --palette-4: var(--blue);
-    --palette-5: var(--green);
     --window-border: var(--dark-grey);
     --window-background: var(--grey);
     --window-accent: var(--medium-grey);
     --window-text: var(--extra-dark-grey);
-
     --header-border: #dbdbdb;
     --header-background: #f4f4f4;
     --header-accent: #2d2d2d;
     --header-secondary: #e7e6e6;
+    --primary-color: var(--black);
+    --secondary-color: var(--white);
+
+    // home page
+    --background: #000;
+    --foreground: white;
   }
 
   &.DARK {
     --primary-color: var(--white);
     --secondary-color: var(--black);
-    --palette-1: var(--purple);
-    --palette-2: var(--red);
-    --palette-3: var(--yellow);
-    --palette-4: var(--blue);
-    --palette-5: var(--green);
-  }
 
-  &.RED {
-    --primary-color: var(--white);
-    --secondary-color: var(--red);
-    --palette-1: var(--purple);
-    --palette-2: var(--red);
-    --palette-3: var(--yellow);
-    --palette-4: var(--blue);
-    --palette-5: var(--green);
+    // home page
+    --background: white;
+    --foreground: #0a0a0a;
   }
 }
