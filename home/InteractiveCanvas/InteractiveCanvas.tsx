@@ -92,9 +92,10 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
+      {/* <p>interactive art for the world</p> */}
       <div
-        className={styles.container}
+        className={styles.canvas}
         style={{
           gridTemplateColumns: `repeat(${cols}, ${shapeSize}px)`,
           gridTemplateRows: `repeat(${rows}, ${shapeSize}px)`,
@@ -155,14 +156,13 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
             </div>
           );
         })}
-        <div className={styles.wordmark}>
-          <div className={styles.logo}>
-            <JvmiIcon width={120} height={120} />
-          </div>
-          <p>interactive art for the world</p>
+      </div>
+      <div className={styles.wordmark}>
+        <div className={styles.logo}>
+          <JvmiIcon width={80} height={60} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

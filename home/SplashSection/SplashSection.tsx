@@ -5,7 +5,7 @@ import { generateAllAnimations, generateRandomOrder } from '../helpers';
 import { palette } from '../constants';
 import { useMeasure, useWindowScroll } from 'react-use';
 
-const rows = 26;
+const rows = 20;
 const cols = 12;
 const gap = 7;
 const shapeSize = 25;
