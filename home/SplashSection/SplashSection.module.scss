@@ -1,6 +1,6 @@
 .viewport {
-  min-height: calc(100vh);
-  min-height: calc(100svh);
+  min-height: calc(100vh + 200px);
+  min-height: calc(100svh + 200px);
   height: 100%;
   display: flex;
   flex-direction: column;

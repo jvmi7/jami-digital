@@ -26,3 +26,16 @@ export const generateAllAnimations = (colors: string[], document: Document) => {
     createKeyframeAnimation(`colorCycle${i}`, shiftedPalette, document);
   }
 };
+
+export const generateRandomOrder = (n: number): number[] => {
+  // Create an array with numbers from 0 to n-1
+  const arr = Array.from({ length: n }, (_, i) => i);
+
+  // Shuffle the array using Fisher-Yates algorithm
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+
+  return arr;
+};

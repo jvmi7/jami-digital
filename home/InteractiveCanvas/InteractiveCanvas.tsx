@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { palette } from '../constants';
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
 import { JvmiIcon } from '../../icons/JvmiIcon';
+import { InteractiveCanvasMetadata } from '../types';
 
 const getColorIndex = (
   index: number,
@@ -28,13 +29,13 @@ const getDistance = (
   return Math.sqrt((a.row - b.row) ** 2 + (a.col - b.col) ** 2);
 };
 
-const InteractiveCanvas = () => {
-  const rows = 26;
-  const cols = 12;
-  const gap = 7;
-  const shapeSize = 25;
-  const rowColorOffset = 2;
+type Props = {
+  metadata: InteractiveCanvasMetadata;
+  hiddenShapes: number[];
+};
 
+const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
+  const { rows, cols, gap, shapeSize, rowColorOffset } = metadata;
   const [enableAnimation, setEnableAnimation] = useState(true);
   const [currentOffset, setCurrentOffset] = useState(0);
   const [hoveredCell, setHoveredCell] = useState<{
@@ -90,19 +91,6 @@ const InteractiveCanvas = () => {
     setCurrentOffset(currentOffset => currentOffset + 1);
   };
 
-  useEffect(() => {
-    if (!enableAnimation) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    // Clean up on unmount
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [enableAnimation]);
-
   return (
     <>
       <div
@@ -137,8 +125,15 @@ const InteractiveCanvas = () => {
             colorIndex = getColorIndex(index, rows, cols, rowColorOffset);
           }
 
-          // scale with a minimum of 0.25
-          const scale = hoveredCell ? Math.max(0.6, 1.25 - distance * 0.05) : 1;
+          const isHidden = hiddenShapes.includes(index);
+          let scale;
+          if (isHidden) {
+            scale = 0;
+          } else if (hoveredCell) {
+            scale = Math.max(0.6, 1.25 - distance * 0.05);
+          } else {
+            scale = 1;
+          }
 
           return (
             <div
