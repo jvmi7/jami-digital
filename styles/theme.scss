@@ -12,8 +12,8 @@ body {
     --secondary-color: var(--white);
 
     // home page
-    --background: #000;
-    --foreground: white;
+    --background: white;
+    --foreground: #0a0a0a;
   }
 
   &.DARK {
@@ -21,7 +21,7 @@ body {
     --secondary-color: var(--black);
 
     // home page
-    --background: white;
-    --foreground: #0a0a0a;
+    --background: #000;
+    --foreground: white;
   }
 }

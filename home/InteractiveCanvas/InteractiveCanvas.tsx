@@ -4,6 +4,7 @@ import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import { InteractiveCanvasMetadata } from '../types';
+import { motion } from 'framer-motion';
 
 const getColorIndex = (
   index: number,
@@ -43,6 +44,8 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
     col: number;
   } | null>(null);
   const touchTimeout = useRef<number | null>(null);
+
+  const hideText = hiddenShapes.length > rows * cols * 0.5;
 
   const handleMouseEnter = () => {
     setEnableAnimation(false);
@@ -157,7 +160,16 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           );
         })}
       </div>
-      <p className={styles.tagline}>[ interactive digital artist ]</p>
+      <motion.p
+        className={styles.tagline}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: hideText ? 0 : 1,
+          transition: { delay: hideText ? 0 : 1.5 },
+        }}
+      >
+        [ interactive digital artist ]
+      </motion.p>
     </div>
   );
 };
