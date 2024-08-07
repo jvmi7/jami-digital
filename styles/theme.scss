@@ -13,7 +13,12 @@ body {
 
     // home page
     --background: white;
-    --foreground: #0a0a0a;
+    --card: #f2f2f2;
+    --foreground: #252525;
+    --secondary: #a7a7a7;
+    --text-secondary: #9e9e9e;
+    --typing-background: #e2e2e2;
+    --chat-bubble: #222222;
   }
 
   &.DARK {
@@ -22,6 +27,11 @@ body {
 
     // home page
     --background: #000;
+    --card: #111111;
     --foreground: white;
+    --secondary: #606060;
+    --text-secondary: #b6b6b6;
+    --typing-background: #f4f4f4;
+    --chat-bubble: #222222;
   }
 }

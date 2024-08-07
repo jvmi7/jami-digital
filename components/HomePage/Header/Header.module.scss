@@ -3,6 +3,7 @@
   width: 100%;
   z-index: 999;
   background-color: var(--background);
+  transition: background-color 0.2s ease;
   backdrop-filter: blur(100px);
   display: flex;
   justify-content: space-between;

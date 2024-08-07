@@ -6,7 +6,7 @@ import disableScroll from 'disable-scroll';
 import { HomeIcon } from '../../../icons/HomeIcon';
 import { CollageIcon } from '../../../icons/CollageIcon';
 import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
-import { Socials, socialLinks } from '../Footer/Socials';
+import { socialLinks } from '../../../constants';
 import { Button } from '../Button/Button';
 import { Link } from 'react-scroll';
 import { CheckIcon } from '../../../icons/CheckIcon';

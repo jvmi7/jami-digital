@@ -7,13 +7,13 @@ export const links = [
   {
     name: 'projects',
     href: 'https://channel53.myshopify.com/',
-    icon: MenuIcons.INSTAGRAM
+    icon: MenuIcons.INSTAGRAM,
   },
   {
     name: 'socials',
     href: 'https://channel53.myshopify.com/',
-    icon: MenuIcons.INSTAGRAM
-  }
+    icon: MenuIcons.INSTAGRAM,
+  },
 ];
 
 const light: WindowThemeType = {
@@ -34,7 +34,7 @@ const light: WindowThemeType = {
   contentBackground: '#f0f2f5',
   textPrimary: '#000000',
   textSecondary: '#696b6e',
-  dividerColor: '#dddddd'
+  dividerColor: '#dddddd',
 };
 
 const dark: WindowThemeType = {
@@ -55,7 +55,7 @@ const dark: WindowThemeType = {
   contentBackground: '#161616',
   textPrimary: '#FFFFFF',
   textSecondary: '#C3C3C3',
-  dividerColor: '#4D4D4D'
+  dividerColor: '#4D4D4D',
 };
 
 const retro: WindowThemeType = {
@@ -76,23 +76,32 @@ const retro: WindowThemeType = {
   contentBackground: '#FFFFFF',
   textPrimary: '#111111',
   textSecondary: '#333333',
-  dividerColor: '#DDDDDD'
+  dividerColor: '#DDDDDD',
 };
 
 export const desktopWindows: Record<string, Window> = {
   motorheadz: {
     urlLabel: 'motorheadz.xyz',
     content: <MotorheadzWindow theme={dark} />,
-    theme: dark
+    theme: dark,
   },
   machiMarket: {
     urlLabel: 'machi.market',
     content: <MachiMarketWindow theme={light} />,
-    theme: light
+    theme: light,
   },
   swatches: {
     urlLabel: 'swatches',
     content: <div>this is swatches</div>,
-    theme: dark
-  }
+    theme: dark,
+  },
+};
+
+export const socialLinks = {
+  x: 'https://twitter.com/jvmi_',
+  instagram: 'https://www.instagram.com/jvmi.art/',
+  farcaster: 'https://warpcast.com/jvmi',
+  github: 'https://github.com/imranjami',
+  blog: 'https://mirror.xyz/0x57D1eAE9f0972723F0e78EAF4e6C08e90565206F',
+  zora: 'https://zora.co/jvmi.eth',
 };

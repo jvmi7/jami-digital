@@ -9,6 +9,7 @@
   padding: 0px 12px;
   position: relative;
   background-color: var(--background);
+  transition: background-color 0.2s ease;
 
   @media screen and (max-height: 800px) {
     justify-content: flex-start;

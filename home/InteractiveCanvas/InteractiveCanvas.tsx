@@ -168,7 +168,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           transition: { delay: hideText ? 0 : 1.5 },
         }}
       >
-        [ interactive digital artist ]
+        [ interactive art onchain ]
       </motion.p>
     </div>
   );
