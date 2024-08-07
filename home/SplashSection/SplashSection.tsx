@@ -15,7 +15,7 @@ const SplashSection = () => {
     useMeasure<HTMLDivElement>();
   const { y } = useWindowScroll();
 
-  const rows = Math.min(Math.floor(viewportHeight / 50), 25);
+  const rows = Math.min(Math.floor(viewportHeight / 50), 20);
   const cols = Math.min(Math.floor(viewportWidth / 40), 25);
 
   console.log({ rows, cols });

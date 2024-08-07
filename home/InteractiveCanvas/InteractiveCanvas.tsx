@@ -4,6 +4,8 @@ import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
 import { InteractiveCanvasMetadata } from '../types';
 import { motion } from 'framer-motion';
+import { useMeasure, useWindowSize } from 'react-use';
+import { Link } from 'react-scroll';
 
 const getColorIndex = (
   index: number,
@@ -38,6 +40,9 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   const { rows, cols, gap, shapeSize, rowColorOffset } = metadata;
   const [enableAnimation, setEnableAnimation] = useState(true);
   const [currentOffset, setCurrentOffset] = useState(0);
+  const { width } = useWindowSize();
+  const isMobile = width < 550;
+
   const [hoveredCell, setHoveredCell] = useState<{
     row: number;
     col: number;
@@ -78,12 +83,6 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
       if (touchTimeout.current) {
         clearTimeout(touchTimeout.current);
       }
-
-      // Set a new timeout to reset hovered cell
-      touchTimeout.current = window.setTimeout(() => {
-        setHoveredCell(null);
-        setEnableAnimation(true);
-      }, 1500);
     } else {
       offsetX = event.nativeEvent.offsetX;
       offsetY = event.nativeEvent.offsetY;
@@ -92,10 +91,8 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
     const col = Math.floor(offsetX / (shapeSize + gap));
     const row = Math.floor(offsetY / (shapeSize + gap));
 
-    console.log(isMobileDevice);
-    if (!isMobileDevice) {
-      console.log({ row, col });
-      // setHoveredCell({ row, col });
+    if (!isMobile) {
+      setHoveredCell({ row, col });
     }
     setActiveCell({ row, col });
   };
@@ -114,7 +111,6 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           gap: `${gap}px`,
         }}
         onTouchStart={handleMove}
-        onTouchMove={handleMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMove}
@@ -169,16 +165,18 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           );
         })}
       </div>
-      <motion.p
-        className={styles.tagline}
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: hideText ? 0 : 1,
-          transition: { delay: hideText ? 0 : 1.5 },
-        }}
-      >
-        [ art for the world ]
-      </motion.p>
+      <Link to={'artwork'} smooth={true} offset={-72} duration={600}>
+        <motion.p
+          className={styles.tagline}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: hideText ? 0 : 1,
+            transition: { delay: hideText ? 0 : 1.5 },
+          }}
+        >
+          [ art for the world ]
+        </motion.p>
+      </Link>
     </div>
   );
 };

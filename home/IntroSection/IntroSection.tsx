@@ -7,6 +7,7 @@ import styles from './IntroSection.module.scss';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
+import { motion, useAnimation } from 'framer-motion';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({
@@ -14,14 +15,31 @@ const IntroSection = () => {
     threshold: 1,
   });
 
+  // const { ref: containerRef, inView: containerRefInView } = useInView({
+  //   triggerOnce: true,
+  //   threshold: 1,
+  // });
+
+  const controls = useAnimation();
+
   const [response, setResponse] = useState<string[]>([]);
 
   const buttonHandler = () => {
     setResponse(["let's get in touch"]);
   };
 
+  // useEffect(() => {
+  //   if (containerRefInView) {
+  //     controls.start({
+  //       opacity: 1,
+  //       y: 0,
+  //       transition: { duration: 1 },
+  //     });
+  //   }
+  // }, [containerRefInView]);
+
   return (
-    <section className={styles.container}>
+    <motion.section className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
           <div className={styles.avatar}>
@@ -59,7 +77,7 @@ const IntroSection = () => {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
