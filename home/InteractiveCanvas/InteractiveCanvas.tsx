@@ -95,7 +95,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
     console.log(isMobileDevice);
     if (!isMobileDevice) {
       console.log({ row, col });
-      setHoveredCell({ row, col });
+      // setHoveredCell({ row, col });
     }
     setActiveCell({ row, col });
   };
@@ -123,15 +123,15 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
         {Array.from({ length: rows * cols }).map((_, index) => {
           let colorIndex;
           const coordinates = getCoordinates(index, cols, rows);
-          const distance = hoveredCell
-            ? getDistance(coordinates, hoveredCell)
+          const distance = activeCell
+            ? getDistance(coordinates, activeCell)
             : -1;
           const distanceFromCenter = getDistance(
             { row: Math.floor(rows / 2), col: Math.floor(cols / 2) },
             coordinates
           );
 
-          if (hoveredCell && currentOffset !== 0) {
+          if (activeCell && currentOffset !== 0) {
             colorIndex =
               (Math.floor(distance) + currentOffset) % palette.length;
           } else {
