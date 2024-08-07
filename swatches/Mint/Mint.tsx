@@ -3,7 +3,6 @@ import styles from './Mint.module.scss';
 import classNames from 'classnames';
 import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
 import { socialLinks } from '../../constants';
-import Image from 'next/image';
 
 const Mint = () => {
   return (

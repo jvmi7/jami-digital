@@ -6,26 +6,29 @@ import { palette } from '../constants';
 import { useMeasure, useWindowScroll } from 'react-use';
 import { ThemeToggle } from '../../components/HomePage/Header/ThemeToggle';
 
-const rows = 15;
-const cols = 11;
-const gap = 7;
-const shapeSize = 25;
-const rowColorOffset = 2;
-
 const SplashSection = () => {
   useEffect(() => {
     generateAllAnimations(palette, document);
   }, []);
 
-  const [ref, { height: viewportHeight }] = useMeasure<HTMLDivElement>();
+  const [ref, { height: viewportHeight, width: viewportWidth }] =
+    useMeasure<HTMLDivElement>();
   const { y } = useWindowScroll();
+
+  const rows = Math.min(Math.floor(viewportHeight / 50), 25);
+  const cols = Math.min(Math.floor(viewportWidth / 40), 25);
+
+  console.log({ rows, cols });
+  const gap = 7;
+  const shapeSize = 25;
+  const rowColorOffset = 2;
 
   const randomOrder = useMemo(() => {
     return generateRandomOrder(rows * cols);
   }, [rows, cols]);
 
   // number between 0 and 100
-  const scrollPercentage = (y / viewportHeight) * 10;
+  const scrollPercentage = (y / viewportHeight) * 5;
 
   const hiddenShapes = randomOrder.slice(
     0,

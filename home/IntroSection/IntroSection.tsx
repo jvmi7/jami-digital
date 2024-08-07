@@ -6,7 +6,6 @@ import styles from './IntroSection.module.scss';
 
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { SendPlaneIcon } from '../../icons/SendPlaneIcon';
 import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
 
 const IntroSection = () => {

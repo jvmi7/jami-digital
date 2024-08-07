@@ -2,7 +2,6 @@ import { useRef, useState } from 'react';
 import { palette } from '../constants';
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
-import { JvmiIcon } from '../../icons/JvmiIcon';
 import { InteractiveCanvasMetadata } from '../types';
 import { motion } from 'framer-motion';
 
@@ -43,6 +42,10 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
     row: number;
     col: number;
   } | null>(null);
+  const [activeCell, setActiveCell] = useState<{
+    row: number;
+    col: number;
+  } | null>(null);
   const touchTimeout = useRef<number | null>(null);
 
   const hideText = hiddenShapes.length > rows * cols * 0.5;
@@ -63,8 +66,9 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
       | React.TouchEvent<HTMLDivElement>
   ) => {
     let offsetX, offsetY;
+    const isMobileDevice = 'touches' in event;
 
-    if ('touches' in event) {
+    if (isMobileDevice) {
       const touch = event.touches[0];
       const rect = event.currentTarget.getBoundingClientRect();
       offsetX = touch.clientX - rect.left;
@@ -87,7 +91,13 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
 
     const col = Math.floor(offsetX / (shapeSize + gap));
     const row = Math.floor(offsetY / (shapeSize + gap));
-    setHoveredCell({ row, col });
+
+    console.log(isMobileDevice);
+    if (!isMobileDevice) {
+      console.log({ row, col });
+      setHoveredCell({ row, col });
+    }
+    setActiveCell({ row, col });
   };
 
   const handleClick = () => {
@@ -96,7 +106,6 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
 
   return (
     <div className={styles.container}>
-      {/* <p>interactive art for the world</p> */}
       <div
         className={styles.canvas}
         style={{
@@ -168,7 +177,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           transition: { delay: hideText ? 0 : 1.5 },
         }}
       >
-        [ interactive art onchain ]
+        [ art for the world ]
       </motion.p>
     </div>
   );
