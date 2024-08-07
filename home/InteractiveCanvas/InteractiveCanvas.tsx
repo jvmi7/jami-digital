@@ -174,7 +174,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
             transition: { delay: hideText ? 0 : 1.5 },
           }}
         >
-          [ art for the world ]
+          [ test test test ]
         </motion.p>
       </Link>
     </div>
