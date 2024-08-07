@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { delay, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames';
-import { socialLinks } from '../Footer/Socials';
+import { socialLinks } from '../../../constants';
 
 const messages = [
   <>

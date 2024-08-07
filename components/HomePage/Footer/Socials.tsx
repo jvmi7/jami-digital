@@ -3,7 +3,6 @@ import { DraftIcon } from '../../../icons/DraftIcon';
 import { FarcasterIcon } from '../../../icons/FarcasterIcon';
 import { GithubIcon } from '../../../icons/GithubIcon';
 import { InstagramIcon } from '../../../icons/InstagramIcon';
-import { JvmiIcon } from '../../../icons/JvmiIcon';
 import { XIcon } from '../../../icons/XIcon';
 import { ZoraIcon } from '../../../icons/ZoraIcon';
 import classNames from 'classnames';
