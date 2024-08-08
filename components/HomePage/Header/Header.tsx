@@ -5,11 +5,12 @@ import { JvmiIcon } from '../../../icons/JvmiIcon';
 import { SlidingMenu } from './SlidingMenu';
 import { motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const { height } = useWindowSize();
   const isSmall = height < 750;
-  const transitionDelay = isSmall ? 1.04 : 1.22;
+  const transitionDelay = isSmall ? 0.6 : 0.6;
 
   const [isOpen, setIsOpen] = useState(false);
   const handleMenuClick = () => {
@@ -19,14 +20,15 @@ const Header = () => {
   return (
     <motion.div
       className={styles.container}
-      initial={{ opacity: 0, y: -20, top: 0, position: 'fixed' }}
-      animate={{ opacity: 1, y: 0, top: 0, position: 'fixed' }}
+      initial={{ opacity: 0, top: 0, position: 'fixed' }}
+      animate={{ opacity: 1, top: 0, position: 'fixed' }}
       transition={{ duration: 0.5, delay: transitionDelay }}
     >
       <MenuButton isOpen={isOpen} onClick={handleMenuClick} />
       <div className={styles.logo}>
-        <JvmiIcon color="white" height={48} width={56} />
+        <JvmiIcon color="var(--foreground)" height={48} width={56} />
       </div>
+      {/* <ThemeToggle /> */}
       <SlidingMenu isOpen={isOpen} closeMenu={handleMenuClick} />
     </motion.div>
   );

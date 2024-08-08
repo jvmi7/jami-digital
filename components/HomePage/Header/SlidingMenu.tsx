@@ -6,7 +6,7 @@ import disableScroll from 'disable-scroll';
 import { HomeIcon } from '../../../icons/HomeIcon';
 import { CollageIcon } from '../../../icons/CollageIcon';
 import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
-import { Socials, socialLinks } from '../Footer/Socials';
+import { socialLinks } from '../../../constants';
 import { Button } from '../Button/Button';
 import { Link } from 'react-scroll';
 import { CheckIcon } from '../../../icons/CheckIcon';
@@ -132,9 +132,11 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
             <div className={styles.items}>
               {links.map(link => (
                 <a
+                  key={link.url}
                   href={link.url}
                   target="_blank"
                   className={styles.menuSubItemLink}
+                  rel="noreferrer"
                 >
                   <p className={styles.menuSubItemText}>{link.text}</p>
                   <ExternalLinkIcon

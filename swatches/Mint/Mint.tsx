@@ -2,8 +2,7 @@ import { RiExternalLinkFill } from '@remixicon/react';
 import styles from './Mint.module.scss';
 import classNames from 'classnames';
 import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
-import { socialLinks } from '../../components/Mobile/Footer/Socials';
-import Image from 'next/image';
+import { socialLinks } from '../../constants';
 
 const Mint = () => {
   return (

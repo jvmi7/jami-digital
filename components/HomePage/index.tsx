@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Home } from './Home/Home';
 
-const Mobile = () => {
+const HomePage = () => {
   useEffect(() => {
     // Store the original body background color
     const originalBackgroundColor = document.body.style.backgroundColor;
@@ -22,4 +22,4 @@ const Mobile = () => {
   );
 };
 
-export { Mobile };
+export { HomePage };

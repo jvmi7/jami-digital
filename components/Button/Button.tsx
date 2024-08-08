@@ -32,7 +32,7 @@ const Button = ({
   };
 
   return href ? (
-    <a href={href} className={buttonClasses} style={{ width }} target="_blank">
+    <a href={href} className={buttonClasses} style={{ width }} target="_blank" rel="noreferrer">
       <span className={styles.content} style={contentStyle}>
         {icon && icon}
         {children}

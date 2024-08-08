@@ -128,7 +128,7 @@ const SplashSection = () => {
     allRows.sort(() => Math.random() - 0.5);
 
     return allRows;
-  }, [columns]);
+  }, [columns, row1, row2, row3, row4]);
 
   const [hiddenImages, setHiddenImages] = useState<string[]>([]);
 

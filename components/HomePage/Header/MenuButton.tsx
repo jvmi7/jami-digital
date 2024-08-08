@@ -12,7 +12,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isOpen, onClick }) => {
   const lineCommonStyle = {
     width: 25,
     height: 2.5,
-    backgroundColor: 'white',
+    backgroundColor: 'var(--foreground)',
     originX: 0.5,
   };
 

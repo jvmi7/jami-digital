@@ -1,0 +1,17 @@
+.viewport {
+  min-height: calc(100vh + 0px);
+  min-height: calc(100svh + 0px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px;
+  position: relative;
+  background-color: var(--background);
+  transition: background-color 0.2s ease;
+
+  @media screen and (max-height: 800px) {
+    justify-content: flex-start;
+  }
+}
