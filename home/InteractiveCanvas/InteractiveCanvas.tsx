@@ -54,6 +54,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   const touchTimeout = useRef<number | null>(null);
 
   const hideText = hiddenShapes.length > rows * cols * 0.5;
+  const hideCanvas = hiddenShapes.length === rows * cols;
 
   const handleMouseEnter = () => {
     setEnableAnimation(false);
@@ -102,7 +103,10 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}
+    >
       <div
         className={styles.canvas}
         style={{
