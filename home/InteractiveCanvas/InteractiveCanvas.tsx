@@ -143,7 +143,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           if (isHidden) {
             scale = 0;
           } else if (hoveredCell) {
-            scale = Math.max(0.6, 1.25 - distance * 0.05);
+            scale = Math.max(0.6, 1.3 - distance * 0.06);
           } else {
             scale = 1;
           }

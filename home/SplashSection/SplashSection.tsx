@@ -18,7 +18,6 @@ const SplashSection = () => {
   const rows = Math.min(Math.floor(viewportHeight / 50), 20);
   const cols = Math.min(Math.floor(viewportWidth / 40), 25);
 
-  console.log({ rows, cols });
   const gap = 7;
   const shapeSize = 25;
   const rowColorOffset = 2;

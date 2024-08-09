@@ -32,6 +32,7 @@ export default function Home() {
           <IntroSection />
           <ProjectSection theme={{ background: '#eee' }} />
           <ProjectSection theme={{ background: '#000' }} />
+          <ProjectSection theme={{ background: '#eee' }} />
         </div>
       </div>
     </>

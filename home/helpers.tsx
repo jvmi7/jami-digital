@@ -16,13 +16,11 @@ export const createKeyframeAnimation = (
 
   const styleSheet = document.styleSheets[0];
   styleSheet.insertRule(keyframesRule, styleSheet.cssRules.length);
-  console.log(keyframesRule);
 };
 
 export const generateAllAnimations = (colors: string[], document: Document) => {
   for (let i = 0; i < colors.length; i++) {
     const shiftedPalette = colors.slice(i).concat(colors.slice(0, i));
-    console.log(shiftedPalette);
     createKeyframeAnimation(`colorCycle${i}`, shiftedPalette, document);
   }
 };
