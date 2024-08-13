@@ -1,63 +1,86 @@
-import { useWindowSize } from 'react-use';
 import styles from './ProjectSection.module.scss';
-import { FarcasterIcon } from '../../icons/FarcasterIcon';
+import { ProjectMetadata } from '../types';
+import { useState } from 'react';
+import Link from 'next/link';
 
 type Props = {
-  theme: { background: string };
+  metadata: ProjectMetadata;
 };
 
-const ProjectSection = ({ theme }: Props) => {
-  const { background } = theme;
+const ProjectSection = ({ metadata }: Props) => {
+  const { title, description, tags, items, button } = metadata;
+  const { background, card, text, buttonBackground, buttonTextColor } =
+    metadata.theme;
+
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+  const currentItem = items[currentItemIndex];
+  const currentItemUrl = `${metadata.previewUrl}${currentItem}/`;
 
   return (
     <div className={styles.container} style={{ background: background }}>
-      <h1 className={styles.title}>swatches</h1>
-      <p className={styles.description}>
-        an exploration of color, motion & human interaction
+      <h1 className={styles.title} style={{ color: text }}>
+        {title}
+      </h1>
+      <p className={styles.description} style={{ color: text }}>
+        {description}
       </p>
       <div className={styles.tags}>
-        <div className={styles.tagContainer}>
-          <div className={styles.tag}>7,777 items</div>
-        </div>
-        <div className={styles.tagContainer}>
-          <div className={styles.tag}>base nfts</div>
-        </div>
+        {tags.map(tag => (
+          <div
+            key={tag} // Added a key prop here for better rendering performance
+            className={styles.tagContainer}
+            style={{ backgroundColor: card }}
+          >
+            <div className={styles.tag} style={{ color: text }}>
+              {tag}
+            </div>
+          </div>
+        ))}
       </div>
       <div>
         <div className={styles.contentContainer}>
-          <iframe
-            src="https://www.swatches-animation-url.art/items/16/"
-            className={styles.preview}
-          />
+          <iframe src={currentItemUrl} className={styles.preview} />
           <div className={styles.thumbnails}>
-            <img
-              src="/swatches/pastel_swatch.png"
-              alt="swatches"
-              className={styles.image}
-            />
-            <img
-              src="/swatches/greyscale_swatch.png"
-              alt="swatches"
-              className={styles.image}
-            />
-            <img
-              src="/swatches/beach_swatch.png"
-              alt="swatches"
-              className={styles.image}
-            />
+            {items.map(
+              (item, index) =>
+                currentItemIndex !== index && (
+                  <img
+                    key={item} // Added a key prop here for better rendering performance
+                    src={`/swatches/${item}.png`}
+                    alt={`swatch preview ${index}`}
+                    className={styles.image}
+                    onClick={() => setCurrentItemIndex(index)}
+                  />
+                )
+            )}
           </div>
         </div>
-        <button className={styles.button}>hey</button>
+        <Link href={button?.link || ''}>
+          <button
+            className={styles.button}
+            style={{
+              backgroundColor: buttonBackground,
+              color: buttonTextColor,
+            }}
+            disabled={!button.link}
+          >
+            {button.text}
+          </button>
+        </Link>
+
         <div className={styles.linkContainer}>
-          <button className={styles.link}>
-            <FarcasterIcon />
-          </button>
-          <button className={styles.link}>
-            <FarcasterIcon />
-          </button>
-          <button className={styles.link}>
-            <FarcasterIcon />
-          </button>
+          {metadata.socialLinks.map(({ icon, href }, index) => (
+            <a
+              key={index} // Added a key prop here for better rendering performance
+              className={styles.link}
+              style={{ color: text, backgroundColor: card }}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer" // Added for security reasons when using target="_blank"
+            >
+              {icon}
+            </a>
+          ))}
         </div>
       </div>
     </div>

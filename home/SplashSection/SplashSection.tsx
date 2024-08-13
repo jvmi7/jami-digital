@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { InteractiveCanvas } from '../InteractiveCanvas/InteractiveCanvas';
 import styles from './SplashSection.module.scss';
@@ -5,8 +7,20 @@ import { generateAllAnimations, generateRandomOrder } from '../helpers';
 import { palette } from '../constants';
 import { useMeasure, useWindowScroll } from 'react-use';
 import { ThemeToggle } from '../../components/HomePage/Header/ThemeToggle';
+import { MessageNotification } from '../MessageNotification/MessageNotification';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const SplashSection = () => {
+  const [hideNotification, setHideNotification] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', latest => {
+    if (latest > 0) {
+      setHideNotification(true);
+    }
+  });
+
   useEffect(() => {
     generateAllAnimations(palette, document);
   }, []);
@@ -36,6 +50,12 @@ const SplashSection = () => {
 
   return (
     <div className={styles.viewport} ref={ref}>
+      <MessageNotification
+        hide={hideNotification}
+        onClick={() => {
+          setHideNotification(true);
+        }}
+      />
       <InteractiveCanvas
         metadata={{ rows, cols, gap, shapeSize, rowColorOffset }}
         hiddenShapes={hiddenShapes}
