@@ -20,6 +20,9 @@ body {
     --typing-background: #e2e2e2;
     --typing-background-text: #888888;
     --chat-bubble: #222222;
+    --footer-background: #eeeeee;
+    --press-card: #ffffff;
+    --press-title: #777777;
   }
 
   &.DARK {
@@ -35,5 +38,8 @@ body {
     --typing-background: #303030;
     --typing-background-text: #b6b6b6;
     --chat-bubble: #222222;
+    --footer-background: #000000;
+    --press-card: #111111;
+    --press-title: #dddddd;
   }
 }

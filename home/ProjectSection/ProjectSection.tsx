@@ -46,8 +46,8 @@ const ProjectSection = ({ metadata }: Props) => {
                 currentItemIndex !== index && (
                   <img
                     key={item} // Added a key prop here for better rendering performance
-                    src={`/swatches/${item}.png`}
-                    alt={`swatch preview ${index}`}
+                    src={`/${title}/${item}.png`}
+                    alt={`${title} preview ${index}`}
                     className={styles.image}
                     onClick={() => setCurrentItemIndex(index)}
                   />

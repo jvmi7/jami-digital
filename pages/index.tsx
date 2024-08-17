@@ -11,12 +11,11 @@ import {
   ChartsProjectMetadata,
   SwatchesProjectMetadata,
 } from '../home/constants';
+import { GallerySection } from '../home/GallerySection/GallerySection';
+import { PressSection } from '../home/PressSection/PressSection';
+import { FooterSection } from '../home/FooterSection/FooterSection';
 
 export default function Home() {
-  const isMobile = useMedia('(max-width: 100000px)', false) || false;
-
-  const { theme } = useTheme();
-
   return (
     <>
       <Head>
@@ -36,7 +35,9 @@ export default function Home() {
           <IntroSection />
           <ProjectSection metadata={SwatchesProjectMetadata} />
           <ProjectSection metadata={ChartsProjectMetadata} />
-          <ProjectSection metadata={SwatchesProjectMetadata} />
+          <GallerySection />
+          <PressSection />
+          <FooterSection />
         </div>
       </div>
     </>

@@ -60,8 +60,8 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   title: 'charts',
   description: 'an exploration of color, motion & human interaction',
   tags: ['coming soon', 'base nfts'],
-  previewUrl: 'https://www.swatches-animation-url.art/items/',
-  items: ['16', '2104', '7031', '469'],
+  previewUrl: 'https://charts-interface.netlify.app/?sample=',
+  items: ['1', '2', '3', '4'],
   button: {
     text: 'coming soon',
   },
