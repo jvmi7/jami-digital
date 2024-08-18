@@ -2,13 +2,15 @@ import styles from './ProjectSection.module.scss';
 import { ProjectMetadata } from '../types';
 import { useState } from 'react';
 import Link from 'next/link';
+import classNames from 'classnames';
+import { RiArrowRightUpLine } from '@remixicon/react';
 
 type Props = {
   metadata: ProjectMetadata;
 };
 
 const ProjectSection = ({ metadata }: Props) => {
-  const { title, description, tags, items, button } = metadata;
+  const { title, description, tags, items, buttons } = metadata;
   const { background, card, text, buttonBackground, buttonTextColor } =
     metadata.theme;
 
@@ -55,18 +57,27 @@ const ProjectSection = ({ metadata }: Props) => {
             )}
           </div>
         </div>
-        <Link href={button?.link || ''} target="_blank">
-          <button
-            className={styles.button}
-            style={{
-              backgroundColor: buttonBackground,
-              color: buttonTextColor,
-            }}
-            disabled={!button.link}
-          >
-            {button.text}
-          </button>
-        </Link>
+        <div className={styles.buttonContainer}>
+          {buttons.map((button, index) => (
+            <a href={button?.link || ''} target="_blank">
+              <button
+                className={classNames(styles.button)}
+                style={{
+                  backgroundColor:
+                    index === 0 ? buttonBackground : buttonBackground,
+                  color: index === 0 ? buttonTextColor : buttonTextColor,
+                  // border: `3px solid ${index === 0 ? buttonBackground : buttonBackground}`,
+                }}
+                disabled={!button.link}
+              >
+                {button.text}
+                {button.showIcon && (
+                  <RiArrowRightUpLine className={styles.icon} size={18} />
+                )}
+              </button>
+            </a>
+          ))}
+        </div>
 
         <div className={styles.linkContainer}>
           {metadata.socialLinks.map(({ icon, href }, index) => (

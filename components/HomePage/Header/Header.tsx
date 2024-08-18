@@ -39,12 +39,12 @@ const Header = () => {
       animate={{ opacity: showHeader ? 1 : 0, top: 0, position: 'absolute' }}
       transition={{ duration: 0.5, delay: transitionDelay }}
     >
-      <MenuButton isOpen={isOpen} onClick={handleMenuClick} />
+      {/* <MenuButton isOpen={isOpen} onClick={handleMenuClick} /> */}
       <div className={styles.logo}>
         <JvmiIcon color="var(--foreground)" height={48} width={56} />
       </div>
       {/* <ThemeToggle /> */}
-      <SlidingMenu isOpen={isOpen} closeMenu={handleMenuClick} />
+      {/* <SlidingMenu isOpen={isOpen} closeMenu={handleMenuClick} /> */}
     </motion.div>
   );
 };

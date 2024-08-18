@@ -26,13 +26,21 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   },
   title: 'swatches',
   description: 'an exploration of color, motion & human interaction',
-  tags: ['7,777 items', 'base nfts'],
+  tags: ['7,777 pieces', 'sold out', 'interactive nfts'],
   previewUrl: 'https://www.swatches-animation-url.art/items/',
   items: ['16', '2104', '7031', '469'],
-  button: {
-    text: 'view project',
-    link: '/swatches',
-  },
+  buttons: [
+    {
+      text: 'buy on secondary',
+      link: '/swatches',
+      showIcon: true,
+    },
+    {
+      text: 'visit /swatches',
+      link: '/swatches',
+      showIcon: true,
+    },
+  ],
   socialLinks: [
     {
       icon: <OpenSeaIcon />,
@@ -59,12 +67,14 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   },
   title: 'charts',
   description: 'an exploration of color, motion & human interaction',
-  tags: ['coming soon', 'base nfts'],
+  tags: ['coming soon', 'interactive nfts'],
   previewUrl: 'https://charts-interface.netlify.app/?sample=',
   items: ['1', '2', '3', '4'],
-  button: {
-    text: 'coming soon',
-  },
+  buttons: [
+    {
+      text: 'coming soon',
+    },
+  ],
   socialLinks: [
     // {
     //   icon: <FarcasterIcon />,

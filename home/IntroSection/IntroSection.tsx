@@ -68,7 +68,7 @@ const IntroSection = () => {
             {inView && (
               <TypingAnimation
                 text={"let's get in touch"}
-                initialDelay={3600}
+                initialDelay={11000}
               />
             )}
           </button>

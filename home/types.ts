@@ -19,10 +19,11 @@ export type ProjectMetadata = {
   tags: string[];
   previewUrl: string;
   items: string[];
-  button: {
+  buttons: {
     text: string;
     link?: string;
-  };
+    showIcon?: boolean;
+  }[];
   socialLinks: {
     icon: JSX.Element;
     href: string;

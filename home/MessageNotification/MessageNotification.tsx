@@ -11,7 +11,7 @@ interface MessageNotificationProps {
 const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
   const { width } = useWindowSize();
 
-  const initialYPosition = width < 500 ? -20 : 20;
+  const initialYPosition = -200;
 
   const initial = {
     opacity: 0,

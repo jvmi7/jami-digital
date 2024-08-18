@@ -27,23 +27,35 @@
 
   .tags {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 12px;
+    margin-bottom: 24px;
 
     .tagContainer {
       display: flex;
       gap: 12px;
-      margin-bottom: 24px;
       padding: 6px 16px;
       border-radius: 100px;
     }
+  }
+
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
   .button {
     width: 100%;
     padding: 12px 24px;
     border-radius: 100px;
-    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   .linkContainer {
