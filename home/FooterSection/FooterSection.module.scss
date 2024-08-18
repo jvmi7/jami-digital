@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  width: 100%;
 
   .divider {
     border-top: 1px solid var(--text-secondary);
@@ -34,6 +35,22 @@
         color: var(--text-secondary);
         font-family: var(--header-font);
         font-size: 22px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: var(--foreground);
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 16px;
+
+      .linksContainer {
+        .link {
+          width: fit-content;
+        }
       }
     }
   }

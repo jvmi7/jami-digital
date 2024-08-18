@@ -178,7 +178,9 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
             transition: { delay: hideText ? 0 : 1.5 },
           }}
         >
-          [ the art of interaction ]
+          <span className={styles.interactive}>interactive </span>
+          <span className={styles.art}>art </span>
+          <span className={styles.onchain}>onchain</span>
         </motion.p>
       </Link>
     </div>

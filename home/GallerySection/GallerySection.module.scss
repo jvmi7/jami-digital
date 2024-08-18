@@ -7,9 +7,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 72px 24px;
+  padding: 72px;
   background-color: #eeeeee;
   color: #999999;
+
+  @media screen and (max-width: 800px) {
+    padding: 72px 24px;
+  }
 
   .title {
     font-family: var(--header-font);

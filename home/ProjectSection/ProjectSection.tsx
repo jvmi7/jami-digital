@@ -55,7 +55,7 @@ const ProjectSection = ({ metadata }: Props) => {
             )}
           </div>
         </div>
-        <Link href={button?.link || ''}>
+        <Link href={button?.link || ''} target="_blank">
           <button
             className={styles.button}
             style={{

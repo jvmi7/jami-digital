@@ -1,6 +1,6 @@
 .container {
-  min-height: calc(100vh - 72px);
-  min-height: calc(100svh - 72px);
+  min-height: calc(100vh);
+  min-height: calc(100svh);
   width: 100%;
   display: flex;
   justify-self: center;
@@ -12,7 +12,6 @@
   .card {
     width: 100%;
     max-width: 450px;
-    height: 700px;
     background-color: var(--background);
     z-index: 2;
     padding: 18px;

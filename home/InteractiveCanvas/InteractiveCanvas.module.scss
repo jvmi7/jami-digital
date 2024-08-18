@@ -27,7 +27,10 @@
 .tagline {
   text-align: center;
   margin-top: 24px;
-  font-family: var(--header-font);
   font-size: 24px;
   color: var(--foreground);
+
+  span {
+    font-family: var(--header-font);
+  }
 }

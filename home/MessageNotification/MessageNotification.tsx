@@ -37,7 +37,7 @@ const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
   };
 
   return (
-    <Link to="intro" smooth={true} offset={-72} duration={500}>
+    <Link to="intro" smooth={true} duration={500}>
       <AnimatePresence>
         {!hide && (
           <motion.div

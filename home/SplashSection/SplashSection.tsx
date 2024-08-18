@@ -16,7 +16,7 @@ const SplashSection = () => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest > 0) {
+    if (latest > 100) {
       setHideNotification(true);
     }
   });

@@ -1,5 +1,8 @@
+'use client';
+
 import { useWindowSize } from 'react-use';
 import styles from './GallerySection.module.scss';
+import { useEffect, useState } from 'react';
 const images = [
   'apple',
   'banana',
@@ -24,13 +27,17 @@ const images = [
 
 const GallerySection = () => {
   const { width } = useWindowSize();
-  const numColumns = width < 800 ? 2 : 3;
-  const imagesPerColumn = Math.floor(images.length / numColumns);
+  const [numColumns, setNumColumns] = useState(3); // Default to 3 columns
+
+  useEffect(() => {
+    setNumColumns(width < 800 ? 2 : 3);
+  }, [width]);
+
+  const imagesPerColumn = Math.ceil(images.length / numColumns) - 1;
   const columns = Array.from({ length: numColumns }, (_, i) =>
     images.slice(i * imagesPerColumn, (i + 1) * imagesPerColumn)
   );
 
-  console.log(columns);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>gallery</h1>
