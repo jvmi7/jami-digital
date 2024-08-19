@@ -66,7 +66,7 @@ export const ChartsProjectMetadata: ProjectMetadata = {
     buttonTextColor: '#FFFFFF',
   },
   title: 'charts',
-  description: 'an exploration of color, motion & human interaction',
+  description: 'an alternative perspective on value, trends & speculation',
   tags: ['coming soon', 'interactive nfts'],
   previewUrl: 'https://charts-interface.netlify.app/?sample=',
   items: ['1', '2', '3', '4'],
