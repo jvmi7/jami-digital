@@ -26,12 +26,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>jvmi.art</title>
-        <link rel="preload" href="/speakers.svg" as="image" />
-        <link rel="preload" href="/dpad.svg" as="image" />
-        <link rel="preload" href="/primaryButton.svg" as="image" />
-        <link rel="preload" href="/secondaryButton.svg" as="image" />
-        <link rel="preload" href="/arrow.svg" as="image" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jvmi.art" />
+        <meta property="og:title" content="jvmi.art" />
+        <meta property="og:description" content="interactive art onchain" />
+        <meta
+          property="og:image"
+          content="https://jvmi.art/jvmi-art-banner.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@jvmi_" />
+        <meta name="twitter:url" content="https://jvmi.art" />
+        <meta name="twitter:title" content="jvmi.art" />
+        <meta name="twitter:description" content="interactive art onchain" />
+        <meta
+          name="twitter:image"
+          content="https://jvmi.art/jvmi-art-banner.png"
+        />
       </Head>
 
       <div className={styles.body}>
