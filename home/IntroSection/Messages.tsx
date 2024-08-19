@@ -77,7 +77,7 @@ const Messages = ({ response }: MessagesProps) => {
       // add the third message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1], messages[2]]);
-      }, delay + 8000);
+      }, delay + 6000);
       // add the fourth message after a delay
       // setTimeout(() => {
       //   setCurrentMessages([

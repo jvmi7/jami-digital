@@ -32,7 +32,7 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   buttons: [
     {
       text: 'buy on secondary',
-      link: '/swatches',
+      link: 'https://opensea.io/collection/swatches-by-jvmi',
       showIcon: true,
     },
     {

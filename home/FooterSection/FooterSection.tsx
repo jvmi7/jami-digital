@@ -1,8 +1,13 @@
+import { RiMoonFill, RiSunFill } from '@remixicon/react';
+import { Switch } from '../../components/Switch';
 import { socialLinks } from '../../constants';
+import { useTheme } from '../../hooks/useTheme';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import styles from './FooterSection.module.scss';
 
 const FooterSection = () => {
+  const { theme, setTheme } = useTheme();
+
   const links = [
     {
       name: 'twitter/x',
@@ -51,7 +56,23 @@ const FooterSection = () => {
             ))}
           </div>
         </div>
-        <JvmiIcon width={100} height={65} color="currentColor" />
+        <div className={styles.logoContainer}>
+          <div className={styles.themeContainer}>
+            {theme === 'DARK' ? (
+              <RiSunFill size={24} />
+            ) : (
+              <RiMoonFill size={24} />
+            )}
+            <Switch
+              checked={theme === 'DARK'}
+              onCheckedChange={() => {
+                setTheme(theme === 'LIGHT' ? 'DARK' : 'LIGHT');
+              }}
+            />
+          </div>
+          <JvmiIcon width={100} height={65} color="currentColor" />
+          <p>jvmi.art 2024</p>
+        </div>
       </div>
     </footer>
   );

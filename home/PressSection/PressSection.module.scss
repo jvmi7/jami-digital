@@ -28,6 +28,21 @@
       background-color: var(--card);
       padding: 24px;
       color: var(--press-title);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      position: relative;
+
+      .wrapper {
+        width: 100%;
+      }
+
+      .image {
+        height: 65px;
+        width: 65px;
+        border-radius: 100px;
+      }
 
       .linkTitle {
         display: flex;
@@ -44,6 +59,9 @@
       }
 
       .icon {
+        position: absolute;
+        top: 24px;
+        right: 24px;
         transition: all 0.1s ease;
       }
 
