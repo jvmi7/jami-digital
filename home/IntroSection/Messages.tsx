@@ -152,13 +152,13 @@ const Messages = ({ response }: MessagesProps) => {
                       >
                         @jvmi_
                       </a>
-                      <Image
+                      {/* <Image
                         src={'/envelope-emoji.webp'}
                         alt="hello"
                         width={32}
                         height={32}
                         className={styles.emoji}
-                      />
+                      /> */}
                     </p>
                     <p></p>
                   </>
