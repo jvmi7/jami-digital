@@ -51,7 +51,7 @@ body {
   font-family: var(--default-font);
   color: black;
   min-height: -webkit-fill-available;
-  // background-color: #000000;
+  background-color: var(--background);
   background-size: 100% 100%;
   cursor: var(--cursor-default);
 }
