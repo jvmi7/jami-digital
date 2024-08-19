@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: rgba($color: #808080, $alpha: 0.1);
+  border-radius: 100px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  .dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 12px;
+    background-color: rgba($color: #808080, $alpha: 0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color: #808080, $alpha: 0.5);
+    }
+  }
+
+  .active {
+    height: 46px;
+    background-color: rgba($color: #808080, $alpha: 0.5);
+  }
+}

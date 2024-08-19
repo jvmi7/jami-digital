@@ -1,0 +1,115 @@
+.container {
+  position: fixed;
+  top: 71px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 71px);
+  min-height: -webkit-fill-available;
+  z-index: -1;
+
+  .menuContainer {
+    width: 100%;
+    height: calc(100vh - 71px);
+    background-color: var(--background);
+    transition: background-color 0.2s ease;
+    color: var(--foreground);
+    padding: 12px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 550px) {
+      max-width: 100%;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-left: 8px;
+
+      .menuItem {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+
+        .menuItemText {
+          font-family: var(--header-font);
+          font-size: 28px;
+          cursor: pointer;
+          line-height: 26px;
+        }
+      }
+
+      .menuSubItemContainer {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: 12px;
+
+        .items {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          border-left: 1px solid #333;
+          margin-left: 3px;
+          padding-left: 28px;
+
+          .menuSubItemLink {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            &:hover {
+              text-decoration: underline;
+            }
+            svg {
+              margin-bottom: -3px;
+            }
+          }
+
+          .menuSubItemText {
+            // font-family: var(--header-font);
+            font-size: 24px;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px;
+    gap: 16px;
+
+    .connectButton {
+      width: 100%;
+      font-size: 22px;
+      padding: 18px 32px;
+      border-radius: 20px;
+    }
+
+    .footer {
+      border-top: 1px solid #333;
+      padding-top: 16px;
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 71px);
+    background-color: rgba($color: #000, $alpha: 0.8);
+    z-index: -1;
+  }
+}

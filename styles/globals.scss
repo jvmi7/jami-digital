@@ -49,9 +49,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: var(--default-font);
-  color: white;
+  color: black;
   min-height: -webkit-fill-available;
-  // background-color: #000000;
+  background-color: var(--background);
   background-size: 100% 100%;
   cursor: var(--cursor-default);
 }

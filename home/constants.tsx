@@ -1,0 +1,92 @@
+import { FarcasterIcon } from '../icons/FarcasterIcon';
+import { MagicEdenIcon } from '../icons/MagicEdenIcon';
+import { OpenSeaIcon } from '../icons/OpenSeaIcon';
+import { XIcon } from '../icons/XIcon';
+import { ProjectMetadata } from './types';
+
+export const palette = [
+  '#FF0000',
+  '#FF8300',
+  '#FFE500',
+  '#00FF00',
+  '#00F9FF',
+  '#00A4FF',
+  '#0049FF',
+  '#7C29FF',
+  '#FF00ED',
+];
+
+export const SwatchesProjectMetadata: ProjectMetadata = {
+  theme: {
+    background: '#eeeeee',
+    card: '#dddddd',
+    text: '#999999',
+    buttonBackground: '#222222',
+    buttonTextColor: '#FFFFFF',
+  },
+  title: 'swatches',
+  description: 'an exploration of color, motion & human interaction',
+  tags: ['7,777 pieces', 'sold out', 'interactive nfts'],
+  previewUrl: 'https://www.swatches-animation-url.art/items/',
+  items: ['16', '2104', '7031', '469'],
+  buttons: [
+    {
+      text: 'buy on secondary',
+      link: 'https://opensea.io/collection/swatches-by-jvmi',
+      showIcon: true,
+    },
+    {
+      text: 'visit /swatches',
+      link: '/swatches',
+      showIcon: true,
+    },
+  ],
+  socialLinks: [
+    {
+      icon: <OpenSeaIcon />,
+      href: 'https://opensea.io/collection/swatches-by-jvmi',
+    },
+    {
+      icon: <MagicEdenIcon />,
+      href: 'https://magiceden.io/collections/base/0x13dc8261fce63499aa25deb512bb1827b411b83b',
+    },
+    {
+      icon: <FarcasterIcon />,
+      href: 'https://warpcast.com/~/channel/swatches',
+    },
+  ],
+};
+
+export const ChartsProjectMetadata: ProjectMetadata = {
+  theme: {
+    background: '#000000',
+    card: '#222222',
+    text: '#eeeeee',
+    buttonBackground: '#222222',
+    buttonTextColor: '#FFFFFF',
+  },
+  title: 'charts',
+  description: 'an exploration of color, motion & human interaction',
+  tags: ['coming soon', 'interactive nfts'],
+  previewUrl: 'https://charts-interface.netlify.app/?sample=',
+  items: ['1', '2', '3', '4'],
+  buttons: [
+    {
+      text: 'coming soon',
+    },
+  ],
+  socialLinks: [
+    // {
+    //   icon: <FarcasterIcon />,
+    //   href: 'https://warpcast.com/~/channel/swatches',
+    // },
+    // {
+    //   icon: <MagicEdenIcon />,
+    //   href: 'https://x.com',
+    // },
+    // {
+    //   icon: <OpenSeaIcon />,
+    //   href: 'https://x.com',
+    // },
+  ],
+};
