@@ -99,7 +99,7 @@ export const desktopWindows: Record<string, Window> = {
 
 export const socialLinks = {
   x: 'https://twitter.com/jvmi_',
-  instagram: 'https://www.instagram.com/jvmi.art/',
+  instagram: 'https://www.instagram.com/jvmi_art/',
   farcaster: 'https://warpcast.com/jvmi',
   github: 'https://github.com/imranjami',
   blog: 'https://mirror.xyz/0x57D1eAE9f0972723F0e78EAF4e6C08e90565206F',
