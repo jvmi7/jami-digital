@@ -21,7 +21,6 @@ import { useState } from 'react';
 export default function Home() {
   const inViewThreshold = 0.3;
   const [sectionIndex, setSectionIndex] = useState(0);
-  console.log('sectionIndex', sectionIndex);
 
   return (
     <>
@@ -47,6 +46,7 @@ export default function Home() {
 
       <div className={styles.body}>
         <Header />
+        <Element name="splash" />
         <SplashSection />
         <div className={styles.page}>
           <SectionIndicator sectionIndex={sectionIndex} />

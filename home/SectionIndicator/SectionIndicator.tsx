@@ -15,7 +15,14 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
   const { height, width } = useWindowSize();
   const { scrollY } = useScroll();
   const [showIndicator, setShowIndicator] = useState(false);
-  const sections = ['intro', 'swatches', 'charts', 'gallery', 'press'];
+  const sections = [
+    'splash',
+    'intro',
+    'swatches',
+    'charts',
+    'gallery',
+    'press',
+  ];
 
   useMotionValueEvent(scrollY, 'change', latest => {
     if (latest >= height - 300 && width > 800) {
@@ -43,7 +50,7 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
           <div
             key={section}
             className={classNames(styles.dot, {
-              [styles.active]: sectionIndex === index,
+              [styles.active]: sectionIndex === index - 1,
             })}
           />
         </Link>
