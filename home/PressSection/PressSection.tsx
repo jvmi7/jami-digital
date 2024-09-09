@@ -17,7 +17,7 @@ const links = [
   {
     title: 'Invest in music podcast',
     description: 'an interview with Coopahtroopah',
-    link: 'https://app.spinamp.xyz/track/ep-56-jvmi-1713564451000',
+    link: 'https://pods.media/invest-in-music/ep-56-jvmi',
     image: '/invest-in-music.jpg',
   },
 ];

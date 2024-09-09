@@ -56,10 +56,12 @@ const SplashSection = () => {
           setHideNotification(true);
         }}
       />
-      <InteractiveCanvas
-        metadata={{ rows, cols, gap, shapeSize, rowColorOffset }}
-        hiddenShapes={hiddenShapes}
-      />
+      <div>
+        <InteractiveCanvas
+          metadata={{ rows, cols, gap, shapeSize, rowColorOffset }}
+          hiddenShapes={hiddenShapes}
+        />
+      </div>
       <ThemeToggle />
     </div>
   );

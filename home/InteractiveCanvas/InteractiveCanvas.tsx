@@ -6,6 +6,7 @@ import { InteractiveCanvasMetadata } from '../types';
 import { motion } from 'framer-motion';
 import { useMeasure, useWindowSize } from 'react-use';
 import { Link } from 'react-scroll';
+import { RiArrowRightUpLine } from '@remixicon/react';
 
 const getColorIndex = (
   index: number,
@@ -107,6 +108,10 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
       className={styles.container}
       style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}
     >
+      {/* <button className={styles.mintButton}>
+        <span>mint</span>
+        <RiArrowRightUpLine size={18} />
+      </button> */}
       <div
         className={styles.canvas}
         style={{
@@ -169,7 +174,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           );
         })}
       </div>
-      <Link to={'artwork'} smooth={true} offset={-72} duration={600}>
+      <Link to={'intro'} smooth={true} offset={-72} duration={600}>
         <motion.p
           className={styles.tagline}
           initial={{ opacity: 0 }}

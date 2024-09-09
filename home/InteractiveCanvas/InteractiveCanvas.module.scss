@@ -1,14 +1,48 @@
 .container {
-  position: relative;
   color: white;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding-top: 36px;
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  &:hover {
+    .mintButton {
+      opacity: 1;
+    }
+  }
+}
+
+.mintButton {
+  position: absolute;
+  top: -58px;
+  height: 48px;
+  right: 0px;
+  z-index: 2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: all 400ms ease;
+  color: var(--text-secondary);
+  background-color: var(--card);
+  padding: 4px 26px;
+  border-radius: 100px;
+  border: 1px solid var(--typing-background);
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  span {
+    font-size: 18px;
+  }
 }
 
 .canvas {
@@ -29,6 +63,13 @@
   margin-top: 24px;
   font-size: 24px;
   color: var(--foreground);
+  cursor: pointer;
+  transition: all 200ms ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--text-secondary);
+  }
 
   span {
     font-family: var(--header-font);
