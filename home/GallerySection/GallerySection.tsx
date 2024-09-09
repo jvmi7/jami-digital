@@ -3,6 +3,7 @@
 import { useWindowSize } from 'react-use';
 import styles from './GallerySection.module.scss';
 import { useEffect, useState } from 'react';
+import { Tags } from '../../components/HomePage/Tags/Tags';
 const images = [
   'apple',
   'banana',
@@ -40,10 +41,16 @@ const GallerySection = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>gallery</h1>
+      <h1 className={styles.title}>abstractions</h1>
       <p className={styles.description}>
-        an ongoing collection of pieces inspired by the world around me
+        an ongoing collection of pieces inspired by the world around us
       </p>
+      <Tags
+        tags={['coming soon', 'nfts on *****']}
+        backgroundColor="#ddd"
+        textColor="#999"
+      />
+
       <div className={styles.galleryContainer}>
         {columns.map((column, index) => (
           <div key={index} className={styles.column}>

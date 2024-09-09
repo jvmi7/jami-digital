@@ -1,0 +1,15 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  .tagContainer {
+    display: flex;
+    gap: 12px;
+    padding: 6px 16px;
+    border-radius: 100px;
+  }
+}

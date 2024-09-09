@@ -26,7 +26,7 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   },
   title: 'swatches',
   description: 'an exploration of color, motion & human interaction',
-  tags: ['7,777 pieces', 'sold out', 'interactive nfts'],
+  tags: ['7,777 pieces', 'sold out', 'nfts on base'],
   previewUrl: 'https://www.swatches-animation-url.art/items/',
   items: ['16', '2104', '7031', '469'],
   buttons: [
@@ -67,7 +67,7 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   },
   title: 'charts',
   description: 'an alternative perspective on value, trends & speculation',
-  tags: ['coming soon', 'interactive nfts'],
+  tags: ['coming soon', 'nfts on *****'],
   previewUrl: 'https://charts-interface.netlify.app/?sample=',
   items: ['1', '2', '3', '4'],
   buttons: [
