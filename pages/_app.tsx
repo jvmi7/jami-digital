@@ -7,6 +7,7 @@ import DesktopContextProvider from '../context/DesktopContextProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import '@rainbow-me/rainbowkit/styles.css';
+import { Analytics } from '@vercel/analytics/react';
 
 import { WagmiProvider } from 'wagmi';
 import {
@@ -40,16 +41,18 @@ const config = getDefaultConfig({
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('config', config);
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <DesktopContextProvider>
-          <RainbowKitProvider modalSize="compact" theme={darkTheme()}>
-            <Component {...pageProps} />
-          </RainbowKitProvider>
-        </DesktopContextProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <DesktopContextProvider>
+            <RainbowKitProvider modalSize="compact" theme={darkTheme()}>
+              <Component {...pageProps} />
+            </RainbowKitProvider>
+          </DesktopContextProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+      <Analytics />
+    </>
   );
 }
