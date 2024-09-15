@@ -40,7 +40,7 @@ export default function Home() {
         <meta name="twitter:description" content="interactive art onchain" />
         <meta
           name="twitter:image"
-          content="https://jvmi.art/jvmi-art-banner.png"
+          content="https://jvmi.art/jvmi-art-banner-twitter.png"
         />
       </Head>
 
