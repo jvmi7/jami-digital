@@ -72,7 +72,9 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   items: ['1', '2', '3', '4'],
   buttons: [
     {
-      text: 'coming soon',
+      text: 'join wl',
+      link: 'https://opensea.io/collection/swatches-by-jvmi',
+      showIcon: true,
     },
   ],
   socialLinks: [
