@@ -62,7 +62,7 @@ const GalleryPage = () => {
       <Header
         backgroundColor="#eeeeee"
         foregroundColor="currentColor"
-        theme={themes.LIGHT}
+        theme="LIGHT"
         button={<ConnectWalletButton />}
       />
       <div className={styles.content}>
