@@ -1,13 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React from 'react';
-import styles from './about.module.scss';
-import Tilt from 'react-parallax-tilt';
-import { useWindowSize } from 'react-use';
-import { TypeAnimation } from 'react-type-animation';
 import Image from 'next/image';
-import JamiLogo from '../../components/JamiLogo';
 import Link from 'next/link';
+import React from 'react';
+import Tilt from 'react-parallax-tilt';
+import { TypeAnimation } from 'react-type-animation';
+import { useWindowSize } from 'react-use';
+
+import JamiLogo from '../../components/JamiLogo';
 import { links } from '../../constants';
+
+import styles from './about.module.scss';
 
 const lines = [
   `i've created art for as long as I can remember. from doodling sketches in the margins of my notebooks as a kid, to designing graphics, brands, websites, & more, my work reflects the distinct experiences of a nostalgic second-generation pakistani-american. some pieces hold deep meaning, while others are just visuals i think are aesthetically pleasing. and sometimes, i get lucky and think of a concept combining both.`,

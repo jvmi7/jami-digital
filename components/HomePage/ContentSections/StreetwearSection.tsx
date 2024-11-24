@@ -1,9 +1,11 @@
+import { Element } from 'react-scroll';
+
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
-import { Element } from 'react-scroll';
-import styles from './styles.module.scss';
+
 import { jamiApparel, machiMarket } from './constants';
+import styles from './styles.module.scss';
 
 const StreetwearSection = () => {
   const projects = [

@@ -1,6 +1,7 @@
 // components/MenuButton.tsx
 import { motion } from 'framer-motion';
 import React from 'react';
+
 import styles from './Header.module.scss';
 
 interface MenuButtonProps {

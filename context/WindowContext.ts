@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Window } from '../types';
 
 // Define the type for your context

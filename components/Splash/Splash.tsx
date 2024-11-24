@@ -1,13 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './Splash.module.scss';
 import classNames from 'classnames';
+import { motion, useDragControls } from 'framer-motion';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import Tilt from 'react-parallax-tilt';
+
+import { useTheme } from '../../hooks/useTheme';
 import CurvedBorder from '../CurvedBorder';
 import JamiLogo from '../JamiLogo';
-import { motion, useDragControls } from 'framer-motion';
+
 import AnimatedPalette from './AnimatedPalette';
-import { useTheme } from '../../hooks/useTheme';
-import Tilt from 'react-parallax-tilt';
-import Image from 'next/image';
+import styles from './Splash.module.scss';
 
 interface Props {
   onClick?: () => void;

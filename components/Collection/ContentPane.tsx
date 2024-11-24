@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import { WindowThemeType } from '../../types';
-import styles from './ContentPane.module.scss';
+
 import { ExternalLinkIcon } from '../../icons/ExternalLinkIcon';
+import { WindowThemeType } from '../../types';
+
+import styles from './ContentPane.module.scss';
 
 export type ContentPaneMetadataType = {
   collection: string;

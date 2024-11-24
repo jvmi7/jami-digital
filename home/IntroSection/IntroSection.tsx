@@ -1,13 +1,14 @@
-import { Messages } from './Messages';
-import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-import { PinIcon } from '../../icons/PinIcon';
-import styles from './IntroSection.module.scss';
-
+import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+
+import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
 import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
-import { motion, useAnimation } from 'framer-motion';
+import { JvmiIcon } from '../../icons/JvmiIcon';
+import { PinIcon } from '../../icons/PinIcon';
+
+import styles from './IntroSection.module.scss';
+import { Messages } from './Messages';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({

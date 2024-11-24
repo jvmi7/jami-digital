@@ -1,14 +1,16 @@
+import { RiMenuFill } from '@remixicon/react';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useWindowScroll, useWindowSize } from 'react-use';
+
+import { useTheme } from '../../../context/ThemeContext';
+import { JvmiIcon } from '../../../icons/JvmiIcon';
+import { MenuIcon } from '../../../icons/MenuIcon';
+
 import styles from './Header.module.scss';
 import MenuButton from './MenuButton';
-import { JvmiIcon } from '../../../icons/JvmiIcon';
 import { SlidingMenu } from './SlidingMenu';
-import { motion } from 'framer-motion';
-import { useWindowScroll, useWindowSize } from 'react-use';
-import { RiMenuFill } from '@remixicon/react';
-import { MenuIcon } from '../../../icons/MenuIcon';
-import { useTheme } from '../../../context/ThemeContext';
-import { useRouter } from 'next/router';
 
 interface HeaderProps {
   backgroundColor?: string;

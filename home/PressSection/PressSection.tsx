@@ -1,4 +1,5 @@
 import { RiArrowRightUpFill, RiArrowRightUpLine } from '@remixicon/react';
+
 import styles from './PressSection.module.scss';
 
 const links = [

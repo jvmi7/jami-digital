@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './Messages.module.scss';
-import Image from 'next/image';
-import { delay, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames';
+import { delay, motion } from 'framer-motion';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 import { socialLinks } from '../../constants';
+
+import styles from './Messages.module.scss';
 
 const messages = [
   <>

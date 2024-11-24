@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import styles from './Caption.module.scss';
+
 import { CheckIcon } from '../../icons/CheckIcon';
 import { WindowThemeType } from '../../types';
+
+import styles from './Caption.module.scss';
 
 interface CaptionProps {
   caption: string;

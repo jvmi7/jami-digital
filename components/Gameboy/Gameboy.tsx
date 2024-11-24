@@ -1,13 +1,15 @@
-import styles from './Gameboy.module.scss';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import Tilt from 'react-parallax-tilt';
+import { useWindowSize } from 'react-use';
+
+import { links } from '../../constants';
+
+import ButtonLayout from './ButtonLayout';
+import { GameboyContext } from './context';
+import styles from './Gameboy.module.scss';
 import Screen from './Screen';
 import { ScreenState } from './types';
-import { useEffect, useState } from 'react';
-import ButtonLayout from './ButtonLayout';
-import { useWindowSize } from 'react-use';
-import Tilt from 'react-parallax-tilt';
-import { links } from '../../constants';
-import { GameboyContext } from './context';
 
 interface Props {
   initialPage?: ScreenState;

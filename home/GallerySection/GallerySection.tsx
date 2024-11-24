@@ -1,10 +1,11 @@
 'use client';
 
-import { useWindowSize } from 'react-use';
-import styles from './GallerySection.module.scss';
 import { useEffect, useState } from 'react';
+import { useWindowSize } from 'react-use';
+
 import { Tags } from '../../components/HomePage/Tags/Tags';
-import { Button } from '../../components/HomePage/Button/Button';
+
+import styles from './GallerySection.module.scss';
 const images = [
   'apple',
   'dollar',

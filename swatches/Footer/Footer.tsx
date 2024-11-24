@@ -4,12 +4,14 @@ import {
   RiShareForwardFill,
   RiShuffleFill,
 } from '@remixicon/react';
-import Button from '../Button/Button';
-import styles from './Footer.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
+
+import { OpenSeaIcon } from '../../icons/OpenSeaIcon';
+import Button from '../Button/Button';
 import { TOTAL_SWATCHES, animate, exit, initial } from '../constants';
 import { usePageState } from '../page-state-context';
-import { OpenSeaIcon } from '../../icons/OpenSeaIcon';
+
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   const { currentPage, setCurrentPage, setSwatchIndex } = usePageState();

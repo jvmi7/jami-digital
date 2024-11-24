@@ -1,12 +1,14 @@
+import { RiArrowRightUpLine } from '@remixicon/react';
+import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { Link } from 'react-scroll';
+import { useMeasure, useWindowSize } from 'react-use';
+
 import { palette } from '../constants';
+import { InteractiveCanvasMetadata } from '../types';
+
 import styles from './InteractiveCanvas.module.scss';
 import { ShapeElement } from './ShapeElement';
-import { InteractiveCanvasMetadata } from '../types';
-import { motion } from 'framer-motion';
-import { useMeasure, useWindowSize } from 'react-use';
-import { Link } from 'react-scroll';
-import { RiArrowRightUpLine } from '@remixicon/react';
 
 const getColorIndex = (index: number, rows: number, cols: number, rowColorOffset: number) => {
   const colorIndex = index % cols;

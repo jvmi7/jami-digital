@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { MessagesIcon } from '../../../icons/MessagesIcon';
-import { JvmiHandle } from '../../JvmiHandle/JvmiHandle';
-import styles from './MessageNotification.module.scss';
 import { Link } from 'react-scroll';
 import { useWindowSize } from 'react-use';
+
+import { MessagesIcon } from '../../../icons/MessagesIcon';
+import { JvmiHandle } from '../../JvmiHandle/JvmiHandle';
+
+import styles from './MessageNotification.module.scss';
 
 interface MessageNotificationProps {
   hide: boolean;

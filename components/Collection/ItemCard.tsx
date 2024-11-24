@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import styles from './ItemCard.module.scss';
+import React, { useState } from 'react';
+
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+
+import styles from './ItemCard.module.scss';
 
 interface ItemCardProps {
   imgSrc: string;

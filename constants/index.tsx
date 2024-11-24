@@ -1,7 +1,5 @@
 import { MenuIcons } from '../components/MenuIcon/MenuIcon';
 import { Window, WindowThemeType } from '../types';
-import { MotorheadzWindow } from '../components/windows/MotorheadzWindow';
-import { MachiMarketWindow } from '../components/windows/MachiMarketWindow';
 
 export const links = [
   {
@@ -77,24 +75,6 @@ const retro: WindowThemeType = {
   textPrimary: '#111111',
   textSecondary: '#333333',
   dividerColor: '#DDDDDD',
-};
-
-export const desktopWindows: Record<string, Window> = {
-  motorheadz: {
-    urlLabel: 'motorheadz.xyz',
-    content: <MotorheadzWindow theme={dark} />,
-    theme: dark,
-  },
-  machiMarket: {
-    urlLabel: 'machi.market',
-    content: <MachiMarketWindow theme={light} />,
-    theme: light,
-  },
-  swatches: {
-    urlLabel: 'swatches',
-    content: <div>this is swatches</div>,
-    theme: dark,
-  },
 };
 
 export const socialLinks = {

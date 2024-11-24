@@ -1,9 +1,11 @@
+import { Element } from 'react-scroll';
+
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ImageCarousel } from '../../ImageCarousel/ImageCarousel';
 import { Button } from '../Button/Button';
+
 import { oneOfOnes, priorityTxStickers } from './constants';
 import styles from './styles.module.scss';
-import { Element } from 'react-scroll';
 
 type Project = {
   title: string;

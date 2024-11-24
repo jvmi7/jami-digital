@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { Home } from './Home/Home';
 
 const HomePage = () => {

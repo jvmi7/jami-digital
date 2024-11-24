@@ -1,20 +1,21 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import styles from './Header.module.scss';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-import Button from '../Button/Button';
 import { RiLink, RiTwitterXFill } from '@remixicon/react';
-import { FarcasterIcon } from '../../icons/FarcasterIcon';
-import { socialLinks } from '../../constants';
-import { animate, exit, initial } from '../constants';
-import { usePageState } from '../page-state-context';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '../../components/ui/dropdown-menu';
+import { socialLinks } from '../../constants';
+import { FarcasterIcon } from '../../icons/FarcasterIcon';
+import { JvmiIcon } from '../../icons/JvmiIcon';
+import Button from '../Button/Button';
+import { animate, exit, initial } from '../constants';
+import { usePageState } from '../page-state-context';
 
 import { ConnectWalletButton } from './ConnectWalletButton';
-import { useRouter } from 'next/router';
+import styles from './Header.module.scss';
 
 const Header = () => {
   const { currentPage, setCurrentPage } = usePageState();

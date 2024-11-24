@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import WindowContext from './WindowContext';
 
 const WindowContextProvider = ({ children }: { children: React.ReactNode }) => {

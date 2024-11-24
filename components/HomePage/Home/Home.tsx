@@ -1,14 +1,16 @@
-import { ArtworkSection } from '../ContentSections/ArtworkSection';
+import Tilt from 'react-parallax-tilt';
+import { Element } from 'react-scroll';
+import { useWindowSize } from 'react-use';
+
 import { BioSection } from '../BioSection/BioSection';
+import { ArtworkSection } from '../ContentSections/ArtworkSection';
+import { StreetwearSection } from '../ContentSections/StreetwearSection';
+import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { HelloSection } from '../HelloSection/HelloSection';
 import SplashSection from '../SplashSection/SplashSection';
+
 import styles from './Home.module.scss';
-import { StreetwearSection } from '../ContentSections/StreetwearSection';
-import { Footer } from '../Footer/Footer';
-import { Element } from 'react-scroll';
-import { useWindowSize } from 'react-use';
-import Tilt from 'react-parallax-tilt';
 
 const Home = () => {
   const { width } = useWindowSize();

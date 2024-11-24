@@ -1,12 +1,14 @@
-import styles from './Footer.module.scss';
+import classNames from 'classnames';
+
+import { socialLinks } from '../../../constants';
 import { DraftIcon } from '../../../icons/DraftIcon';
 import { FarcasterIcon } from '../../../icons/FarcasterIcon';
 import { GithubIcon } from '../../../icons/GithubIcon';
 import { InstagramIcon } from '../../../icons/InstagramIcon';
 import { XIcon } from '../../../icons/XIcon';
 import { ZoraIcon } from '../../../icons/ZoraIcon';
-import classNames from 'classnames';
-import { socialLinks } from '../../../constants';
+
+import styles from './Footer.module.scss';
 
 const Socials = () => {
   return (

@@ -1,6 +1,8 @@
-import { CheckIcon } from '../../icons/CheckIcon';
-import styles from './JvmiHandle.module.scss';
 import Image from 'next/image';
+
+import { CheckIcon } from '../../icons/CheckIcon';
+
+import styles from './JvmiHandle.module.scss';
 
 interface Props {
   fontSize?: number;

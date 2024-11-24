@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
 import Image from 'next/image';
-import styles from './HelloSection.module.scss';
+import { useInView } from 'react-intersection-observer';
 import { useMeasure, useWindowSize } from 'react-use';
+
+import styles from './HelloSection.module.scss';
 
 const HelloSection = () => {
   const { ref, inView } = useInView({

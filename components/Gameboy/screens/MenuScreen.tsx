@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+
 import { links } from '../../../constants';
 import MenuIcon from '../../MenuIcon/MenuIcon';
-import styles from './MenuScreen.module.scss';
-import { ScreenState } from '../types';
-import { useContext } from 'react';
 import { GameboyContext } from '../context';
+import { ScreenState } from '../types';
+
+import styles from './MenuScreen.module.scss';
 
 interface Props {
   menuIndex: number;

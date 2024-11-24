@@ -1,19 +1,20 @@
+import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { RiImageLine, RiLink, RiLinkUnlink, RiUserLine } from '@remixicon/react';
-import Button from '../Button/Button';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { useState } from 'react';
+import { useMedia } from 'react-use';
+import { useDisconnect } from 'wagmi';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '../../components/ui/dropdown-menu';
+import Button from '../Button/Button';
 
 import styles from './Header.module.scss';
-import classNames from 'classnames';
-import { useDisconnect } from 'wagmi';
-import Link from 'next/link';
-import { useMedia } from 'react-use';
-import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
-import { useState } from 'react';
 
 const ConnectWalletButton = ({}) => {
   return (

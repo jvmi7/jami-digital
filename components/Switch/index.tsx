@@ -1,6 +1,6 @@
-import * as React from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import styles from './Switch.module.scss';
 

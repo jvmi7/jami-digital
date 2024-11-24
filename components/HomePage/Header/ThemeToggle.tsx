@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { useTheme } from '../../../context/ThemeContext';
 import { useEffect, useState } from 'react';
+
+import { useTheme } from '../../../context/ThemeContext';
+
 import styles from './ThemeToggle.module.scss';
 
 const ThemeToggle = () => {

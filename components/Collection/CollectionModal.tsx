@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
-import styles from './CollectionModal.module.scss';
-import { AnimatePresence, motion } from 'framer-motion';
-import { WindowThemeType } from '../../types';
-import { CloseIcon } from '../../icons/CloseIcon';
-import WindowContext from '../../context/WindowContext';
-import { useMeasure } from 'react-use';
-import { ArrowRightIcon } from '../../icons/ArrowRightIcon';
 import classNames from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { useMeasure } from 'react-use';
+
+import WindowContext from '../../context/WindowContext';
+import { ArrowRightIcon } from '../../icons/ArrowRightIcon';
+import { CloseIcon } from '../../icons/CloseIcon';
+import { WindowThemeType } from '../../types';
+
+import styles from './CollectionModal.module.scss';
 
 interface CollectionModalProps {
   isOpen: boolean;

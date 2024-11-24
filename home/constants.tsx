@@ -2,6 +2,7 @@ import { FarcasterIcon } from '../icons/FarcasterIcon';
 import { MagicEdenIcon } from '../icons/MagicEdenIcon';
 import { OpenSeaIcon } from '../icons/OpenSeaIcon';
 import { XIcon } from '../icons/XIcon';
+
 import { ProjectMetadata } from './types';
 
 export const palette = [

@@ -1,10 +1,12 @@
-import { useWindowSize } from 'react-use';
-import styles from './SplashSection.module.scss';
-import Image from 'next/image';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { MessageNotification } from '../MessageNotification/MessageNotification';
+import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
+import { useWindowSize } from 'react-use';
+
 import { jamiApparel } from '../ContentSections/constants';
+import { MessageNotification } from '../MessageNotification/MessageNotification';
+
+import styles from './SplashSection.module.scss';
 
 const SplashSection = () => {
   const { height, width } = useWindowSize();

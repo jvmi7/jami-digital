@@ -1,14 +1,16 @@
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { MessagesIcon } from '../../../icons/MessagesIcon';
 import { PinIcon } from '../../../icons/PinIcon';
+import { SendPlaneIcon } from '../../../icons/SendPlaneIcon';
 import { Caption } from '../../Caption/Caption';
 import { JvmiHandle } from '../../JvmiHandle/JvmiHandle';
+
 import styles from './BioSection.module.scss';
-import Image from 'next/image';
 import { Messages } from './Messages';
-import { SendPlaneIcon } from '../../../icons/SendPlaneIcon';
-import { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 const BioSection = () => {
   const [response, setResponse] = useState<string[]>([]);

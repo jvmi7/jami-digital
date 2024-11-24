@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
+
 import styles from './AboutScreen.module.scss';
-import Image from 'next/image';
 
 function AboutScreen() {
   return (

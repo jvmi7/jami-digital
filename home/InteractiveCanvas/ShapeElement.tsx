@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import styles from './ShapeElement.module.scss';
-import { palette } from '../constants';
 import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+
+import { palette } from '../constants';
+
+import styles from './ShapeElement.module.scss';
 
 interface ShapeElementProps {
   colorIndex: number;

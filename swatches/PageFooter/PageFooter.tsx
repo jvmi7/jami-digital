@@ -1,4 +1,4 @@
-import styles from './PageFooter.module.scss';
+import styles from '@/swatches/PageFooter/PageFooter.module.scss';
 
 const PageFooter = () => {
   return (

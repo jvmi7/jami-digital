@@ -1,5 +1,6 @@
-import styles from './Button.module.scss';
 import Image from 'next/image';
+
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   isSecondary?: boolean;

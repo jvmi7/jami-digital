@@ -1,9 +1,10 @@
 import { RiDownloadFill } from '@remixicon/react';
+import { saveAs } from 'file-saver';
+import JSZip from 'jszip';
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Button from '@/swatches/Button/Button';
 import styles from '@/swatches/SaveDialog/SaveDialog.module.scss';
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
 
 type Props = {
   isOpen: boolean;
@@ -60,17 +61,6 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
     } catch (error) {
       console.error('Download failed:', error);
     }
-  };
-
-  const downloadImagesDirectly = () => {
-    images.forEach(image => {
-      const link = document.createElement('a');
-      link.href = image.url;
-      link.setAttribute('download', image.label); // Make sure to set the download attribute
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
   };
 
   return (

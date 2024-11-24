@@ -1,11 +1,12 @@
 'use client';
 
 import classNames from 'classnames';
-import styles from './SectionIndicator.module.scss';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { useWindowSize } from 'react-use';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
+import { useWindowSize } from 'react-use';
+
+import styles from './SectionIndicator.module.scss';
 
 type Props = {
   sectionIndex: number;

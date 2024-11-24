@@ -1,5 +1,7 @@
 import { Link } from 'react-scroll';
+
 import { JvmiIcon } from '../../../icons/JvmiIcon';
+
 import styles from './Footer.module.scss';
 import { Socials } from './Socials';
 

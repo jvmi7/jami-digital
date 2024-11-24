@@ -1,9 +1,11 @@
-import styles from './ProjectSection.module.scss';
-import { ProjectMetadata } from '../types';
-import { useState } from 'react';
-import Link from 'next/link';
-import classNames from 'classnames';
 import { RiArrowRightUpLine } from '@remixicon/react';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { useState } from 'react';
+
+import { ProjectMetadata } from '../types';
+
+import styles from './ProjectSection.module.scss';
 
 type Props = {
   metadata: ProjectMetadata;

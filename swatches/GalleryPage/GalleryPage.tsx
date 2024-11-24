@@ -1,24 +1,26 @@
-import { useAccount } from 'wagmi';
-import styles from './GalleryPage.module.scss';
 import { useEvmWalletNFTs } from '@moralisweb3/next';
-import { SwatchImagePreview } from '../SwatchImagePreview/SwatchImagePreview';
+import { RiExternalLinkFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { useAccount } from 'wagmi';
+
+import { Header } from '../../components/HomePage/Header/Header';
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
 } from '../../components/ui/context-menu';
-import { SaveDialog } from '../SaveDialog/SaveDialog';
 import { generateCloudflareIpfsUrl } from '../../helpers';
-import { PageFooter } from '../PageFooter/PageFooter';
-import { RiExternalLinkFill } from '@remixicon/react';
+import { themes } from '../../styles/theme';
 import { externalLinks } from '../constants';
 import { ConnectWalletButton } from '../Header/ConnectWalletButton';
-import { Header } from '../../components/HomePage/Header/Header';
-import { themes } from '../../styles/theme';
+import { PageFooter } from '../PageFooter/PageFooter';
+import { SaveDialog } from '../SaveDialog/SaveDialog';
+import { SwatchImagePreview } from '../SwatchImagePreview/SwatchImagePreview';
+
+import styles from './GalleryPage.module.scss';
 
 const GalleryPage = () => {
   const { address } = useAccount();

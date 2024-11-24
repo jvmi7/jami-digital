@@ -1,9 +1,11 @@
-import styles from './ImageCarousel.module.scss';
-import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
-import { useMeasure } from 'react-use';
 import { useInView } from 'react-intersection-observer';
+import { useMeasure } from 'react-use';
+
+import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel';
+
+import styles from './ImageCarousel.module.scss';
 
 interface ImageCarouselProps {
   images: string[];

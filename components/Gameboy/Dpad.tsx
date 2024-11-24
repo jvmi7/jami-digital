@@ -1,5 +1,6 @@
-import styles from './Dpad.module.scss';
 import Image from 'next/image';
+
+import styles from './Dpad.module.scss';
 interface Props {
   downOrRightPressed: () => void;
   upOrLeftPressed: () => void;

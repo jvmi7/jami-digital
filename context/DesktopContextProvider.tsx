@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import DesktopContext from './DesktopContext';
+
 import { Window } from '../types';
+
+import DesktopContext from './DesktopContext';
 
 const DesktopContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [openWindows, setOpenWindows] = useState<Window[] | []>([]);

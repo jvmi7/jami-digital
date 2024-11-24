@@ -1,5 +1,6 @@
-import styles from './AnimatedPalette.module.scss';
 import { motion } from 'framer-motion';
+
+import styles from './AnimatedPalette.module.scss';
 
 const container = {
   hidden: {

@@ -1,4 +1,5 @@
 import { CollectionMetadataType, WindowThemeType } from '../../types';
+
 import { CollectionImage } from './CollectionImage';
 import styles from './CollectionMetadata.module.scss';
 

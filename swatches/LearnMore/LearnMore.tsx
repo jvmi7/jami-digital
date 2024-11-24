@@ -1,4 +1,5 @@
 import Tilt from 'react-parallax-tilt';
+
 import styles from './LearnMore.module.scss';
 
 const LearnMore = () => {

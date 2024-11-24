@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import styles from '@/swatches/swatches.module.scss';
-import Footer from '@/swatches/Footer/Footer';
 import { AnimatePresence, motion } from 'framer-motion';
-import { animate, initial, pageVariants } from '@/swatches/constants';
-import { usePageState } from '@/swatches/page-state-context';
-import LearnMore from '@/swatches/LearnMore/LearnMore';
 import Head from 'next/head';
+import { useEffect } from 'react';
+
 import { Header } from '@/components/HomePage/Header/Header';
+import { animate, initial, pageVariants } from '@/swatches/constants';
+import Footer from '@/swatches/Footer/Footer';
 import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';
+import LearnMore from '@/swatches/LearnMore/LearnMore';
+import { usePageState } from '@/swatches/page-state-context';
+import styles from '@/swatches/swatches.module.scss';
 
 const SwatchesPage = () => {
   const { currentPage, swatchIndex } = usePageState();

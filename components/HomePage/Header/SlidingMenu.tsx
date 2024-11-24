@@ -1,22 +1,4 @@
 // components/SlidingMenu.tsx
-import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
-import styles from './SlidingMenu.module.scss';
-import { HomeIcon } from '../../../icons/HomeIcon';
-import { CollageIcon } from '../../../icons/CollageIcon';
-import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
-import { socialLinks } from '../../../constants';
-import { Button } from '../Button/Button';
-import { CheckIcon } from '../../../icons/CheckIcon';
-import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
-import { ChevronRightIcon } from 'lucide-react';
-import { ColorfulIcon } from '../../ColorfulIcon/ColorfulIcon';
-import { SwatchesIcon } from '../../../icons/SwatchesIcon';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import ChartsIcon from '../../../icons/ChartsIcon';
-import AbstractionsIcon from '../../../icons/AbstractionsIcon';
-import SwatchpepenIcon from '../../../icons/SwatchpepenIcon';
 import {
   RiArrowGoBackLine,
   RiArrowRightLine,
@@ -25,7 +7,26 @@ import {
   RiHomeFill,
 } from '@remixicon/react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
+
+import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
+import { ChevronRightIcon } from 'lucide-react';
+import { ColorfulIcon } from '../../ColorfulIcon/ColorfulIcon';
+import { SwatchesIcon } from '../../../icons/SwatchesIcon';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { socialLinks } from '../../../constants';
+import ChartsIcon from '../../../icons/ChartsIcon';
+import AbstractionsIcon from '../../../icons/AbstractionsIcon';
+import { CheckIcon } from '../../../icons/CheckIcon';
 import { CloseIcon } from '../../../icons/CloseIcon';
+import { CollageIcon } from '../../../icons/CollageIcon';
+import { HomeIcon } from '../../../icons/HomeIcon';
+import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
+import SwatchpepenIcon from '../../../icons/SwatchpepenIcon';
+
+import styles from './SlidingMenu.module.scss';
 
 interface SlidingMenuProps {
   isOpen: boolean;
