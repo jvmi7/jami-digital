@@ -2,7 +2,7 @@ import { useEvmWalletNFTs } from '@moralisweb3/next';
 import { RiExternalLinkFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAccount } from 'wagmi';
 
 import { Header } from '@/components/Header/Header';
@@ -22,7 +22,6 @@ import { SwatchImagePreview } from '@/swatches/SwatchImagePreview/SwatchImagePre
 
 const GalleryPage = () => {
   const { address } = useAccount();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [modalTokenID, setModalTokenID] = useState<string>('');
 
