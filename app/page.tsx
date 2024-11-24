@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
 
+import styles from '@/app/index.module.scss';
 import { Header } from '@/components/Header/Header';
 import { ChartsProjectMetadata, SwatchesProjectMetadata } from '@/home/constants';
 import { FooterSection } from '@/home/FooterSection/FooterSection';
@@ -14,7 +15,6 @@ import { PressSection } from '@/home/PressSection/PressSection';
 import { ProjectSection } from '@/home/ProjectSection/ProjectSection';
 import { SectionIndicator } from '@/home/SectionIndicator/SectionIndicator';
 import { SplashSection } from '@/home/SplashSection/SplashSection';
-import styles from '@/app/index.module.scss';
 
 export default function Home() {
   const inViewThreshold = 0.3;
