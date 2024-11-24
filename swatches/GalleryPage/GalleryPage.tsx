@@ -1,5 +1,4 @@
 import { useAccount } from 'wagmi';
-import Header from '../Header/Header';
 import styles from './GalleryPage.module.scss';
 import { useEvmWalletNFTs } from '@moralisweb3/next';
 import { SwatchImagePreview } from '../SwatchImagePreview/SwatchImagePreview';
@@ -17,6 +16,9 @@ import { generateCloudflareIpfsUrl } from '../../helpers';
 import { PageFooter } from '../PageFooter/PageFooter';
 import { RiExternalLinkFill } from '@remixicon/react';
 import { externalLinks } from '../constants';
+import { ConnectWalletButton } from '../Header/ConnectWalletButton';
+import { Header } from '../../components/HomePage/Header/Header';
+import { themes } from '../../styles/theme';
 
 const GalleryPage = () => {
   const { address } = useAccount();
@@ -57,7 +59,12 @@ const GalleryPage = () => {
 
   return (
     <div className={styles.container}>
-      <Header />
+      <Header
+        backgroundColor="#eeeeee"
+        foregroundColor="currentColor"
+        theme={themes.LIGHT}
+        button={<ConnectWalletButton />}
+      />
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         {!isFetching && !nfts?.length && (

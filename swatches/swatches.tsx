@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import styles from './swatches.module.scss';
-import Header from './Header/Header';
 import { useWindowSize } from 'react-use';
 import Footer from './Footer/Footer';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -10,6 +9,9 @@ import LearnMore from './LearnMore/LearnMore';
 import { Mint } from './Mint/Mint';
 import Head from 'next/head';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { Header } from '../components/HomePage/Header/Header';
+import { ConnectWalletButton } from './Header/ConnectWalletButton';
+import { themes } from '../styles/theme';
 
 const SwatchesPage = () => {
   const { currentPage, swatchIndex } = usePageState();
@@ -63,7 +65,12 @@ const SwatchesPage = () => {
         />
       </Head>
       <div className={styles.container}>
-        <Header />
+        <Header
+          backgroundColor="#eeeeee"
+          foregroundColor="currentColor"
+          theme="LIGHT"
+          button={<ConnectWalletButton />}
+        />
 
         <AnimatePresence exitBeforeEnter>
           {currentPage === 'home' ? (
@@ -87,17 +94,6 @@ const SwatchesPage = () => {
               className={styles.content}
             >
               <LearnMore />
-            </motion.div>
-          ) : currentPage === 'mint' ? (
-            <motion.div
-              key="mint"
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className={styles.content}
-            >
-              <Mint />
             </motion.div>
           ) : null}
         </AnimatePresence>

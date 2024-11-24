@@ -17,7 +17,13 @@ import { useRouter } from 'next/router';
 import ChartsIcon from '../../../icons/ChartsIcon';
 import AbstractionsIcon from '../../../icons/AbstractionsIcon';
 import SwatchpepenIcon from '../../../icons/SwatchpepenIcon';
-import { RiHomeFill } from '@remixicon/react';
+import {
+  RiArrowGoBackLine,
+  RiArrowRightLine,
+  RiArrowRightUpFill,
+  RiArrowRightUpLine,
+  RiHomeFill,
+} from '@remixicon/react';
 import classNames from 'classnames';
 import { CloseIcon } from '../../../icons/CloseIcon';
 
@@ -34,7 +40,7 @@ interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={styles.accordion}>
@@ -89,7 +95,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
     },
   };
 
-  const externalLinkIconSize = 18;
+  const externalLinkIconSize = 24;
   const links = [
     { url: socialLinks.x, text: 'x/twitter' },
     { url: socialLinks.farcaster, text: 'farcaster' },
@@ -138,6 +144,9 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
         />
       </div>
       <p className={styles.text}>home</p>
+      <div className={styles.externalLinkIcon}>
+        <RiArrowGoBackLine size={externalLinkIconSize} color="currentColor" />
+      </div>
     </button>
   );
 
@@ -165,6 +174,12 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 <SwatchesIcon enableColor={hoveredItem === 'swatches'} />
               </div>
               <p className={styles.text}>swatches</p>
+              <div className={styles.externalLinkIcon}>
+                <RiArrowRightLine
+                  size={externalLinkIconSize}
+                  color="currentColor"
+                />
+              </div>
             </div>
             <div
               className={styles.menuItem}
@@ -176,10 +191,21 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 <ChartsIcon enableColor={hoveredItem === 'charts'} />
               </div>
               <p className={styles.text}>charts</p>
+              <div className={styles.externalLinkIcon}>
+                <RiArrowRightLine
+                  size={externalLinkIconSize}
+                  color="currentColor"
+                />
+              </div>
             </div>
             <div
               className={styles.menuItem}
-              onClick={() => handleNavigate('/abstractions')}
+              onClick={() =>
+                window.open(
+                  'https://highlight.xyz/curated/abstractions',
+                  '_blank'
+                )
+              }
               onMouseEnter={() => setHoveredItem('abstractions')}
               onMouseLeave={() => setHoveredItem(null)}
             >
@@ -189,6 +215,12 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 />
               </div>
               <p className={styles.text}>abstractions</p>
+              <div className={styles.externalLinkIcon}>
+                <RiArrowRightUpLine
+                  size={externalLinkIconSize}
+                  color="currentColor"
+                />
+              </div>
             </div>
             <div
               className={styles.menuItem}
@@ -203,6 +235,12 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                 />
               </div>
               <p className={styles.text}>swatchpepen</p>
+              <div className={styles.externalLinkIcon}>
+                <RiArrowRightLine
+                  size={externalLinkIconSize}
+                  color="currentColor"
+                />
+              </div>
             </div>
             <Accordion title="socials">
               <div className={styles.menuSubItemContainer}>
@@ -216,9 +254,10 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
                       rel="noreferrer"
                     >
                       <p className={styles.menuSubItemText}>{link.text}</p>
-                      <ExternalLinkIcon
-                        height={externalLinkIconSize}
-                        width={externalLinkIconSize}
+                      <RiArrowRightUpLine
+                        className={styles.externalLinkIcon}
+                        size={externalLinkIconSize}
+                        color="currentColor"
                       />
                     </a>
                   ))}

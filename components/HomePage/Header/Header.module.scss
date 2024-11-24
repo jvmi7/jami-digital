@@ -17,6 +17,14 @@
     left: 50%;
     transform: translateX(-50%);
     top: 12px;
+    cursor: pointer;
+    padding: 0 6px;
+    border-radius: 12px;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
@@ -24,9 +32,9 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in;
   padding: 6px;
-  border-radius: 12px;
+  border-radius: 100px;
 
   &:hover {
-    background-color: var(--card);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
