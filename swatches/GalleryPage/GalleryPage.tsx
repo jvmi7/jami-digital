@@ -32,12 +32,6 @@ const GalleryPage = () => {
     tokenAddresses: ['0x13dc8261FCe63499Aa25DEB512bb1827B411b83B'],
   });
 
-  useEffect(() => {
-    if (!address) {
-      router.push('/swatches');
-    }
-  }, [address, router]);
-
   const title = isFetching ? (
     <>
       <p>loading...</p>
