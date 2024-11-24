@@ -15,6 +15,20 @@
     padding: 72px 24px;
   }
 
+  .button {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #222222;
+    color: #ffffff;
+    margin-top: 24px;
+    max-width: 836px;
+  }
+
   .title {
     font-family: var(--header-font);
     font-size: 36px;
@@ -29,15 +43,16 @@
   }
 
   .galleryContainer {
-    max-width: 1000px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    max-width: 836px;
 
     .column {
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       gap: 16px;
 
       .imageContainer {
@@ -47,7 +62,7 @@
         justify-content: center;
         align-items: center;
         background-color: white;
-        border-radius: 24px;
+        border-radius: 18px;
         overflow: hidden;
         position: relative;
 

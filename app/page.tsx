@@ -62,25 +62,28 @@ export default function Home() {
           >
             <ProjectSection metadata={SwatchesProjectMetadata} />
           </InView>
-          <Element name="charts" />
-          <InView
-            onChange={inView => {
-              if (inView) setSectionIndex(2);
-            }}
-            threshold={inViewThreshold}
-            className={styles.section}
-          >
-            <ProjectSection metadata={ChartsProjectMetadata} />
-          </InView>
+          <div className={styles.spacerContainer}>
+            <div className={styles.spacer} />
+          </div>
           <Element name="gallery" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(3);
+              if (inView) setSectionIndex(2);
             }}
             threshold={0.3}
             className={styles.section}
           >
             <GallerySection />
+          </InView>
+          <Element name="charts" />
+          <InView
+            onChange={inView => {
+              if (inView) setSectionIndex(3);
+            }}
+            threshold={inViewThreshold}
+            className={styles.section}
+          >
+            <ProjectSection metadata={ChartsProjectMetadata} />
           </InView>
           <Element name="press" />
           <InView

@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 import styles from '@/components/Header/SlidingMenu.module.scss';
-import { socialLinks } from '@/constants';
+import { externalLinks, socialLinks } from '@/constants';
 import AbstractionsIcon from '@/icons/AbstractionsIcon';
 import ChartsIcon from '@/icons/ChartsIcon';
 import { CloseIcon } from '@/icons/CloseIcon';
@@ -166,6 +166,20 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
             </div>
             <div
               className={styles.menuItem}
+              onClick={() => window.open(externalLinks.abstractionsCollection, '_blank')}
+              onMouseEnter={() => setHoveredItem('abstractions')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className={styles.icon}>
+                <AbstractionsIcon enableColor={hoveredItem === 'abstractions'} />
+              </div>
+              <p className={styles.text}>abstractions</p>
+              <div className={styles.externalLinkIcon}>
+                <RiArrowRightUpLine size={externalLinkIconSize} color="currentColor" />
+              </div>
+            </div>
+            <div
+              className={styles.menuItem}
               onClick={() => handleNavigate('/charts')}
               onMouseEnter={() => setHoveredItem('charts')}
               onMouseLeave={() => setHoveredItem(null)}
@@ -176,20 +190,6 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               <p className={styles.text}>charts</p>
               <div className={styles.externalLinkIcon}>
                 <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
-              </div>
-            </div>
-            <div
-              className={styles.menuItem}
-              onClick={() => window.open('https://highlight.xyz/curated/abstractions', '_blank')}
-              onMouseEnter={() => setHoveredItem('abstractions')}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <div className={styles.icon}>
-                <AbstractionsIcon enableColor={hoveredItem === 'abstractions'} />
-              </div>
-              <p className={styles.text}>abstractions</p>
-              <div className={styles.externalLinkIcon}>
-                <RiArrowRightUpLine size={externalLinkIconSize} color="currentColor" />
               </div>
             </div>
             <div
