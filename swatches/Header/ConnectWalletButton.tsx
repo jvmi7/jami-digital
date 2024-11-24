@@ -11,26 +11,14 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '../../components/ui/dropdown-menu';
-import Button from '../Button/Button';
+} from '@/components/ui/dropdown-menu';
+import Button from '@/swatches/Button/Button';
+import styles from '@/swatches/Header/Header.module.scss';
 
-import styles from './Header.module.scss';
-
-const ConnectWalletButton = ({}) => {
+const ConnectWalletButton = () => {
   return (
     <ConnectButton.Custom>
-      {({
-        account,
-        chain,
-        openAccountModal,
-        openChainModal,
-        openConnectModal,
-        authenticationStatus,
-        mounted,
-      }) => {
-        // Note: If your app doesn't use authentication, you
-        // can remove all 'authenticationStatus' checks
-
+      {({ account, chain, openChainModal, openConnectModal, authenticationStatus, mounted }) => {
         const { disconnect } = useDisconnect();
 
         const [open, setOpen] = useState(false);

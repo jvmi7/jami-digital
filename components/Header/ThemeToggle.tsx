@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import { useTheme } from '../../../context/ThemeContext';
-
-import styles from './ThemeToggle.module.scss';
+import styles from '@/components/Header/ThemeToggle.module.scss';
+import { useTheme } from '@/context/ThemeContext';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
@@ -32,7 +31,6 @@ const ThemeToggle = () => {
       initial="initial"
       animate="animate"
       variants={buttonVariants}
-      // whileHover={{ scale: 1.1 }}
       whileTap={{ y: -6 }}
       className={styles.container}
       onClick={() => {

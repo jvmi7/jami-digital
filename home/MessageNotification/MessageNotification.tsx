@@ -1,18 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { useWindowSize } from 'react-use';
 
-import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
-
-import styles from './MessageNotification.module.scss';
+import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
+import styles from '@/home/MessageNotification/MessageNotification.module.scss';
 
 interface MessageNotificationProps {
   hide: boolean;
   onClick: () => void;
 }
 const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
-  const { width } = useWindowSize();
-
   const initialYPosition = -200;
 
   const initial = {

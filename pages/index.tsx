@@ -3,19 +3,16 @@ import { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
 
-import { Header } from '../components/HomePage/Header/Header';
-import { ChartsProjectMetadata, SwatchesProjectMetadata } from '../home/constants';
-import { FooterSection } from '../home/FooterSection/FooterSection';
-import { GallerySection } from '../home/GallerySection/GallerySection';
-import { IntroSection } from '../home/IntroSection/IntroSection';
-import { PressSection } from '../home/PressSection/PressSection';
-import { ProjectSection } from '../home/ProjectSection/ProjectSection';
-import { SplashSection } from '../home/SplashSection/SplashSection';
-import styles from './index.module.scss';
-
-
-
-import { SectionIndicator } from '../home/SectionIndicator/SectionIndicator';
+import { Header } from '@/components/Header/Header';
+import { ChartsProjectMetadata, SwatchesProjectMetadata } from '@/home/constants';
+import { FooterSection } from '@/home/FooterSection/FooterSection';
+import { GallerySection } from '@/home/GallerySection/GallerySection';
+import { IntroSection } from '@/home/IntroSection/IntroSection';
+import { PressSection } from '@/home/PressSection/PressSection';
+import { ProjectSection } from '@/home/ProjectSection/ProjectSection';
+import { SectionIndicator } from '@/home/SectionIndicator/SectionIndicator';
+import { SplashSection } from '@/home/SplashSection/SplashSection';
+import styles from '@/pages/index.module.scss';
 
 export default function Home() {
   const inViewThreshold = 0.3;

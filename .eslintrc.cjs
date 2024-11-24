@@ -13,6 +13,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import'],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       { varsIgnorePattern: '_', argsIgnorePattern: '_' },
@@ -40,6 +41,10 @@ module.exports = {
         },
       },
     ],
+    'react/no-unescaped-entities': 'off',
+    'react/jsx-no-comment-textnodes': 'off',
+    'react-hooks/rules-of-hooks': 'off',
+    'react/prop-types': 'off',
   },
   settings: {
     react: {

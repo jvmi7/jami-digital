@@ -1,9 +1,7 @@
-import { FarcasterIcon } from '../icons/FarcasterIcon';
-import { MagicEdenIcon } from '../icons/MagicEdenIcon';
-import { OpenSeaIcon } from '../icons/OpenSeaIcon';
-import { XIcon } from '../icons/XIcon';
-
-import { ProjectMetadata } from './types';
+import { ProjectMetadata } from '@/home/types';
+import { FarcasterIcon } from '@/icons/FarcasterIcon';
+import { MagicEdenIcon } from '@/icons/MagicEdenIcon';
+import { OpenSeaIcon } from '@/icons/OpenSeaIcon';
 
 export const palette = [
   '#FF0000',
@@ -78,18 +76,5 @@ export const ChartsProjectMetadata: ProjectMetadata = {
       showIcon: true,
     },
   ],
-  socialLinks: [
-    // {
-    //   icon: <FarcasterIcon />,
-    //   href: 'https://warpcast.com/~/channel/swatches',
-    // },
-    // {
-    //   icon: <MagicEdenIcon />,
-    //   href: 'https://x.com',
-    // },
-    // {
-    //   icon: <OpenSeaIcon />,
-    //   href: 'https://x.com',
-    // },
-  ],
+  socialLinks: [],
 };

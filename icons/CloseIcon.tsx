@@ -1,4 +1,4 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
 const CloseIcon = ({ height = 36, width = 36, color = 'currentColor' }: IconProps) => {
   return (

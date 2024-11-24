@@ -1,17 +1,5 @@
 body {
   &.LIGHT {
-    --window-border: var(--dark-grey);
-    --window-background: var(--grey);
-    --window-accent: var(--medium-grey);
-    --window-text: var(--extra-dark-grey);
-    --header-border: #dbdbdb;
-    --header-background: #f4f4f4;
-    --header-accent: #2d2d2d;
-    --header-secondary: #e7e6e6;
-    --primary-color: var(--black);
-    --secondary-color: var(--white);
-
-    // home page
     --background: white;
     --card: #f2f2f2;
     --foreground: #252525;
@@ -29,10 +17,6 @@ body {
   }
 
   &.DARK {
-    --primary-color: var(--white);
-    --secondary-color: var(--black);
-
-    // home page
     --background: #000;
     --card: #111111;
     --foreground: white;
@@ -48,28 +32,4 @@ body {
     --icon-background: #151515;
     --icon-background-hovered: #0f0f0f;
   }
-}
-
-.sectionHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 8px 0;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-
-.artworkItems {
-  padding-left: 8px;
-}
-
-.sectionTitle {
-  font-weight: 500;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
 }

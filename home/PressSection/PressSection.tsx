@@ -1,6 +1,6 @@
-import { RiArrowRightUpFill, RiArrowRightUpLine } from '@remixicon/react';
+import { RiArrowRightUpLine } from '@remixicon/react';
 
-import styles from './PressSection.module.scss';
+import styles from '@/home/PressSection/PressSection.module.scss';
 
 const links = [
   {

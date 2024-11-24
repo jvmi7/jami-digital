@@ -6,16 +6,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '../../components/ui/dropdown-menu';
-import { socialLinks } from '../../constants';
-import { FarcasterIcon } from '../../icons/FarcasterIcon';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-import Button from '../Button/Button';
-import { animate, exit, initial } from '../constants';
-import { usePageState } from '../page-state-context';
-
-import { ConnectWalletButton } from './ConnectWalletButton';
-import styles from './Header.module.scss';
+} from '@/components/ui/dropdown-menu';
+import { socialLinks } from '@/constants';
+import { FarcasterIcon } from '@/icons/FarcasterIcon';
+import { JvmiIcon } from '@/icons/JvmiIcon';
+import Button from '@/swatches/Button/Button';
+import { animate, exit, initial } from '@/swatches/constants';
+import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';
+import styles from '@/swatches/Header/Header.module.scss';
+import { usePageState } from '@/swatches/page-state-context';
 
 const Header = () => {
   const { currentPage, setCurrentPage } = usePageState();

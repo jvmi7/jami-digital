@@ -1,14 +1,13 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
-import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-import { PinIcon } from '../../icons/PinIcon';
-
-import styles from './IntroSection.module.scss';
-import { Messages } from './Messages';
+import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
+import styles from '@/home/IntroSection/IntroSection.module.scss';
+import { Messages } from '@/home/IntroSection/Messages';
+import { ArrowUpIcon } from '@/icons/ArrowUpIcon';
+import { JvmiIcon } from '@/icons/JvmiIcon';
+import { PinIcon } from '@/icons/PinIcon';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({
@@ -16,28 +15,11 @@ const IntroSection = () => {
     threshold: 1,
   });
 
-  // const { ref: containerRef, inView: containerRefInView } = useInView({
-  //   triggerOnce: true,
-  //   threshold: 1,
-  // });
-
-  const controls = useAnimation();
-
   const [response, setResponse] = useState<string[]>([]);
 
   const buttonHandler = () => {
     setResponse(["let's get in touch"]);
   };
-
-  // useEffect(() => {
-  //   if (containerRefInView) {
-  //     controls.start({
-  //       opacity: 1,
-  //       y: 0,
-  //       transition: { duration: 1 },
-  //     });
-  //   }
-  // }, [containerRefInView]);
 
   return (
     <motion.section className={styles.container}>

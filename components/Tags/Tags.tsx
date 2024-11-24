@@ -1,4 +1,4 @@
-import styles from './Tags.module.scss';
+import styles from '@/components/Tags/Tags.module.scss';
 
 type Props = {
   tags: string[];

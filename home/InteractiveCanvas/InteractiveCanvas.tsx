@@ -1,22 +1,20 @@
-import { RiArrowRightUpLine } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Link } from 'react-scroll';
-import { useMeasure, useWindowSize } from 'react-use';
+import { useWindowSize } from 'react-use';
 
-import { palette } from '../constants';
-import { InteractiveCanvasMetadata } from '../types';
+import { palette } from '@/home/constants';
+import styles from '@/home/InteractiveCanvas/InteractiveCanvas.module.scss';
+import { ShapeElement } from '@/home/InteractiveCanvas/ShapeElement';
+import { InteractiveCanvasMetadata } from '@/home/types';
 
-import styles from './InteractiveCanvas.module.scss';
-import { ShapeElement } from './ShapeElement';
-
-const getColorIndex = (index: number, rows: number, cols: number, rowColorOffset: number) => {
+const getColorIndex = (index: number, cols: number, rowColorOffset: number) => {
   const colorIndex = index % cols;
   const rowOffset = Math.floor(index / cols) * rowColorOffset;
   return (colorIndex + rowOffset) % palette.length;
 };
 
-const getCoordinates = (index: number, cols: number, rows: number) => {
+const getCoordinates = (index: number, cols: number) => {
   const row = Math.floor(index / cols);
   const col = index % cols;
   return { row, col };
@@ -116,7 +114,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
       >
         {Array.from({ length: rows * cols }).map((_, index) => {
           let colorIndex;
-          const coordinates = getCoordinates(index, cols, rows);
+          const coordinates = getCoordinates(index, cols);
           const distance = activeCell ? getDistance(coordinates, activeCell) : -1;
           const distanceFromCenter = getDistance(
             { row: Math.floor(rows / 2), col: Math.floor(cols / 2) },
@@ -126,7 +124,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
           if (activeCell && currentOffset !== 0) {
             colorIndex = (Math.floor(distance) + currentOffset) % palette.length;
           } else {
-            colorIndex = getColorIndex(index, rows, cols, rowColorOffset);
+            colorIndex = getColorIndex(index, cols, rowColorOffset);
           }
 
           const isHidden = hiddenShapes.includes(index);

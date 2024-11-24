@@ -1,4 +1,4 @@
-import { GalleryPage } from '../../../swatches/GalleryPage/GalleryPage';
+import { GalleryPage } from '@/swatches/GalleryPage/GalleryPage';
 
 const gallery = () => {
   return (

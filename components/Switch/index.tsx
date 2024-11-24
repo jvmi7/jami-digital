@@ -2,9 +2,7 @@ import * as SwitchPrimitives from '@radix-ui/react-switch';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import styles from './Switch.module.scss';
-
-// Assuming these are the correct paths and the icons are properly exported
+import styles from '@/components/Switch/Switch.module.scss';
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,

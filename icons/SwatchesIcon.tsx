@@ -1,4 +1,4 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
 const SwatchesIcon = ({ height = 24, width = 24, enableColor = false, className }: IconProps) => {
   const rectStyles = {

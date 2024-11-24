@@ -1,4 +1,4 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
 const MenuIcon = ({ width, height, color }: IconProps) => {
   return (

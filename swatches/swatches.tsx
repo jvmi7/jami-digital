@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
-import { Header } from '@/components/HomePage/Header/Header';
+import { Header } from '@/components/Header/Header';
 import { animate, initial, pageVariants } from '@/swatches/constants';
 import Footer from '@/swatches/Footer/Footer';
 import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';

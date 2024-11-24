@@ -1,16 +1,13 @@
-import { RiMenuFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useWindowScroll, useWindowSize } from 'react-use';
+import { useWindowSize } from 'react-use';
 
-import { useTheme } from '../../../context/ThemeContext';
-import { JvmiIcon } from '../../../icons/JvmiIcon';
-import { MenuIcon } from '../../../icons/MenuIcon';
-
-import styles from './Header.module.scss';
-import MenuButton from './MenuButton';
-import { SlidingMenu } from './SlidingMenu';
+import styles from '@/components/Header/Header.module.scss';
+import { SlidingMenu } from '@/components/Header/SlidingMenu';
+import { useTheme } from '@/context/ThemeContext';
+import { JvmiIcon } from '@/icons/JvmiIcon';
+import { MenuIcon } from '@/icons/MenuIcon';
 
 interface HeaderProps {
   backgroundColor?: string;
@@ -34,10 +31,6 @@ const Header = ({
     setIsOpen(!isOpen);
   };
 
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const { y: currentScrollY } = useWindowScroll();
-
   useEffect(() => {
     if (theme) {
       setTheme(theme);
@@ -53,19 +46,11 @@ const Header = ({
           backgroundColor,
           color: foregroundColor,
         }}
-        initial={{ opacity: 0, top: 0, position: 'absolute' }}
-        animate={{ opacity: showHeader ? 1 : 0, top: 0, position: 'absolute' }}
+        initial={{ opacity: 0, top: 0 }}
+        animate={{ opacity: 1, top: 0 }}
         transition={{ duration: 0.5, delay: transitionDelay }}
       >
-        <button
-          className={styles.menuButton}
-          onClick={handleMenuClick}
-          style={
-            {
-              // backgroundColor: hoverColor,
-            }
-          }
-        >
+        <button className={styles.menuButton} onClick={handleMenuClick}>
           <MenuIcon color={foregroundColor} height={36} width={36} />
         </button>
 

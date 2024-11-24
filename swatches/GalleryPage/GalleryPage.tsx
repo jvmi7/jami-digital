@@ -5,22 +5,20 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
-import { Header } from '../../components/HomePage/Header/Header';
+import { Header } from '@/components/Header/Header';
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from '../../components/ui/context-menu';
-import { generateCloudflareIpfsUrl } from '../../helpers';
-import { themes } from '../../styles/theme';
-import { externalLinks } from '../constants';
-import { ConnectWalletButton } from '../Header/ConnectWalletButton';
-import { PageFooter } from '../PageFooter/PageFooter';
-import { SaveDialog } from '../SaveDialog/SaveDialog';
-import { SwatchImagePreview } from '../SwatchImagePreview/SwatchImagePreview';
-
-import styles from './GalleryPage.module.scss';
+} from '@/components/ui/context-menu';
+import { externalLinks } from '@/constants';
+import { generateCloudflareIpfsUrl } from '@/helpers';
+import styles from '@/swatches/GalleryPage/GalleryPage.module.scss';
+import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';
+import { PageFooter } from '@/swatches/PageFooter/PageFooter';
+import { SaveDialog } from '@/swatches/SaveDialog/SaveDialog';
+import { SwatchImagePreview } from '@/swatches/SwatchImagePreview/SwatchImagePreview';
 
 const GalleryPage = () => {
   const { address } = useAccount();

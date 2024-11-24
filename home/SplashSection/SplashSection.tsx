@@ -1,16 +1,15 @@
 'use client';
 
 import { useMotionValueEvent, useScroll } from 'framer-motion';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useMeasure, useWindowScroll } from 'react-use';
 
-import { ThemeToggle } from '../../components/HomePage/Header/ThemeToggle';
-import { palette } from '../constants';
-import { generateAllAnimations, generateRandomOrder } from '../helpers';
-import { InteractiveCanvas } from '../InteractiveCanvas/InteractiveCanvas';
-import { MessageNotification } from '../MessageNotification/MessageNotification';
-
-import styles from './SplashSection.module.scss';
+import { ThemeToggle } from '@/components/Header/ThemeToggle';
+import { palette } from '@/home/constants';
+import { generateAllAnimations, generateRandomOrder } from '@/home/helpers';
+import { InteractiveCanvas } from '@/home/InteractiveCanvas/InteractiveCanvas';
+import { MessageNotification } from '@/home/MessageNotification/MessageNotification';
+import styles from '@/home/SplashSection/SplashSection.module.scss';
 
 const SplashSection = () => {
   const [hideNotification, setHideNotification] = useState(false);

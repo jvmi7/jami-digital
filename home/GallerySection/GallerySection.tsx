@@ -3,9 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
-import { Tags } from '../../components/HomePage/Tags/Tags';
-
-import styles from './GallerySection.module.scss';
+import { Tags } from '@/components/Tags/Tags';
+import styles from '@/home/GallerySection/GallerySection.module.scss';
 const images = [
   'apple',
   'dollar',

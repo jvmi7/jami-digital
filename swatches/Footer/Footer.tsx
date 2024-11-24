@@ -1,17 +1,11 @@
-import {
-  RiQuestionLine,
-  RiQuestionMark,
-  RiShareForwardFill,
-  RiShuffleFill,
-} from '@remixicon/react';
+import { RiQuestionMark, RiShuffleFill } from '@remixicon/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { OpenSeaIcon } from '../../icons/OpenSeaIcon';
-import Button from '../Button/Button';
-import { TOTAL_SWATCHES, animate, exit, initial } from '../constants';
-import { usePageState } from '../page-state-context';
-
-import styles from './Footer.module.scss';
+import { OpenSeaIcon } from '@/icons/OpenSeaIcon';
+import Button from '@/swatches/Button/Button';
+import { TOTAL_SWATCHES, animate, exit, initial } from '@/swatches/constants';
+import styles from '@/swatches/Footer/Footer.module.scss';
+import { usePageState } from '@/swatches/page-state-context';
 
 const Footer = () => {
   const { currentPage, setCurrentPage, setSwatchIndex } = usePageState();

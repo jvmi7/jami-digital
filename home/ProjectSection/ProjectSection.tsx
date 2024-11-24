@@ -1,11 +1,9 @@
 import { RiArrowRightUpLine } from '@remixicon/react';
 import classNames from 'classnames';
-import Link from 'next/link';
 import { useState } from 'react';
 
-import { ProjectMetadata } from '../types';
-
-import styles from './ProjectSection.module.scss';
+import styles from '@/home/ProjectSection/ProjectSection.module.scss';
+import { ProjectMetadata } from '@/home/types';
 
 type Props = {
   metadata: ProjectMetadata;
@@ -60,7 +58,7 @@ const ProjectSection = ({ metadata }: Props) => {
         </div>
         <div className={styles.buttonContainer}>
           {buttons.map((button, index) => (
-            <a href={button?.link || ''} target="_blank" rel="noreferrer">
+            <a href={button?.link || ''} target="_blank" rel="noreferrer" key={index}>
               <button
                 className={classNames(styles.button)}
                 style={{

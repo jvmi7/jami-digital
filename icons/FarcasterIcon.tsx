@@ -1,4 +1,4 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
 const FarcasterIcon = ({ height = 24, width = 24, color = 'currentColor' }: IconProps) => {
   return (

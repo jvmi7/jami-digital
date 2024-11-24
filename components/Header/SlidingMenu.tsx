@@ -1,32 +1,22 @@
-// components/SlidingMenu.tsx
 import {
   RiArrowGoBackLine,
   RiArrowRightLine,
-  RiArrowRightUpFill,
   RiArrowRightUpLine,
   RiHomeFill,
 } from '@remixicon/react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-
-import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ChevronRightIcon } from 'lucide-react';
-import { ColorfulIcon } from '../../ColorfulIcon/ColorfulIcon';
-import { SwatchesIcon } from '../../../icons/SwatchesIcon';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { socialLinks } from '../../../constants';
-import ChartsIcon from '../../../icons/ChartsIcon';
-import AbstractionsIcon from '../../../icons/AbstractionsIcon';
-import { CheckIcon } from '../../../icons/CheckIcon';
-import { CloseIcon } from '../../../icons/CloseIcon';
-import { CollageIcon } from '../../../icons/CollageIcon';
-import { HomeIcon } from '../../../icons/HomeIcon';
-import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
-import SwatchpepenIcon from '../../../icons/SwatchpepenIcon';
 
-import styles from './SlidingMenu.module.scss';
+import styles from '@/components/Header/SlidingMenu.module.scss';
+import { socialLinks } from '@/constants';
+import AbstractionsIcon from '@/icons/AbstractionsIcon';
+import ChartsIcon from '@/icons/ChartsIcon';
+import { CloseIcon } from '@/icons/CloseIcon';
+import { SwatchesIcon } from '@/icons/SwatchesIcon';
+import SwatchpepenIcon from '@/icons/SwatchpepenIcon';
 
 interface SlidingMenuProps {
   isOpen: boolean;

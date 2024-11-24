@@ -1,11 +1,10 @@
 import { RiMoonFill, RiSunFill } from '@remixicon/react';
 
-import { Switch } from '../../components/Switch';
-import { socialLinks } from '../../constants';
-import { useTheme } from '../../context/ThemeContext';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-
-import styles from './FooterSection.module.scss';
+import { Switch } from '@/components/Switch';
+import { socialLinks } from '@/constants';
+import { useTheme } from '@/context/ThemeContext';
+import styles from '@/home/FooterSection/FooterSection.module.scss';
+import { JvmiIcon } from '@/icons/JvmiIcon';
 
 const FooterSection = () => {
   const { theme, setTheme } = useTheme();
