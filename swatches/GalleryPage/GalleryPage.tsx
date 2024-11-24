@@ -1,7 +1,7 @@
 import { useEvmWalletNFTs } from '@moralisweb3/next';
 import { RiExternalLinkFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
@@ -29,7 +29,6 @@ const GalleryPage = () => {
   const { data: nfts, isFetching } = useEvmWalletNFTs({
     chain: '0x2105',
     address: address || '',
-    // address: '0x2245831B784B4E1030844206288BC1B23b11DeF7',
     tokenAddresses: ['0x13dc8261FCe63499Aa25DEB512bb1827B411b83B'],
   });
 

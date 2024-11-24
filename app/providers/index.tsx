@@ -1,12 +1,8 @@
-import '@/styles/globals.scss';
-import '@/styles/theme.scss';
-import '@/styles/mixins.scss';
+'use client';
 
+import '@rainbow-me/rainbowkit/styles.css';
 import { darkTheme, getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Analytics } from '@vercel/analytics/react';
-import type { AppProps } from 'next/app';
-import '@rainbow-me/rainbowkit/styles.css';
 import { WagmiProvider } from 'wagmi';
 import { arbitrum, base, mainnet, optimism, polygon, sepolia } from 'wagmi/chains';
 
@@ -28,17 +24,23 @@ const config = getDefaultConfig({
 
 const queryClient = new QueryClient();
 
-export default function App({ Component, pageProps }: AppProps) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
-          <RainbowKitProvider modalSize="compact" theme={darkTheme()}>
-            <Component {...pageProps} />
+          <RainbowKitProvider
+            modalSize="compact"
+            theme={darkTheme()}
+            coolMode
+            appInfo={{
+              appName: 'jvmi.art',
+            }}
+          >
+            {children}
           </RainbowKitProvider>
         </QueryClientProvider>
       </WagmiProvider>
-      <Analytics />
     </ThemeProvider>
   );
 }

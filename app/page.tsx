@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head';
 import { useState } from 'react';
 import { InView } from 'react-intersection-observer';
@@ -12,7 +14,7 @@ import { PressSection } from '@/home/PressSection/PressSection';
 import { ProjectSection } from '@/home/ProjectSection/ProjectSection';
 import { SectionIndicator } from '@/home/SectionIndicator/SectionIndicator';
 import { SplashSection } from '@/home/SplashSection/SplashSection';
-import styles from '@/pages/index.module.scss';
+import styles from '@/app/index.module.scss';
 
 export default function Home() {
   const inViewThreshold = 0.3;

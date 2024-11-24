@@ -7,7 +7,7 @@ import {
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { ChevronRightIcon } from 'lucide-react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 import styles from '@/components/Header/SlidingMenu.module.scss';

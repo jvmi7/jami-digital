@@ -1,3 +1,5 @@
+'use client';
+
 import { GalleryPage } from '@/swatches/GalleryPage/GalleryPage';
 
 const gallery = () => {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
