@@ -78,12 +78,7 @@ const HelloSection = () => {
                 variants={animation_blue}
                 className={styles.image}
               >
-                <Image
-                  src={'/hello_sticker_blue.svg'}
-                  alt="hello blue"
-                  width={500}
-                  height={325}
-                />
+                <Image src={'/hello_sticker_blue.svg'} alt="hello blue" width={500} height={325} />
               </motion.div>
             </div>
             <div className={styles.imageContainer}>
@@ -108,12 +103,7 @@ const HelloSection = () => {
                 variants={animation_red}
                 className={styles.image}
               >
-                <Image
-                  src={'/hello_sticker_red.svg'}
-                  alt="hello red"
-                  width={500}
-                  height={325}
-                />
+                <Image src={'/hello_sticker_red.svg'} alt="hello red" width={500} height={325} />
               </motion.div>
             </div>
           </>

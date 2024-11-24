@@ -16,13 +16,13 @@ function Screen({ screenState, menuIndex }: ScreenProps) {
   const item = {
     hidden: {
       opacity: 0,
-      scale: 0
+      scale: 0,
     },
     show: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, type: 'spring', bounce: 0.3 }
-    }
+      transition: { duration: 0.8, type: 'spring', bounce: 0.3 },
+    },
   };
 
   let screen;
@@ -42,20 +42,38 @@ function Screen({ screenState, menuIndex }: ScreenProps) {
   return (
     <div className={styles.container} style={{ maxHeight: maxHeight }}>
       <div className={styles.screen}>
-        <AnimatePresence mode='wait'>{screen}</AnimatePresence>
+        <AnimatePresence mode="wait">{screen}</AnimatePresence>
       </div>
       <div className={styles.bottom}>
-        <motion.div className={styles.colorsContainer} initial='hidden' animate='show' exit='hidden' variants={item}>
+        <motion.div
+          className={styles.colorsContainer}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          variants={item}
+        >
           <div className={classNames(styles.square, styles.color1)} />
           <div className={classNames(styles.square, styles.color2)} />
           <div className={classNames(styles.square, styles.color3)} />
           <div className={classNames(styles.square, styles.color4)} />
           <div className={classNames(styles.square, styles.color5)} />
         </motion.div>
-        <motion.div className={styles.logoContainer} initial='hidden' animate='show' exit='hidden' variants={item}>
+        <motion.div
+          className={styles.logoContainer}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          variants={item}
+        >
           <JamiLogo height={40} width={100} />
         </motion.div>
-        <motion.div className={styles.powerContainer} initial='hidden' animate='show' exit='hidden' variants={item}>
+        <motion.div
+          className={styles.powerContainer}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          variants={item}
+        >
           <span>power</span>
           <div className={styles.light} />
         </motion.div>

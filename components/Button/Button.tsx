@@ -21,14 +21,9 @@ const Button = ({
   iconPosition = 'right',
   href,
 }: Props) => {
-  const buttonClasses = classNames(
-    styles.button,
-    styles[variant],
-    styles[themeName]
-  );
+  const buttonClasses = classNames(styles.button, styles[variant], styles[themeName]);
   const contentStyle = {
-    flexDirection:
-      iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const),
+    flexDirection: iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const),
   };
 
   return href ? (

@@ -21,11 +21,7 @@ const Home = () => {
       <Element name="hello" />
       <div className={styles.infoContainer}>
         <HelloSection />
-        <Tilt
-          tiltReverse
-          tiltMaxAngleX={tiltMaxAngle}
-          tiltMaxAngleY={tiltMaxAngle}
-        >
+        <Tilt tiltReverse tiltMaxAngleX={tiltMaxAngle} tiltMaxAngleY={tiltMaxAngle}>
           <BioSection />
         </Tilt>
       </div>

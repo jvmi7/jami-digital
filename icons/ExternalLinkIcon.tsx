@@ -1,10 +1,6 @@
 import { IconProps } from './types';
 
-const ExternalLinkIcon = ({
-  height = 24,
-  width = 24,
-  color = 'currentColor',
-}: IconProps) => {
+const ExternalLinkIcon = ({ height = 24, width = 24, color = 'currentColor' }: IconProps) => {
   return (
     <svg
       fill={color}

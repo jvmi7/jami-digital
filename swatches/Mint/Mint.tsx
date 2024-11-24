@@ -13,6 +13,7 @@ const Mint = () => {
         href={'https://opensea.io/collection/swatches-by-jvmi/overview'}
         target="_blank"
         className={classNames(styles.button, styles.form)}
+        rel="noreferrer"
       >
         view on opensea
       </a>
@@ -20,6 +21,7 @@ const Mint = () => {
         href={'https://warpcast.com/~/channel/swatches'}
         target="_blank"
         className={classNames(styles.button, styles.farcaster)}
+        rel="noreferrer"
       >
         join /swatches on farcaster
       </a>
@@ -27,6 +29,7 @@ const Mint = () => {
         href={socialLinks.x}
         target="_blank"
         className={classNames(styles.button, styles.x)}
+        rel="noreferrer"
       >
         follow <JvmiHandle /> on X
       </a>

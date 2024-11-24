@@ -60,9 +60,7 @@ const ArtworkSection = () => {
                 view collection <ExternalLinkIcon height={20} />
               </Button>
             </div>
-            {index !== projects.length - 1 && (
-              <div className={styles.divider} />
-            )}
+            {index !== projects.length - 1 && <div className={styles.divider} />}
           </div>
         </>
       ))}

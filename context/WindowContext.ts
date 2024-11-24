@@ -13,7 +13,7 @@ const defaultContextValue: WindowContextType = {
   width: 0,
   height: 0,
   setWidth: () => {},
-  setHeight: () => {}
+  setHeight: () => {},
 };
 
 const WindowContext = React.createContext(defaultContextValue);

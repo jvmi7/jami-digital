@@ -1,12 +1,7 @@
 import { useWindowSize } from 'react-use';
 import styles from './SplashSection.module.scss';
 import Image from 'next/image';
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { MessageNotification } from '../MessageNotification/MessageNotification';
 import { useEffect, useMemo, useState } from 'react';
 import { jamiApparel } from '../ContentSections/constants';
@@ -83,14 +78,8 @@ const SplashSection = () => {
   const row2StartingIndex = 5;
   const row3StartingIndex = 10;
 
-  const row1 = motorheadzImages.slice(
-    row1StartingIndex,
-    row1StartingIndex + columns
-  );
-  const row2 = motorheadzImages.slice(
-    row2StartingIndex,
-    row2StartingIndex + columns
-  );
+  const row1 = motorheadzImages.slice(row1StartingIndex, row1StartingIndex + columns);
+  const row2 = motorheadzImages.slice(row2StartingIndex, row2StartingIndex + columns);
   // const row3 = motorheadzImages.slice(
   //   row3StartingIndex,
   //   row3StartingIndex + columns

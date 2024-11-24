@@ -109,8 +109,7 @@ const GalleryPage = () => {
             <div className={styles.galleryContainer}>
               {nfts?.map((_nft: any, index: number) => {
                 const nft = _nft._data;
-                const imageUrl =
-                  generateCloudflareIpfsUrl(nft.metadata?.image) || '';
+                const imageUrl = generateCloudflareIpfsUrl(nft.metadata?.image) || '';
                 const name = nft.metadata?.name || '';
                 const animationDelay = index * 0.05;
                 return (
@@ -163,6 +162,7 @@ const GalleryPage = () => {
               <a
                 href={`https://opensea.io/assets/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/${modalTokenID}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 view on opensea
               </a>
@@ -170,11 +170,7 @@ const GalleryPage = () => {
           </ContextMenuContent>
         </ContextMenu>
 
-        <SaveDialog
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          tokenID={modalTokenID}
-        />
+        <SaveDialog isOpen={isOpen} setIsOpen={setIsOpen} tokenID={modalTokenID} />
       </div>
       <PageFooter />
     </div>

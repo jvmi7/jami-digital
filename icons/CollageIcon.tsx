@@ -1,10 +1,6 @@
 import { IconProps } from './types';
 
-const CollageIcon = ({
-  height = 24,
-  width = 24,
-  color = 'white',
-}: IconProps) => {
+const CollageIcon = ({ height = 24, width = 24, color = 'white' }: IconProps) => {
   return (
     <svg
       fill={color}

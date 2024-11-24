@@ -22,12 +22,7 @@ function Dock() {
   };
 
   return (
-    <motion.div
-      className={styles.container}
-      initial="hidden"
-      animate="show"
-      variants={element}
-    >
+    <motion.div className={styles.container} initial="hidden" animate="show" variants={element}>
       <div className={styles.dock}>
         <DockItem className={styles.twitter} label="x.com">
           <XIcon height={28} width={28} />

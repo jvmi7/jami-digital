@@ -46,10 +46,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
     <div className={styles.accordion}>
       <div className={styles.sectionHeader} onClick={() => setIsOpen(!isOpen)}>
         <p className={styles.sectionTitle}>{title}</p>
-        <motion.div
-          animate={{ rotate: isOpen ? 90 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <motion.div animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
           <ChevronRightIcon size={16} color="currentColor" />
         </motion.div>
       </div>
@@ -139,9 +136,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
       onMouseLeave={() => setHoveredItem(null)}
     >
       <div className={classNames(styles.icon, styles.homeIcon)}>
-        <RiHomeFill
-          color={hoveredItem === 'home' ? '#FFA454' : 'currentColor'}
-        />
+        <RiHomeFill color={hoveredItem === 'home' ? '#FFA454' : 'currentColor'} />
       </div>
       <p className={styles.text}>home</p>
       <div className={styles.externalLinkIcon}>
@@ -175,10 +170,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               </div>
               <p className={styles.text}>swatches</p>
               <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine
-                  size={externalLinkIconSize}
-                  color="currentColor"
-                />
+                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
               </div>
             </div>
             <div
@@ -192,34 +184,21 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               </div>
               <p className={styles.text}>charts</p>
               <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine
-                  size={externalLinkIconSize}
-                  color="currentColor"
-                />
+                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
               </div>
             </div>
             <div
               className={styles.menuItem}
-              onClick={() =>
-                window.open(
-                  'https://highlight.xyz/curated/abstractions',
-                  '_blank'
-                )
-              }
+              onClick={() => window.open('https://highlight.xyz/curated/abstractions', '_blank')}
               onMouseEnter={() => setHoveredItem('abstractions')}
               onMouseLeave={() => setHoveredItem(null)}
             >
               <div className={styles.icon}>
-                <AbstractionsIcon
-                  enableColor={hoveredItem === 'abstractions'}
-                />
+                <AbstractionsIcon enableColor={hoveredItem === 'abstractions'} />
               </div>
               <p className={styles.text}>abstractions</p>
               <div className={styles.externalLinkIcon}>
-                <RiArrowRightUpLine
-                  size={externalLinkIconSize}
-                  color="currentColor"
-                />
+                <RiArrowRightUpLine size={externalLinkIconSize} color="currentColor" />
               </div>
             </div>
             <div
@@ -236,10 +215,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
               </div>
               <p className={styles.text}>swatchpepen</p>
               <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine
-                  size={externalLinkIconSize}
-                  color="currentColor"
-                />
+                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
               </div>
             </div>
             <Accordion title="socials">

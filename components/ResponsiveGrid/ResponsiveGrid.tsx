@@ -20,7 +20,7 @@ const ResponsiveGrid: React.FC<GridProps> = ({ children, minColumnWidth, gap }) 
         style={{
           display: 'grid',
           gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-          gap: `${gap}px`
+          gap: `${gap}px`,
         }}
       >
         {children}

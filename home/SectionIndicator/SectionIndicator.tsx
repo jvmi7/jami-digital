@@ -15,14 +15,7 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
   const { height, width } = useWindowSize();
   const { scrollY } = useScroll();
   const [showIndicator, setShowIndicator] = useState(false);
-  const sections = [
-    'splash',
-    'intro',
-    'swatches',
-    'charts',
-    'gallery',
-    'press',
-  ];
+  const sections = ['splash', 'intro', 'swatches', 'charts', 'gallery', 'press'];
 
   useMotionValueEvent(scrollY, 'change', latest => {
     if (latest >= height - 300 && width > 800) {

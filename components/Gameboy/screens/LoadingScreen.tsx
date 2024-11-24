@@ -5,21 +5,27 @@ function LoadingScreen() {
   const item = {
     hidden: {
       opacity: 0,
-      scale: 0
+      scale: 0,
     },
     show: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, type: 'spring', bounce: 0.3 }
+      transition: { duration: 0.8, type: 'spring', bounce: 0.3 },
     },
     exit: {
       opacity: 0,
-      scale: 0
-    }
+      scale: 0,
+    },
   };
 
   return (
-    <motion.div initial='hidden' animate='show' exit='exit' variants={item} className={styles.container}>
+    <motion.div
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      variants={item}
+      className={styles.container}
+    >
       <h1>
         <span>m</span>
         <span>a</span>

@@ -32,15 +32,11 @@ const Header = () => {
           </DropdownMenuTrigger>
         </motion.div>
         <DropdownMenuContent className={styles.menuContent} align="start">
-          <a href={socialLinks.x} target="_blank" className={styles.link}>
+          <a href={socialLinks.x} target="_blank" className={styles.link} rel="noreferrer">
             <RiTwitterXFill size={18} />
             <span>x.com</span>
           </a>
-          <a
-            href={socialLinks.farcaster}
-            target="_blank"
-            className={styles.link}
-          >
+          <a href={socialLinks.farcaster} target="_blank" className={styles.link} rel="noreferrer">
             <FarcasterIcon height={20} width={20} />
             <span>farcaster</span>
           </a>

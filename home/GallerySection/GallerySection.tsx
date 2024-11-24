@@ -36,11 +36,7 @@ const GallerySection = () => {
       <p className={styles.description}>
         an ongoing collection of pieces inspired by the world around us
       </p>
-      <Tags
-        tags={['open edition', 'nfts on zero']}
-        backgroundColor="#ddd"
-        textColor="#999"
-      />
+      <Tags tags={['open edition', 'nfts on zero']} backgroundColor="#ddd" textColor="#999" />
 
       <img src="" alt="" />
 
@@ -49,11 +45,7 @@ const GallerySection = () => {
           <div key={index} className={styles.column}>
             {column.map((image, index) => (
               <div key={index} className={styles.imageContainer}>
-                <img
-                  className={styles.image}
-                  src={`/gallery/${image}.png`}
-                  alt={image}
-                />
+                <img className={styles.image} src={`/gallery/${image}.png`} alt={image} />
                 <p className={styles.name}>{image}</p>
               </div>
             ))}

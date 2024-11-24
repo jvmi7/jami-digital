@@ -53,12 +53,7 @@ function About() {
     >
       <AnimatePresence mode="wait">
         <Link href={'/'}>
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={logo}
-          >
+          <motion.div initial="hidden" animate="visible" exit="exit" variants={logo}>
             <Image
               src={`/machi-logo-white.png`}
               alt="machi market"
@@ -104,65 +99,46 @@ function About() {
             </div>
             <div className={styles.body}>
               <p>
-                i've created art for as long as I can remember. from doodling
-                sketches in the margins of my notebooks as a kid, to designing
-                graphics, brands, websites, & more, my work reflects the
-                distinct experiences of a{' '}
+                i've created art for as long as I can remember. from doodling sketches in the
+                margins of my notebooks as a kid, to designing graphics, brands, websites, & more,
+                my work reflects the distinct experiences of a{' '}
                 <span className={styles.pink}>nostalgic</span>{' '}
                 <span className={styles.yellow}>second-generation</span>{' '}
-                <span className={styles.green}>pakistani-american</span>. some
-                pieces hold deep meaning, while others are just visuals i think
-                are aesthetically pleasing. and sometimes, i get lucky and think
-                of a concept{' '}
+                <span className={styles.green}>pakistani-american</span>. some pieces hold deep
+                meaning, while others are just visuals i think are aesthetically pleasing. and
+                sometimes, i get lucky and think of a concept{' '}
                 <span className={styles.blend}>combining both</span>.
               </p>
               <p>
-                the term{' '}
-                <span className={styles.highlight}>"machi market"</span>{' '}
-                originates from an expression used by my parents throughout my
-                childhood. in sindhi, it translates to "fish market," evoking
-                images of the lively and crowded{' '}
+                the term <span className={styles.highlight}>"machi market"</span> originates from an
+                expression used by my parents throughout my childhood. in sindhi, it translates to
+                "fish market," evoking images of the lively and crowded{' '}
                 <span className={styles.teal}>open seafood markets </span>
-                <span className={styles.orange}> in south asia</span> . but for
-                my family, it was a term that encapsulated the energy and chaos
-                of any bustling, hectic environment - like the river of
-                brake-lights you see during{' '}
-                <span className={styles.red}>
-                  rush hour traffic in los angeles
-                </span>{' '}
-                or the checkout lines we stood in on a{' '}
-                <span className={styles.blockbuster}>
-                  friday night at blockbuster
-                </span>
-                .
+                <span className={styles.orange}> in south asia</span> . but for my family, it was a
+                term that encapsulated the energy and chaos of any bustling, hectic environment -
+                like the river of brake-lights you see during{' '}
+                <span className={styles.red}>rush hour traffic in los angeles</span> or the checkout
+                lines we stood in on a{' '}
+                <span className={styles.blockbuster}>friday night at blockbuster</span>.
               </p>
               <p>
-                years later, it only makes sense to pay homage to the expression
-                I once knew and bring this metaphor to life. machi market is a{' '}
-                <span className={styles.bazzar}>
-                  vibrant bazaar of creativity
-                </span>
-                , disguised as a digital marketplace offering{' '}
-                <span className={styles.items}>
-                  streetwear, posters, collectibles, & more
-                </span>
-                . it mirrors the world around us through a new lens, augmented
-                by the memories of our childhood. my goal is to create a sense
-                of community where people from all backgrounds can come together
-                and{' '}
-                <span className={styles.connect}>
-                  connect through art and culture
-                </span>
-                .
+                years later, it only makes sense to pay homage to the expression I once knew and
+                bring this metaphor to life. machi market is a{' '}
+                <span className={styles.bazzar}>vibrant bazaar of creativity</span>, disguised as a
+                digital marketplace offering{' '}
+                <span className={styles.items}>streetwear, posters, collectibles, & more</span>. it
+                mirrors the world around us through a new lens, augmented by the memories of our
+                childhood. my goal is to create a sense of community where people from all
+                backgrounds can come together and{' '}
+                <span className={styles.connect}>connect through art and culture</span>.
               </p>
               <p>
-                since the day i first picked up a pencil, it's been my passion
-                to bring my{' '}
-                <span className={styles.visions}>visions to life</span>. and
-                with each passing day, i am building towards a future where the{' '}
-                <span className={styles.sketches}>sketches in my notebook</span>{' '}
-                manifest into a machi market of my own, effortlessly connecting
-                the <span className={styles.end}>past, present & future</span>.
+                since the day i first picked up a pencil, it's been my passion to bring my{' '}
+                <span className={styles.visions}>visions to life</span>. and with each passing day,
+                i am building towards a future where the{' '}
+                <span className={styles.sketches}>sketches in my notebook</span> manifest into a
+                machi market of my own, effortlessly connecting the{' '}
+                <span className={styles.end}>past, present & future</span>.
               </p>
               {/* <p className={styles.signature}>- jami</p> */}
               <Image

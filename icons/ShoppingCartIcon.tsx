@@ -1,10 +1,6 @@
 import { IconProps } from './types';
 
-const ShoppingCartIcon = ({
-  height = 24,
-  width = 24,
-  color = 'white',
-}: IconProps) => {
+const ShoppingCartIcon = ({ height = 24, width = 24, color = 'white' }: IconProps) => {
   return (
     <svg
       fill={color}

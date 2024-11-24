@@ -12,7 +12,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ width = 40, color = 'wh
     height: `${width}px`,
     borderWidth: `${width / 10}px`, // Makes the spinner thinner
     borderColor: `rgba(255, 255, 255, 0.3)`,
-    borderTopColor: color
+    borderTopColor: color,
   };
 
   return <div className={styles.spinner} style={spinnerStyle}></div>;

@@ -10,19 +10,8 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { Analytics } from '@vercel/analytics/react';
 
 import { WagmiProvider } from 'wagmi';
-import {
-  arbitrum,
-  base,
-  mainnet,
-  optimism,
-  polygon,
-  sepolia,
-} from 'wagmi/chains';
-import {
-  darkTheme,
-  getDefaultConfig,
-  RainbowKitProvider,
-} from '@rainbow-me/rainbowkit';
+import { arbitrum, base, mainnet, optimism, polygon, sepolia } from 'wagmi/chains';
+import { darkTheme, getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const config = getDefaultConfig({

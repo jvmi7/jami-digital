@@ -15,8 +15,7 @@ function Desktop() {
   const constraintsRef = useRef(null);
 
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-  const { openWindows, onWindowClicked, closeWindow } =
-    useContext(DesktopContext);
+  const { openWindows, onWindowClicked, closeWindow } = useContext(DesktopContext);
 
   return (
     <div className={styles.dimmension}>
@@ -54,8 +53,7 @@ function Desktop() {
                           closeWindow(window);
                         }}
                         zIndex={openWindows.findIndex(
-                          currentWindow =>
-                            currentWindow.urlLabel === window.urlLabel
+                          currentWindow => currentWindow.urlLabel === window.urlLabel
                         )}
                         theme={window.theme}
                       >

@@ -24,18 +24,14 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
       ]
     : [];
 
-  const basisClasses =
-    'min-[510px]:basis-1/2 md:basis-1/2 lg:basis-1/3 basis-full';
+  const basisClasses = 'min-[510px]:basis-1/2 md:basis-1/2 lg:basis-1/3 basis-full';
 
   const containerSpacing = type === 'single' ? '-ml-2' : '-ml-2';
 
   const renderImages = () => {
     if (type === 'single') {
       return images.map((image, index) => (
-        <CarouselItem
-          className={`flex justify-center pl-2 ${basisClasses}`}
-          key={index}
-        >
+        <CarouselItem className={`flex justify-center pl-2 ${basisClasses}`} key={index}>
           <div
             key={index}
             className="flex justify-center items-center" // Centering the content
@@ -93,9 +89,7 @@ const ImageCarousel = ({ images, type = 'single' }: ImageCarouselProps) => {
         }}
         plugins={plugins}
       >
-        <CarouselContent className={containerSpacing}>
-          {renderImages()}
-        </CarouselContent>
+        <CarouselContent className={containerSpacing}>{renderImages()}</CarouselContent>
       </Carousel>
       <div className={styles.left} />
       <div className={styles.right} />

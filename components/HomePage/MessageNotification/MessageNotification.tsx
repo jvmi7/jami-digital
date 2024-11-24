@@ -42,19 +42,9 @@ const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
     <Link to="hello" smooth={true} offset={-72} duration={500}>
       <AnimatePresence>
         {!hide && (
-          <motion.div
-            className={styles.container}
-            initial={initial}
-            animate={animate}
-            exit={exit}
-          >
+          <motion.div className={styles.container} initial={initial} animate={animate} exit={exit}>
             <div className={styles.right}>
-              <MessagesIcon
-                variant={1}
-                height={40}
-                width={40}
-                color={'white'}
-              />
+              <MessagesIcon variant={1} height={40} width={40} color={'white'} />
               <div>
                 <p className={styles.title}>new message</p>
                 <p className={styles.description}>

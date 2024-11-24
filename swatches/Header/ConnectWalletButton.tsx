@@ -1,10 +1,5 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import {
-  RiImageLine,
-  RiLink,
-  RiLinkUnlink,
-  RiUserLine,
-} from '@remixicon/react';
+import { RiImageLine, RiLink, RiLinkUnlink, RiUserLine } from '@remixicon/react';
 import Button from '../Button/Button';
 import {
   DropdownMenu,
@@ -82,27 +77,17 @@ const ConnectWalletButton = ({}) => {
                 <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
                   <DropdownMenuTrigger>
                     <Button variant="secondary" isIcon={isMobile}>
-                      {isMobile ? (
-                        <RiUserLine size={18} />
-                      ) : (
-                        account.displayName
-                      )}
+                      {isMobile ? <RiUserLine size={18} /> : account.displayName}
                     </Button>
                   </DropdownMenuTrigger>
 
                   <DropdownMenuContent
-                    className={classNames(
-                      styles.menuContent,
-                      styles.accountDropdown
-                    )}
+                    className={classNames(styles.menuContent, styles.accountDropdown)}
                     align="end"
                   >
                     <DropdownMenuItem asChild>
                       <Link href="/swatches/gallery">
-                        <button
-                          className={styles.link}
-                          onClick={() => handleMenuItemClick()}
-                        >
+                        <button className={styles.link} onClick={() => handleMenuItemClick()}>
                           <RiImageLine size={18} />
                           my gallery
                         </button>

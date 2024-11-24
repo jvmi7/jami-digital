@@ -42,12 +42,7 @@ function MenuScreen({ menuIndex }: Props) {
   const remainingLinks = links.slice(1);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={container}
-      className={styles.container}
-    >
+    <motion.div initial="hidden" animate="show" variants={container} className={styles.container}>
       <motion.h1 initial="hidden" animate="show" exit="hidden" variants={item}>
         {'main menu'}
       </motion.h1>

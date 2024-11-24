@@ -13,7 +13,7 @@ const defaultContextValue: DesktopContextType = {
   openWindows: [],
   openWindow: () => {},
   closeWindow: () => {},
-  onWindowClicked: () => {}
+  onWindowClicked: () => {},
 };
 
 const DesktopContext = React.createContext(defaultContextValue);

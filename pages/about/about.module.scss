@@ -28,7 +28,11 @@
   border-radius: 24px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
   color: var(--text-color);
-  text-shadow: -1px 1px 0 var(--text-outline), 1px 1px 0 var(--text-outline), 1px -1px 0 var(--text-outline), -1px -1px 0 var(--text-outline);
+  text-shadow:
+    -1px 1px 0 var(--text-outline),
+    1px 1px 0 var(--text-outline),
+    1px -1px 0 var(--text-outline),
+    -1px -1px 0 var(--text-outline);
 
   .header {
     display: flex;
@@ -88,7 +92,11 @@
         font-size: 16px;
         --shadow-color: white;
         text-shadow: none;
-        text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+        text-shadow:
+          -1px 1px 0 var(--shadow-color),
+          1px 1px 0 var(--shadow-color),
+          1px -1px 0 var(--shadow-color),
+          -1px -1px 0 var(--shadow-color);
       }
     }
   }
@@ -146,7 +154,11 @@
   .highlight {
     color: var(--white);
     --shadow-color: black;
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .teal {
@@ -164,42 +176,70 @@
   .blockbuster {
     color: var(--yellow);
     --shadow-color: blue;
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .bazzar {
     color: var(--white);
     --shadow-color: var(--pink);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
   .items {
     color: var(--yellow);
     --shadow-color: var(--red);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .connect {
     color: var(--green);
     --shadow-color: var(--white);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .visions {
     color: var(--blue);
     --shadow-color: var(--white);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .sketches {
     color: var(--pink);
     --shadow-color: var(--white);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 
   .end {
     color: var(--yellow);
     --shadow-color: var(--black);
-    text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+    text-shadow:
+      -1px 1px 0 var(--shadow-color),
+      1px 1px 0 var(--shadow-color),
+      1px -1px 0 var(--shadow-color),
+      -1px -1px 0 var(--shadow-color);
   }
 }
 

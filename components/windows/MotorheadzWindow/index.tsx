@@ -1,19 +1,12 @@
 import { useState } from 'react';
-import {
-  CollectionMetadataType,
-  WindowProps,
-  WindowThemeType,
-} from '../../../types';
+import { CollectionMetadataType, WindowProps, WindowThemeType } from '../../../types';
 import { Button } from '../../Button/Button';
 import { CollectionMetadata } from '../../Collection/CollectionMetadata';
 import { CollectionModal } from '../../Collection/CollectionModal';
 import { ItemCard } from '../../Collection/ItemCard';
 import { ResponsiveGrid } from '../../ResponsiveGrid';
 import styles from '../window.module.scss';
-import {
-  ContentPane,
-  ContentPaneMetadataType,
-} from '../../Collection/ContentPane';
+import { ContentPane, ContentPaneMetadataType } from '../../Collection/ContentPane';
 import { Caption } from '../../Caption/Caption';
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { useQuery } from '@tanstack/react-query';
@@ -51,8 +44,7 @@ const MotorheadzWindow = ({ theme }: WindowProps) => {
       read blog post
     </Button>
   );
-  const motorheadzContractAddress =
-    '0x5c9d55b78febcc2061715ba4f57ecf8ea2711f2c';
+  const motorheadzContractAddress = '0x5c9d55b78febcc2061715ba4f57ecf8ea2711f2c';
 
   const collectionMetadata: CollectionMetadataType = {
     name: 'motorheadz',
@@ -80,8 +72,7 @@ const MotorheadzWindow = ({ theme }: WindowProps) => {
   };
 
   // Replace this later
-  const imageMetadataUrl =
-    'https://motorheadz.s3.us-west-1.amazonaws.com/images/';
+  const imageMetadataUrl = 'https://motorheadz.s3.us-west-1.amazonaws.com/images/';
   const previewImages = [];
 
   for (let i = 0; i < motorheadz.length; i++) {
@@ -137,12 +128,8 @@ const MotorheadzWindow = ({ theme }: WindowProps) => {
     }
   };
 
-  const currentImage = (
-    <ItemCard imgSrc={previewImages[currentImageIndex].imgSrc} />
-  );
-  const currentContentPane = (
-    <ContentPane theme={theme} metadata={currentContentMetadata} />
-  );
+  const currentImage = <ItemCard imgSrc={previewImages[currentImageIndex].imgSrc} />;
+  const currentContentPane = <ContentPane theme={theme} metadata={currentContentMetadata} />;
 
   return (
     <div className={styles.container}>

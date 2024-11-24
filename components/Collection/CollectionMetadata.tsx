@@ -25,10 +25,7 @@ const CollectionMetadata = ({ theme, metadata }: Props) => {
           <div className={styles.name} style={{ color: theme.textPrimary }}>
             {metadata.name}
           </div>
-          <div
-            className={styles.description}
-            style={{ color: theme.textSecondary }}
-          >
+          <div className={styles.description} style={{ color: theme.textSecondary }}>
             {metadata.description}
           </div>
         </div>
@@ -40,18 +37,12 @@ const CollectionMetadata = ({ theme, metadata }: Props) => {
             <div className={styles.statContainer} key={index}>
               <div key={stat.label} className={styles.stat}>
                 <div className={styles.value}>{stat.value}</div>
-                <div
-                  className={styles.label}
-                  style={{ color: theme.textSecondary }}
-                >
+                <div className={styles.label} style={{ color: theme.textSecondary }}>
                   {stat.label}
                 </div>
               </div>
               {metadata.stats?.length && index < metadata.stats?.length - 1 && (
-                <div
-                  className={styles.divider}
-                  style={{ borderColor: theme.dividerColor }}
-                />
+                <div className={styles.divider} style={{ borderColor: theme.dividerColor }} />
               )}
             </div>
           ))}

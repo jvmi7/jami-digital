@@ -5,10 +5,7 @@ import styles from './index.module.scss';
 import { Header } from '../components/HomePage/Header/Header';
 import { Element } from 'react-scroll';
 import { ProjectSection } from '../home/ProjectSection/ProjectSection';
-import {
-  ChartsProjectMetadata,
-  SwatchesProjectMetadata,
-} from '../home/constants';
+import { ChartsProjectMetadata, SwatchesProjectMetadata } from '../home/constants';
 import { GallerySection } from '../home/GallerySection/GallerySection';
 import { PressSection } from '../home/PressSection/PressSection';
 import { FooterSection } from '../home/FooterSection/FooterSection';
@@ -27,19 +24,13 @@ export default function Home() {
         <meta property="og:url" content="https://jvmi.art" />
         <meta property="og:title" content="jvmi.art" />
         <meta property="og:description" content="interactive art onchain" />
-        <meta
-          property="og:image"
-          content="https://jvmi.art/jvmi-art-banner.png"
-        />
+        <meta property="og:image" content="https://jvmi.art/jvmi-art-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jvmi_" />
         <meta name="twitter:url" content="https://jvmi.art" />
         <meta name="twitter:title" content="jvmi.art" />
         <meta name="twitter:description" content="interactive art onchain" />
-        <meta
-          name="twitter:image"
-          content="https://jvmi.art/jvmi-art-banner-twitter.png"
-        />
+        <meta name="twitter:image" content="https://jvmi.art/jvmi-art-banner-twitter.png" />
       </Head>
 
       <div className={styles.body}>

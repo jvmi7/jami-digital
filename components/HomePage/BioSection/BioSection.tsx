@@ -46,9 +46,7 @@ const BioSection = () => {
         }}
         style={{ display: response.length > 0 ? 'none' : 'flex' }}
       >
-        {inView && (
-          <TypingAnimation text={"let's get in touch"} initialDelay={3600} />
-        )}
+        {inView && <TypingAnimation text={"let's get in touch"} initialDelay={3600} />}
         <div className={styles.buttonIcon}>
           <SendPlaneIcon height={20} width={20} color={'white'} />
         </div>
@@ -63,11 +61,7 @@ interface TypingAnimationProps {
   initialDelay?: number;
 }
 
-function TypingAnimation({
-  text,
-  typingSpeed = 50,
-  initialDelay = 0,
-}: TypingAnimationProps) {
+function TypingAnimation({ text, typingSpeed = 50, initialDelay = 0 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState('');
   const [startTyping, setStartTyping] = useState(false);
 
@@ -94,8 +88,7 @@ function TypingAnimation({
 
   return (
     <div>
-      {displayedText}{' '}
-      {!startTyping && <div className={styles.blinkingCursor} />}
+      {displayedText} {!startTyping && <div className={styles.blinkingCursor} />}
     </div>
   );
 }

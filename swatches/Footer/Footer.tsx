@@ -28,8 +28,7 @@ const Footer = () => {
               initial={initial}
               animate={{
                 ...animate,
-                transition:
-                  currentPage !== 'home' ? { delay: 0 } : { delay: 1 },
+                transition: currentPage !== 'home' ? { delay: 0 } : { delay: 1 },
               }}
               exit={exit}
             >
@@ -53,10 +52,7 @@ const Footer = () => {
                 variant="secondary"
                 isIcon
                 onClick={() => {
-                  window.open(
-                    'https://opensea.io/collection/swatches-by-jvmi',
-                    '_blank'
-                  );
+                  window.open('https://opensea.io/collection/swatches-by-jvmi', '_blank');
                 }}
               >
                 <OpenSeaIcon />

@@ -28,28 +28,16 @@ const ContentPane = ({ theme, metadata }: Props) => {
       <p className={styles.value}>{metadata.item}</p>
       {metadata.price && (
         <p className={styles.label}>
-          <span
-            className={classNames(
-              metadata.price?.soldOut && styles.strikethrough
-            )}
-          >
+          <span className={classNames(metadata.price?.soldOut && styles.strikethrough)}>
             {metadata.price?.price}
           </span>
-          {metadata.price?.soldOut && (
-            <span className={styles.soldOutLabel}>SOLD OUT</span>
-          )}
+          {metadata.price?.soldOut && <span className={styles.soldOutLabel}>SOLD OUT</span>}
         </p>
       )}
 
-      <div
-        className={styles.divider}
-        style={{ borderBottom: `1px solid ${theme.dividerColor}` }}
-      />
+      <div className={styles.divider} style={{ borderBottom: `1px solid ${theme.dividerColor}` }} />
       <div className={styles.caption}>{metadata.caption}</div>
-      <div
-        className={styles.divider}
-        style={{ borderBottom: `1px solid ${theme.dividerColor}` }}
-      />
+      <div className={styles.divider} style={{ borderBottom: `1px solid ${theme.dividerColor}` }} />
 
       {showTraits && (
         <>
@@ -63,10 +51,7 @@ const ContentPane = ({ theme, metadata }: Props) => {
                 className={styles.trait}
                 style={{ backgroundColor: theme.windowBackground }}
               >
-                <div
-                  className={styles.label}
-                  style={{ color: theme.textSecondary }}
-                >
+                <div className={styles.label} style={{ color: theme.textSecondary }}>
                   {trait.trait_type}
                 </div>
                 <div className={styles.value}>{trait.value}</div>
@@ -82,10 +67,7 @@ const ContentPane = ({ theme, metadata }: Props) => {
       <div className={styles.stats}>
         {metadata.stats.map(stat => (
           <div className={styles.stat} key={stat.value}>
-            <div
-              className={styles.label}
-              style={{ color: theme.textSecondary }}
-            >
+            <div className={styles.label} style={{ color: theme.textSecondary }}>
               {stat.label}
             </div>
             {stat.url ? (
@@ -106,9 +88,7 @@ const ContentPane = ({ theme, metadata }: Props) => {
         ))}
       </div>
       {/* <div className={styles.divider} style={{ borderBottom: `1px solid ${theme.dividerColor}` }} /> */}
-      <div className={styles.buttons}>
-        {metadata.buttons.map(button => button)}
-      </div>
+      <div className={styles.buttons}>{metadata.buttons.map(button => button)}</div>
     </div>
   );
 };

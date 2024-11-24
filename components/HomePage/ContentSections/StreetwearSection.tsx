@@ -20,8 +20,7 @@ const StreetwearSection = () => {
     },
     {
       title: 'jami apparel',
-      subtitle:
-        'illustrating the intersection between south asia and modern streetwear',
+      subtitle: 'illustrating the intersection between south asia and modern streetwear',
       images: jamiApparel,
       element: <Element name="jami-apparel" />,
       button: <Button disabled>SOLD OUT</Button>,
@@ -47,9 +46,7 @@ const StreetwearSection = () => {
               </div>
               {project.button}
             </div>
-            {index !== projects.length - 1 && (
-              <div className={styles.divider} />
-            )}
+            {index !== projects.length - 1 && <div className={styles.divider} />}
           </div>
         </>
       ))}

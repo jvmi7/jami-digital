@@ -8,12 +8,7 @@ import { useMeasure, useWindowSize } from 'react-use';
 import { Link } from 'react-scroll';
 import { RiArrowRightUpLine } from '@remixicon/react';
 
-const getColorIndex = (
-  index: number,
-  rows: number,
-  cols: number,
-  rowColorOffset: number
-) => {
+const getColorIndex = (index: number, rows: number, cols: number, rowColorOffset: number) => {
   const colorIndex = index % cols;
   const rowOffset = Math.floor(index / cols) * rowColorOffset;
   return (colorIndex + rowOffset) % palette.length;
@@ -25,10 +20,7 @@ const getCoordinates = (index: number, cols: number, rows: number) => {
   return { row, col };
 };
 
-const getDistance = (
-  a: { row: number; col: number },
-  b: { row: number; col: number }
-) => {
+const getDistance = (a: { row: number; col: number }, b: { row: number; col: number }) => {
   return Math.sqrt((a.row - b.row) ** 2 + (a.col - b.col) ** 2);
 };
 
@@ -68,9 +60,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   const handleMove = (
-    event:
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-      | React.TouchEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>
   ) => {
     let offsetX, offsetY;
     const isMobileDevice = 'touches' in event;
@@ -104,10 +94,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   return (
-    <div
-      className={styles.container}
-      style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}
-    >
+    <div className={styles.container} style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}>
       {/* <button className={styles.mintButton}>
         <span>mint</span>
         <RiArrowRightUpLine size={18} />
@@ -128,17 +115,14 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
         {Array.from({ length: rows * cols }).map((_, index) => {
           let colorIndex;
           const coordinates = getCoordinates(index, cols, rows);
-          const distance = activeCell
-            ? getDistance(coordinates, activeCell)
-            : -1;
+          const distance = activeCell ? getDistance(coordinates, activeCell) : -1;
           const distanceFromCenter = getDistance(
             { row: Math.floor(rows / 2), col: Math.floor(cols / 2) },
             coordinates
           );
 
           if (activeCell && currentOffset !== 0) {
-            colorIndex =
-              (Math.floor(distance) + currentOffset) % palette.length;
+            colorIndex = (Math.floor(distance) + currentOffset) % palette.length;
           } else {
             colorIndex = getColorIndex(index, rows, cols, rowColorOffset);
           }

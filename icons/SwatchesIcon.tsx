@@ -1,11 +1,6 @@
 import { IconProps } from './types';
 
-const SwatchesIcon = ({
-  height = 24,
-  width = 24,
-  enableColor = false,
-  className,
-}: IconProps) => {
+const SwatchesIcon = ({ height = 24, width = 24, enableColor = false, className }: IconProps) => {
   const rectStyles = {
     transition: 'fill 0.2s ease-in-out',
   };

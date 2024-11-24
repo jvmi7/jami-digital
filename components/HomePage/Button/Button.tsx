@@ -10,18 +10,8 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({
-  children,
-  onClick,
-  href,
-  className,
-  disabled,
-}: ButtonProps) => {
-  const classnames = classNames(
-    styles.button,
-    className,
-    disabled && styles.disabled
-  );
+const Button = ({ children, onClick, href, className, disabled }: ButtonProps) => {
+  const classnames = classNames(styles.button, className, disabled && styles.disabled);
 
   // Render an <a> tag if href is provided
   if (href) {

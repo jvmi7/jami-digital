@@ -43,12 +43,9 @@ const Window = forwardRef<HTMLDivElement, Props>(
     },
     ref: React.Ref<HTMLDivElement>
   ) => {
-    const [windowSizeState, setWindowSizeState] = useState<'full' | 'small'>(
-      'full'
-    );
+    const [windowSizeState, setWindowSizeState] = useState<'full' | 'small'>('full');
 
-    const { width, height, setWidth, setHeight } =
-      React.useContext(WindowContext);
+    const { width, height, setWidth, setHeight } = React.useContext(WindowContext);
 
     let secondaryButtonStyles = {
       backgroundColor: theme.minimizeButtonBackground,
@@ -75,14 +72,8 @@ const Window = forwardRef<HTMLDivElement, Props>(
     const [windowLeft, setWindowLeft] = React.useState(0);
 
     useEffect(() => {
-      setWindowTop(
-        Math.floor(Math.random() * randomWindowDistance * 2) -
-          randomWindowDistance
-      );
-      setWindowLeft(
-        Math.floor(Math.random() * randomWindowDistance * 2) -
-          randomWindowDistance
-      );
+      setWindowTop(Math.floor(Math.random() * randomWindowDistance * 2) - randomWindowDistance);
+      setWindowLeft(Math.floor(Math.random() * randomWindowDistance * 2) - randomWindowDistance);
     }, []);
 
     useEffect(() => {
@@ -167,10 +158,7 @@ const Window = forwardRef<HTMLDivElement, Props>(
         }}
       >
         <div className={styles.header}>
-          <div
-            className={styles.headerButtons}
-            style={{ backgroundColor: theme.windowAccent }}
-          >
+          <div className={styles.headerButtons} style={{ backgroundColor: theme.windowAccent }}>
             <button
               onClick={e => {
                 e.stopPropagation(); // This will prevent the event from propagating further
@@ -198,19 +186,13 @@ const Window = forwardRef<HTMLDivElement, Props>(
               </span>
             </button>
           </div>
-          <div
-            className={styles.labelWrapper}
-            style={{ backgroundColor: theme.windowAccent }}
-          >
+          <div className={styles.labelWrapper} style={{ backgroundColor: theme.windowAccent }}>
             <p className={styles.label} style={{ color: theme.urlTextColor }}>
               {urlLabel}
             </p>
           </div>
         </div>
-        <div
-          className={styles.body}
-          style={{ borderTop: `2px solid ${theme.windowBorder}` }}
-        >
+        <div className={styles.body} style={{ borderTop: `2px solid ${theme.windowBorder}` }}>
           <div
             className={styles.bodyContainer}
             style={{

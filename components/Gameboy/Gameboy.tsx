@@ -13,9 +13,7 @@ interface Props {
   initialPage?: ScreenState;
 }
 function Gameboy({ initialPage }: Props) {
-  const [screenState, setScreenState] = useState(
-    initialPage ? initialPage : ScreenState.ANIMATION
-  );
+  const [screenState, setScreenState] = useState(initialPage ? initialPage : ScreenState.ANIMATION);
   const [menuIndex, setMenuIndex] = useState(0);
   const menuItemsLength = links.length;
   const { height, width } = useWindowSize();

@@ -29,7 +29,7 @@ const PressSection = () => {
 
       <div className={styles.contentContainer}>
         {links.map(({ title, description, link, image }) => (
-          <a key={title} href={link} target="_blank" className={styles.link}>
+          <a key={title} href={link} target="_blank" className={styles.link} rel="noreferrer">
             <RiArrowRightUpLine size={24} className={styles.icon} />
             <img src={image} alt={title} className={styles.image} />
             <div className={styles.wrapper}>

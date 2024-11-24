@@ -81,7 +81,11 @@
   animation-delay: 1.7s;
   animation-fill-mode: forwards;
   --shadow-color: white;
-  text-shadow: -1px 1px 0 var(--shadow-color), 1px 1px 0 var(--shadow-color), 1px -1px 0 var(--shadow-color), -1px -1px 0 var(--shadow-color);
+  text-shadow:
+    -1px 1px 0 var(--shadow-color),
+    1px 1px 0 var(--shadow-color),
+    1px -1px 0 var(--shadow-color),
+    -1px -1px 0 var(--shadow-color);
   @keyframes pulse {
     0% {
       visibility: hidden;

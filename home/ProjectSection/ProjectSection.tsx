@@ -11,8 +11,7 @@ type Props = {
 
 const ProjectSection = ({ metadata }: Props) => {
   const { title, description, tags, items, buttons } = metadata;
-  const { background, card, text, buttonBackground, buttonTextColor } =
-    metadata.theme;
+  const { background, card, text, buttonBackground, buttonTextColor } = metadata.theme;
 
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const currentItem = items[currentItemIndex];
@@ -59,21 +58,18 @@ const ProjectSection = ({ metadata }: Props) => {
         </div>
         <div className={styles.buttonContainer}>
           {buttons.map((button, index) => (
-            <a href={button?.link || ''} target="_blank">
+            <a href={button?.link || ''} target="_blank" rel="noreferrer">
               <button
                 className={classNames(styles.button)}
                 style={{
-                  backgroundColor:
-                    index === 0 ? buttonBackground : buttonBackground,
+                  backgroundColor: index === 0 ? buttonBackground : buttonBackground,
                   color: index === 0 ? buttonTextColor : buttonTextColor,
                   // border: `3px solid ${index === 0 ? buttonBackground : buttonBackground}`,
                 }}
                 disabled={!button.link}
               >
                 {button.text}
-                {button.showIcon && (
-                  <RiArrowRightUpLine className={styles.icon} size={18} />
-                )}
+                {button.showIcon && <RiArrowRightUpLine className={styles.icon} size={18} />}
               </button>
             </a>
           ))}

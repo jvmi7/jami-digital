@@ -9,15 +9,8 @@ import { socialLinks } from '../../../constants';
 const messages = [
   <>
     <p>
-      gm. i make nfts, design clothing & code websites as forms of creative
-      expression
-      <Image
-        src={'/fire-emoji.webp'}
-        alt="hello"
-        width={32}
-        height={32}
-        className={styles.emoji}
-      />
+      gm. i make nfts, design clothing & code websites as forms of creative expression
+      <Image src={'/fire-emoji.webp'} alt="hello" width={32} height={32} className={styles.emoji} />
     </p>
   </>,
   <>
@@ -107,10 +100,7 @@ const Messages = ({ response }: MessagesProps) => {
     <div className={styles.container}>
       <p className={styles.time}>Today at 4:20pm</p>
       <div className={styles.messagesContainer} ref={containerRef}>
-        <div
-          className={styles.messagesContainer}
-          style={{ position: 'absolute', top: 0 }}
-        >
+        <div className={styles.messagesContainer} style={{ position: 'absolute', top: 0 }}>
           {currentMessages &&
             currentMessages.map((message, index) => (
               <div className={styles.bubbleContainer} key={index}>
@@ -125,12 +115,7 @@ const Messages = ({ response }: MessagesProps) => {
               className={styles.bubbleContainer}
               style={{ justifyContent: 'flex-end' }}
             >
-              <ChatBubble
-                key={index}
-                index={index}
-                message={message}
-                isResponse
-              />
+              <ChatBubble key={index} index={index} message={message} isResponse />
               <div className={styles.space} />
             </div>
           ))}
@@ -188,12 +173,7 @@ const Messages = ({ response }: MessagesProps) => {
               className={styles.bubbleContainer}
               style={{ justifyContent: 'flex-end' }}
             >
-              <ChatBubble
-                key={index}
-                index={index}
-                message={message}
-                isResponse
-              />
+              <ChatBubble key={index} index={index} message={message} isResponse />
               <div className={styles.space} />
             </div>
           ))}
@@ -205,8 +185,7 @@ const Messages = ({ response }: MessagesProps) => {
                 message={
                   <>
                     <p>
-                      the best way to reach me is via dm's on x/twitter at
-                      @jvmi_
+                      the best way to reach me is via dm's on x/twitter at @jvmi_
                       <Image
                         src={'/envelope-emoji.webp'}
                         alt="hello"
@@ -241,10 +220,7 @@ const ChatBubble = ({ index, message, isResponse }: ChatBubbleProps) => {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ type: 'spring', bounce: 1, mass: 0.2 }}
-      className={classNames(
-        styles.chatBubble,
-        isResponse && styles.responseBubble
-      )}
+      className={classNames(styles.chatBubble, isResponse && styles.responseBubble)}
       style={{ maxWidth: maxWidth, transformOrigin: 'bottom left' }}
     >
       {message}
@@ -254,38 +230,36 @@ const ChatBubble = ({ index, message, isResponse }: ChatBubbleProps) => {
 
 interface TypingIndicatorProps {}
 
-const TypingIndicator = React.forwardRef<HTMLDivElement, TypingIndicatorProps>(
-  (props, ref) => {
-    const initial = { opacity: 0.5 };
-    const animate = { opacity: 1 };
+const TypingIndicator = React.forwardRef<HTMLDivElement, TypingIndicatorProps>((props, ref) => {
+  const initial = { opacity: 0.5 };
+  const animate = { opacity: 1 };
 
-    return (
-      <div ref={ref} className={styles.typingIndicator}>
-        {Array.from(Array(3).keys()).map((_, index) => {
-          const delay = index * 0.15;
+  return (
+    <div ref={ref} className={styles.typingIndicator}>
+      {Array.from(Array(3).keys()).map((_, index) => {
+        const delay = index * 0.15;
 
-          const transition = {
-            duration: 0.6,
-            repeat: Infinity,
-            repeatDelay: 0.15 * 2,
-            ease: 'easeInOut',
-            delay: delay,
-          };
+        const transition = {
+          duration: 0.6,
+          repeat: Infinity,
+          repeatDelay: 0.15 * 2,
+          ease: 'easeInOut',
+          delay: delay,
+        };
 
-          return (
-            <motion.div
-              className={styles.dot}
-              initial={initial}
-              animate={animate}
-              transition={transition}
-              key={index}
-            />
-          );
-        })}
-      </div>
-    );
-  }
-);
+        return (
+          <motion.div
+            className={styles.dot}
+            initial={initial}
+            animate={animate}
+            transition={transition}
+            key={index}
+          />
+        );
+      })}
+    </div>
+  );
+});
 
 TypingIndicator.displayName = 'TypingIndicator';
 

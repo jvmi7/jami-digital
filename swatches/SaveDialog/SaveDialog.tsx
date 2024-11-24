@@ -1,14 +1,7 @@
 import { RiDownloadFill } from '@remixicon/react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from '../../components/ui/dialog';
-import Button from '../Button/Button';
-
-import styles from './SaveDialog.module.scss';
-
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import Button from '@/swatches/Button/Button';
+import styles from '@/swatches/SaveDialog/SaveDialog.module.scss';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
@@ -19,10 +12,8 @@ type Props = {
 };
 const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
   const light_mode_url = `https://f005.backblazeb2.com/file/swatches/light/${tokenID}.gif`;
-  // const light_mode_url = `https://f005.backblazeb2.com/file/swatches/light/100.gif`;
   const light_mode_label = `${tokenID}_light.gif`;
   const dark_mode_url = `https://f005.backblazeb2.com/file/swatches/dark/${tokenID}.gif`;
-  // const dark_mode_url = `https://swatches.s3.us-east-005.backblazeb2.com/dark/1.gif`;
   const dark_mode_label = `${tokenID}_dark.gif`;
 
   const images = [

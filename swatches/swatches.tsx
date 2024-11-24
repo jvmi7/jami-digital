@@ -1,29 +1,23 @@
 import { useEffect } from 'react';
-import styles from './swatches.module.scss';
-import { useWindowSize } from 'react-use';
-import Footer from './Footer/Footer';
+import styles from '@/swatches/swatches.module.scss';
+import Footer from '@/swatches/Footer/Footer';
 import { AnimatePresence, motion } from 'framer-motion';
-import { animate, initial, pageVariants } from './constants';
-import { PageStateProvider, usePageState } from './page-state-context';
-import LearnMore from './LearnMore/LearnMore';
-import { Mint } from './Mint/Mint';
+import { animate, initial, pageVariants } from '@/swatches/constants';
+import { usePageState } from '@/swatches/page-state-context';
+import LearnMore from '@/swatches/LearnMore/LearnMore';
 import Head from 'next/head';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { Header } from '../components/HomePage/Header/Header';
-import { ConnectWalletButton } from './Header/ConnectWalletButton';
-import { themes } from '../styles/theme';
+import { Header } from '@/components/HomePage/Header/Header';
+import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';
 
 const SwatchesPage = () => {
   const { currentPage, swatchIndex } = usePageState();
 
   useEffect(() => {
     // Store the original body background colo
-    const originalBackgroundColor =
-      document.documentElement.style.backgroundColor;
+    const originalBackgroundColor = document.documentElement.style.backgroundColor;
 
     // Set the new background color when the component mounts
-    document.documentElement.style.backgroundColor =
-      'var(--swatches-background-color)'; // Replace '#yourDesiredColor' with your chosen color
+    document.documentElement.style.backgroundColor = 'var(--swatches-background-color)'; // Replace '#yourDesiredColor' with your chosen color
 
     // Reset to the original background color when the component unmounts
     return () => {
@@ -36,33 +30,21 @@ const SwatchesPage = () => {
       <Head>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jvmi.art/swatches" />
-        <meta
-          property="og:title"
-          content="swatches: interactive generative nfts"
-        />
+        <meta property="og:title" content="swatches: interactive generative nfts" />
         <meta
           property="og:description"
           content="the exploration of color, motion & human interaction"
         />
-        <meta
-          property="og:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg?123"
-        />
+        <meta property="og:image" content="https://jvmi.art/swatches-meta-banner.jpg?123" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jvmi_" />
         <meta name="twitter:url" content="https://jvmi.art/swatches" />
-        <meta
-          name="twitter:title"
-          content="swatches: interactive generative nfts"
-        />
+        <meta name="twitter:title" content="swatches: interactive generative nfts" />
         <meta
           name="twitter:description"
           content="the exploration of color, motion & human interaction"
         />
-        <meta
-          name="twitter:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg?123"
-        />
+        <meta name="twitter:image" content="https://jvmi.art/swatches-meta-banner.jpg?123" />
       </Head>
       <div className={styles.container}>
         <Header

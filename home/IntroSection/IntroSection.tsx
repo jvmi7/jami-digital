@@ -65,12 +65,7 @@ const IntroSection = () => {
           style={{ display: response.length > 0 ? 'none' : 'flex' }}
         >
           <button ref={ref} className={styles.button} onClick={buttonHandler}>
-            {inView && (
-              <TypingAnimation
-                text={"let's get in touch"}
-                initialDelay={9000}
-              />
-            )}
+            {inView && <TypingAnimation text={"let's get in touch"} initialDelay={9000} />}
           </button>
           <button className={styles.iconButton} onClick={buttonHandler}>
             <ArrowUpIcon height={24} width={24} color={'white'} />
@@ -87,11 +82,7 @@ interface TypingAnimationProps {
   initialDelay?: number;
 }
 
-function TypingAnimation({
-  text,
-  typingSpeed = 50,
-  initialDelay = 0,
-}: TypingAnimationProps) {
+function TypingAnimation({ text, typingSpeed = 50, initialDelay = 0 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState('');
   const [startTyping, setStartTyping] = useState(false);
 

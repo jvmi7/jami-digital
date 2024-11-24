@@ -43,14 +43,14 @@ const FooterSection = () => {
         <div className={styles.links}>
           <div className={styles.linksContainer}>
             {links.slice(0, 3).map(({ name, link }) => (
-              <a key={name} href={link} target="_blank" className={styles.link}>
+              <a key={name} href={link} target="_blank" className={styles.link} rel="noreferrer">
                 {name}
               </a>
             ))}
           </div>
           <div className={styles.linksContainer}>
             {links.slice(3, 6).map(({ name, link }) => (
-              <a key={name} href={link} target="_blank" className={styles.link}>
+              <a key={name} href={link} target="_blank" className={styles.link} rel="noreferrer">
                 {name}
               </a>
             ))}
@@ -58,11 +58,7 @@ const FooterSection = () => {
         </div>
         <div className={styles.logoContainer}>
           <div className={styles.themeContainer}>
-            {theme === 'DARK' ? (
-              <RiSunFill size={24} />
-            ) : (
-              <RiMoonFill size={24} />
-            )}
+            {theme === 'DARK' ? <RiSunFill size={24} /> : <RiMoonFill size={24} />}
             <Switch
               checked={theme === 'DARK'}
               onCheckedChange={() => {

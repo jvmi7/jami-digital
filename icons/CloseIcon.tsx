@@ -1,10 +1,6 @@
 import { IconProps } from './types';
 
-const CloseIcon = ({
-  height = 36,
-  width = 36,
-  color = 'currentColor',
-}: IconProps) => {
+const CloseIcon = ({ height = 36, width = 36, color = 'currentColor' }: IconProps) => {
   return (
     <svg
       width={width}

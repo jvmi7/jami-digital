@@ -14,10 +14,14 @@ const ItemCard = ({ imgSrc, name, onClick }: ItemCardProps) => {
   const cursor = onClick ? 'pointer' : 'var(--cursor-default)';
 
   return (
-    <div className={styles.container} onClick={onClick} style={!isLoading ? { cursor: 'pointer' } : {}}>
+    <div
+      className={styles.container}
+      onClick={onClick}
+      style={!isLoading ? { cursor: 'pointer' } : {}}
+    >
       {isLoading && (
         <div className={styles.spinner}>
-          <LoadingSpinner width={30} color='white' />
+          <LoadingSpinner width={30} color="white" />
         </div>
       )}
       <img

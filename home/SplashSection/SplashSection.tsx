@@ -25,8 +25,7 @@ const SplashSection = () => {
     generateAllAnimations(palette, document);
   }, []);
 
-  const [ref, { height: viewportHeight, width: viewportWidth }] =
-    useMeasure<HTMLDivElement>();
+  const [ref, { height: viewportHeight, width: viewportWidth }] = useMeasure<HTMLDivElement>();
   const { y } = useWindowScroll();
 
   const rows = Math.min(Math.floor(viewportHeight / 50), 20);
@@ -43,10 +42,7 @@ const SplashSection = () => {
   // number between 0 and 100
   const scrollPercentage = (y / viewportHeight) * 5;
 
-  const hiddenShapes = randomOrder.slice(
-    0,
-    Math.floor(scrollPercentage * randomOrder.length)
-  );
+  const hiddenShapes = randomOrder.slice(0, Math.floor(scrollPercentage * randomOrder.length));
 
   return (
     <div className={styles.viewport} ref={ref}>
