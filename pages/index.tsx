@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import { useMedia } from 'react-use';
-import { useTheme } from '../hooks/useTheme';
 import { SplashSection } from '../home/SplashSection/SplashSection';
 import { IntroSection } from '../home/IntroSection/IntroSection';
 import styles from './index.module.scss';

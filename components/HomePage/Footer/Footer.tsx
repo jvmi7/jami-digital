@@ -11,7 +11,6 @@ const Footer = () => {
         <Link to="home" smooth duration={1000} offset={-72}>
           <JvmiIcon height={80} width={80} color={'white'} />
         </Link>
-
         <Socials />
       </div>
     </div>

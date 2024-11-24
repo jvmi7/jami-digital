@@ -1,24 +1,72 @@
 // components/SlidingMenu.tsx
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SlidingMenu.module.scss';
-import disableScroll from 'disable-scroll';
 import { HomeIcon } from '../../../icons/HomeIcon';
 import { CollageIcon } from '../../../icons/CollageIcon';
 import { ShoppingCartIcon } from '../../../icons/ShoppingCartIcon';
 import { socialLinks } from '../../../constants';
 import { Button } from '../Button/Button';
-import { Link } from 'react-scroll';
 import { CheckIcon } from '../../../icons/CheckIcon';
 import { ExternalLinkIcon } from '../../../icons/ExternalLinkIcon';
 import { ChevronRightIcon } from 'lucide-react';
+import { ColorfulIcon } from '../../ColorfulIcon/ColorfulIcon';
+import { SwatchesIcon } from '../../../icons/SwatchesIcon';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import ChartsIcon from '../../../icons/ChartsIcon';
+import AbstractionsIcon from '../../../icons/AbstractionsIcon';
+import SwatchpepenIcon from '../../../icons/SwatchpepenIcon';
+import { RiHomeFill } from '@remixicon/react';
+import classNames from 'classnames';
+import { CloseIcon } from '../../../icons/CloseIcon';
 
 interface SlidingMenuProps {
   isOpen: boolean;
   closeMenu: () => void;
 }
 
+type MenuItem = 'home' | 'swatches' | 'charts' | 'abstractions' | 'swatchpepen';
+
+interface AccordionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <div className={styles.accordion}>
+      <div className={styles.sectionHeader} onClick={() => setIsOpen(!isOpen)}>
+        <p className={styles.sectionTitle}>{title}</p>
+        <motion.div
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronRightIcon size={16} color="currentColor" />
+        </motion.div>
+      </div>
+      <motion.div
+        animate={{
+          height: isOpen ? 'auto' : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        transition={{
+          height: { duration: 0.3, ease: 'easeInOut' },
+          opacity: { duration: 0.2 },
+        }}
+        style={{ overflow: 'hidden' }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+};
+
 const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
+  const router = useRouter();
+
   const variants = {
     open: {
       x: 0,
@@ -41,32 +89,60 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
     },
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      disableScroll.on();
-    } else {
-      disableScroll.off();
-    }
-  }, [isOpen]);
-
-  const iconSize = 32;
-
   const externalLinkIconSize = 18;
-
   const links = [
     { url: socialLinks.x, text: 'x/twitter' },
-    { url: socialLinks.instagram, text: 'instagram' },
     { url: socialLinks.farcaster, text: 'farcaster' },
-    { url: socialLinks.github, text: 'github' },
-    { url: socialLinks.blog, text: 'mirror.xyz' },
     { url: socialLinks.zora, text: 'zora' },
+    { url: socialLinks.highlight, text: 'highlight' },
+    { url: socialLinks.github, text: 'github' },
   ];
 
-  return (
-    <div
-      className={styles.container}
-      style={{ pointerEvents: isOpen ? 'all' : 'none' }}
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isOpen]);
+
+  const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(null);
+
+  const handleNavigate = (path: string) => {
+    closeMenu();
+    setTimeout(() => {
+      router.push(path);
+    }, 200);
+  };
+
+  const homeButton = (
+    <button
+      className={styles.menuItem}
+      onClick={() => handleNavigate('/')}
+      onMouseEnter={() => setHoveredItem('home')}
+      onMouseLeave={() => setHoveredItem(null)}
     >
+      <div className={classNames(styles.icon, styles.homeIcon)}>
+        <RiHomeFill
+          color={hoveredItem === 'home' ? '#FFA454' : 'currentColor'}
+        />
+      </div>
+      <p className={styles.text}>home</p>
+    </button>
+  );
+
+  return (
+    <>
       <motion.div
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
@@ -74,86 +150,83 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
         className={styles.menuContainer}
       >
         <div className={styles.menu}>
-          {/* <LinkItem to="home" onClick={closeMenu}>
-            <HomeIcon height={iconSize} width={iconSize} color="white" />
-            <p className={styles.menuItemText}>home</p>
-          </LinkItem> */}
-          <LinkItem to="artwork" onClick={closeMenu}>
-            <div className={styles.menuItem}>
-              <CollageIcon height={iconSize} width={iconSize} color="white" />
-              <p className={styles.menuItemText}>artwork</p>
-              {/* <ChevronRightIcon
-                height={22}
-                width={22}
-                color="white"
-                style={{ marginBottom: '2px' }}
-              /> */}
+          <button className={styles.closeButton} onClick={closeMenu}>
+            <CloseIcon color="currentColor" />
+          </button>
+          <div className={styles.menuItems}>
+            {homeButton}
+            <div
+              className={styles.menuItem}
+              onClick={() => handleNavigate('/swatches')}
+              onMouseEnter={() => setHoveredItem('swatches')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className={styles.icon}>
+                <SwatchesIcon enableColor={hoveredItem === 'swatches'} />
+              </div>
+              <p className={styles.text}>swatches</p>
             </div>
-          </LinkItem>
-          {/* <div className={styles.menuSubItemContainer}>
-            <div className={styles.items}>
-              <LinkItem to="motorheadz" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>motorheadz</p>
-              </LinkItem>
-              <LinkItem to="1-of-1" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>1 of 1's</p>
-              </LinkItem>
+            <div
+              className={styles.menuItem}
+              onClick={() => handleNavigate('/charts')}
+              onMouseEnter={() => setHoveredItem('charts')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className={styles.icon}>
+                <ChartsIcon enableColor={hoveredItem === 'charts'} />
+              </div>
+              <p className={styles.text}>charts</p>
             </div>
-          </div> */}
-          <LinkItem to="streetwear" onClick={closeMenu}>
-            <ShoppingCartIcon
-              height={iconSize}
-              width={iconSize}
-              color="white"
-            />
-            <p className={styles.menuItemText}>streetwear</p>
-            {/* <ChevronRightIcon
-              height={22}
-              width={22}
-              color="white"
-              style={{ marginBottom: '2px' }}
-            /> */}
-          </LinkItem>
-          {/* <div className={styles.menuSubItemContainer}>
-            <div className={styles.items}>
-              <LinkItem to="machi-market" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>machi market</p>
-              </LinkItem>
-              <LinkItem to="jami-apparel" onClick={closeMenu}>
-                <p className={styles.menuSubItemText}>jami apparel</p>
-              </LinkItem>
+            <div
+              className={styles.menuItem}
+              onClick={() => handleNavigate('/abstractions')}
+              onMouseEnter={() => setHoveredItem('abstractions')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className={styles.icon}>
+                <AbstractionsIcon
+                  enableColor={hoveredItem === 'abstractions'}
+                />
+              </div>
+              <p className={styles.text}>abstractions</p>
             </div>
-          </div> */}
-          <div className={styles.menuItem}>
-            <CheckIcon height={iconSize} width={iconSize} color="white" />
-            <p className={styles.menuItemText}>socials</p>
-          </div>
-          <div className={styles.menuSubItemContainer}>
-            <div className={styles.items}>
-              {links.map(link => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  className={styles.menuSubItemLink}
-                  rel="noreferrer"
-                >
-                  <p className={styles.menuSubItemText}>{link.text}</p>
-                  <ExternalLinkIcon
-                    height={externalLinkIconSize}
-                    width={externalLinkIconSize}
-                  />
-                </a>
-              ))}
+            <div
+              className={styles.menuItem}
+              onClick={() => handleNavigate('/swatchpepen')}
+              onMouseEnter={() => setHoveredItem('swatchpepen')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              <div className={styles.icon}>
+                <SwatchpepenIcon
+                  enableColor={hoveredItem === 'swatchpepen'}
+                  className={styles.swatchpepenIcon}
+                />
+              </div>
+              <p className={styles.text}>swatchpepen</p>
             </div>
+            <Accordion title="socials">
+              <div className={styles.menuSubItemContainer}>
+                <div className={styles.items}>
+                  {links.map(link => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      className={styles.menuSubItemLink}
+                      rel="noreferrer"
+                    >
+                      <p className={styles.menuSubItemText}>{link.text}</p>
+                      <ExternalLinkIcon
+                        height={externalLinkIconSize}
+                        width={externalLinkIconSize}
+                      />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </Accordion>
           </div>
         </div>
-        {/* <div className={styles.bottom}> */}
-        {/* <Button className={styles.connectButton}>connect wallet</Button> */}
-        {/* <div className={styles.footer}> */}
-        {/* <Socials /> */}
-        {/* </div> */}
-        {/* </div> */}
       </motion.div>
 
       {isOpen && (
@@ -165,28 +238,7 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
           onClick={closeMenu}
         />
       )}
-    </div>
-  );
-};
-
-interface LinkItemProps {
-  to: string;
-  onClick: () => void;
-  children: React.ReactNode;
-}
-
-const LinkItem = ({ to, onClick, children }: LinkItemProps) => {
-  return (
-    <Link
-      to={to}
-      smooth={true}
-      offset={-72}
-      duration={500}
-      className={styles.menuItem}
-      onClick={onClick}
-    >
-      {children}
-    </Link>
+    </>
   );
 };
 

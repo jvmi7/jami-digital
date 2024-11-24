@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useTheme } from '../../../hooks/useTheme';
+import { useTheme } from '../../../context/ThemeContext';
 import { useEffect, useState } from 'react';
 import styles from './ThemeToggle.module.scss';
 

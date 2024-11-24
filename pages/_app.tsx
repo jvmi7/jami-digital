@@ -23,6 +23,7 @@ import {
   getDefaultConfig,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
+import { ThemeProvider } from '../context/ThemeContext';
 
 const config = getDefaultConfig({
   appName: 'jvmi.art',
@@ -42,7 +43,7 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <DesktopContextProvider>
@@ -53,6 +54,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </QueryClientProvider>
       </WagmiProvider>
       <Analytics />
-    </>
+    </ThemeProvider>
   );
 }

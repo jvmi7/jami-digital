@@ -1,7 +1,7 @@
 .container {
   padding: 12px;
   width: 100%;
-  z-index: 999;
+  z-index: 2;
   background-color: var(--background);
   transition: background-color 0.2s ease;
   backdrop-filter: blur(40px);
@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  height: 72px;
 
   .logo {
     position: absolute;
@@ -22,4 +23,10 @@
 .menuButton {
   cursor: pointer;
   transition: background-color 0.2s ease-in;
+  padding: 6px;
+  border-radius: 12px;
+
+  &:hover {
+    background-color: var(--card);
+  }
 }

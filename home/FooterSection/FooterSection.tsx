@@ -1,7 +1,7 @@
 import { RiMoonFill, RiSunFill } from '@remixicon/react';
 import { Switch } from '../../components/Switch';
 import { socialLinks } from '../../constants';
-import { useTheme } from '../../hooks/useTheme';
+import { useTheme } from '../../context/ThemeContext';
 import { JvmiIcon } from '../../icons/JvmiIcon';
 import styles from './FooterSection.module.scss';
 
