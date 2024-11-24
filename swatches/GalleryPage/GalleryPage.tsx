@@ -1,7 +1,6 @@
 import { useEvmWalletNFTs } from '@moralisweb3/next';
 import { RiExternalLinkFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
 
