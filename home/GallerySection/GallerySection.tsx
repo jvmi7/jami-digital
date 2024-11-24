@@ -4,26 +4,17 @@ import { useWindowSize } from 'react-use';
 import styles from './GallerySection.module.scss';
 import { useEffect, useState } from 'react';
 import { Tags } from '../../components/HomePage/Tags/Tags';
+import { Button } from '../../components/HomePage/Button/Button';
 const images = [
   'apple',
-  'banana',
-  'bricks',
-  'calculator',
-  'car',
-  'cornfield',
   'dollar',
-  'figma',
+  'cornfield',
   'golden-gate',
-  'goldfish',
-  'lemon',
+  'banana',
+  'shark',
   'orange',
   'pyramid',
-  'shark',
   'skateboard',
-  'speech-bubble',
-  'sunset-ocean',
-  'campbell-soup',
-  'toothbrush',
 ];
 
 const GallerySection = () => {
@@ -46,10 +37,12 @@ const GallerySection = () => {
         an ongoing collection of pieces inspired by the world around us
       </p>
       <Tags
-        tags={['coming soon', 'nfts on *****']}
+        tags={['open edition', 'nfts on zero']}
         backgroundColor="#ddd"
         textColor="#999"
       />
+
+      <img src="" alt="" />
 
       <div className={styles.galleryContainer}>
         {columns.map((column, index) => (
