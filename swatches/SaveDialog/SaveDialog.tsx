@@ -3,7 +3,7 @@ import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import Button from '@/swatches/Button/Button';
+import Button from '@/components/Button/Button';
 import styles from '@/swatches/SaveDialog/SaveDialog.module.scss';
 
 type Props = {

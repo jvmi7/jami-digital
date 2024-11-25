@@ -14,7 +14,7 @@ import {
 import { externalLinks } from '@/constants';
 import { generateCloudflareIpfsUrl } from '@/helpers';
 import styles from '@/swatches/GalleryPage/GalleryPage.module.scss';
-import { ConnectWalletButton } from '@/swatches/Header/ConnectWalletButton';
+import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
 import { PageFooter } from '@/swatches/PageFooter/PageFooter';
 import { SaveDialog } from '@/swatches/SaveDialog/SaveDialog';
 import { SwatchImagePreview } from '@/swatches/SwatchImagePreview/SwatchImagePreview';

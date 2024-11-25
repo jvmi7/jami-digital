@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 
-import styles from '@/swatches/Button/Button.module.scss';
+import styles from '@/components/Button/Button.module.scss';
 
 interface ButtonProps {
   variant: 'primary' | 'secondary';
