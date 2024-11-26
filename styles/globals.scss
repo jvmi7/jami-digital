@@ -31,6 +31,7 @@
   --cursor-pointer: pointer;
   --default-font: 'Source Code Pro', sans-serif;
   --header-font: 'Futura Bold', sans-serif;
+  --header-height: 72px;
   // swatches
   --swatches-background-color: #eee;
   --swatches-background-hovered: #e1e0e0;
@@ -50,7 +51,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: var(--default-font);
-  color: black;
+  color: var(--foreground);
   min-height: -webkit-fill-available;
   background-color: var(--background);
   background-size: 100% 100%;

@@ -16,11 +16,10 @@ export const exit = { scale: 0, opacity: 0 };
 export const pageVariants = {
   initial: {
     opacity: 0,
-    scale: 0.8,
+    y: 100,
   },
   animate: {
     opacity: 1,
-    scale: 1,
     y: 0,
     transition: {
       type: 'spring',

@@ -9,26 +9,31 @@ interface ButtonProps {
   isIcon?: boolean;
   onClick?: () => void;
   hoverScale?: number;
+  href?: string;
 }
 
-const Button = ({ variant, children, isIcon, onClick, hoverScale }: ButtonProps) => {
+const Button = ({ variant, children, isIcon, onClick, hoverScale, href }: ButtonProps) => {
   const hoveredScale = hoverScale ? hoverScale : isIcon ? 1.1 : buttonHoverScale;
+  const sharedProps = {
+    className: classNames(
+      styles.button,
+      variant === 'primary' && styles.primary,
+      variant === 'secondary' && styles.secondary
+    ),
+    style: { padding: isIcon ? '8px' : '8px 22px' },
+    variants: buttonVariants(hoveredScale),
+    transition: buttonTransition,
+    whileHover: 'hover',
+  };
 
-  return (
-    <motion.div
-      className={classNames(
-        styles.button,
-        variant === 'primary' && styles.primary,
-        variant === 'secondary' && styles.secondary
-      )}
-      style={{ padding: isIcon ? '8px' : '8px 22px' }}
-      variants={buttonVariants(hoveredScale)}
-      transition={buttonTransition}
-      whileHover="hover"
-      onClick={onClick}
-    >
+  return href ? (
+    <motion.a href={href} {...sharedProps} target="_blank">
       {children}
-    </motion.div>
+    </motion.a>
+  ) : (
+    <motion.button onClick={onClick} {...sharedProps}>
+      {children}
+    </motion.button>
   );
 };
 
