@@ -23,7 +23,7 @@ export const pageVariants = {
     y: 0,
     transition: {
       type: 'spring',
-      stiffness: 300,
+      stiffness: 200,
       damping: 20,
     },
   },

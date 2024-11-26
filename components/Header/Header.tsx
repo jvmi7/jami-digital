@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useWindowSize } from 'react-use';
 
 import styles from '@/components/Header/Header.module.scss';
 import { SlidingMenu } from '@/components/Header/SlidingMenu';
@@ -16,17 +15,16 @@ interface HeaderProps {
   foregroundColor?: string;
   theme?: 'LIGHT' | 'DARK';
   button?: React.ReactNode;
+  transitionDelay?: number;
 }
 const Header = ({
   backgroundColor = 'var(--background)',
   foregroundColor = 'var(--foreground)',
   theme,
   button,
+  transitionDelay = 0.6,
 }: HeaderProps) => {
   const { setTheme } = useTheme();
-  const { height } = useWindowSize();
-  const isSmall = height < 750;
-  const transitionDelay = isSmall ? 0.6 : 0.6;
 
   const [isOpen, setIsOpen] = useState(false);
   const handleMenuClick = () => {

@@ -53,6 +53,7 @@ const SwatchesPage = () => {
           foregroundColor="currentColor"
           theme="LIGHT"
           button={<ConnectWalletButton />}
+          transitionDelay={1}
         />
 
         <AnimatePresence exitBeforeEnter>

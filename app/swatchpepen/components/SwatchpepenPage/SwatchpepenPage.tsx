@@ -7,6 +7,7 @@ import styles from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
 import { externalLinks } from '@/constants';
+import { CheckIcon } from '@/icons/CheckIcon';
 import { animate, initial, pageVariants } from '@/swatches/constants';
 
 const SwatchPepenPage = () => {
@@ -25,12 +26,7 @@ const SwatchPepenPage = () => {
   );
 
   const buttons = (
-    <motion.div
-      className={styles.buttons}
-      initial={initial}
-      animate={animate}
-      transition={{ delay: 0.5 }}
-    >
+    <motion.div className={styles.buttons} initial={initial} animate={animate}>
       <Button variant="secondary" isIcon>
         <RiShuffleLine />
       </Button>
@@ -50,6 +46,7 @@ const SwatchPepenPage = () => {
         backgroundColor="var(--swatches-background-color)"
         foregroundColor="var(--swatches-text-color)"
         button={viewSetButton}
+        transitionDelay={1}
       />
 
       <div className={styles.content}>
@@ -73,7 +70,10 @@ const SwatchpepenPreview = ({ swatchIndex }: { swatchIndex: number }) => {
         className={styles.container}
       />
       <motion.div initial={initial} animate={animate}>
-        <p className={styles.title}>swatchpepen</p>
+        <p className={styles.title}>
+          <span>swatchpepen</span>
+          <CheckIcon height={20} width={20} color="#1D9BF0" />
+        </p>
       </motion.div>
     </motion.div>
   );

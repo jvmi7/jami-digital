@@ -35,11 +35,17 @@
   height: 100%;
 
   .title {
-    font-family: var(--header-font);
     margin-top: 24px;
     margin-bottom: 12px;
     font-size: 28px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      font-family: var(--header-font);
+    }
 
     @media screen and (max-width: 500px) {
       bottom: -48px;
