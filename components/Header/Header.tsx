@@ -8,6 +8,8 @@ import { SlidingMenu } from '@/components/Header/SlidingMenu';
 import { useTheme } from '@/context/ThemeContext';
 import { JvmiIcon } from '@/icons/JvmiIcon';
 import { MenuIcon } from '@/icons/MenuIcon';
+import { buttonTransition } from '@/constants/animations';
+import { buttonVariants } from '@/constants/animations';
 
 interface HeaderProps {
   backgroundColor?: string;
@@ -54,14 +56,18 @@ const Header = ({
           <MenuIcon color={foregroundColor} height={36} width={36} />
         </button>
 
-        <button
-          className={styles.logo}
-          onClick={() => {
-            router.push('/');
-          }}
-        >
-          <JvmiIcon color={foregroundColor} height={48} width={56} />
-        </button>
+        <div className={styles.logo}>
+          <motion.button
+            onClick={() => {
+              router.push('/');
+            }}
+            variants={buttonVariants(1.07)}
+            transition={buttonTransition}
+            whileHover="hover"
+          >
+            <JvmiIcon color={foregroundColor} height={48} width={56} />
+          </motion.button>
+        </div>
 
         {button}
       </motion.div>

@@ -78,6 +78,7 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
               </div>
               <Button
                 isIcon
+                hoverScale={1}
                 variant="primary"
                 onClick={() => {
                   downloadSingle(image.url, image.label);
@@ -87,9 +88,9 @@ const SaveDialog = ({ isOpen, setIsOpen, tokenID }: Props) => {
               </Button>
             </div>
           ))}
-          <Button variant="primary" isIcon onClick={downloadAll}>
+          <Button variant="primary" isIcon onClick={downloadAll} hoverScale={1}>
             <div className={styles.downloadButtonContent}>
-              <span>download all</span> <RiDownloadFill size={16} />{' '}
+              <span>download all</span> <RiDownloadFill size={16} />
             </div>
           </Button>
         </div>

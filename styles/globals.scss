@@ -38,7 +38,8 @@
   --swatches-button-background: #e5e5e5;
   --swatches-button-hovered: #d5d5d5;
   --swatches-button-hovered-border: #c9c9c9;
-  --swatches-button-dark-background: #2b2b2b;
+  --swatches-button-dark-background: #333333;
+  --swatches-button-dark-background-hovered: #222222;
 }
 @import './theme.scss';
 @import './mixins.scss';

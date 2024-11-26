@@ -62,9 +62,8 @@ const ProjectSection = ({ metadata }: Props) => {
               <button
                 className={classNames(styles.button)}
                 style={{
-                  backgroundColor: index === 0 ? buttonBackground : buttonBackground,
-                  color: index === 0 ? buttonTextColor : buttonTextColor,
-                  // border: `3px solid ${index === 0 ? buttonBackground : buttonBackground}`,
+                  backgroundColor: buttonBackground,
+                  color: buttonTextColor,
                 }}
                 disabled={!button.link}
               >

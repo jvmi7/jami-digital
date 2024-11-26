@@ -17,8 +17,7 @@
   color: white;
 
   &:hover {
-    background-color: transparent;
-    color: var(--swatches-button-dark-background);
+    background-color: var(--swatches-button-dark-background-hovered);
   }
 }
 
