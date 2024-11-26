@@ -14,3 +14,5 @@ export const buttonVariants = (hoveredScale: number) => ({
     scale: hoveredScale,
   },
 });
+
+export const tooltipDelay = 400;

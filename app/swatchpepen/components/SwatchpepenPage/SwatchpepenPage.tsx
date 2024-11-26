@@ -6,7 +6,10 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 import styles from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage.module.scss';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { externalLinks } from '@/constants';
+import { tooltipDelay } from '@/constants/animations';
 import { CheckIcon } from '@/icons/CheckIcon';
 import { animate, initial, pageVariants } from '@/swatches/constants';
 
@@ -27,15 +30,42 @@ const SwatchPepenPage = () => {
 
   const buttons = (
     <motion.div className={styles.buttons} initial={initial} animate={animate}>
-      <Button variant="secondary" isIcon>
-        <RiShuffleLine />
-      </Button>
-      <Button variant="secondary" isIcon>
-        <RiGalleryView2 />
-      </Button>
-      <Button variant="secondary" isIcon>
-        <RiAddLine />
-      </Button>
+      <TooltipProvider delayDuration={tooltipDelay}>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="secondary" isIcon>
+              <RiShuffleLine />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            <p>shuffle</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <TooltipProvider delayDuration={tooltipDelay}>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="secondary" isIcon>
+              <RiGalleryView2 />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            <p>gallery</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <TooltipProvider delayDuration={tooltipDelay}>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="secondary" isIcon>
+              <RiAddLine />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            <p>add to cart</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </motion.div>
   );
 
