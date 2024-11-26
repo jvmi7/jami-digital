@@ -5,11 +5,11 @@ import { useWindowSize } from 'react-use';
 
 import styles from '@/components/Header/Header.module.scss';
 import { SlidingMenu } from '@/components/Header/SlidingMenu';
+import { buttonTransition } from '@/constants/animations';
+import { buttonVariants } from '@/constants/animations';
 import { useTheme } from '@/context/ThemeContext';
 import { JvmiIcon } from '@/icons/JvmiIcon';
 import { MenuIcon } from '@/icons/MenuIcon';
-import { buttonTransition } from '@/constants/animations';
-import { buttonVariants } from '@/constants/animations';
 
 interface HeaderProps {
   backgroundColor?: string;

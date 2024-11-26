@@ -1,6 +1,6 @@
 'use client';
 
-import SwatchPepenPage from './components/SwatchpepenPage/SwatchpepenPage';
+import SwatchPepenPage from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage';
 
 const SwatchPepen = () => {
   return <SwatchPepenPage />;

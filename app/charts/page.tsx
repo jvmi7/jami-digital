@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 
 import styles from '@/app/charts/page.module.scss';
-import { Header } from '@/components/Header/Header';
 import Button from '@/components/Button/Button';
+import { Header } from '@/components/Header/Header';
 
 const ChartsPage = () => {
   const router = useRouter();

@@ -2,8 +2,8 @@ import { RiDownloadFill } from '@remixicon/react';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Button from '@/components/Button/Button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import styles from '@/swatches/SaveDialog/SaveDialog.module.scss';
 
 type Props = {

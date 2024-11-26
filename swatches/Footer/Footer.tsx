@@ -1,8 +1,8 @@
 import { RiQuestionMark, RiShuffleFill } from '@remixicon/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { OpenSeaIcon } from '@/icons/OpenSeaIcon';
 import Button from '@/components/Button/Button';
+import { OpenSeaIcon } from '@/icons/OpenSeaIcon';
 import { TOTAL_SWATCHES, animate, exit, initial } from '@/swatches/constants';
 import styles from '@/swatches/Footer/Footer.module.scss';
 import { usePageState } from '@/swatches/page-state-context';

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
 
+import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
 import { Header } from '@/components/Header/Header';
 import {
   ContextMenu,
@@ -14,7 +15,6 @@ import {
 import { externalLinks } from '@/constants';
 import { generateCloudflareIpfsUrl } from '@/helpers';
 import styles from '@/swatches/GalleryPage/GalleryPage.module.scss';
-import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
 import { PageFooter } from '@/swatches/PageFooter/PageFooter';
 import { SaveDialog } from '@/swatches/SaveDialog/SaveDialog';
 import { SwatchImagePreview } from '@/swatches/SwatchImagePreview/SwatchImagePreview';

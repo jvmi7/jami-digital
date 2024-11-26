@@ -1,12 +1,13 @@
+import { RiAddLine, RiArrowRightUpLine, RiGalleryView2, RiShuffleLine } from '@remixicon/react';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import useWindowSize from 'react-use/lib/useWindowSize';
+
 import styles from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage.module.scss';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
 import { externalLinks } from '@/constants';
 import { animate, initial, pageVariants } from '@/swatches/constants';
-import { RiAddLine, RiArrowRightUpLine, RiGalleryView2, RiShuffleLine } from '@remixicon/react';
-import { motion } from 'framer-motion';
-import useWindowSize from 'react-use/lib/useWindowSize';
-import { useEffect, useState } from 'react';
 
 const SwatchPepenPage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -68,7 +69,7 @@ const SwatchpepenPreview = ({ swatchIndex }: { swatchIndex: number }) => {
       animate="animate"
     >
       <iframe
-        src={`https://swatchpepen.vercel.app/?edition=Twenty&id=2`}
+        src={`https://swatchpepen.vercel.app/?edition=Twenty&id=${swatchIndex}`}
         className={styles.container}
       />
       <motion.div initial={initial} animate={animate}>

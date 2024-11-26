@@ -2,10 +2,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
+import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
 import { Header } from '@/components/Header/Header';
 import { animate, initial, pageVariants } from '@/swatches/constants';
 import Footer from '@/swatches/Footer/Footer';
-import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
 import LearnMore from '@/swatches/LearnMore/LearnMore';
 import { usePageState } from '@/swatches/page-state-context';
 import styles from '@/swatches/swatches.module.scss';

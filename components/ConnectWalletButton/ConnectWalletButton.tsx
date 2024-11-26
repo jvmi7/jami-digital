@@ -7,13 +7,13 @@ import { useState } from 'react';
 import { useMedia } from 'react-use';
 import { useDisconnect } from 'wagmi';
 
+import Button from '@/components/Button/Button';
+import styles from '@/components/ConnectWalletButton/ConnectWalletButton.module.scss';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import Button from '@/components/Button/Button';
-import styles from '@/components/ConnectWalletButton/ConnectWalletButton.module.scss';
 
 const ConnectWalletButton = () => {
   return (
