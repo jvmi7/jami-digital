@@ -6,7 +6,7 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 import styles from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage.module.scss';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { externalLinks } from '@/constants';
 import { ClientOnly } from '@/helpers/ClientOnly';
 import { CheckIcon } from '@/icons/CheckIcon';
@@ -51,11 +51,13 @@ const GalleryDialogContent = () => (
   <DialogContent showClose={false} className={styles.galleryDialog}>
     <div className={styles.galleryHeader}>
       <div className={styles.galleryTitle}>swatchpepen editions</div>
-      <div className={styles.galleryClose}></div>
+      <DialogClose className={styles.galleryClose} />
     </div>
     <div className={styles.galleryContent}>
       <div className={styles.itemsContainer}>
-        <div className={styles.item}>hey</div>
+        {[...Array(10)].map((_, index) => (
+          <div key={index} className={styles.item} />
+        ))}
       </div>
     </div>
   </DialogContent>

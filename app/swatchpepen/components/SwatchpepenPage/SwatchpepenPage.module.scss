@@ -116,7 +116,12 @@
   background-color: var(--swatches-modal-background);
   padding: 0;
   overflow: hidden;
+  border-radius: 12px;
   gap: 0;
+
+  @media screen and (max-width: 500px) {
+    max-width: 95%;
+  }
 
   .galleryHeader {
     display: flex;
@@ -158,9 +163,17 @@
       gap: 12px;
       width: 100%;
       height: 100%;
+      overflow-y: auto;
+      max-height: 80svh;
       background-color: var(--swatches-background-color);
       padding: 6px;
       border-radius: 10px;
+
+      .item {
+        width: 200px;
+        height: 200px;
+        background-color: var(--swatches-modal-background);
+      }
     }
   }
 }
