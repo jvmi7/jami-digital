@@ -26,7 +26,7 @@
     background-color: #222222;
     color: #ffffff;
     margin-top: 24px;
-    max-width: 836px;
+    max-width: 700px;
   }
 
   .title {
@@ -47,7 +47,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    max-width: 836px;
+    max-width: 700px;
 
     .column {
       display: flex;

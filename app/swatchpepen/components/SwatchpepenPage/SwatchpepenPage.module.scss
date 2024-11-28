@@ -23,12 +23,6 @@
   gap: 12px;
 }
 
-.buttons {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-}
-
 .iframe {
   border: none;
   display: flex;
@@ -63,13 +57,13 @@
     max-width: 100%; /* Ensure it doesn't overflow its container */
     max-height: 100%; /* Ensure it doesn't overflow its container */
     aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-    border-radius: 36px;
-    border-top-left-radius: 18px;
+    border-radius: 64px;
+    border-top-left-radius: 12px;
     overflow: hidden;
 
-    @media screen and (max-width: 600px) {
-      border-radius: 28px;
-      border-top-left-radius: 12px;
+    @media screen and (max-width: 500px) {
+      border-radius: 48px;
+      border-top-left-radius: 8px;
     }
 
     /* Adjustments for larger screens */
@@ -106,74 +100,6 @@
     @media (min-width: 1501px) and (min-height: 1501px) {
       width: 900px;
       height: 900px;
-    }
-  }
-}
-
-.galleryDialog {
-  width: 100%;
-  max-width: 80%;
-  background-color: var(--swatches-modal-background);
-  padding: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  gap: 0;
-
-  @media screen and (max-width: 500px) {
-    max-width: 95%;
-  }
-
-  .galleryHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    background-color: var(--swatches-background-color);
-    position: relative;
-
-    .galleryTitle {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--swatches-text-color);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .galleryClose {
-      width: 18px;
-      height: 18px;
-      border-radius: 100px;
-      background-color: #ff4e4e;
-    }
-  }
-
-  .galleryContent {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--swatches-modal-background);
-    padding: 6px;
-
-    .itemsContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      max-height: 80svh;
-      background-color: var(--swatches-background-color);
-      padding: 6px;
-      border-radius: 10px;
-
-      .item {
-        width: 200px;
-        height: 200px;
-        background-color: var(--swatches-modal-background);
-      }
     }
   }
 }
