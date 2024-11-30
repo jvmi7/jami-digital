@@ -61,6 +61,16 @@
     align-items: flex-end;
     gap: 12px;
 
+    svg {
+      color: currentColor;
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
     .themeContainer {
       display: flex;
       align-items: center;

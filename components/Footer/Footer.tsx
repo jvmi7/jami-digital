@@ -76,7 +76,7 @@ const Footer = ({
               }
             }}
           >
-            <JvmiIcon width={100} height={65} color="currentColor" />
+            <JvmiIcon width={100} height={65} color="currentColor" className={styles.logo} />
           </ScrollLink>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
+import { getAnimationProps } from '@/constants/animations';
 import styles from '@/home/IntroSection/IntroSection.module.scss';
 import { Messages } from '@/home/IntroSection/Messages';
 import { ArrowUpIcon } from '@/icons/ArrowUpIcon';
@@ -23,8 +24,8 @@ const IntroSection = () => {
 
   return (
     <motion.section className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.header}>
+      <motion.div className={styles.card} {...getAnimationProps(0)}>
+        <motion.div className={styles.header} {...getAnimationProps(1)}>
           <div className={styles.avatar}>
             <JvmiIcon color="white" height={48} width={56} />
             <div className={styles.active} />
@@ -37,15 +38,16 @@ const IntroSection = () => {
               San Francisco
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div {...getAnimationProps(2)}>
           <Messages response={response} />
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className={styles.buttonContainer}
           style={{ display: response.length > 0 ? 'none' : 'flex' }}
+          {...getAnimationProps(3)}
         >
           <button ref={ref} className={styles.button} onClick={buttonHandler}>
             {inView && <TypingAnimation text={"let's get in touch"} initialDelay={9000} />}
@@ -53,8 +55,8 @@ const IntroSection = () => {
           <button className={styles.iconButton} onClick={buttonHandler}>
             <ArrowUpIcon height={24} width={24} color={'white'} />
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </motion.section>
   );
 };

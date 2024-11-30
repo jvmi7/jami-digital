@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+import { getAnimationProps } from '@/constants/animations';
 import styles from '@/home/ProjectSection/ProjectSection.module.scss';
 import { ProjectMetadata } from '@/home/types';
 
@@ -13,18 +14,6 @@ type Props = {
 const ProjectSection = ({ metadata }: Props) => {
   const { title, description, tags, items, buttons } = metadata;
   const { background, card, text, buttonBackground, buttonTextColor } = metadata.theme;
-
-  // Animation constants
-  const ANIMATION_DURATION = 0.4;
-  const BASE_ANIMATION = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-  };
-  const getAnimationProps = (index: number) => ({
-    ...BASE_ANIMATION,
-    transition: { duration: ANIMATION_DURATION, delay: index * 0.075 },
-  });
 
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const currentItem = items[currentItemIndex];

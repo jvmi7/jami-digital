@@ -1,11 +1,13 @@
 'use client';
 
 import { RiArrowRightUpLine } from '@remixicon/react';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { Tags } from '@/components/Tags/Tags';
 import { externalLinks } from '@/constants';
+import { getAnimationProps } from '@/constants/animations';
 import styles from '@/home/GallerySection/GallerySection.module.scss';
 const images = [
   'calculator',
@@ -39,35 +41,48 @@ const GallerySection = () => {
   );
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>abstractions</h1>
-      <p className={styles.description}>
+    <motion.div className={styles.container}>
+      <motion.h1 className={styles.title} {...getAnimationProps(0)}>
+        abstractions
+      </motion.h1>
+      <motion.p className={styles.description} {...getAnimationProps(1)}>
         an ongoing collection of pieces inspired by the world around us
-      </p>
-      <Tags tags={['open edition', 'nfts on zero']} backgroundColor="#ddd" textColor="#999" />
+      </motion.p>
+      <motion.div {...getAnimationProps(2)}>
+        <Tags tags={['open edition', 'nfts on zero']} backgroundColor="#ddd" textColor="#999" />
+      </motion.div>
 
-      <div className={styles.galleryContainer}>
-        {columns.map((column, index) => (
-          <div key={index} className={styles.column}>
+      <motion.div className={styles.galleryContainer} {...getAnimationProps(3)}>
+        {columns.map((column, columnIndex) => (
+          <motion.div
+            key={columnIndex}
+            className={styles.column}
+            {...getAnimationProps(4 + columnIndex)}
+          >
             {column.map((image, index) => (
-              <div key={index} className={styles.imageContainer}>
+              <motion.div
+                key={index}
+                className={styles.imageContainer}
+                {...getAnimationProps(4 + columnIndex + index)}
+              >
                 <img className={styles.image} src={`/gallery/${image}.png`} alt={image} />
                 <p className={styles.name}>{image}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <a
+      </motion.div>
+      <motion.a
         className={styles.button}
         href={externalLinks.abstractionsCollection}
         target="_blank"
         rel="noreferrer"
+        {...getAnimationProps(7)}
       >
         <p>view on highlight</p>
         <RiArrowRightUpLine size={18} />
-      </a>
-    </div>
+      </motion.a>
+    </motion.div>
   );
 };
 
