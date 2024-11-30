@@ -17,7 +17,7 @@ const ThemeToggle = () => {
   const buttonVariants = {
     initial: {
       opacity: 0,
-      y: -55,
+      y: -90,
     },
     animate: {
       opacity: 1,

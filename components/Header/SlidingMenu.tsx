@@ -136,6 +136,40 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
     </button>
   );
 
+  const containerVariants = {
+    open: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+    closed: {
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
   return (
     <>
       <motion.div
@@ -148,90 +182,100 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
           <button className={styles.closeButton} onClick={closeMenu}>
             <CloseIcon color="currentColor" />
           </button>
-          <div className={styles.menuItems}>
-            {homeButton}
-            <div
-              className={styles.menuItem}
-              onClick={() => handleNavigate('/swatches')}
-              onMouseEnter={() => setHoveredItem('swatches')}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <div className={styles.icon}>
-                <SwatchesIcon enableColor={hoveredItem === 'swatches'} />
-              </div>
-              <p className={styles.text}>swatches</p>
-              <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
-              </div>
-            </div>
-            <div
-              className={styles.menuItem}
-              onClick={() => window.open(externalLinks.abstractionsCollection, '_blank')}
-              onMouseEnter={() => setHoveredItem('abstractions')}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <div className={styles.icon}>
-                <AbstractionsIcon enableColor={hoveredItem === 'abstractions'} />
-              </div>
-              <p className={styles.text}>abstractions</p>
-              <div className={styles.externalLinkIcon}>
-                <RiArrowRightUpLine size={externalLinkIconSize} color="currentColor" />
-              </div>
-            </div>
-            <div
-              className={styles.menuItem}
-              onClick={() => handleNavigate('/charts')}
-              onMouseEnter={() => setHoveredItem('charts')}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <div className={styles.icon}>
-                <ChartsIcon enableColor={hoveredItem === 'charts'} />
-              </div>
-              <p className={styles.text}>charts</p>
-              <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
-              </div>
-            </div>
-            <div
-              className={styles.menuItem}
-              onClick={() => handleNavigate('/swatchpepen')}
-              onMouseEnter={() => setHoveredItem('swatchpepen')}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <div className={styles.icon}>
-                <SwatchpepenIcon
-                  enableColor={hoveredItem === 'swatchpepen'}
-                  className={styles.swatchpepenIcon}
-                />
-              </div>
-              <p className={styles.text}>swatchpepen</p>
-              <div className={styles.externalLinkIcon}>
-                <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
-              </div>
-            </div>
-            <Accordion title="socials">
-              <div className={styles.menuSubItemContainer}>
-                <div className={styles.items}>
-                  {links.map(link => (
-                    <a
-                      key={link.url}
-                      href={link.url}
-                      target="_blank"
-                      className={styles.menuSubItemLink}
-                      rel="noreferrer"
-                    >
-                      <p className={styles.menuSubItemText}>{link.text}</p>
-                      <RiArrowRightUpLine
-                        className={styles.externalLinkIcon}
-                        size={externalLinkIconSize}
-                        color="currentColor"
-                      />
-                    </a>
-                  ))}
+          <motion.div className={styles.menuItems} variants={containerVariants}>
+            <motion.div variants={itemVariants}>{homeButton}</motion.div>
+            <motion.div variants={itemVariants}>
+              <div
+                className={styles.menuItem}
+                onClick={() => handleNavigate('/swatches')}
+                onMouseEnter={() => setHoveredItem('swatches')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className={styles.icon}>
+                  <SwatchesIcon enableColor={hoveredItem === 'swatches'} />
+                </div>
+                <p className={styles.text}>swatches</p>
+                <div className={styles.externalLinkIcon}>
+                  <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
                 </div>
               </div>
-            </Accordion>
-          </div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <div
+                className={styles.menuItem}
+                onClick={() => window.open(externalLinks.abstractionsCollection, '_blank')}
+                onMouseEnter={() => setHoveredItem('abstractions')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className={styles.icon}>
+                  <AbstractionsIcon enableColor={hoveredItem === 'abstractions'} />
+                </div>
+                <p className={styles.text}>abstractions</p>
+                <div className={styles.externalLinkIcon}>
+                  <RiArrowRightUpLine size={externalLinkIconSize} color="currentColor" />
+                </div>
+              </div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <div
+                className={styles.menuItem}
+                onClick={() => handleNavigate('/charts')}
+                onMouseEnter={() => setHoveredItem('charts')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className={styles.icon}>
+                  <ChartsIcon enableColor={hoveredItem === 'charts'} />
+                </div>
+                <p className={styles.text}>charts</p>
+                <div className={styles.externalLinkIcon}>
+                  <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
+                </div>
+              </div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <div
+                className={styles.menuItem}
+                onClick={() => handleNavigate('/swatchpepen')}
+                onMouseEnter={() => setHoveredItem('swatchpepen')}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className={styles.icon}>
+                  <SwatchpepenIcon
+                    enableColor={hoveredItem === 'swatchpepen'}
+                    className={styles.swatchpepenIcon}
+                  />
+                </div>
+                <p className={styles.text}>swatchpepen</p>
+                <div className={styles.externalLinkIcon}>
+                  <RiArrowRightLine size={externalLinkIconSize} color="currentColor" />
+                </div>
+              </div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Accordion title="socials">
+                <div className={styles.menuSubItemContainer}>
+                  <div className={styles.items}>
+                    {links.map(link => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        className={styles.menuSubItemLink}
+                        rel="noreferrer"
+                      >
+                        <p className={styles.menuSubItemText}>{link.text}</p>
+                        <RiArrowRightUpLine
+                          className={styles.externalLinkIcon}
+                          size={externalLinkIconSize}
+                          color="currentColor"
+                        />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </Accordion>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.div>
 

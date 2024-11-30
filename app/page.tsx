@@ -8,7 +8,7 @@ import { Element } from 'react-scroll';
 import styles from '@/app/index.module.scss';
 import { Header } from '@/components/Header/Header';
 import { ChartsProjectMetadata, SwatchesProjectMetadata } from '@/home/constants';
-import { FooterSection } from '@/home/FooterSection/FooterSection';
+import { Footer } from '@/components/Footer/Footer';
 import { GallerySection } from '@/home/GallerySection/GallerySection';
 import { IntroSection } from '@/home/IntroSection/IntroSection';
 import { PressSection } from '@/home/PressSection/PressSection';
@@ -95,7 +95,7 @@ export default function Home() {
           >
             <PressSection />
           </InView>
-          <FooterSection />
+          <Footer showThemeToggle={false} />
         </div>
       </div>
     </>
