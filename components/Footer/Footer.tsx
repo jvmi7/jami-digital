@@ -1,14 +1,14 @@
 'use client';
 
 import { RiMoonFill, RiSunFill } from '@remixicon/react';
-import { Link as ScrollLink } from 'react-scroll';
 import { useRouter, usePathname } from 'next/navigation';
+import { Link as ScrollLink } from 'react-scroll';
 
+import { artworkLinks, links } from '@/components/Footer/constants';
+import styles from '@/components/Footer/Footer.module.scss';
 import { Switch } from '@/components/Switch';
 import { useTheme } from '@/context/ThemeContext';
-import styles from '@/components/Footer/Footer.module.scss';
 import { JvmiIcon } from '@/icons/JvmiIcon';
-import { artworkLinks, links } from '@/components/Footer/constants';
 
 type FooterProps = {
   showThemeToggle?: boolean;

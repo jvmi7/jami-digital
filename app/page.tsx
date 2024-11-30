@@ -6,9 +6,9 @@ import { InView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
 
 import styles from '@/app/index.module.scss';
+import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { ChartsProjectMetadata, SwatchesProjectMetadata } from '@/home/constants';
-import { Footer } from '@/components/Footer/Footer';
 import { GallerySection } from '@/home/GallerySection/GallerySection';
 import { IntroSection } from '@/home/IntroSection/IntroSection';
 import { PressSection } from '@/home/PressSection/PressSection';

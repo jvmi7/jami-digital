@@ -1,4 +1,4 @@
-import { externalLinks, socialLinks } from '@/constants';
+import { socialLinks } from '@/constants';
 
 export const links = [
   {
