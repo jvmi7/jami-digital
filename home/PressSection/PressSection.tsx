@@ -1,7 +1,7 @@
 import { RiArrowRightUpLine } from '@remixicon/react';
 import { motion } from 'framer-motion';
 
-import { getAnimationProps } from '@/constants/animations';
+import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
 import styles from '@/home/PressSection/PressSection.module.scss';
 
 const links = [
@@ -41,6 +41,9 @@ const PressSection = () => {
             className={styles.link}
             rel="noreferrer"
             {...getAnimationProps(2 + index)}
+            variants={buttonVariants(1.025)}
+            transition={buttonTransition}
+            whileHover="hover"
           >
             <RiArrowRightUpLine size={24} className={styles.icon} />
             <img src={image} alt={title} className={styles.image} />

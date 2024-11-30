@@ -39,7 +39,7 @@ const Messages = ({ response }: MessagesProps) => {
     threshold: 1,
   });
 
-  const delay = 1600;
+  const delay = 1000;
 
   useEffect(() => {
     if (inView && currentMessages.length === 0) {
@@ -50,11 +50,11 @@ const Messages = ({ response }: MessagesProps) => {
       // add the second message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1]]);
-      }, delay + 2000);
+      }, delay + 1000);
       // add the third message after a delay
       setTimeout(() => {
         setCurrentMessages([messages[0], messages[1], messages[2]]);
-      }, delay + 6000);
+      }, delay + 2000);
       // add the fourth message after a delay
       // setTimeout(() => {
       //   setCurrentMessages([
@@ -72,7 +72,7 @@ const Messages = ({ response }: MessagesProps) => {
       setTimeout(() => {
         setIsTyping(false);
         setShowLastMessage(true);
-      }, 2000);
+      }, 1000);
     }
   }, [response]);
 

@@ -13,6 +13,8 @@ interface ButtonProps {
   href?: string;
   tooltip?: string;
   tooltipSide?: 'top' | 'bottom';
+  tooltipDelay?: number;
+  className?: string;
 }
 
 const Button = ({
@@ -24,13 +26,16 @@ const Button = ({
   href,
   tooltip,
   tooltipSide = 'bottom',
+  tooltipDelay = 200,
+  className,
 }: ButtonProps) => {
   const hoveredScale = hoverScale ? hoverScale : isIcon ? 1.1 : buttonHoverScale;
   const sharedProps = {
     className: classNames(
       styles.button,
       variant === 'primary' && styles.primary,
-      variant === 'secondary' && styles.secondary
+      variant === 'secondary' && styles.secondary,
+      className
     ),
     style: {
       padding: isIcon ? '0px' : '8px 22px',
@@ -53,7 +58,7 @@ const Button = ({
   );
 
   return tooltip ? (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={tooltipDelay}>
       <Tooltip>
         <TooltipTrigger asChild>{buttonElement}</TooltipTrigger>
         <TooltipContent side={tooltipSide}>

@@ -1,44 +1,51 @@
 'use client';
 
-import { RiArrowRightUpLine } from '@remixicon/react';
+import {
+  RiArrowLeftLine,
+  RiArrowRightLine,
+  RiArrowRightUpLine,
+  RiCloseCircleLine,
+  RiCloseFill,
+} from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { Tags } from '@/components/Tags/Tags';
 import { externalLinks } from '@/constants';
-import { getAnimationProps } from '@/constants/animations';
+import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
 import styles from '@/home/GallerySection/GallerySection.module.scss';
-const images = [
-  'calculator',
-  'shark',
-  'cornfield',
-  'apple',
-  'dollar',
-  'bricks',
-  'golden-gate',
-  'banana',
-  'skateboard',
-];
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
+import { abstractions } from './constants';
+import classNames from 'classnames';
 
 const GallerySection = () => {
   const { width } = useWindowSize();
   const [numColumns, setNumColumns] = useState(3);
-  const [currentImages, setCurrentImages] = useState(images);
+  const [currentAbstractions, setCurrentAbstractions] = useState(abstractions);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     setNumColumns(width < 800 ? 2 : 3);
     if (width < 800) {
-      setCurrentImages(images.filter(image => image !== 'shark'));
+      setCurrentAbstractions(abstractions.filter(abstraction => abstraction.name !== 'goldfish'));
     } else {
-      setCurrentImages(images);
+      setCurrentAbstractions(abstractions);
     }
   }, [width]);
 
-  const imagesPerColumn = Math.ceil(currentImages.length / numColumns);
+  const imagesPerColumn = Math.ceil(currentAbstractions.length / numColumns);
   const columns = Array.from({ length: numColumns }, (_, i) =>
-    currentImages.slice(i * imagesPerColumn, (i + 1) * imagesPerColumn)
+    currentAbstractions.slice(i * imagesPerColumn, (i + 1) * imagesPerColumn)
   );
+
+  const handlePrevious = () => {
+    setCurrentIndex(prev => (prev === 0 ? currentAbstractions.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev === currentAbstractions.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <motion.div className={styles.container}>
@@ -59,16 +66,75 @@ const GallerySection = () => {
             className={styles.column}
             {...getAnimationProps(4 + columnIndex)}
           >
-            {column.map((image, index) => (
-              <motion.div
-                key={index}
-                className={styles.imageContainer}
-                {...getAnimationProps(4 + columnIndex + index)}
-              >
-                <img className={styles.image} src={`/gallery/${image}.png`} alt={image} />
-                <p className={styles.name}>{image}</p>
-              </motion.div>
-            ))}
+            {column.map((abstraction, index) => {
+              const absoluteIndex = columnIndex * imagesPerColumn + index;
+
+              return (
+                <Dialog
+                  key={index}
+                  onOpenChange={open => {
+                    if (open) {
+                      setCurrentIndex(absoluteIndex);
+                    }
+                  }}
+                >
+                  <DialogTrigger asChild>
+                    <motion.div
+                      className={styles.imageContainer}
+                      {...getAnimationProps(4 + columnIndex + index)}
+                    >
+                      <img
+                        className={styles.image}
+                        src={`/gallery/${abstraction.name}.png`}
+                        alt={abstraction.name}
+                      />
+                      <p className={styles.name}>{abstraction.name}</p>
+                    </motion.div>
+                  </DialogTrigger>
+                  <DialogContent className={styles.dialogContent} showClose={false}>
+                    <div className={styles.header}>
+                      <DialogClose asChild>
+                        <button className={classNames(styles.button, styles.iconButton)}>
+                          <RiCloseFill size={24} />
+                        </button>
+                      </DialogClose>
+
+                      <div className={styles.buttonContainer}>
+                        <button
+                          className={classNames(styles.button, styles.iconButton)}
+                          onClick={handlePrevious}
+                        >
+                          <RiArrowLeftLine size={24} />
+                        </button>
+                        <button
+                          className={classNames(styles.button, styles.iconButton)}
+                          onClick={handleNext}
+                        >
+                          <RiArrowRightLine size={24} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className={styles.iframeContainer}>
+                      <iframe
+                        src={currentAbstractions[currentIndex].animation_url}
+                        className={styles.iframe}
+                      />
+                    </div>
+                    <div className={styles.buttonContainer}>
+                      <a
+                        href={currentAbstractions[currentIndex].mint_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.button}
+                      >
+                        <span>mint {currentAbstractions[currentIndex].name}</span>
+                        <RiArrowRightUpLine size={16} />
+                      </a>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              );
+            })}
           </motion.div>
         ))}
       </motion.div>
@@ -78,6 +144,9 @@ const GallerySection = () => {
         target="_blank"
         rel="noreferrer"
         {...getAnimationProps(7)}
+        variants={buttonVariants(1.025)}
+        transition={buttonTransition}
+        whileHover="hover"
       >
         <p>view on highlight</p>
         <RiArrowRightUpLine size={18} />

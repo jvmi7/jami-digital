@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
-import { getAnimationProps } from '@/constants/animations';
+import { buttonTransition, buttonVariants, getAnimationProps } from '@/constants/animations';
 import styles from '@/home/IntroSection/IntroSection.module.scss';
 import { Messages } from '@/home/IntroSection/Messages';
 import { ArrowUpIcon } from '@/icons/ArrowUpIcon';
 import { JvmiIcon } from '@/icons/JvmiIcon';
 import { PinIcon } from '@/icons/PinIcon';
+import Button from '@/components/Button/Button';
+import { RiArrowDownLine } from '@remixicon/react';
+import classNames from 'classnames';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({
@@ -17,6 +20,8 @@ const IntroSection = () => {
   });
 
   const [response, setResponse] = useState<string[]>([]);
+
+  const showTextButton = response.length === 0;
 
   const buttonHandler = () => {
     setResponse(["let's get in touch"]);
@@ -40,21 +45,34 @@ const IntroSection = () => {
           </div>
         </motion.div>
 
-        <motion.div {...getAnimationProps(2)}>
+        <motion.div
+          {...getAnimationProps(2)}
+          initial={{ height: 'auto' }}
+          animate={{ height: 'auto' }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
           <Messages response={response} />
         </motion.div>
 
-        <motion.div
-          className={styles.buttonContainer}
-          style={{ display: response.length > 0 ? 'none' : 'flex' }}
-          {...getAnimationProps(3)}
-        >
-          <button ref={ref} className={styles.button} onClick={buttonHandler}>
-            {inView && <TypingAnimation text={"let's get in touch"} initialDelay={9000} />}
-          </button>
-          <button className={styles.iconButton} onClick={buttonHandler}>
-            <ArrowUpIcon height={24} width={24} color={'white'} />
-          </button>
+        <motion.div className={styles.buttonContainer} {...getAnimationProps(3)}>
+          {showTextButton && (
+            <button ref={ref} className={styles.button} onClick={buttonHandler}>
+              {inView && <TypingAnimation text={"let's get in touch"} initialDelay={4000} />}
+            </button>
+          )}
+          <motion.button
+            className={styles.iconButton}
+            onClick={buttonHandler}
+            variants={buttonVariants(1.1)}
+            transition={buttonTransition}
+            whileHover="hover"
+          >
+            <RiArrowDownLine
+              size={24}
+              color="white"
+              className={classNames(showTextButton && styles.flipped)}
+            />
+          </motion.button>
         </motion.div>
       </motion.div>
     </motion.section>

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-import { getAnimationProps } from '@/constants/animations';
+import { buttonTransition, buttonVariants, getAnimationProps } from '@/constants/animations';
 import styles from '@/home/ProjectSection/ProjectSection.module.scss';
 import { ProjectMetadata } from '@/home/types';
 
@@ -65,6 +65,9 @@ const ProjectSection = ({ metadata }: Props) => {
             rel="noreferrer"
             key={index}
             {...getAnimationProps(5 + index)}
+            variants={buttonVariants(1.03)}
+            transition={buttonTransition}
+            whileHover="hover"
           >
             <button
               className={classNames(styles.button)}
@@ -83,16 +86,19 @@ const ProjectSection = ({ metadata }: Props) => {
 
       <motion.div className={styles.linkContainer} {...getAnimationProps(6)}>
         {metadata.socialLinks.map(({ icon, href }, index) => (
-          <a
+          <motion.a
             key={index} // Added a key prop here for better rendering performance
             className={styles.link}
             style={{ color: text, backgroundColor: card }}
             href={href}
             target="_blank"
             rel="noopener noreferrer" // Added for security reasons when using target="_blank"
+            variants={buttonVariants(1.1)}
+            transition={buttonTransition}
+            whileHover="hover"
           >
             {icon}
-          </a>
+          </motion.a>
         ))}
       </motion.div>
     </motion.div>
