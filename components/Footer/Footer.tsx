@@ -67,7 +67,7 @@ const Footer = ({
           )}
           <p>jvmi.art 2024</p>
           <ScrollLink
-            to="splash"
+            to="home"
             smooth={true}
             duration={500}
             onClick={() => {

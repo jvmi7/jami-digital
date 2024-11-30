@@ -14,17 +14,12 @@ export const links = [
     link: socialLinks.zora,
   },
   {
+    name: 'highlight',
+    link: socialLinks.highlight,
+  },
+  {
     name: 'github',
     link: socialLinks.github,
-  },
-  {
-    name: 'mirror',
-    link: socialLinks.blog,
-  },
-
-  {
-    name: 'instagram',
-    link: socialLinks.instagram,
   },
 ];
 

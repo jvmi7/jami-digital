@@ -1,17 +1,16 @@
+import { RiArrowDownLine } from '@remixicon/react';
+import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { scroller } from 'react-scroll';
 
 import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
 import { buttonTransition, buttonVariants, getAnimationProps } from '@/constants/animations';
 import styles from '@/home/IntroSection/IntroSection.module.scss';
 import { Messages } from '@/home/IntroSection/Messages';
-import { ArrowUpIcon } from '@/icons/ArrowUpIcon';
 import { JvmiIcon } from '@/icons/JvmiIcon';
 import { PinIcon } from '@/icons/PinIcon';
-import Button from '@/components/Button/Button';
-import { RiArrowDownLine } from '@remixicon/react';
-import classNames from 'classnames';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({
@@ -24,7 +23,14 @@ const IntroSection = () => {
   const showTextButton = response.length === 0;
 
   const buttonHandler = () => {
-    setResponse(["let's get in touch"]);
+    if (showTextButton) {
+      setResponse(["let's get in touch"]);
+    } else {
+      scroller.scrollTo('swatches', {
+        duration: 500,
+        smooth: true,
+      });
+    }
   };
 
   return (

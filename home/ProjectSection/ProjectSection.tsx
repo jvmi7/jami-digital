@@ -61,7 +61,7 @@ const ProjectSection = ({ metadata }: Props) => {
         {buttons.map((button, index) => (
           <motion.a
             href={button?.link || ''}
-            target="_blank"
+            target={button?.target || ''}
             rel="noreferrer"
             key={index}
             {...getAnimationProps(5 + index)}

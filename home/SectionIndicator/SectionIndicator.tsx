@@ -1,12 +1,12 @@
 'use client';
 
 import classNames from 'classnames';
-import { delay, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
 import { useWindowSize } from 'react-use';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import styles from '@/home/SectionIndicator/SectionIndicator.module.scss';
 
 type Props = {
@@ -17,7 +17,7 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
   const { height, width } = useWindowSize();
   const { scrollY } = useScroll();
   const [showIndicator, setShowIndicator] = useState(false);
-  const sections = ['splash', 'intro', 'swatches', 'gallery', 'charts', 'press'];
+  const sections = ['home', 'intro', 'swatches', 'gallery', 'charts', 'press'];
 
   useMotionValueEvent(scrollY, 'change', latest => {
     if (latest >= height - 300 && width > 800) {

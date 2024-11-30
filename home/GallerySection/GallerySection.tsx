@@ -4,20 +4,19 @@ import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiArrowRightUpLine,
-  RiCloseCircleLine,
   RiCloseFill,
 } from '@remixicon/react';
+import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { Tags } from '@/components/Tags/Tags';
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { externalLinks } from '@/constants';
 import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
+import { abstractions } from '@/home/GallerySection/constants';
 import styles from '@/home/GallerySection/GallerySection.module.scss';
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
-import { abstractions } from './constants';
-import classNames from 'classnames';
 
 const GallerySection = () => {
   const { width } = useWindowSize();

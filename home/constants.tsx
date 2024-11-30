@@ -30,14 +30,14 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   items: ['16', '2104', '7031', '469'],
   buttons: [
     {
-      text: 'buy on secondary',
+      text: 'view on opensea',
       link: 'https://opensea.io/collection/swatches-by-jvmi',
+      target: '_blank',
       showIcon: true,
     },
     {
       text: 'visit /swatches',
       link: '/swatches',
-      showIcon: true,
     },
   ],
   socialLinks: [
@@ -73,6 +73,7 @@ export const ChartsProjectMetadata: ProjectMetadata = {
     {
       text: 'join wl',
       link: 'https://opensea.io/collection/swatches-by-jvmi',
+      target: '_blank',
       showIcon: true,
     },
   ],

@@ -38,7 +38,7 @@ export default function Home() {
 
       <div className={styles.body}>
         <Header />
-        <Element name="splash" />
+        <Element name="home" />
         <SplashSection />
         <div className={styles.page}>
           <SectionIndicator sectionIndex={sectionIndex} />

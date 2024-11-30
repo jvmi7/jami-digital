@@ -4,7 +4,7 @@ export const socialLinks = {
   farcaster: 'https://warpcast.com/jvmi',
   github: 'https://github.com/jvmi7',
   blog: 'https://mirror.xyz/0x57D1eAE9f0972723F0e78EAF4e6C08e90565206F',
-  zora: 'https://zora.co/jvmi.eth',
+  zora: 'https://zora.co/@jvmi',
   highlight: 'https://highlight.xyz/user/@jvmiart.eth',
 };
 
