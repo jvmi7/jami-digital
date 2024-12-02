@@ -37,13 +37,15 @@
     transition: all 0.3s ease;
   }
 
-  &:hover {
-    .image {
-      transform: scale(1.1);
-    }
+  @media (hover: hover) {
+    &:hover {
+      .image {
+        transform: scale(1.1);
+      }
 
-    .name {
-      opacity: 1;
+      .name {
+        opacity: 1;
+      }
     }
   }
 }
