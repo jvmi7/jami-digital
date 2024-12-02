@@ -12,11 +12,12 @@ import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { Tags } from '@/components/Tags/Tags';
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
+import { ImagePreviewDialog } from '@/components/ImagePreview/ImagePreviewDialog';
 import { externalLinks } from '@/constants';
 import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
 import { abstractions } from '@/home/GallerySection/constants';
 import styles from '@/home/GallerySection/GallerySection.module.scss';
+import { ImagePreview } from '@/components/ImagePreview/ImagePreview';
 
 const GallerySection = () => {
   const { width } = useWindowSize();
@@ -69,69 +70,40 @@ const GallerySection = () => {
               const absoluteIndex = columnIndex * imagesPerColumn + index;
 
               return (
-                <Dialog
+                <ImagePreviewDialog
                   key={index}
+                  trigger={
+                    <motion.div
+                      className={styles.imageContainer}
+                      {...getAnimationProps(4 + columnIndex + index)}
+                    >
+                      <ImagePreview
+                        name={abstraction.name}
+                        src={`/gallery/${abstraction.name}.png`}
+                        animationDelay={4 + columnIndex + index}
+                      />
+                    </motion.div>
+                  }
+                  iframeUrl={currentAbstractions[currentIndex].animation_url}
+                  bottom={
+                    <a
+                      href={currentAbstractions[currentIndex].mint_url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.button}
+                    >
+                      <span>mint {currentAbstractions[currentIndex].name}</span>
+                      <RiArrowRightUpLine size={16} />
+                    </a>
+                  }
                   onOpenChange={open => {
                     if (open) {
                       setCurrentIndex(absoluteIndex);
                     }
                   }}
-                >
-                  <DialogTrigger asChild>
-                    <motion.div
-                      className={styles.imageContainer}
-                      {...getAnimationProps(4 + columnIndex + index)}
-                    >
-                      <img
-                        className={styles.image}
-                        src={`/gallery/${abstraction.name}.png`}
-                        alt={abstraction.name}
-                      />
-                      <p className={styles.name}>{abstraction.name}</p>
-                    </motion.div>
-                  </DialogTrigger>
-                  <DialogContent className={styles.dialogContent} showClose={false}>
-                    <div className={styles.header}>
-                      <DialogClose asChild>
-                        <button className={classNames(styles.button, styles.iconButton)}>
-                          <RiCloseFill size={24} />
-                        </button>
-                      </DialogClose>
-
-                      <div className={styles.buttonContainer}>
-                        <button
-                          className={classNames(styles.button, styles.iconButton)}
-                          onClick={handlePrevious}
-                        >
-                          <RiArrowLeftLine size={24} />
-                        </button>
-                        <button
-                          className={classNames(styles.button, styles.iconButton)}
-                          onClick={handleNext}
-                        >
-                          <RiArrowRightLine size={24} />
-                        </button>
-                      </div>
-                    </div>
-                    <div className={styles.iframeContainer}>
-                      <iframe
-                        src={currentAbstractions[currentIndex].animation_url}
-                        className={styles.iframe}
-                      />
-                    </div>
-                    <div className={styles.buttonContainer}>
-                      <a
-                        href={currentAbstractions[currentIndex].mint_url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.button}
-                      >
-                        <span>mint {currentAbstractions[currentIndex].name}</span>
-                        <RiArrowRightUpLine size={16} />
-                      </a>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                  onPrevious={handlePrevious}
+                  onNext={handleNext}
+                />
               );
             })}
           </motion.div>
