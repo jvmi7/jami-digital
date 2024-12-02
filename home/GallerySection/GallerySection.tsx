@@ -1,23 +1,17 @@
 'use client';
 
-import {
-  RiArrowLeftLine,
-  RiArrowRightLine,
-  RiArrowRightUpLine,
-  RiCloseFill,
-} from '@remixicon/react';
-import classNames from 'classnames';
+import { RiArrowRightUpLine } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
-import { Tags } from '@/components/Tags/Tags';
+import { ImagePreview } from '@/components/ImagePreview/ImagePreview';
 import { ImagePreviewDialog } from '@/components/ImagePreview/ImagePreviewDialog';
+import { Tags } from '@/components/Tags/Tags';
 import { externalLinks } from '@/constants';
 import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
 import { abstractions } from '@/home/GallerySection/constants';
 import styles from '@/home/GallerySection/GallerySection.module.scss';
-import { ImagePreview } from '@/components/ImagePreview/ImagePreview';
 
 const GallerySection = () => {
   const { width } = useWindowSize();

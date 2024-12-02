@@ -1,13 +1,9 @@
-import {
-  RiArrowLeftLine,
-  RiArrowRightLine,
-  RiArrowRightUpLine,
-  RiCloseFill,
-} from '@remixicon/react';
+import { RiArrowLeftLine, RiArrowRightLine, RiCloseFill } from '@remixicon/react';
 import classNames from 'classnames';
 import { ReactNode } from 'react';
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
+
 import styles from '@/components/ImagePreview/ImagePreviewDialog.module.scss';
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 
 interface ImagePreviewDialogProps {
   trigger: ReactNode;

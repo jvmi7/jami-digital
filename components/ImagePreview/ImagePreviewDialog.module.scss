@@ -1,8 +1,13 @@
 .dialogContent {
-  max-width: 600px;
+  max-width: 800px;
+  width: 100%;
+
+  @media screen and (max-height: 860px) {
+    max-width: calc(100vh - 148px);
+  }
+
   background-color: transparent;
   border: none;
-  // position: relative;
 
   .header {
     display: flex;

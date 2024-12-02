@@ -9,8 +9,8 @@ export const EditionMap = {
 
 export const EditionNameMap = {
   One: 'spectrum',
-  Four: 'dark',
-  Five: 'light',
+  Four: 'light',
+  Five: 'dark',
   Ten: 'greyscale',
   Twenty: 'pastel',
   Fourty: 'chromatic',

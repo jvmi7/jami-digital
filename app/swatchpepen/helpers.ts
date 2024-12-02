@@ -1,5 +1,5 @@
+import { EditionMap, EditionNameMap } from '@/app/swatchpepen/constants';
 import { Edition } from '@/app/swatchpepen/types';
-import { EditionNameMap } from './constants';
 
 export const getItemFromPath = (path: string): { edition: Edition; index: string } => {
   // path is like this: /swatchpepen/previews/Fourty_39.png
@@ -44,5 +44,6 @@ export const getRandomItem = () => {
 
 export const getNameFromItem = (edition: Edition, index: string) => {
   const editionName = EditionNameMap[edition];
-  return `${editionName} ${index}`;
+  const total = EditionMap[edition];
+  return `[${index}/${total}] ${editionName}`;
 };

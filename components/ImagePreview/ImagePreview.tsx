@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import styles from '@/components/ImagePreview/ImagePreview.module.scss';
 import { getAnimationProps } from '@/constants/animations';
 
