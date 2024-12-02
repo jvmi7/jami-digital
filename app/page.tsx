@@ -65,7 +65,7 @@ export default function Home() {
           <div className={styles.spacerContainer}>
             <div className={styles.spacer} />
           </div>
-          <Element name="gallery" />
+          <Element name="abstractions" />
           <InView
             onChange={inView => {
               if (inView) setSectionIndex(2);

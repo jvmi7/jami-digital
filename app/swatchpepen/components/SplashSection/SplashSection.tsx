@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import useWindowSize from 'react-use/lib/useWindowSize';
 
 import { Footer } from '@/app/swatchpepen/components/Footer/Footer';
-import styles from '@/app/swatchpepen/components/SwatchpepenPage/SwatchpepenPage.module.scss';
+import styles from '@/app/swatchpepen/components/SplashSection/SplashSection.module.scss';
 import { SwatchpepenProvider, useSwatchpepen } from '@/app/swatchpepen/context';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
@@ -45,7 +45,7 @@ const MintButton = ({ isMobile }: { isMobile: boolean }) => (
   </Button>
 );
 
-const SwatchPepenPage = () => {
+const SplashSection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowSize();
 
@@ -74,4 +74,4 @@ const SwatchPepenPage = () => {
   );
 };
 
-export default SwatchPepenPage;
+export { SplashSection };

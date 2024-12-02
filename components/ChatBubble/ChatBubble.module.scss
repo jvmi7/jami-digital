@@ -1,0 +1,35 @@
+.bubbleContainer {
+  border-radius: 24px;
+  padding: 12px 24px;
+  max-width: 80%;
+}
+
+.dark {
+  background-color: var(--tooltip-background);
+  color: var(--tooltip-text);
+}
+
+.blue {
+  background-color: var(--blue-check);
+  color: white;
+}
+
+.grey {
+  background-color: var(--chat-bubble-grey);
+  color: var(--chat-bubble-grey-text);
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}

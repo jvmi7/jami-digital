@@ -27,7 +27,7 @@ const Footer = () => {
                   setCurrentPage('learn');
                 }}
                 isIcon
-                tooltip="learn more"
+                tooltip="more info"
               >
                 <RiQuestionMark />
               </Button>
