@@ -1,9 +1,9 @@
 'use client';
 
-import { Footer } from '@/components/Footer/Footer';
 import { IntroSection } from '@/app/swatchpepen/components/IntroSection/IntroSection';
 import { SplashSection } from '@/app/swatchpepen/components/SplashSection/SplashSection';
 import styles from '@/app/swatchpepen/page.module.scss';
+import { Footer } from '@/components/Footer/Footer';
 const SwatchPepen = () => {
   return (
     <div className={styles.container}>
