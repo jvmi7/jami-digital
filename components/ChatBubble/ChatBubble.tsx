@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { buttonHoverScale, buttonTransition } from '@/constants/animations';
 
 import styles from '@/components/ChatBubble/ChatBubble.module.scss';
+import { buttonHoverScale, buttonTransition } from '@/constants/animations';
 
 type ChatBubbleProps = {
   children: React.ReactNode;

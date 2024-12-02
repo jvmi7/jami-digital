@@ -1,6 +1,7 @@
-import { ChatBubble, ChatBubbleContainer } from '@/components/ChatBubble/ChatBubble';
-import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+
+import { ChatBubble, ChatBubbleContainer } from '@/components/ChatBubble/ChatBubble';
 import styles from '@/components/FaqItem/FaqItem.module.scss';
 type FaqItemProps = {
   question: string;

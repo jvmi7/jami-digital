@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import styles from '@/app/swatchpepen/components/FaqSection/FaqSection.module.scss';
-import { getAnimationProps } from '@/constants/animations';
 
+import styles from '@/app/swatchpepen/components/FaqSection/FaqSection.module.scss';
 import { FaqItem } from '@/components/FaqItem/FaqItem';
+import { getAnimationProps } from '@/constants/animations';
 
 const FaqSection = () => {
   return (
