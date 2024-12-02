@@ -5,6 +5,7 @@ import { IntroSection } from '@/app/swatchpepen/components/IntroSection/IntroSec
 import { SplashSection } from '@/app/swatchpepen/components/SplashSection/SplashSection';
 import styles from '@/app/swatchpepen/page.module.scss';
 import { Footer } from '@/components/Footer/Footer';
+import { FaqSection } from './components/FaqSection/FaqSection';
 
 const SwatchPepen = () => {
   return (
@@ -12,6 +13,7 @@ const SwatchPepen = () => {
       <SplashSection />
       <IntroSection />
       <CollectionPreview />
+      <FaqSection />
       <Footer
         showThemeToggle={false}
         backgroundColor="#eeeeee"

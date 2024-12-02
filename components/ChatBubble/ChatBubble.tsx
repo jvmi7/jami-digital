@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import { buttonHoverScale, buttonTransition } from '@/constants/animations';
 
 import styles from '@/components/ChatBubble/ChatBubble.module.scss';
 
@@ -10,6 +11,7 @@ type ChatBubbleProps = {
   animate?: boolean;
   delay?: number;
   triggerOnce?: boolean;
+  onClick?: () => void;
 };
 
 const ChatBubble = ({
@@ -19,6 +21,7 @@ const ChatBubble = ({
   animate = true,
   delay = 0,
   triggerOnce = true,
+  onClick,
 }: ChatBubbleProps) => {
   const initialPosition = align === 'left' ? -100 : 100;
 
@@ -40,20 +43,45 @@ const ChatBubble = ({
         damping: 20,
       },
     },
+    hover: {
+      scale: buttonHoverScale,
+      transition: buttonTransition,
+    },
+    exit: {
+      opacity: 0,
+      x: initialPosition,
+      scale: 0.3,
+      transition: {
+        duration: 0.2,
+      },
+    },
   };
 
-  const Component = animate ? motion.div : 'div';
-
-  return (
-    <Component
-      className={classNames(styles.bubbleContainer, styles[variant], styles[align])}
-      initial={animate ? 'hidden' : undefined}
-      whileInView={animate ? 'visible' : undefined}
-      viewport={{ once: triggerOnce }}
+  return animate ? (
+    <motion.div
+      className={classNames(styles.bubbleContainer, styles[variant], styles[align], {
+        [styles.clickable]: !!onClick,
+      })}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       variants={bubbleVariants}
+      viewport={{ once: triggerOnce }}
+      whileInView="visible"
+      whileHover={onClick ? 'hover' : undefined}
+      onClick={onClick}
     >
       {children}
-    </Component>
+    </motion.div>
+  ) : (
+    <div
+      className={classNames(styles.bubbleContainer, styles[variant], styles[align], {
+        [styles.clickable]: !!onClick,
+      })}
+      onClick={onClick}
+    >
+      {children}
+    </div>
   );
 };
 
