@@ -25,6 +25,16 @@ const FaqSection = () => {
       />
 
       <FaqItem question="How much does it cost?" answer={['Each NFT costs 0.05 ETH.']} />
+
+      <FaqItem
+        question="What is the difference between the Opepen and the Swatchpepen?"
+        answer={['The Opepen is a collection of 10000 unique NFTs on the Ethereum blockchain.']}
+      />
+
+      <FaqItem
+        question="What is the difference between the Opepen and the Swatchpepen?"
+        answer={['The Opepen is a collection of 10000 unique NFTs on the Ethereum blockchain.']}
+      />
     </motion.div>
   );
 };

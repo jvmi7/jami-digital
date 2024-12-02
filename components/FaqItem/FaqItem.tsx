@@ -25,20 +25,21 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
             exit={{ height: 0, opacity: 0 }}
             transition={{
               height: { duration: 0.3, ease: 'easeOut' },
-              opacity: { duration: 0.1 },
             }}
           >
-            {answer.map((item, index) => (
-              <ChatBubble
-                key={index}
-                align="right"
-                variant="blue"
-                delay={0.1 * (index + 1)}
-                triggerOnce={false}
-              >
-                <p>{item}</p>
-              </ChatBubble>
-            ))}
+            <AnimatePresence mode="wait">
+              {answer.map((item, index) => (
+                <ChatBubble
+                  key={index}
+                  align="right"
+                  variant="blue"
+                  delay={0.1 * (index + 1)}
+                  triggerOnce={false}
+                >
+                  <p>{item}</p>
+                </ChatBubble>
+              ))}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
