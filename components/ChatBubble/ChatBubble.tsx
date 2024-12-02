@@ -63,11 +63,9 @@ const ChatBubble = ({
         [styles.clickable]: !!onClick,
       })}
       initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={bubbleVariants}
-      viewport={{ once: triggerOnce }}
       whileInView="visible"
+      viewport={{ once: triggerOnce }}
+      variants={bubbleVariants}
       whileHover={onClick ? 'hover' : undefined}
       onClick={onClick}
     >
