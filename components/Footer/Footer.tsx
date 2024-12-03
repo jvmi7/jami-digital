@@ -1,13 +1,11 @@
 'use client';
 
-import { RiMoonFill, RiSunFill } from '@remixicon/react';
 import { useRouter, usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
 import { artworkLinks, links } from '@/components/Footer/constants';
 import styles from '@/components/Footer/Footer.module.scss';
-import { Switch } from '@/components/Switch';
-import { useTheme } from '@/context/ThemeContext';
 import { JvmiIcon } from '@/icons/JvmiIcon';
 
 type FooterProps = {
@@ -17,15 +15,10 @@ type FooterProps = {
   showDivider?: boolean;
 };
 
-const Footer = ({
-  showThemeToggle = true,
-  backgroundColor,
-  foregroundColor,
-  showDivider = true,
-}: FooterProps) => {
-  const { theme, setTheme } = useTheme();
+const Footer = ({ backgroundColor, foregroundColor, showDivider = true }: FooterProps) => {
   const router = useRouter();
   const pathname = usePathname();
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   return (
     <footer className={styles.container} style={{ backgroundColor, color: foregroundColor }}>
@@ -35,36 +28,36 @@ const Footer = ({
           <div className={styles.linksSection}>
             <p className={styles.linksTitle}>artwork</p>
             <div className={styles.linksContainer}>
-              {artworkLinks.map(({ name, link }) => (
-                <a key={name} href={link} target="_blank" className={styles.link} rel="noreferrer">
-                  {name}
+              {artworkLinks.map(({ name, link, icon }) => (
+                <a
+                  key={name}
+                  href={link}
+                  className={styles.link}
+                  onMouseEnter={() => setHoveredLink(name)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  <div className={styles.icon}>
+                    {icon({ width: 24, height: 24, enableColor: hoveredLink === name })}
+                  </div>
+
+                  <span>{name}</span>
                 </a>
               ))}
             </div>
           </div>
           <div className={styles.linksSection}>
             <p className={styles.linksTitle}>socials</p>
+
             <div className={styles.linksContainer}>
               {links.map(({ name, link }) => (
                 <a key={name} href={link} target="_blank" className={styles.link} rel="noreferrer">
-                  {name}
+                  <span>{name}</span>
                 </a>
               ))}
             </div>
           </div>
         </div>
         <div className={styles.logoContainer}>
-          {showThemeToggle && (
-            <div className={styles.themeContainer}>
-              {theme === 'DARK' ? <RiSunFill size={24} /> : <RiMoonFill size={24} />}
-              <Switch
-                checked={theme === 'DARK'}
-                onCheckedChange={() => {
-                  setTheme(theme === 'LIGHT' ? 'DARK' : 'LIGHT');
-                }}
-              />
-            </div>
-          )}
           <p>jvmi.art 2024</p>
           <ScrollLink
             to="home"

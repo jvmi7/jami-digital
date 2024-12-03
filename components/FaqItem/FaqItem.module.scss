@@ -1,6 +1,12 @@
 .answerContainer {
-  // overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+}
+
+.question {
+  user-select: none;
+}
+
+.answer {
+  margin-top: 8px;
 }

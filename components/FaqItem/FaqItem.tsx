@@ -10,11 +10,12 @@ type FaqItemProps = {
 
 const FaqItem = ({ question, answer }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const variant = isOpen ? 'dark' : 'grey';
 
   return (
-    <ChatBubbleContainer>
-      <ChatBubble align="left" variant="grey" onClick={() => setIsOpen(!isOpen)}>
-        <h3>{question}</h3>
+    <ChatBubbleContainer gap={0}>
+      <ChatBubble align="left" variant={variant} onClick={() => setIsOpen(!isOpen)}>
+        <p className={styles.question}>{question}</p>
       </ChatBubble>
 
       <AnimatePresence>
@@ -23,24 +24,23 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
             className={styles.answerContainer}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            exit={{ height: 0, opacity: 0, x: 100, scale: 0 }}
             transition={{
               height: { duration: 0.3, ease: 'easeOut' },
             }}
           >
-            <AnimatePresence mode="wait">
-              {answer.map((item, index) => (
-                <ChatBubble
-                  key={index}
-                  align="right"
-                  variant="blue"
-                  delay={0.1 * (index + 1)}
-                  triggerOnce={false}
-                >
-                  <p>{item}</p>
-                </ChatBubble>
-              ))}
-            </AnimatePresence>
+            {answer.map((item, index) => (
+              <ChatBubble
+                key={index}
+                align="right"
+                variant="blue"
+                delay={0.1 * (index + 1)}
+                triggerOnce={true}
+                className={styles.answer}
+              >
+                <p>{item}</p>
+              </ChatBubble>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

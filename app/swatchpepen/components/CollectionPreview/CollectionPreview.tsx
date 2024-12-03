@@ -5,6 +5,7 @@ import { useWindowSize } from 'react-use';
 import styles from '@/app/swatchpepen/components/CollectionPreview/CollectionPreview.module.scss';
 import { fullRows } from '@/app/swatchpepen/constants';
 import { getItemFromPath, getNameFromItem } from '@/app/swatchpepen/helpers';
+import Button from '@/components/Button/Button';
 import { ImagePreview } from '@/components/ImagePreview/ImagePreview';
 import { ImagePreviewDialog } from '@/components/ImagePreview/ImagePreviewDialog';
 import { getAnimationProps } from '@/constants/animations';
@@ -140,6 +141,9 @@ const CollectionPreview = () => {
           );
         })}
       </motion.div>
+      <Button href="/swatchpepen" variant="primary" className={styles.button}>
+        view all
+      </Button>
     </motion.div>
   );
 };

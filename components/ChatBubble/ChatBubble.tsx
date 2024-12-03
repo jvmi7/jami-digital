@@ -12,6 +12,7 @@ type ChatBubbleProps = {
   delay?: number;
   triggerOnce?: boolean;
   onClick?: () => void;
+  className?: string;
 };
 
 const ChatBubble = ({
@@ -22,6 +23,7 @@ const ChatBubble = ({
   delay = 0,
   triggerOnce = true,
   onClick,
+  className,
 }: ChatBubbleProps) => {
   const initialPosition = align === 'left' ? -100 : 100;
 
@@ -59,7 +61,7 @@ const ChatBubble = ({
 
   return animate ? (
     <motion.div
-      className={classNames(styles.bubbleContainer, styles[variant], styles[align], {
+      className={classNames(styles.bubbleContainer, styles[variant], styles[align], className, {
         [styles.clickable]: !!onClick,
       })}
       initial="hidden"
@@ -73,7 +75,7 @@ const ChatBubble = ({
     </motion.div>
   ) : (
     <div
-      className={classNames(styles.bubbleContainer, styles[variant], styles[align], {
+      className={classNames(styles.bubbleContainer, styles[variant], styles[align], className, {
         [styles.clickable]: !!onClick,
       })}
       onClick={onClick}
@@ -83,8 +85,18 @@ const ChatBubble = ({
   );
 };
 
-const ChatBubbleContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles.container}>{children}</div>;
+const ChatBubbleContainer = ({
+  children,
+  gap = 16,
+}: {
+  children: React.ReactNode;
+  gap?: number;
+}) => {
+  return (
+    <div className={styles.container} style={{ gap }}>
+      {children}
+    </div>
+  );
 };
 
 export { ChatBubble, ChatBubbleContainer };

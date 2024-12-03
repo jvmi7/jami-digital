@@ -24,17 +24,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: fit-content;
     transform: translate(-50%, -50%);
     background-color: rgba($color: #000, $alpha: 0.6);
     backdrop-filter: blur(10px);
     padding: 4px 16px;
-    border-radius: 100px;
+    border-radius: 18px;
     transition: all 0.2s ease;
     color: white;
     font-size: 18px;
-    white-space: nowrap;
     transition: all 0.3s ease;
+    max-width: 100%;
   }
 
   @media (hover: hover) {

@@ -1,4 +1,8 @@
 import { socialLinks } from '@/constants';
+import AbstractionsIcon from '@/icons/AbstractionsIcon';
+import ChartsIcon from '@/icons/ChartsIcon';
+import { SwatchesIcon } from '@/icons/SwatchesIcon';
+import SwatchpepenIcon from '@/icons/SwatchpepenIcon';
 
 export const links = [
   {
@@ -27,17 +31,21 @@ export const artworkLinks = [
   {
     name: 'swatches',
     link: '/swatches',
+    icon: SwatchesIcon,
   },
   {
     name: 'abstractions',
     link: '/abstractions',
+    icon: AbstractionsIcon,
   },
   {
     name: 'charts',
     link: '/charts',
+    icon: ChartsIcon,
   },
   {
     name: 'swatchpepen',
     link: '/swatchpepen',
+    icon: SwatchpepenIcon,
   },
 ];

@@ -8,7 +8,7 @@ const FaqSection = () => {
   return (
     <motion.div className={styles.container}>
       <motion.h2 className={styles.title} {...getAnimationProps(0)}>
-        more info
+        frequently asked questions
       </motion.h2>
 
       <FaqItem
