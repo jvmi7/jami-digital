@@ -28,12 +28,14 @@ const Footer = ({ backgroundColor, foregroundColor, showDivider = true }: Footer
           <div className={styles.linksSection}>
             <p className={styles.linksTitle}>artwork</p>
             <div className={styles.linksContainer}>
-              {artworkLinks.map(({ name, link, icon }) => (
+              {artworkLinks.map(({ name, link, icon, target }) => (
                 <a
                   key={name}
                   href={link}
                   className={styles.link}
                   onMouseEnter={() => setHoveredLink(name)}
+                  target={target}
+                  rel="noreferrer"
                   onMouseLeave={() => setHoveredLink(null)}
                 >
                   <div className={styles.icon}>

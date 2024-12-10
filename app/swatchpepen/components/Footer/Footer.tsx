@@ -27,7 +27,7 @@ const Footer = () => {
         <RiShuffleLine />
       </Button>
       <GalleryDialog />
-      <Button variant="secondary" isIcon tooltip="view set">
+      <Button variant="secondary" isIcon tooltip="opepen.art" href={'https://opepen.art/jvmiart'}>
         <RiArrowRightUpLine />
       </Button>
     </motion.div>

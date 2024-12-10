@@ -44,11 +44,12 @@
     max-width: 100%; /* Ensure it doesn't overflow its container */
     max-height: 100%; /* Ensure it doesn't overflow its container */
     aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-    border-radius: 36px;
+    border-radius: 48px;
+
     overflow: hidden;
 
-    @media screen and (max-width: 600px) {
-      border-radius: 24px;
+    @media screen and (max-width: 700px) {
+      border-radius: 32px;
     }
 
     /* Adjustments for larger screens */

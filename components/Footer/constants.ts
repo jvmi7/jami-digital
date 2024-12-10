@@ -1,4 +1,4 @@
-import { socialLinks } from '@/constants';
+import { externalLinks, socialLinks } from '@/constants';
 import AbstractionsIcon from '@/icons/AbstractionsIcon';
 import ChartsIcon from '@/icons/ChartsIcon';
 import { SwatchesIcon } from '@/icons/SwatchesIcon';
@@ -35,8 +35,9 @@ export const artworkLinks = [
   },
   {
     name: 'abstractions',
-    link: '/abstractions',
+    link: externalLinks.abstractionsCollection,
     icon: AbstractionsIcon,
+    target: '_blank',
   },
   {
     name: 'charts',

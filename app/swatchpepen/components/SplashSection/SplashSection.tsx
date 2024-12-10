@@ -8,7 +8,7 @@ import styles from '@/app/swatchpepen/components/SplashSection/SplashSection.mod
 import { SwatchpepenProvider, useSwatchpepen } from '@/app/swatchpepen/context';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
-import { externalLinks } from '@/constants';
+import { externalLinks, socialLinks } from '@/constants';
 import { ClientOnly } from '@/helpers/ClientOnly';
 import { CheckIcon } from '@/icons/CheckIcon';
 import { animate, initial, pageVariants } from '@/swatches/constants';
@@ -38,12 +38,13 @@ const SwatchpepenPreview = () => {
   );
 };
 
-const MintButton = ({ isMobile }: { isMobile: boolean }) => (
-  <Button variant="primary" href={externalLinks.swatchpepenSubmission}>
-    <span>mint</span>
-    {!isMobile && <RiArrowRightUpLine size={18} />}
-  </Button>
-);
+const MintButton = ({ isMobile }: { isMobile: boolean }) => {
+  return !isMobile ? (
+    <Button variant="primary" href={socialLinks.x}>
+      <span>coming soon</span>
+    </Button>
+  ) : null;
+};
 
 const SplashSection = () => {
   const [isMobile, setIsMobile] = useState(false);

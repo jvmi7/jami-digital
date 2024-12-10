@@ -10,30 +10,44 @@ const FaqSection = () => {
       <motion.h2 className={styles.title} {...getAnimationProps(0)}>
         frequently asked questions
       </motion.h2>
-
       <FaqItem
-        question="what is the opepen project?"
+        question='what is "Opepen"?'
         answer={[
-          'The opepen project is a collection of 10000 unique NFTs on the Ethereum blockchain.',
-          'Each NFT is a unique color palette that can be used in your projects.',
+          '"Opepen" is an early manifestation of a digital museum - an open art protocol inviting participation from anyone.',
+          'collectors of 16,000 cryptographic tokens form consensus on the artwork for the permanent collection.',
+          <span>
+            <a href="https://opepen.art" target="_blank" style={{ textDecoration: 'underline' }}>
+              opepen.art
+            </a>
+          </span>,
         ]}
       />
-
       <FaqItem
-        question="How many NFTs are there?"
-        answer={['There are 10000 unique NFTs in the collection.']}
+        question='what is "swatchpepen"?'
+        answer={[
+          '"swatchpepen" is my contribution to the opepen project-- a living collaboration between swatches and opepen.',
+        ]}
       />
-
-      <FaqItem question="How much does it cost?" answer={['Each NFT costs 0.05 ETH.']} />
-
       <FaqItem
-        question="What is the difference between the Opepen and the Swatchpepen?"
-        answer={['The Opepen is a collection of 10000 unique NFTs on the Ethereum blockchain.']}
+        question="how many items are there?"
+        answer={[
+          'there are 80 items in the set',
+          <div>
+            <p>40 chromatic</p>
+            <p>20 pastel</p>
+            <p>10 greyscale</p>
+            <p>5 light</p>
+            <p>4 dark</p>
+            <p>1 spectrum</p>
+          </div>,
+        ]}
       />
-
       <FaqItem
-        question="What is the difference between the Opepen and the Swatchpepen?"
-        answer={['The Opepen is a collection of 10000 unique NFTs on the Ethereum blockchain.']}
+        question="wen swatchpepen?"
+        answer={[
+          'we are still waiting for the opepen.art site to support interactive sets on the curate page',
+          'once this is working the set will be submitted & opepen collectors will be able to curate',
+        ]}
       />
     </motion.div>
   );

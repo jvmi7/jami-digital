@@ -141,9 +141,6 @@ const CollectionPreview = () => {
           );
         })}
       </motion.div>
-      <Button href="/swatchpepen" variant="primary" className={styles.button}>
-        view all
-      </Button>
     </motion.div>
   );
 };

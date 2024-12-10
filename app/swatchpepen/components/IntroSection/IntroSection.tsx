@@ -6,10 +6,13 @@ const IntroSection = () => {
     <div className={styles.container}>
       <ChatBubbleContainer>
         <ChatBubble align="left" variant="dark" delay={0}>
-          welcome to my collaboration with the opepen community
+          <a href="https://opepen.art" target="_blank" style={{ textDecoration: 'underline' }}>
+            opepen
+          </a>{' '}
+          is a digital art museum with pieces from artists around the world
         </ChatBubble>
         <ChatBubble align="right" variant="blue" delay={0.2}>
-          interact with the artwork above, or explore the collection below
+          <i>swatchpepen</i> is my contribution, a set rooted in color, motion & interaction
         </ChatBubble>
       </ChatBubbleContainer>
     </div>
