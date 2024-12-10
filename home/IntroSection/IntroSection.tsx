@@ -46,7 +46,7 @@ const IntroSection = () => {
             <JvmiHandle fontSize={20} />
             <div className={styles.location}>
               <PinIcon height={18} width={18} color={'var(--text-secondary)'} />
-              San Francisco
+              Bay Area, CA
             </div>
           </div>
         </motion.div>
