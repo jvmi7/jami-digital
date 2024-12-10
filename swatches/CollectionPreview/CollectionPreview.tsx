@@ -1,3 +1,4 @@
+import { RiArrowRightUpLine } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
@@ -77,7 +78,7 @@ const ImagePreviewItem = ({
   const index = getIndexFromPath(selectedPath || path);
   const name = getNameFromIndex(index);
   const iframeUrl = `https://www.swatches-animation-url.art/items/${index}`;
-
+  const openseaUrl = `https://opensea.io/assets/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/${index}`;
   return (
     <ImagePreviewDialog
       key={`${rowIndex}-${colIndex}`}
@@ -94,7 +95,12 @@ const ImagePreviewItem = ({
         </div>
       }
       iframeUrl={iframeUrl}
-      bottom={<div className={styles.dialogBottom}>{name}</div>}
+      bottom={
+        <a className={styles.button} href={openseaUrl} target="_blank" rel="noreferrer">
+          view on opensea
+          <RiArrowRightUpLine size={16} />
+        </a>
+      }
       onOpenChange={open => onSelect(path, open)}
       onPrevious={onPrevious}
       onNext={onNext}

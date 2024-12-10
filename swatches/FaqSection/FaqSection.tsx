@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { FaqItem } from '@/components/FaqItem/FaqItem';
+import { externalLinks } from '@/constants';
 import { getAnimationProps } from '@/constants/animations';
 import styles from '@/swatches/FaqSection/FaqSection.module.scss';
 
@@ -11,24 +12,69 @@ const FaqSection = () => {
         frequently asked questions
       </motion.h2>
       <FaqItem
-        question='what is "Opepen"?'
+        question="how do i purchase a swatch?"
         answer={[
-          '"Opepen" is an early manifestation of a digital museum - an open art protocol inviting participation from anyone.',
-          'collectors of 16,000 cryptographic tokens form consensus on the artwork for the permanent collection.',
+          'the public mint of the collection is sold out, but you can purchase a swatch from any of these marketplaces:',
+          <a
+            href={externalLinks.opensea}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: 'underline',
+            }}
+            key="opensea"
+          >
+            swatches on opensea
+          </a>,
+          <a
+            href={externalLinks.magiceden}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: 'underline',
+            }}
+            key="magiceden"
+          >
+            swatches on magic eden
+          </a>,
         ]}
       />
       <FaqItem
-        question='what is "swatchpepen"?'
+        question="how many pieces in the collection?"
+        answer={['there are 7,777 unique art pieces in the swatches collection']}
+      />
+      <FaqItem
+        question='what is the difference between "classic" and "custom"?'
         answer={[
-          '"swatchpepen" is my contribution to the opepen project-- a living collaboration between swatches and opepen.',
+          'classic swatches are generative art pieces with a pre-defined palette',
+          'custom swatches are put together by hand, with a custom palette',
         ]}
       />
-      <FaqItem question="how many items are there?" answer={['there are 80 items in the set']} />
       <FaqItem
-        question="wen swatchpepen?"
+        question="how many custom swatches are there?"
         answer={[
-          'we are still waiting for the opepen.art site to support interactive sets on the curate page',
-          'once this is working the set will be submitted & opepen collectors will be able to curate',
+          'there are a total of 100 custom swatches in the collection',
+          <a
+            href={
+              'https://opensea.io/collection/swatches-by-jvmi?search[stringTraits][0][name]=style&search[stringTraits][0][values][0]=custom'
+            }
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: 'underline',
+            }}
+            key="custom-swatches"
+          >
+            check them out here
+          </a>,
+        ]}
+      />
+      <FaqItem
+        question="how did you create swatches?"
+        answer={[
+          'the collection was created using a custom generative art algorithm',
+          'in order for each item to be interactive, an interface renders the art using the animation_url field of the nft metadata',
+          'swatches is deployed on base & was the biggest art collection to launch on the network',
         ]}
       />
     </motion.div>
