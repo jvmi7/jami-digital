@@ -1,4 +1,3 @@
-import { RiArrowRightUpLine } from '@remixicon/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import useWindowSize from 'react-use/lib/useWindowSize';
@@ -8,7 +7,7 @@ import styles from '@/app/swatchpepen/components/SplashSection/SplashSection.mod
 import { SwatchpepenProvider, useSwatchpepen } from '@/app/swatchpepen/context';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
-import { externalLinks, socialLinks } from '@/constants';
+import { socialLinks } from '@/constants';
 import { ClientOnly } from '@/helpers/ClientOnly';
 import { CheckIcon } from '@/icons/CheckIcon';
 import { animate, initial, pageVariants } from '@/swatches/constants';

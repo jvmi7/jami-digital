@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
-import styles from '@/app/swatchpepen/components/FaqSection/FaqSection.module.scss';
 import { FaqItem } from '@/components/FaqItem/FaqItem';
 import { getAnimationProps } from '@/constants/animations';
+import styles from '@/swatches/FaqSection/FaqSection.module.scss';
 
 const FaqSection = () => {
   return (
@@ -15,15 +15,6 @@ const FaqSection = () => {
         answer={[
           '"Opepen" is an early manifestation of a digital museum - an open art protocol inviting participation from anyone.',
           'collectors of 16,000 cryptographic tokens form consensus on the artwork for the permanent collection.',
-          <a
-            href="https://opepen.art"
-            target="_blank"
-            style={{ textDecoration: 'underline' }}
-            rel="noreferrer"
-            key="opepen-link"
-          >
-            opepen.art
-          </a>,
         ]}
       />
       <FaqItem
@@ -32,20 +23,7 @@ const FaqSection = () => {
           '"swatchpepen" is my contribution to the opepen project-- a living collaboration between swatches and opepen.',
         ]}
       />
-      <FaqItem
-        question="how many items are there?"
-        answer={[
-          'there are 80 items in the set',
-          <>
-            <p>40 chromatic</p>
-            <p>20 pastel</p>
-            <p>10 greyscale</p>
-            <p>5 light</p>
-            <p>4 dark</p>
-            <p>1 spectrum</p>
-          </>,
-        ]}
-      />
+      <FaqItem question="how many items are there?" answer={['there are 80 items in the set']} />
       <FaqItem
         question="wen swatchpepen?"
         answer={[

@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
-import styles from '@/app/swatchpepen/components/CollectionPreview/CollectionPreview.module.scss';
-import { fullRows } from '@/app/swatchpepen/constants';
-import { getItemFromPath, getNameFromItem } from '@/app/swatchpepen/helpers';
 import { ImagePreview } from '@/components/ImagePreview/ImagePreview';
 import { ImagePreviewDialog } from '@/components/ImagePreview/ImagePreviewDialog';
 import { getAnimationProps } from '@/constants/animations';
+import styles from '@/swatches/CollectionPreview/CollectionPreview.module.scss';
+import { fullRows } from '@/swatches/constants';
+import { getIndexFromPath, getNameFromIndex } from '@/swatches/helpers';
 
 // Handles the responsive layout of the collection preview
 const useResponsiveLayout = () => {
@@ -74,9 +74,9 @@ const ImagePreviewItem = ({
   onPrevious: () => void;
   onNext: () => void;
 }) => {
-  const { edition, index } = getItemFromPath(selectedPath || path);
-  const name = getNameFromItem(edition, index);
-  const iframeUrl = `https://swatchpepen.vercel.app/?edition=${edition}&id=${index}`;
+  const index = getIndexFromPath(selectedPath || path);
+  const name = getNameFromIndex(index);
+  const iframeUrl = `https://www.swatches-animation-url.art/items/${index}`;
 
   return (
     <ImagePreviewDialog
@@ -89,7 +89,6 @@ const ImagePreviewItem = ({
             animationDelay={4 + rowIndex + colIndex}
             style={{
               borderRadius: '24px',
-              borderTopLeftRadius: '8px',
             }}
           />
         </div>

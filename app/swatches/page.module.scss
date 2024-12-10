@@ -1,0 +1,8 @@
+.container {
+  background-color: var(--swatches-background-color);
+  color: var(--swatches-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,12 +1,13 @@
 'use client';
 
+import Head from 'next/head';
+
 import { CollectionPreview } from '@/app/swatchpepen/components/CollectionPreview/CollectionPreview';
 import { FaqSection } from '@/app/swatchpepen/components/FaqSection/FaqSection';
 import { IntroSection } from '@/app/swatchpepen/components/IntroSection/IntroSection';
 import { SplashSection } from '@/app/swatchpepen/components/SplashSection/SplashSection';
 import styles from '@/app/swatchpepen/page.module.scss';
 import { Footer } from '@/components/Footer/Footer';
-import Head from 'next/head';
 
 const SwatchPepen = () => {
   return (
