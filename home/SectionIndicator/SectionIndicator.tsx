@@ -1,7 +1,7 @@
 'use client';
 
 import classNames from 'classnames';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { useWindowSize } from 'react-use';
