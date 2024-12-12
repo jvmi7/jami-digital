@@ -1,0 +1,124 @@
+.buttons {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+}
+
+.galleryDialog {
+  width: 100%;
+  max-width: 80%;
+  background-color: var(--swatches-modal-background);
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  gap: 0;
+
+  @media screen and (max-width: 500px) {
+    max-width: 95%;
+  }
+
+  .galleryHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--swatches-background-color);
+    position: relative;
+
+    .galleryTitle {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--swatches-text-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .galleryClose {
+      width: 18px;
+      height: 18px;
+      border-radius: 100px;
+      background-color: #ff4e4e;
+    }
+  }
+
+  .galleryContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--swatches-modal-background);
+    padding: 6px;
+    height: 80svh;
+    overflow-y: scroll;
+
+    .itemsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: var(--swatches-background-color);
+      padding: 12px;
+
+      .itemContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .item {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          background-color: var(--swatches-modal-background);
+          border-radius: 24px;
+          border-top-left-radius: 8px;
+          cursor: pointer;
+          margin-bottom: 8px;
+          border: 3px solid var(--swatches-background-color);
+        }
+
+        .label {
+          font-size: 13px;
+          font-weight: 500;
+          text-align: center;
+          color: var(--swatches-text-color);
+          padding: 4px 12px;
+          border-radius: 100px;
+          transition: background-color 0.2s ease-in-out;
+        }
+
+        .checkIcon {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          display: none;
+          transition: display 0.2s ease-in-out;
+        }
+
+        &:hover:not(.selected) {
+          .label {
+            background-color: var(--swatches-background-hovered);
+          }
+        }
+      }
+
+      .selected {
+        .item {
+          border-color: var(--blue-check);
+        }
+
+        .label {
+          background-color: var(--blue-check);
+          color: white;
+        }
+
+        .checkIcon {
+          display: block;
+        }
+      }
+    }
+  }
+}

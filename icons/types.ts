@@ -3,4 +3,6 @@ export type IconProps = {
   width?: number;
   color?: string;
   variant?: 1 | 2 | 3;
+  enableColor?: boolean;
+  className?: string;
 };

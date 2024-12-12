@@ -1,8 +1,4 @@
-export const createKeyframeAnimation = (
-  name: string,
-  colors: string[],
-  document: Document
-) => {
+export const createKeyframeAnimation = (name: string, colors: string[], document: Document) => {
   // Include the first color at both 0% and 100% for a smooth loop
   const extendedColors = [...colors];
   const keyframes = extendedColors

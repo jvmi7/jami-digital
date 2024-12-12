@@ -1,41 +1,34 @@
-import { useAccount } from 'wagmi';
-import Header from '../Header/Header';
-import styles from './GalleryPage.module.scss';
 import { useEvmWalletNFTs } from '@moralisweb3/next';
-import { SwatchImagePreview } from '../SwatchImagePreview/SwatchImagePreview';
+import { RiExternalLinkFill } from '@remixicon/react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useAccount } from 'wagmi';
+
+import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
+import { Header } from '@/components/Header/Header';
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from '../../components/ui/context-menu';
-import { SaveDialog } from '../SaveDialog/SaveDialog';
-import { generateCloudflareIpfsUrl } from '../../helpers';
-import { PageFooter } from '../PageFooter/PageFooter';
-import { RiExternalLinkFill } from '@remixicon/react';
-import { externalLinks } from '../constants';
+} from '@/components/ui/context-menu';
+import { externalLinks } from '@/constants';
+import { generateCloudflareIpfsUrl } from '@/helpers';
+import styles from '@/swatches/GalleryPage/GalleryPage.module.scss';
+import { PageFooter } from '@/swatches/PageFooter/PageFooter';
+import { SaveDialog } from '@/swatches/SaveDialog/SaveDialog';
+import { SwatchImagePreview } from '@/swatches/SwatchImagePreview/SwatchImagePreview';
 
 const GalleryPage = () => {
   const { address } = useAccount();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [modalTokenID, setModalTokenID] = useState<string>('');
 
   const { data: nfts, isFetching } = useEvmWalletNFTs({
     chain: '0x2105',
     address: address || '',
-    // address: '0x2245831B784B4E1030844206288BC1B23b11DeF7',
     tokenAddresses: ['0x13dc8261FCe63499Aa25DEB512bb1827B411b83B'],
   });
-
-  useEffect(() => {
-    if (!address) {
-      router.push('/swatches');
-    }
-  }, [address, router]);
 
   const title = isFetching ? (
     <>
@@ -57,7 +50,12 @@ const GalleryPage = () => {
 
   return (
     <div className={styles.container}>
-      <Header />
+      <Header
+        backgroundColor="#eeeeee"
+        foregroundColor="currentColor"
+        theme="LIGHT"
+        button={<ConnectWalletButton />}
+      />
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         {!isFetching && !nfts?.length && (
@@ -102,8 +100,7 @@ const GalleryPage = () => {
             <div className={styles.galleryContainer}>
               {nfts?.map((_nft: any, index: number) => {
                 const nft = _nft._data;
-                const imageUrl =
-                  generateCloudflareIpfsUrl(nft.metadata?.image) || '';
+                const imageUrl = generateCloudflareIpfsUrl(nft.metadata?.image) || '';
                 const name = nft.metadata?.name || '';
                 const animationDelay = index * 0.05;
                 return (
@@ -156,6 +153,7 @@ const GalleryPage = () => {
               <a
                 href={`https://opensea.io/assets/base/0x13dc8261fce63499aa25deb512bb1827b411b83b/${modalTokenID}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 view on opensea
               </a>
@@ -163,11 +161,7 @@ const GalleryPage = () => {
           </ContextMenuContent>
         </ContextMenu>
 
-        <SaveDialog
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          tokenID={modalTokenID}
-        />
+        <SaveDialog isOpen={isOpen} setIsOpen={setIsOpen} tokenID={modalTokenID} />
       </div>
       <PageFooter />
     </div>

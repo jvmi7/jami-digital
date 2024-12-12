@@ -1,27 +1,24 @@
-import { useEffect } from 'react';
-import styles from './swatches.module.scss';
-import Header from './Header/Header';
-import { useWindowSize } from 'react-use';
-import Footer from './Footer/Footer';
 import { AnimatePresence, motion } from 'framer-motion';
-import { animate, initial, pageVariants } from './constants';
-import { PageStateProvider, usePageState } from './page-state-context';
-import LearnMore from './LearnMore/LearnMore';
-import { Mint } from './Mint/Mint';
 import Head from 'next/head';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useEffect } from 'react';
+
+import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';
+import { Header } from '@/components/Header/Header';
+import { animate, initial, pageVariants } from '@/swatches/constants';
+import Footer from '@/swatches/Footer/Footer';
+import LearnMore from '@/swatches/LearnMore/LearnMore';
+import { usePageState } from '@/swatches/page-state-context';
+import styles from '@/swatches/swatches.module.scss';
 
 const SwatchesPage = () => {
   const { currentPage, swatchIndex } = usePageState();
 
   useEffect(() => {
     // Store the original body background colo
-    const originalBackgroundColor =
-      document.documentElement.style.backgroundColor;
+    const originalBackgroundColor = document.documentElement.style.backgroundColor;
 
     // Set the new background color when the component mounts
-    document.documentElement.style.backgroundColor =
-      'var(--swatches-background-color)'; // Replace '#yourDesiredColor' with your chosen color
+    document.documentElement.style.backgroundColor = 'var(--swatches-background-color)'; // Replace '#yourDesiredColor' with your chosen color
 
     // Reset to the original background color when the component unmounts
     return () => {
@@ -34,36 +31,30 @@ const SwatchesPage = () => {
       <Head>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jvmi.art/swatches" />
-        <meta
-          property="og:title"
-          content="swatches: interactive generative nfts"
-        />
+        <meta property="og:title" content="swatches: interactive generative nfts" />
         <meta
           property="og:description"
           content="the exploration of color, motion & human interaction"
         />
-        <meta
-          property="og:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg?123"
-        />
+        <meta property="og:image" content="https://jvmi.art/swatches-meta-banner.jpg?123" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jvmi_" />
         <meta name="twitter:url" content="https://jvmi.art/swatches" />
-        <meta
-          name="twitter:title"
-          content="swatches: interactive generative nfts"
-        />
+        <meta name="twitter:title" content="swatches: interactive generative nfts" />
         <meta
           name="twitter:description"
           content="the exploration of color, motion & human interaction"
         />
-        <meta
-          name="twitter:image"
-          content="https://jvmi.art/swatches-meta-banner.jpg?123"
-        />
+        <meta name="twitter:image" content="https://jvmi.art/swatches-meta-banner.jpg?123" />
       </Head>
       <div className={styles.container}>
-        <Header />
+        <Header
+          backgroundColor="#eeeeee"
+          foregroundColor="currentColor"
+          theme="LIGHT"
+          button={<ConnectWalletButton />}
+          transitionDelay={1}
+        />
 
         <AnimatePresence exitBeforeEnter>
           {currentPage === 'home' ? (
@@ -87,17 +78,6 @@ const SwatchesPage = () => {
               className={styles.content}
             >
               <LearnMore />
-            </motion.div>
-          ) : currentPage === 'mint' ? (
-            <motion.div
-              key="mint"
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className={styles.content}
-            >
-              <Mint />
             </motion.div>
           ) : null}
         </AnimatePresence>

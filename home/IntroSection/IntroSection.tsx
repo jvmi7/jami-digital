@@ -1,13 +1,16 @@
-import { Messages } from './Messages';
-import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
-import { JvmiIcon } from '../../icons/JvmiIcon';
-import { PinIcon } from '../../icons/PinIcon';
-import styles from './IntroSection.module.scss';
-
+import { RiArrowDownLine } from '@remixicon/react';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { ArrowUpIcon } from '../../icons/ArrowUpIcon';
-import { motion, useAnimation } from 'framer-motion';
+import { scroller } from 'react-scroll';
+
+import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
+import { buttonTransition, buttonVariants, getAnimationProps } from '@/constants/animations';
+import styles from '@/home/IntroSection/IntroSection.module.scss';
+import { Messages } from '@/home/IntroSection/Messages';
+import { JvmiIcon } from '@/icons/JvmiIcon';
+import { PinIcon } from '@/icons/PinIcon';
 
 const IntroSection = () => {
   const { ref, inView } = useInView({
@@ -15,33 +18,25 @@ const IntroSection = () => {
     threshold: 1,
   });
 
-  // const { ref: containerRef, inView: containerRefInView } = useInView({
-  //   triggerOnce: true,
-  //   threshold: 1,
-  // });
-
-  const controls = useAnimation();
-
   const [response, setResponse] = useState<string[]>([]);
 
-  const buttonHandler = () => {
-    setResponse(["let's get in touch"]);
-  };
+  const showTextButton = response.length === 0;
 
-  // useEffect(() => {
-  //   if (containerRefInView) {
-  //     controls.start({
-  //       opacity: 1,
-  //       y: 0,
-  //       transition: { duration: 1 },
-  //     });
-  //   }
-  // }, [containerRefInView]);
+  const buttonHandler = () => {
+    if (showTextButton) {
+      setResponse(["let's get in touch"]);
+    } else {
+      scroller.scrollTo('swatches', {
+        duration: 500,
+        smooth: true,
+      });
+    }
+  };
 
   return (
     <motion.section className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.header}>
+      <motion.div className={styles.card} {...getAnimationProps(0)}>
+        <motion.div className={styles.header} {...getAnimationProps(1)}>
           <div className={styles.avatar}>
             <JvmiIcon color="white" height={48} width={56} />
             <div className={styles.active} />
@@ -51,32 +46,41 @@ const IntroSection = () => {
             <JvmiHandle fontSize={20} />
             <div className={styles.location}>
               <PinIcon height={18} width={18} color={'var(--text-secondary)'} />
-              San Francisco
+              Bay Area, CA
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
-          <Messages response={response} />
-        </div>
-
-        <div
-          className={styles.buttonContainer}
-          style={{ display: response.length > 0 ? 'none' : 'flex' }}
+        <motion.div
+          {...getAnimationProps(2)}
+          initial={{ height: 'auto' }}
+          animate={{ height: 'auto' }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <button ref={ref} className={styles.button} onClick={buttonHandler}>
-            {inView && (
-              <TypingAnimation
-                text={"let's get in touch"}
-                initialDelay={9000}
-              />
-            )}
-          </button>
-          <button className={styles.iconButton} onClick={buttonHandler}>
-            <ArrowUpIcon height={24} width={24} color={'white'} />
-          </button>
-        </div>
-      </div>
+          <Messages response={response} />
+        </motion.div>
+
+        <motion.div className={styles.buttonContainer} {...getAnimationProps(3)}>
+          {showTextButton && (
+            <button ref={ref} className={styles.button} onClick={buttonHandler}>
+              {inView && <TypingAnimation text={"let's get in touch"} initialDelay={4000} />}
+            </button>
+          )}
+          <motion.button
+            className={styles.iconButton}
+            onClick={buttonHandler}
+            variants={buttonVariants(1.1)}
+            transition={buttonTransition}
+            whileHover="hover"
+          >
+            <RiArrowDownLine
+              size={24}
+              color="white"
+              className={classNames(showTextButton && styles.flipped)}
+            />
+          </motion.button>
+        </motion.div>
+      </motion.div>
     </motion.section>
   );
 };
@@ -87,11 +91,7 @@ interface TypingAnimationProps {
   initialDelay?: number;
 }
 
-function TypingAnimation({
-  text,
-  typingSpeed = 50,
-  initialDelay = 0,
-}: TypingAnimationProps) {
+function TypingAnimation({ text, typingSpeed = 50, initialDelay = 0 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState('');
   const [startTyping, setStartTyping] = useState(false);
 

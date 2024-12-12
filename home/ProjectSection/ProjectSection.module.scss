@@ -23,6 +23,11 @@
     font-size: 18px;
     margin-bottom: 24px;
     text-align: center;
+    padding: 0 64px;
+
+    @media screen and (max-width: 700px) {
+      padding: 0;
+    }
   }
 
   .tags {
@@ -46,6 +51,12 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 12px;
     margin-bottom: 24px;
+    width: 100%;
+    max-width: 644px;
+
+    @media screen and (max-width: 1000px) {
+      max-width: 480px;
+    }
   }
 
   .button {
@@ -86,15 +97,15 @@
       flex: 2;
       aspect-ratio: 1;
       border-radius: 24px;
-      height: 624px;
-      max-width: 624px;
+      height: 480px;
+      max-width: 480px;
     }
     .thumbnails {
       display: flex;
       flex-direction: column;
       gap: 12px;
       flex: 1;
-      max-width: 200px;
+      max-width: 152px;
 
       .image {
         aspect-ratio: 1;
@@ -113,7 +124,7 @@
       .thumbnails {
         display: grid;
         grid-template-columns: repeat(3, minmax(100px, 1fr));
-        max-width: 624px;
+        max-width: 480px;
         width: 100%;
       }
     }

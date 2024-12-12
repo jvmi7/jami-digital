@@ -3,9 +3,9 @@
   background-color: var(--swatches-background-color);
   display: flex;
   height: 100svh;
-  // height: -webkit-fill-available; /* For Safari */
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .content {
@@ -13,7 +13,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
   width: 100%;
   padding: 0 12px;
   padding-top: 70px;
@@ -25,17 +24,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  transition: all 0.2s ease;
   position: relative;
-  margin-top: -84px;
 
   .title {
-    position: absolute;
-    bottom: -54px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
+    font-family: var(--header-font);
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 28px;
     font-weight: 500;
 
     @media screen and (max-width: 500px) {
@@ -49,11 +44,15 @@
     max-width: 100%; /* Ensure it doesn't overflow its container */
     max-height: 100%; /* Ensure it doesn't overflow its container */
     aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-    border-radius: 18px;
+    border-radius: 48px;
+
     overflow: hidden;
 
-    /* Adjustments for larger screens */
+    @media screen and (max-width: 700px) {
+      border-radius: 32px;
+    }
 
+    /* Adjustments for larger screens */
     @media (min-width: 500px) and (min-height: 500px) {
       width: 350px;
       height: 350px;

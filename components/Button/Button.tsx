@@ -1,51 +1,74 @@
 import classNames from 'classnames';
-import { ThemeName } from '../../types';
-import styles from './Button.module.scss';
+import { motion } from 'framer-motion';
 
-interface Props {
+import styles from '@/components/Button/Button.module.scss';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { buttonHoverScale, buttonTransition, buttonVariants } from '@/constants/animations';
+interface ButtonProps {
+  variant: 'primary' | 'secondary';
   children: React.ReactNode;
-  themeName: ThemeName;
-  variant?: 'primary' | 'secondary';
-  width?: string;
-  icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
+  isIcon?: boolean;
+  onClick?: () => void;
+  hoverScale?: number;
   href?: string;
+  tooltip?: string;
+  tooltipSide?: 'top' | 'bottom';
+  tooltipDelay?: number;
+  className?: string;
 }
 
 const Button = ({
+  variant,
   children,
-  themeName,
-  variant = 'primary',
-  width = '100%',
-  icon,
-  iconPosition = 'right',
+  isIcon,
+  onClick,
+  hoverScale,
   href,
-}: Props) => {
-  const buttonClasses = classNames(
-    styles.button,
-    styles[variant],
-    styles[themeName]
-  );
-  const contentStyle = {
-    flexDirection:
-      iconPosition === 'right' ? ('row-reverse' as const) : ('row' as const),
+  tooltip,
+  tooltipSide = 'bottom',
+  tooltipDelay = 200,
+  className,
+}: ButtonProps) => {
+  const hoveredScale = hoverScale ? hoverScale : isIcon ? 1.1 : buttonHoverScale;
+  const sharedProps = {
+    className: classNames(
+      styles.button,
+      variant === 'primary' && styles.primary,
+      variant === 'secondary' && styles.secondary,
+      className
+    ),
+    style: {
+      padding: isIcon ? '0px' : '8px 22px',
+      width: isIcon ? '46px' : 'auto',
+      height: isIcon ? '46px' : 'auto',
+    },
+    variants: buttonVariants(hoveredScale),
+    transition: buttonTransition,
+    whileHover: 'hover',
   };
 
-  return href ? (
-    <a href={href} className={buttonClasses} style={{ width }} target="_blank" rel="noreferrer">
-      <span className={styles.content} style={contentStyle}>
-        {icon && icon}
-        {children}
-      </span>
-    </a>
+  const buttonElement = href ? (
+    <motion.a href={href} {...sharedProps} target="_blank">
+      {children}
+    </motion.a>
   ) : (
-    <button className={buttonClasses} style={{ width }}>
-      <span className={styles.content} style={contentStyle}>
-        {icon && icon}
-        {children}
-      </span>
-    </button>
+    <motion.button onClick={onClick} {...sharedProps}>
+      {children}
+    </motion.button>
+  );
+
+  return tooltip ? (
+    <TooltipProvider delayDuration={tooltipDelay}>
+      <Tooltip>
+        <TooltipTrigger asChild>{buttonElement}</TooltipTrigger>
+        <TooltipContent side={tooltipSide}>
+          <p>{tooltip}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  ) : (
+    buttonElement
   );
 };
 
-export { Button };
+export default Button;

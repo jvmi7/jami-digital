@@ -1,34 +1,26 @@
-import { useRef, useState } from 'react';
-import { palette } from '../constants';
-import styles from './InteractiveCanvas.module.scss';
-import { ShapeElement } from './ShapeElement';
-import { InteractiveCanvasMetadata } from '../types';
 import { motion } from 'framer-motion';
-import { useMeasure, useWindowSize } from 'react-use';
+import { useRef, useState } from 'react';
 import { Link } from 'react-scroll';
-import { RiArrowRightUpLine } from '@remixicon/react';
+import { useWindowSize } from 'react-use';
 
-const getColorIndex = (
-  index: number,
-  rows: number,
-  cols: number,
-  rowColorOffset: number
-) => {
+import { palette } from '@/home/constants';
+import styles from '@/home/InteractiveCanvas/InteractiveCanvas.module.scss';
+import { ShapeElement } from '@/home/InteractiveCanvas/ShapeElement';
+import { InteractiveCanvasMetadata } from '@/home/types';
+
+const getColorIndex = (index: number, cols: number, rowColorOffset: number) => {
   const colorIndex = index % cols;
   const rowOffset = Math.floor(index / cols) * rowColorOffset;
   return (colorIndex + rowOffset) % palette.length;
 };
 
-const getCoordinates = (index: number, cols: number, rows: number) => {
+const getCoordinates = (index: number, cols: number) => {
   const row = Math.floor(index / cols);
   const col = index % cols;
   return { row, col };
 };
 
-const getDistance = (
-  a: { row: number; col: number },
-  b: { row: number; col: number }
-) => {
+const getDistance = (a: { row: number; col: number }, b: { row: number; col: number }) => {
   return Math.sqrt((a.row - b.row) ** 2 + (a.col - b.col) ** 2);
 };
 
@@ -68,9 +60,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   const handleMove = (
-    event:
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-      | React.TouchEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>
   ) => {
     let offsetX, offsetY;
     const isMobileDevice = 'touches' in event;
@@ -104,10 +94,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
   };
 
   return (
-    <div
-      className={styles.container}
-      style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}
-    >
+    <div className={styles.container} style={{ visibility: hideCanvas ? 'hidden' : 'visible' }}>
       {/* <button className={styles.mintButton}>
         <span>mint</span>
         <RiArrowRightUpLine size={18} />
@@ -127,20 +114,17 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
       >
         {Array.from({ length: rows * cols }).map((_, index) => {
           let colorIndex;
-          const coordinates = getCoordinates(index, cols, rows);
-          const distance = activeCell
-            ? getDistance(coordinates, activeCell)
-            : -1;
+          const coordinates = getCoordinates(index, cols);
+          const distance = activeCell ? getDistance(coordinates, activeCell) : -1;
           const distanceFromCenter = getDistance(
             { row: Math.floor(rows / 2), col: Math.floor(cols / 2) },
             coordinates
           );
 
           if (activeCell && currentOffset !== 0) {
-            colorIndex =
-              (Math.floor(distance) + currentOffset) % palette.length;
+            colorIndex = (Math.floor(distance) + currentOffset) % palette.length;
           } else {
-            colorIndex = getColorIndex(index, rows, cols, rowColorOffset);
+            colorIndex = getColorIndex(index, cols, rowColorOffset);
           }
 
           const isHidden = hiddenShapes.includes(index);
@@ -183,9 +167,7 @@ const InteractiveCanvas = ({ metadata, hiddenShapes }: Props) => {
             transition: { delay: hideText ? 0 : 1.5 },
           }}
         >
-          <span className={styles.interactive}>interactive </span>
-          <span className={styles.art}>art </span>
-          <span className={styles.onchain}>onchain</span>
+          <span className={styles.interactive}>[ art + code ]</span>
         </motion.p>
       </Link>
     </div>

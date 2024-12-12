@@ -33,6 +33,11 @@
       align-items: flex-start;
       gap: 24px;
       position: relative;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--card-hover);
+      }
 
       .wrapper {
         width: 100%;

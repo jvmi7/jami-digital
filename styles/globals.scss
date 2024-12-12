@@ -26,19 +26,23 @@
   --dark-grey: #898a8c;
   --grey: #c3c6cb;
   --medium-grey: #afb2b7;
+  --blue-check: #1d9bf0;
   --mobile-width: 768px;
   --cursor-default: url('/cursor.svg') 2 2, auto;
   --cursor-pointer: pointer;
   --default-font: 'Source Code Pro', sans-serif;
   --header-font: 'Futura Bold', sans-serif;
+  --header-height: 72px;
   // swatches
   --swatches-background-color: #eee;
   --swatches-background-hovered: #e1e0e0;
   --swatches-text-color: #808080;
   --swatches-button-background: #e5e5e5;
-  --swatches-button-hovered: #d5d5d5;
+  --swatches-button-hovered: #dddddd;
   --swatches-button-hovered-border: #c9c9c9;
-  --swatches-button-dark-background: #2b2b2b;
+  --swatches-button-dark-background: #333333;
+  --swatches-button-dark-background-hovered: #222222;
+  --swatches-modal-background: #ffffff;
 }
 @import './theme.scss';
 @import './mixins.scss';
@@ -49,7 +53,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: var(--default-font);
-  color: black;
+  color: var(--foreground);
   min-height: -webkit-fill-available;
   background-color: var(--background);
   background-size: 100% 100%;

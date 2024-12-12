@@ -1,0 +1,12 @@
+.answerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  user-select: none;
+}
+
+.answer {
+  margin-top: 8px;
+}

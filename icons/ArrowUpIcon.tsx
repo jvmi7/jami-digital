@@ -1,10 +1,6 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
-const ArrowUpIcon = ({
-  height = 24,
-  width = 24,
-  color = 'white',
-}: IconProps) => {
+const ArrowUpIcon = ({ height = 24, width = 24, color = 'white' }: IconProps) => {
   return (
     <svg
       fill={color}

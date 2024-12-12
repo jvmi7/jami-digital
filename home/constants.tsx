@@ -1,8 +1,7 @@
-import { FarcasterIcon } from '../icons/FarcasterIcon';
-import { MagicEdenIcon } from '../icons/MagicEdenIcon';
-import { OpenSeaIcon } from '../icons/OpenSeaIcon';
-import { XIcon } from '../icons/XIcon';
-import { ProjectMetadata } from './types';
+import { ProjectMetadata } from '@/home/types';
+import { FarcasterIcon } from '@/icons/FarcasterIcon';
+import { MagicEdenIcon } from '@/icons/MagicEdenIcon';
+import { OpenSeaIcon } from '@/icons/OpenSeaIcon';
 
 export const palette = [
   '#FF0000',
@@ -31,14 +30,8 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   items: ['16', '2104', '7031', '469'],
   buttons: [
     {
-      text: 'buy on secondary',
-      link: 'https://opensea.io/collection/swatches-by-jvmi',
-      showIcon: true,
-    },
-    {
-      text: 'visit /swatches',
+      text: 'learn more',
       link: '/swatches',
-      showIcon: true,
     },
   ],
   socialLinks: [
@@ -66,29 +59,17 @@ export const ChartsProjectMetadata: ProjectMetadata = {
     buttonTextColor: '#FFFFFF',
   },
   title: 'charts',
-  description: 'an alternative perspective on value, trends & speculation',
+  description: 'reframing the perspective on price, trends & speculation',
   tags: ['coming soon', 'nfts on *****'],
   previewUrl: 'https://charts-interface.netlify.app/?sample=',
   items: ['1', '2', '3', '4'],
   buttons: [
     {
-      text: 'join wl',
+      text: 'join wl?',
       link: 'https://opensea.io/collection/swatches-by-jvmi',
+      target: '_blank',
       showIcon: true,
     },
   ],
-  socialLinks: [
-    // {
-    //   icon: <FarcasterIcon />,
-    //   href: 'https://warpcast.com/~/channel/swatches',
-    // },
-    // {
-    //   icon: <MagicEdenIcon />,
-    //   href: 'https://x.com',
-    // },
-    // {
-    //   icon: <OpenSeaIcon />,
-    //   href: 'https://x.com',
-    // },
-  ],
+  socialLinks: [],
 };

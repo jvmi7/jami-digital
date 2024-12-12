@@ -22,6 +22,7 @@ export type ProjectMetadata = {
   buttons: {
     text: string;
     link?: string;
+    target?: string;
     showIcon?: boolean;
   }[];
   socialLinks: {

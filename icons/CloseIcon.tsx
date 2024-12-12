@@ -1,9 +1,32 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
-const CloseIcon = ({ height = 24, width = 24, color = 'white' }: IconProps) => {
+const CloseIcon = ({ height = 36, width = 36, color = 'currentColor' }: IconProps) => {
   return (
-    <svg fill={color} height={height} width={width} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-      <path d='M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z'></path>
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="9.51367"
+        y="6.68652"
+        width="28"
+        height="4"
+        rx="2"
+        transform="rotate(45 9.51367 6.68652)"
+        fill={color}
+      />
+      <rect
+        x="29.3125"
+        y="9.51465"
+        width="28"
+        height="4"
+        rx="2"
+        transform="rotate(135 29.3125 9.51465)"
+        fill={color}
+      />
     </svg>
   );
 };

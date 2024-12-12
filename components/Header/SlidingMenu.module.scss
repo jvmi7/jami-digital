@@ -1,0 +1,223 @@
+.menuContainer {
+  width: 100%;
+  height: 100svh;
+  background-color: var(--background);
+  transition: background-color 0.2s ease;
+  color: var(--foreground);
+  padding: 12px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid var(--typing-background);
+  color: var(--text-secondary);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  // Add custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--typing-background);
+    border-radius: 100px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+      background-color: var(--text-tertiary);
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    max-width: 100%;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+
+    .menuItems {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menuItem {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      padding: 12px 0;
+      cursor: pointer;
+
+      .icon {
+        display: flex;
+        background-color: var(--icon-background);
+        border-radius: 10px;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+        color: var(--secondary);
+
+        .swatchpepenIcon {
+          margin-bottom: -12px;
+        }
+      }
+
+      .text {
+        font-family: var(--header-font);
+        font-size: 28px;
+        margin-bottom: 2px;
+        line-height: 32px;
+        color: var(--text-secondary);
+        transition: color 0.2s ease;
+      }
+
+      .externalLinkIcon {
+        margin-bottom: 8px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        color: var(--foreground);
+      }
+
+      &:hover {
+        .icon {
+          background-color: var(--icon-background-hovered);
+        }
+        .homeIcon {
+          background-color: #ffa4542d;
+        }
+        .text {
+          color: var(--foreground);
+        }
+        .externalLinkIcon {
+          opacity: 1;
+        }
+      }
+    }
+
+    .menuSubItemContainer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 20px;
+
+      .items {
+        display: flex;
+        flex-direction: column;
+
+        border-left: 1px solid var(--text-tertiary);
+        padding-left: 32px;
+        color: var(--text-secondary);
+        cursor: pointer;
+
+        .menuSubItemLink {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 8px 0;
+          transition: color 0.2s ease;
+          .externalLinkIcon {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+          }
+
+          &:hover {
+            color: var(--foreground);
+            .externalLinkIcon {
+              opacity: 1;
+            }
+          }
+
+          svg {
+            margin-bottom: -3px;
+          }
+        }
+
+        .menuSubItemText {
+          font-family: var(--header-font);
+          font-size: 28px;
+        }
+      }
+    }
+
+    .closeButton {
+      align-self: flex-end;
+      padding: 6px;
+      border-radius: 100px;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: var(--icon-background-hovered);
+      }
+    }
+  }
+}
+
+.accordion {
+  margin-top: 24px;
+  padding-bottom: 48px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  padding-right: 16px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--text-secondary);
+  }
+}
+
+.sectionTitle {
+  font-size: 20px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 8px;
+  gap: 16px;
+
+  .connectButton {
+    width: 100%;
+    font-size: 22px;
+    padding: 18px 32px;
+    border-radius: 20px;
+  }
+
+  .footer {
+    border-top: 1px solid #333;
+    padding-top: 16px;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: rgba($color: #000, $alpha: 0.8);
+  z-index: 5;
+}

@@ -1,5 +1,8 @@
-import { RiArrowRightUpFill, RiArrowRightUpLine } from '@remixicon/react';
-import styles from './PressSection.module.scss';
+import { RiArrowRightUpLine } from '@remixicon/react';
+import { motion } from 'framer-motion';
+
+import { buttonVariants, buttonTransition, getAnimationProps } from '@/constants/animations';
+import styles from '@/home/PressSection/PressSection.module.scss';
 
 const links = [
   {
@@ -24,22 +27,34 @@ const links = [
 
 const PressSection = () => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>press</h1>
+    <motion.div className={styles.container}>
+      <motion.h1 className={styles.title} {...getAnimationProps(0)}>
+        press
+      </motion.h1>
 
-      <div className={styles.contentContainer}>
-        {links.map(({ title, description, link, image }) => (
-          <a key={title} href={link} target="_blank" className={styles.link}>
+      <motion.div className={styles.contentContainer} {...getAnimationProps(1)}>
+        {links.map(({ title, description, link, image }, index) => (
+          <motion.a
+            key={title}
+            href={link}
+            target="_blank"
+            className={styles.link}
+            rel="noreferrer"
+            {...getAnimationProps(2 + index)}
+            variants={buttonVariants(1.025)}
+            transition={buttonTransition}
+            whileHover="hover"
+          >
             <RiArrowRightUpLine size={24} className={styles.icon} />
             <img src={image} alt={title} className={styles.image} />
             <div className={styles.wrapper}>
               <div className={styles.linkTitle}>{title}</div>
               <p className={styles.linkDescription}>{description}</p>
             </div>
-          </a>
+          </motion.a>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import styles from './ShapeElement.module.scss';
-import { palette } from '../constants';
 import { motion } from 'framer-motion';
+
+import { palette } from '@/home/constants';
+import styles from '@/home/InteractiveCanvas/ShapeElement.module.scss';
 
 interface ShapeElementProps {
   colorIndex: number;
@@ -15,7 +15,6 @@ const ShapeElement = ({
   colorIndex,
   index,
   enableAnimation,
-  distance,
   animationDelay,
 }: ShapeElementProps) => {
   const borderRadius = `200px`;

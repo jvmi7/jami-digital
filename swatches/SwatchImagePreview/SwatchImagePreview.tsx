@@ -1,4 +1,4 @@
-import styles from './SwatchImagePreview.module.scss';
+import styles from '@/swatches/SwatchImagePreview/SwatchImagePreview.module.scss';
 
 const SwatchImagePreview = ({ imgUrl }: { imgUrl: string }) => {
   return (

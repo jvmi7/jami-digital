@@ -1,13 +1,13 @@
 .container {
   position: fixed;
-  top: 16px;
+  bottom: 16px;
   right: 16px;
   border: 1px solid var(--typing-background);
-  background-color: var(--card);
+  background-color: var(--message-notification-background);
   border-radius: 18px;
   padding: 14px;
   padding-left: 18px;
-  z-index: 1000;
+  z-index: 4;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,13 +16,20 @@
 
   @media screen and (max-width: 500px) {
     width: calc(100% - 32px);
-    top: 16px;
-    bottom: unset;
-    z-index: 1000;
+
+    bottom: 16px;
+    z-index: 4;
   }
 
   .title {
-    color: var(--text-secondary);
+    color: var(--message-notification-text);
+  }
+
+  .description {
+    color: var(--message-notification-text);
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   .right {
@@ -33,8 +40,8 @@
 
   .button {
     padding: 8px 16px;
-    background-color: var(--typing-background);
-    color: var(--typing-background-text);
+    background-color: var(--message-notification-button);
+    color: var(--message-notification-text);
     border-radius: 8px;
     transition: all 0.2s ease-in;
   }

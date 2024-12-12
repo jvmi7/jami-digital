@@ -1,17 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import styles from './MessageNotification.module.scss';
 import { Link } from 'react-scroll';
-import { useWindowSize } from 'react-use';
-import { JvmiHandle } from '../../components/JvmiHandle/JvmiHandle';
+
+import { JvmiHandle } from '@/components/JvmiHandle/JvmiHandle';
+import styles from '@/home/MessageNotification/MessageNotification.module.scss';
 
 interface MessageNotificationProps {
   hide: boolean;
   onClick: () => void;
 }
 const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
-  const { width } = useWindowSize();
-
-  const initialYPosition = -200;
+  const initialYPosition = 200;
 
   const initial = {
     opacity: 0,
@@ -40,17 +38,12 @@ const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
     <Link to="intro" smooth={true} duration={500}>
       <AnimatePresence>
         {!hide && (
-          <motion.div
-            className={styles.container}
-            initial={initial}
-            animate={animate}
-            exit={exit}
-          >
+          <motion.div className={styles.container} initial={initial} animate={animate} exit={exit}>
             <div className={styles.right}>
               <div>
                 <p className={styles.title}>new message</p>
                 <div className={styles.description}>
-                  <JvmiHandle fontSize={15} />
+                  from: <JvmiHandle fontSize={16} color={'var(--message-notification-text)'} />
                 </div>
               </div>
             </div>

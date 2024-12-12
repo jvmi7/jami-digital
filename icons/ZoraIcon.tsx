@@ -1,4 +1,4 @@
-import { IconProps } from './types';
+import { IconProps } from '@/icons/types';
 
 const ZoraIcon = ({ height = 24, width = 24, color = 'white' }: IconProps) => {
   return (
