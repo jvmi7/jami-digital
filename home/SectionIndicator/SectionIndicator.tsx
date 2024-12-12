@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { useWindowSize } from 'react-use';
 
@@ -14,18 +14,13 @@ type Props = {
 };
 
 const SectionIndicator = ({ sectionIndex }: Props) => {
-  const { height, width } = useWindowSize();
-  const { scrollY } = useScroll();
-  const [showIndicator, setShowIndicator] = useState(false);
+  const { width } = useWindowSize();
+  const [showIndicator, setShowIndicator] = useState(true);
   const sections = ['home', 'intro', 'swatches', 'abstractions', 'charts', 'press'];
 
-  useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest >= height - 300 && width > 800) {
-      setShowIndicator(true);
-    } else {
-      setShowIndicator(false);
-    }
-  });
+  useEffect(() => {
+    setShowIndicator(width >= 600);
+  }, [width]);
 
   const variants = {
     hidden: { x: -100, opacity: 0 },
@@ -36,6 +31,7 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
         type: 'spring',
         damping: 20,
         stiffness: 200,
+        delay: 3,
       },
     },
     hover: {
@@ -63,7 +59,7 @@ const SectionIndicator = ({ sectionIndex }: Props) => {
                   <Link to={section} smooth={true} duration={500}>
                     <div
                       className={classNames(styles.dot, {
-                        [styles.active]: sectionIndex === index - 1,
+                        [styles.active]: sectionIndex === index,
                       })}
                     />
                   </Link>

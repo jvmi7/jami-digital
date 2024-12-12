@@ -59,7 +59,7 @@ export const ChartsProjectMetadata: ProjectMetadata = {
     buttonTextColor: '#FFFFFF',
   },
   title: 'charts',
-  description: 'an alternative perspective on value, trends & speculation',
+  description: 'reframing the perspective on price, trends & speculation',
   tags: ['coming soon', 'nfts on *****'],
   previewUrl: 'https://charts-interface.netlify.app/?sample=',
   items: ['1', '2', '3', '4'],

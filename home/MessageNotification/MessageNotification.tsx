@@ -9,7 +9,7 @@ interface MessageNotificationProps {
   onClick: () => void;
 }
 const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
-  const initialYPosition = -200;
+  const initialYPosition = 200;
 
   const initial = {
     opacity: 0,
@@ -43,7 +43,7 @@ const MessageNotification = ({ hide, onClick }: MessageNotificationProps) => {
               <div>
                 <p className={styles.title}>new message</p>
                 <div className={styles.description}>
-                  <JvmiHandle fontSize={15} />
+                  from: <JvmiHandle fontSize={16} color={'var(--message-notification-text)'} />
                 </div>
               </div>
             </div>

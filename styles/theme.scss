@@ -20,6 +20,9 @@ body {
     --tooltip-text: #ffffff;
     --chat-bubble-grey: #d9d9d9;
     --chat-bubble-grey-text: #888888;
+    --message-notification-background: #333333;
+    --message-notification-button: #555555;
+    --message-notification-text: #eeeeee;
   }
 
   &.DARK {
@@ -42,5 +45,8 @@ body {
     --tooltip-text: #ffffff;
     --chat-bubble-grey: #222222;
     --chat-bubble-grey-text: #b6b6b6;
+    --message-notification-background: #222222;
+    --message-notification-button: #444444;
+    --message-notification-text: #eeeeee;
   }
 }

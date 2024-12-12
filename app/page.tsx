@@ -39,13 +39,21 @@ export default function Home() {
       <div className={styles.body}>
         <Header />
         <Element name="home" />
-        <SplashSection />
+        <InView
+          onChange={inView => {
+            if (inView) setSectionIndex(0);
+          }}
+          threshold={inViewThreshold}
+          className={styles.section}
+        >
+          <SplashSection />
+        </InView>
         <div className={styles.page}>
           <SectionIndicator sectionIndex={sectionIndex} />
           <Element name="intro" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(0);
+              if (inView) setSectionIndex(1);
             }}
             threshold={inViewThreshold}
             className={styles.section}
@@ -55,7 +63,7 @@ export default function Home() {
           <Element name="swatches" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(1);
+              if (inView) setSectionIndex(2);
             }}
             threshold={inViewThreshold}
             className={styles.section}
@@ -68,7 +76,7 @@ export default function Home() {
           <Element name="abstractions" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(2);
+              if (inView) setSectionIndex(3);
             }}
             threshold={0.3}
             className={styles.section}
@@ -78,7 +86,7 @@ export default function Home() {
           <Element name="charts" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(3);
+              if (inView) setSectionIndex(4);
             }}
             threshold={inViewThreshold}
             className={styles.section}
@@ -88,7 +96,7 @@ export default function Home() {
           <Element name="press" />
           <InView
             onChange={inView => {
-              if (inView) setSectionIndex(4);
+              if (inView) setSectionIndex(5);
             }}
             threshold={inViewThreshold}
             className={styles.section}
