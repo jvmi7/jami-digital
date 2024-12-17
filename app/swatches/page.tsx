@@ -1,29 +1,27 @@
-'use client';
+import { Metadata } from 'next';
+import { SwatchesClient } from '@/swatches/index';
 
-import styles from '@/app/swatches/page.module.scss';
-import { Footer } from '@/components/Footer/Footer';
-import { CollectionPreview } from '@/swatches/CollectionPreview/CollectionPreview';
-import { FaqSection } from '@/swatches/FaqSection/FaqSection';
-import { IntroSection } from '@/swatches/IntroSection';
-import { PageStateProvider } from '@/swatches/page-state-context';
-import SwatchesPage from '@/swatches/swatches';
-
-const swatches = () => {
-  return (
-    <PageStateProvider>
-      <div className={styles.container}>
-        <SwatchesPage />
-        <IntroSection />
-        <CollectionPreview />
-        <FaqSection />
-        <Footer
-          showThemeToggle={false}
-          backgroundColor="#eeeeee"
-          foregroundColor="var(--swatches-text-color)"
-        />
-      </div>
-    </PageStateProvider>
-  );
+export const metadata: Metadata = {
+  openGraph: {
+    type: 'website',
+    url: 'https://jvmi.art/swatches',
+    title: 'swatches: interactive generative nfts',
+    description: 'the exploration of color, motion & human interaction',
+    images: [
+      {
+        url: 'https://jvmi.art/swatches-meta-banner.jpg?123',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@jvmi_',
+    title: 'swatches: interactive generative nfts',
+    description: 'the exploration of color, motion & human interaction',
+    images: ['https://jvmi.art/swatches-meta-banner.jpg?123'],
+  },
 };
 
-export default swatches;
+export default function Page() {
+  return <SwatchesClient />;
+}
