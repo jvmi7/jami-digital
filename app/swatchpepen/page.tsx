@@ -1,11 +1,7 @@
 import { Metadata } from 'next';
 
-import { CollectionPreview } from '@/app/swatchpepen/components/CollectionPreview/CollectionPreview';
-import { FaqSection } from '@/app/swatchpepen/components/FaqSection/FaqSection';
-import { IntroSection } from '@/app/swatchpepen/components/IntroSection/IntroSection';
-import { SplashSection } from '@/app/swatchpepen/components/SplashSection/SplashSection';
-import styles from '@/app/swatchpepen/page.module.scss';
-import { Footer } from '@/components/Footer/Footer';
+import { SwatchPepenClient } from '@/app/swatchpepen/SwatchpepenClient';
+s;
 
 export const metadata: Metadata = {
   openGraph: {
@@ -29,17 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function SwatchPepen() {
-  return (
-    <div className={styles.container}>
-      <SplashSection />
-      <IntroSection />
-      <CollectionPreview />
-      <FaqSection />
-      <Footer
-        showThemeToggle={false}
-        backgroundColor="#eeeeee"
-        foregroundColor="var(--swatches-text-color)"
-      />
-    </div>
-  );
+  return <SwatchPepenClient />;
 }
