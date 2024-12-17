@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import Head from 'next/head';
 import { useEffect } from 'react';
 
 import { ConnectWalletButton } from '@/components/ConnectWalletButton/ConnectWalletButton';

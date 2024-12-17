@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+
 import { SwatchesClient } from '@/swatches/index';
 
 export const metadata: Metadata = {
