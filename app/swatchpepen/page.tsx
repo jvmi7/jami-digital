@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 
 import { SwatchPepenClient } from '@/app/swatchpepen/SwatchpepenClient';
-s;
 
 export const metadata: Metadata = {
   openGraph: {
