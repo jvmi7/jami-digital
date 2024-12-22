@@ -23,6 +23,14 @@
   }
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
 .menuButton {
   cursor: pointer;
   transition: background-color 0.2s ease-in;

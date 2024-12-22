@@ -16,6 +16,7 @@ interface HeaderProps {
   theme?: 'LIGHT' | 'DARK';
   button?: React.ReactNode;
   transitionDelay?: number;
+  fixed?: boolean;
 }
 const Header = ({
   backgroundColor = 'var(--background)',
@@ -23,6 +24,7 @@ const Header = ({
   theme,
   button,
   transitionDelay = 0.6,
+  fixed = true,
 }: HeaderProps) => {
   const { setTheme } = useTheme();
 
@@ -41,7 +43,7 @@ const Header = ({
   return (
     <>
       <motion.div
-        className={styles.container}
+        className={`${styles.container} ${fixed ? styles.fixed : ''}`}
         style={{
           backgroundColor,
           color: foregroundColor,

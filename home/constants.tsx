@@ -62,7 +62,7 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   title: 'charts',
   description: 'reframing the perspective on price, trends & speculation',
   tags: ['coming soon', 'nfts on *****'],
-  previewUrl: 'https://charts-interface.netlify.app/?',
+  previewUrl: 'https://charts-by-jvmi-jet.vercel.app/?',
   items: ['1', '2', '3', '4'],
   itemUrls: [
     'values=[15,1,25,44,30,90,45]&palette=classic',
