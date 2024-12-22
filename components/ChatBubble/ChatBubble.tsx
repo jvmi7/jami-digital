@@ -7,7 +7,7 @@ import { buttonHoverScale, buttonTransition } from '@/constants/animations';
 type ChatBubbleProps = {
   children: React.ReactNode;
   align: 'left' | 'right';
-  variant: 'dark' | 'blue' | 'grey';
+  variant: 'dark' | 'blue' | 'grey' | 'light';
   animate?: boolean;
   delay?: number;
   triggerOnce?: boolean;

@@ -1,22 +1,18 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
-import styles from '@/app/charts/page.module.scss';
-import Button from '@/components/Button/Button';
+import { IntroSection } from '@/app/charts/components/IntroSection/IntroSection';
+import { SplashSection } from '@/app/charts/components/SplashSection/SplashSection';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 
 const ChartsPage = () => {
-  const router = useRouter();
   return (
     <div>
       <Header theme="DARK" />
-      <div className={styles.container}>
-        <p>coming soon.</p>
-        <Button variant="primary" onClick={() => router.push('/')}>
-          back to home
-        </Button>
+      <SplashSection />
+      <IntroSection />
+      <div style={{ height: '200px', width: '100%' }}>
+        <div style={{ height: '100%', width: '100%', backgroundColor: 'red' }}></div>
       </div>
       <Footer showThemeToggle={false} backgroundColor="#000000" foregroundColor="#dddddd" />
     </div>

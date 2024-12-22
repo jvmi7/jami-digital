@@ -1,9 +1,8 @@
-import styles from '@/app/swatchpepen/components/IntroSection/IntroSection.module.scss';
 import { ChatBubble, ChatBubbleContainer } from '@/components/ChatBubble/ChatBubble';
 
 const IntroSection = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <ChatBubbleContainer>
         <ChatBubble align="left" variant="dark" delay={0}>
           "swatches" is a collection exploring color, motion & interaction

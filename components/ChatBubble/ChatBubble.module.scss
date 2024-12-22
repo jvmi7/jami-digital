@@ -20,6 +20,11 @@
   color: var(--chat-bubble-grey-text);
 }
 
+.light {
+  background-color: var(--swatches-button-background);
+  color: var(--swatches-button-dark-background);
+}
+
 .left {
   align-self: flex-start;
 }

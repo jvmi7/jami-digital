@@ -22,7 +22,7 @@ const HomeClient = () => {
   return (
     <>
       <div className={styles.body}>
-        <Header />
+        <Header fixed={false} />
         <Element name="home" />
         <InView
           onChange={inView => {
