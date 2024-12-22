@@ -28,6 +28,7 @@ export const SwatchesProjectMetadata: ProjectMetadata = {
   tags: ['7,777 pieces', 'sold out', 'nfts on base'],
   previewUrl: 'https://www.swatches-animation-url.art/items/',
   items: ['16', '2104', '7031', '469'],
+  itemUrls: ['16', '2104', '7031', '469'],
   buttons: [
     {
       text: 'learn more',
@@ -61,8 +62,14 @@ export const ChartsProjectMetadata: ProjectMetadata = {
   title: 'charts',
   description: 'reframing the perspective on price, trends & speculation',
   tags: ['coming soon', 'nfts on *****'],
-  previewUrl: 'https://charts-interface.netlify.app/?sample=',
+  previewUrl: 'https://charts-interface.netlify.app/?',
   items: ['1', '2', '3', '4'],
+  itemUrls: [
+    'values=[15,1,25,44,30,90,45]&palette=classic',
+    'values=[75,60,64,15,69,22,85]&palette=punch',
+    'values=[60,55,79,72,35,26,6]&palette=fire',
+    'values=[57,36,54,52,69,42,15]&palette=ice',
+  ],
   buttons: [
     {
       text: 'join wl?',

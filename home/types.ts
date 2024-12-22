@@ -19,6 +19,7 @@ export type ProjectMetadata = {
   tags: string[];
   previewUrl: string;
   items: string[];
+  itemUrls: string[];
   buttons: {
     text: string;
     link?: string;

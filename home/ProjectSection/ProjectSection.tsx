@@ -12,12 +12,12 @@ type Props = {
 };
 
 const ProjectSection = ({ metadata }: Props) => {
-  const { title, description, tags, items, buttons } = metadata;
+  const { title, description, tags, items, buttons, itemUrls } = metadata;
   const { background, card, text, buttonBackground, buttonTextColor } = metadata.theme;
 
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const currentItem = items[currentItemIndex];
-  const currentItemUrl = `${metadata.previewUrl}${currentItem}/`;
+  const currentItemUrl = `${metadata.previewUrl}${itemUrls[currentItemIndex]}`;
+  console.log(currentItemUrl);
 
   return (
     <motion.div className={styles.container} style={{ background: background }}>
