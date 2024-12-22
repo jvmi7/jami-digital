@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 import { IconProps } from '@/icons/types';
 
-const AnimatedScrollIcon = ({ size = 24, color = 'var(--card)' }: IconProps) => {
+const AnimatedScrollIcon = ({ size = 24, color = 'var(--card-hover)' }: IconProps) => {
   const animationDelta = size / 6;
 
   return (
@@ -20,7 +20,7 @@ const AnimatedScrollIcon = ({ size = 24, color = 'var(--card)' }: IconProps) => 
     >
       <motion.div
         style={{
-          height: `${size * 0.15}px`,
+          height: `${size * 0.2}px`,
           width: `${size * 0.15}px`,
           backgroundColor: 'var(--chat-bubble-grey-text)',
           borderRadius: '100px',

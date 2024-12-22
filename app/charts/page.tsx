@@ -1,7 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import { IntroSection } from '@/app/charts/components/IntroSection/IntroSection';
 import { SplashSection } from '@/app/charts/components/SplashSection/SplashSection';
 import { Footer } from '@/components/Footer/Footer';

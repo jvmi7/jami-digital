@@ -1,7 +1,6 @@
+import { AnimatedWords } from '@/app/charts/components/IntroSection/AnimatedWords';
 import styles from '@/app/charts/components/IntroSection/IntroSection.module.scss';
 import { ChatBubble, ChatBubbleContainer } from '@/components/ChatBubble/ChatBubble';
-
-import { AnimatedWords } from './AnimatedWords';
 
 const IntroSection = () => {
   return (

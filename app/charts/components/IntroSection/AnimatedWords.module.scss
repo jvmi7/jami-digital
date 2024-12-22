@@ -6,8 +6,14 @@
 
 .word {
   position: absolute;
-  font-size: 2rem;
+  font-size: 48px;
   font-weight: bold;
   transform-origin: center;
+  height: 48px;
   font-family: var(--header-font);
+
+  span {
+    font-family: var(--header-font);
+    transition: color 0.2s ease;
+  }
 }
