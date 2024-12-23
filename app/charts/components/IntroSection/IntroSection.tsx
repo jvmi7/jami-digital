@@ -8,10 +8,10 @@ const IntroSection = () => {
       <div className={styles.wrapper}>
         <ChatBubbleContainer>
           <ChatBubble align="left" variant="dark" delay={0}>
-            take your eyes off the charts
+            i got kinda tired of obsessing over my portfolio every day
           </ChatBubble>
-          <ChatBubble align="right" variant="light" delay={0.2}>
-            & discover a new perspective
+          <ChatBubble align="right" variant="grey" delay={0.2}>
+            so i made art out of it instead
           </ChatBubble>
         </ChatBubbleContainer>
       </div>

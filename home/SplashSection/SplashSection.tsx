@@ -1,6 +1,6 @@
 'use client';
 
-import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { useMeasure, useWindowScroll } from 'react-use';
 
@@ -10,6 +10,7 @@ import { generateAllAnimations, generateRandomOrder } from '@/home/helpers';
 import { InteractiveCanvas } from '@/home/InteractiveCanvas/InteractiveCanvas';
 import { MessageNotification } from '@/home/MessageNotification/MessageNotification';
 import styles from '@/home/SplashSection/SplashSection.module.scss';
+import { AnimatedScrollIcon } from '@/icons/AnimatedScrollIcon';
 
 const SplashSection = () => {
   const [hideNotification, setHideNotification] = useState(false);
@@ -43,6 +44,8 @@ const SplashSection = () => {
   // number between 0 and 100
   const scrollPercentage = (y / viewportHeight) * 5;
 
+  console.log(scrollPercentage);
+
   const hiddenShapes = randomOrder.slice(0, Math.floor(scrollPercentage * randomOrder.length));
 
   return (
@@ -60,6 +63,18 @@ const SplashSection = () => {
         />
       </div>
       <ThemeToggle />
+      <AnimatePresence>
+        {scrollPercentage < 0.1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 1 } }}
+            className={styles.scrollIconContainer}
+          >
+            <AnimatedScrollIcon size={40} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

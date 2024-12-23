@@ -16,8 +16,8 @@
 
   @media screen and (max-width: 500px) {
     width: calc(100% - 32px);
-
-    bottom: 16px;
+    top: 16px;
+    bottom: auto;
     z-index: 4;
   }
 

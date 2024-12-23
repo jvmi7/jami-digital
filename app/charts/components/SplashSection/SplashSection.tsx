@@ -1,15 +1,18 @@
+'use client';
+
+import { RiArrowDownLine } from '@remixicon/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import useWindowSize from 'react-use/lib/useWindowSize';
+import { Link } from 'react-scroll';
 
 import styles from '@/app/charts/components/SplashSection/SplashSection.module.scss';
+import { scrollElement } from '@/app/charts/constants';
 import Button from '@/components/Button/Button';
 import { Header } from '@/components/Header/Header';
-import { socialLinks } from '@/constants';
 import { AnimatedScrollIcon } from '@/icons/AnimatedScrollIcon';
-import { animate, initial, pageVariants } from '@/swatches/constants';
+import { pageVariants } from '@/swatches/constants';
 
-const ChartsPreview = ({ showScrollIcon }: { showScrollIcon: boolean }) => {
+const ChartsPreview = () => {
   const url =
     'https://charts-by-jvmi-jet.vercel.app/?values=[13,26,39,52,65,78,91]&palette=classic';
 
@@ -21,37 +24,40 @@ const ChartsPreview = ({ showScrollIcon }: { showScrollIcon: boolean }) => {
       animate="animate"
     >
       <iframe src={url} className={styles.container} title="Charts Preview" />
-      <motion.div
-        initial={initial}
-        animate={{
-          ...animate,
-          opacity: showScrollIcon ? 1 : 0,
-          transition: { delay: showScrollIcon ? 1 : 0 },
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        <p className={styles.title}>charts</p>
-      </motion.div>
     </motion.div>
   );
 };
 
-const MintButton = ({ isMobile }: { isMobile: boolean }) => {
+const MintButton = ({ showScrollIcon }: { showScrollIcon: boolean }) => {
+  const [offset, setOffset] = useState(-window.innerHeight + 48);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      setOffset(-window.innerHeight + 48);
+    };
+
+    // Update offset on resize and orientation change
+    window.addEventListener('resize', updateOffset);
+    window.addEventListener('orientationchange', updateOffset);
+
+    return () => {
+      window.removeEventListener('resize', updateOffset);
+      window.removeEventListener('orientationchange', updateOffset);
+    };
+  }, []);
+
+  if (!showScrollIcon) return null;
   return (
-    <Button variant="primary" href={socialLinks.x}>
-      {isMobile ? <span>soon</span> : <span>coming soon</span>}
-    </Button>
+    <Link to={scrollElement} smooth={true} duration={500} offset={offset}>
+      <Button variant="primary" className={styles.mintButton} isIcon>
+        <RiArrowDownLine size={20} />
+      </Button>
+    </Link>
   );
 };
 
 const SplashSection = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [showScrollIcon, setShowScrollIcon] = useState(true);
-  const { width } = useWindowSize();
-
-  useEffect(() => {
-    setIsMobile(width < 690);
-  }, [width]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,9 +71,13 @@ const SplashSection = () => {
 
   return (
     <div className={styles.container}>
-      <Header theme="DARK" button={<MintButton isMobile={isMobile} />} transitionDelay={1} />
+      <Header
+        theme="DARK"
+        button={<MintButton showScrollIcon={showScrollIcon} />}
+        transitionDelay={1}
+      />
       <div className={styles.content}>
-        <ChartsPreview showScrollIcon={showScrollIcon} />
+        <ChartsPreview />
       </div>
 
       <AnimatePresence>

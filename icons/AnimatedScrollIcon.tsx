@@ -26,21 +26,23 @@ const AnimatedScrollIcon = ({ size = 24, color = 'var(--card-hover)' }: IconProp
           borderRadius: '100px',
         }}
         animate={{
-          y: [animationDelta - 2, -animationDelta - 2, animationDelta - 2],
+          y: [animationDelta - 2, -animationDelta, animationDelta - 2],
           opacity: [1, 0, 0],
         }}
         transition={{
           y: {
-            duration: 2,
+            duration: 1.5,
             repeat: Infinity,
             repeatType: 'loop',
+            times: [0, 0.4, 1],
+            ease: 'easeInOut',
           },
           opacity: {
-            duration: 2,
+            duration: 1.5,
             repeat: Infinity,
             repeatType: 'loop',
             ease: 'easeInOut',
-            times: [0, 0.5, 1],
+            times: [0, 0.6, 1],
           },
         }}
       />

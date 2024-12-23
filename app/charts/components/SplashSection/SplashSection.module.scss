@@ -13,7 +13,6 @@
   justify-content: center;
   width: 100%;
   padding: 0 12px;
-  padding-top: 24px;
 }
 
 .headerButtons {
@@ -102,4 +101,10 @@
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.mintButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }

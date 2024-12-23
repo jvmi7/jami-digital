@@ -13,7 +13,9 @@ const SwatchesClient = () => {
     <PageStateProvider>
       <div className={styles.container}>
         <SwatchesPage />
-        <IntroSection />
+        <div className={styles.introContainer}>
+          <IntroSection />
+        </div>
         <CollectionPreview />
         <FaqSection />
         <Footer

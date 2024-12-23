@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
+  margin-bottom: 8px;
 
   .dot {
     width: 18px;
@@ -37,5 +38,23 @@
       background-color: rgba($color: #808080, $alpha: 0.5);
       transform: scale(1);
     }
+  }
+}
+
+.closeButton {
+  background-color: rgba($color: #808080, $alpha: 0.1);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 32px;
+  width: 32px;
+  rotate: 90deg;
+  color: rgba($color: #808080, $alpha: 0.5);
+
+  &:hover {
+    background-color: rgba($color: #808080, $alpha: 0.2);
   }
 }

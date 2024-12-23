@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { ChevronRightIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import styles from '@/components/Header/SlidingMenu.module.scss';
 import { externalLinks, socialLinks } from '@/constants';
@@ -43,7 +43,6 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
       </div>
       <motion.div
         animate={{
-          height: isOpen ? 'auto' : 0,
           opacity: isOpen ? 1 : 0,
         }}
         transition={{
@@ -60,6 +59,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
 
 const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
   const router = useRouter();
+  const scrollPositionRef = useRef(0);
 
   const variants = {
     open: {
@@ -94,19 +94,24 @@ const SlidingMenu: React.FC<SlidingMenuProps> = ({ isOpen, closeMenu }) => {
 
   useEffect(() => {
     if (isOpen) {
+      scrollPositionRef.current = window.scrollY;
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.width = '100%';
+      document.body.style.top = `-${scrollPositionRef.current}px`;
     } else {
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPositionRef.current);
     }
 
     return () => {
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.width = '';
+      document.body.style.top = '';
     };
   }, [isOpen]);
 

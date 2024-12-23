@@ -74,7 +74,7 @@ const FaqSection = () => {
         answer={[
           'the collection was created using a custom generative art algorithm',
           'in order for each item to be interactive, an interface renders the art using the animation_url field of the nft metadata',
-          'swatches is deployed on base & was the biggest art collection to launch on the network',
+          'swatches is deployed on the base L2 network',
         ]}
       />
     </motion.div>
