@@ -29,9 +29,11 @@ const ChartsPreview = () => {
 };
 
 const MintButton = ({ showScrollIcon }: { showScrollIcon: boolean }) => {
-  const [offset, setOffset] = useState(-window.innerHeight + 48);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    setOffset(-window.innerHeight + 48);
+
     const updateOffset = () => {
       setOffset(-window.innerHeight + 48);
     };
