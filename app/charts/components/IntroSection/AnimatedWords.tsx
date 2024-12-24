@@ -8,7 +8,7 @@ const AnimatedWords = () => {
   const containerRef = useRef(null);
   const scrollTriggers = [0, 0.4, 0.45, 0.5, 0.55];
   const specialTrigger = 0.2;
-  const words = ['charts', 'price', 'trends', 'numbers', 'interaction'];
+  const words = ['charts', 'evolving', 'our perception', 'of value'];
   const colors = [
     'rgb(0, 255, 0)',
     'rgb(128, 247, 0)',
@@ -27,9 +27,6 @@ const AnimatedWords = () => {
     offset: ['start end', 'end start'],
   });
 
-  // Calculate how many words are currently active
-  const activeCount = activeIndices.filter(Boolean).length;
-
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', latest => {
       setActiveIndices(prev => prev.map((_, index) => latest >= scrollTriggers[index]));
@@ -45,14 +42,10 @@ const AnimatedWords = () => {
       <div ref={containerRef} className={styles.container}>
         {words.map((word, index) => {
           // Calculate opacity based on position and active count
-          const currentOpacity = activeIndices[index]
-            ? 1 - ((activeCount - index - 1) / Math.max(activeCount, 1)) * 0.9
-            : 0;
+          const currentOpacity = activeIndices[index] ? 1 : 0;
 
           // Calculate scale based on position and active count
-          const currentScale = activeIndices[index]
-            ? 1 - ((activeCount - index - 1) / Math.max(activeCount, 1)) * 0.3
-            : 0.8;
+          const currentScale = 1;
 
           if (index === 0) {
             return (
@@ -119,7 +112,7 @@ const AnimatedWords = () => {
               }}
               style={{
                 position: 'relative',
-                top: index === 0 ? `16px` : `8px`,
+                top: index === 0 ? `36px` : `16px`,
                 color: colors[index],
               }}
             >

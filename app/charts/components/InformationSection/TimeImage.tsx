@@ -3,9 +3,13 @@ import { useInView } from 'react-intersection-observer';
 
 import ChartPreview from '@/app/charts/components/ChartPreview/ChartPreview';
 import styles from '@/app/charts/components/InformationSection/TimeImage.module.scss';
+import { generateRandomValues } from '@/app/charts/helpers';
+import { Palette } from '@/app/charts/types';
 
 const TimeImage = () => {
   const [revealedIndex, setRevealedIndex] = useState(0);
+  const [phase, setPhase] = useState(0);
+  const [currentValues, setCurrentValues] = useState(() => generateRandomValues());
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -15,10 +19,9 @@ const TimeImage = () => {
 
   // Create initial array of zeros
   const initialValues = Array(7).fill(0);
-  const revealedValues = [40, 25, 70, 60, 1, 40, 80];
   // Replace zeros with 100s up to the revealed index
   const values = initialValues.map((_, index) =>
-    index < revealedIndex ? revealedValues[index] : 0
+    index < revealedIndex ? currentValues[index] : 0
   );
 
   useEffect(() => {
@@ -33,15 +36,20 @@ const TimeImage = () => {
     if (revealedIndex === 7) {
       setTimeout(() => {
         setRevealedIndex(0);
+        setPhase(prev => prev + 1);
+        setCurrentValues(generateRandomValues()); // Generate new values for next phase
       }, intervalMilliseconds * 2);
     }
 
     return () => clearInterval(interval);
   }, [inView, revealedIndex]);
 
+  // Array of palettes to cycle through
+  const palettes: Palette[] = ['classic', 'ice', 'fire', 'punch'];
+
   return (
     <div ref={ref} className={styles.container}>
-      <ChartPreview values={values} palette="classic" animate={true} />
+      <ChartPreview values={values} palette={palettes[phase % palettes.length]} animate={true} />
       <ProgressBar progress={(revealedIndex * 100) / 7} />
     </div>
   );

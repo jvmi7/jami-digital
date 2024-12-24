@@ -21,3 +21,7 @@ export const getColorFromPalette = (value: number, index: number, palette: Palet
 export const randomNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+export const generateRandomValues = (length: number = 7, min: number = 1, max: number = 100) => {
+  return Array.from({ length }, () => randomNumber(min, max));
+};

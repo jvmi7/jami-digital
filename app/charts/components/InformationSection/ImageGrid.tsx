@@ -4,17 +4,13 @@ import { useInView } from 'react-intersection-observer';
 
 import ChartPreview from '@/app/charts/components/ChartPreview/ChartPreview';
 import styles from '@/app/charts/components/InformationSection/ImageGrid.module.scss';
-import { randomNumber } from '@/app/charts/helpers';
+import { generateRandomValues } from '@/app/charts/helpers';
 import { Palette } from '@/app/charts/types';
 import { getAnimationProps } from '@/constants/animations';
 
 interface ImageGridProps {
   variant: 'perfection' | 'classic';
 }
-
-const generateRandomValues = () => {
-  return Array.from({ length: 7 }, () => randomNumber(1, 100));
-};
 
 const generateChartData = (): { values: number[]; palette: Palette }[] => [
   { values: generateRandomValues(), palette: 'classic' as Palette },

@@ -13,7 +13,7 @@ const ChartsPage = () => {
       <SplashSection />
       <IntroSection />
       <InformationSection
-        title="randomness creates art"
+        title="beauty in the patterns"
         description="each chart is a unique composition of 7 random numbers stored onchain"
       >
         <ImageGrid variant="classic" />
